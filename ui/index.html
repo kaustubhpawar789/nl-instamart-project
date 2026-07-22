@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Swiggy Instamart Discovery Engine — Live Enterprise BI Analytics Dashboard. PostgreSQL-backed, real-time scraped data, customizable charts, and survey tracker.">
+  <title>Discovery Engine BI — Swiggy Instamart</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ═══ HEADER ══════════════════════════════════════════════════════════ -->
+  <header id="appHeader">
+    <div class="header-brand">
+      <div class="brand-logo">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <path d="M12 2L2 7l10 5 10-5-10-5z" fill="#f97316"/>
+          <path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="brand-text">
+        <span class="brand-name">Swiggy Instamart</span>
+        <span class="brand-sub">Discovery Engine · Live BI Dashboard</span>
+      </div>
+    </div>
+
+    <!-- KPI chips (clickable) -->
+    <div class="header-kpis" id="kpiStrip">
+      <div class="kpi-skeleton"></div>
+    </div>
+
+    <div class="header-status">
+      <span class="pulse-dot" id="dbDot" title="PostgreSQL"></span>
+      <span class="status-label">Live DB · <span id="lastUpdated">–</span></span>
+    </div>
+  </header>
+
+  <!-- ═══ TAB NAVIGATION ═══════════════════════════════════════════════════ -->
+  <nav class="tab-nav" id="tabNav" role="navigation" aria-label="Dashboard sections">
+    <div class="tab-nav-inner">
+
+      <button class="tab-btn active" data-tab="scraping" id="tab-btn-scraping" aria-selected="true">
+        <svg class="tab-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        Live Scraping Tracker
+        <span class="tab-badge" id="badge-scraping">–</span>
+      </button>
+
+      <button class="tab-btn" data-tab="insights" id="tab-btn-insights" aria-selected="false">
+        <svg class="tab-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+        AI Insights
+        <span class="tab-badge" id="badge-insights">–</span>
+      </button>
+
+      <button class="tab-btn" data-tab="matrix" id="tab-btn-matrix" aria-selected="false">
+        <svg class="tab-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        Category Matrix
+        <span class="tab-badge" id="badge-matrix">–</span>
+      </button>
+
+      <button class="tab-btn" data-tab="research" id="tab-btn-research" aria-selected="false">
+        <svg class="tab-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        User Research
+        <span class="tab-badge" id="badge-research">–</span>
+      </button>
+
+    </div>
+  </nav>
+
+  <!-- ═══ MAIN CONTENT ══════════════════════════════════════════════════════ -->
+  <main id="appMain">
+
+    <!-- ────── TAB 1: LIVE SCRAPING TRACKER ─────────────────────────────── -->
+    <section class="tab-panel active" id="tab-scraping" role="tabpanel">
+
+      <div class="panel-toolbar">
+        <div class="toolbar-left">
+          <h2 class="panel-title"><span class="panel-title-icon">⚡</span>Live Scraped Data</h2>
+          <span class="record-count" id="recordCount">Loading…</span>
+        </div>
+        <div class="toolbar-right">
+          <div class="search-wrap">
+            <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            <input type="search" id="searchInput" class="search-input" placeholder="Search reviews, users, sources…" aria-label="Search records">
+          </div>
+          <select id="filterSource"   class="filter-select" aria-label="Filter by source">  <option value="">All Sources</option></select>
+          <select id="filterIntent"   class="filter-select" aria-label="Filter by intent">  <option value="">All Intents</option></select>
+          <select id="filterCategory" class="filter-select" aria-label="Filter by category"><option value="">All Categories</option></select>
+          <button class="btn-primary" id="scrapeNowBtn" onclick="LiveData.scrape()" aria-label="Trigger scrape">
+            <svg id="scrapeIcon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+              <path d="M3 3v5h5"/>
+              <path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/>
+              <path d="M16 16h5v5"/>
+            </svg>
+            <span id="scrapeLabel">Scrape Now</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Scrape progress bar -->
+      <div class="scrape-progress" id="scrapeProgress" hidden>
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        <span class="progress-text" id="progressText">Scraping…</span>
+      </div>
+
+      <!-- Virtual table -->
+      <div class="vt-container" id="vtContainer">
+        <div class="vt-header">
+          <div class="vt-row vt-head-row">
+            <div class="vt-cell vt-cell-id    sortable" data-col="id">ID <span class="sort-arrow">↕</span></div>
+            <div class="vt-cell vt-cell-source sortable" data-col="source">Source <span class="sort-arrow">↕</span></div>
+            <div class="vt-cell vt-cell-date   sortable" data-col="date">Date <span class="sort-arrow">↕</span></div>
+            <div class="vt-cell vt-cell-user">User</div>
+            <div class="vt-cell vt-cell-location">Location</div>
+            <div class="vt-cell vt-cell-intent sortable" data-col="intent">Intent <span class="sort-arrow">↕</span></div>
+            <div class="vt-cell vt-cell-categories">Categories</div>
+            <div class="vt-cell vt-cell-rating sortable" data-col="rating">Rating <span class="sort-arrow">↕</span></div>
+            <div class="vt-cell vt-cell-text">Review Text</div>
+          </div>
+        </div>
+        <div class="vt-scroll-body" id="vtScrollBody">
+          <div class="vt-rows" id="vtRows">
+            <div class="table-loading">
+              <div class="loading-spinner"></div>
+              <div>Loading live data from PostgreSQL…</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="vt-pagination" id="vtPagination">
+        <span id="vtInfo">Loading…</span>
+        <div class="pagination-controls">
+          <button class="pg-btn" id="pgPrev" onclick="LiveData.prevPage()" disabled>← Prev</button>
+          <span id="pgNum">Page 1</span>
+          <button class="pg-btn" id="pgNext" onclick="LiveData.nextPage()">Next →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ────── TAB 2: AI INSIGHTS + CHART BUILDER ───────────────────────── -->
+    <section class="tab-panel" id="tab-insights" role="tabpanel">
+      <div class="insights-layout">
+
+        <!-- Standard Charts Row -->
+        <div class="charts-row">
+          <div class="chart-card" id="sentimentChartCard">
+            <div class="chart-card-header">
+              <h3>Sentiment Distribution</h3>
+              <span class="chart-subtitle">AI-analyzed corpus</span>
+            </div>
+            <div class="chart-canvas-wrap donut-wrap">
+              <canvas id="sentimentChart" aria-label="Sentiment distribution"></canvas>
+              <div class="chart-center-label" id="sentimentCenter"></div>
+            </div>
+            <div class="chart-legend" id="sentimentLegend"></div>
+          </div>
+
+          <div class="chart-card chart-card-wide" id="blockerChartCard">
+            <div class="chart-card-header">
+              <h3>Discovery Blocker Frequency</h3>
+              <span class="chart-subtitle">Mentions per theme</span>
+            </div>
+            <div class="chart-canvas-wrap">
+              <canvas id="blockerChart" aria-label="Blocker frequency"></canvas>
+            </div>
+          </div>
+
+          <div class="chart-card chart-card-wide" id="trendChartCard">
+            <div class="chart-card-header">
+              <h3>Reviews by Source</h3>
+              <span class="chart-subtitle">Live from PostgreSQL</span>
+            </div>
+            <div class="chart-canvas-wrap">
+              <canvas id="trendChart" aria-label="Reviews by source"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Chart Builder ───────────────────────────────────────────── -->
+        <div class="chart-builder-section">
+          <div class="section-toolbar">
+            <h2 class="section-heading">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+              Chart Builder
+            </h2>
+            <button class="btn-primary" id="openBuilderBtn" onclick="ChartBuilder.open()">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+              Create Chart
+            </button>
+          </div>
+          <div class="custom-charts-grid" id="customChartsGrid">
+            <div class="no-charts-msg" id="noChartsMsg">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--text-muted)"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+              <p>No custom charts yet.<br>Click <strong>Create Chart</strong> to build one.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Structured Insights Accordion -->
+        <div class="insights-section">
+          <h2 class="section-heading">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+            Structured Insights
+          </h2>
+          <div class="insights-grid" id="insightsGrid">
+            <div class="skeleton-card"></div><div class="skeleton-card"></div><div class="skeleton-card"></div>
+          </div>
+        </div>
+
+        <!-- Blockers Table -->
+        <div class="themes-section">
+          <h2 class="section-heading">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg>
+            Discovery Blockers by Theme
+          </h2>
+          <div class="table-wrap">
+            <table class="data-table" id="blockersTable">
+              <thead><tr><th>Theme</th><th>Frequency</th><th>Mentions</th><th>Sentiment Split</th><th>Key Blockers</th><th>Suggested Triggers</th></tr></thead>
+              <tbody id="blockersTableBody"><tr><td colspan="6" style="text-align:center;padding:24px;color:var(--text-muted)">Loading…</td></tr></tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ────── TAB 3: CATEGORY MATRIX ───────────────────────────────────── -->
+    <section class="tab-panel" id="tab-matrix" role="tabpanel">
+      <div class="matrix-toolbar">
+        <div class="toolbar-left">
+          <h2 class="panel-title"><span class="panel-title-icon">📊</span>Category Priority Matrix</h2>
+          <span class="matrix-hint">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            Click any row to drill into sub-categories, quotes &amp; blockers
+          </span>
+        </div>
+        <div class="toolbar-right">
+          <button class="btn-ghost" onclick="DrillDownMatrix.expandAll()">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="7 13 12 18 17 13"/><polyline points="7 6 12 11 17 6"/></svg>
+            Expand All
+          </button>
+          <button class="btn-ghost" onclick="DrillDownMatrix.collapseAll()">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="17 11 12 6 7 11"/><polyline points="17 18 12 13 7 18"/></svg>
+            Collapse All
+          </button>
+        </div>
+      </div>
+      <div class="matrix-wrap">
+        <table class="matrix-table" id="matrixTable">
+          <thead>
+            <tr>
+              <th class="matrix-col-name">Category / Sub-category / Evidence</th>
+              <th class="matrix-col-mentions">Mentions</th>
+              <th class="matrix-col-gap">Gap Severity</th>
+              <th class="matrix-col-impact">Business Impact</th>
+              <th class="matrix-col-trend">MoM Trend</th>
+              <th class="matrix-col-score">Priority Score</th>
+            </tr>
+          </thead>
+          <tbody id="matrixBody">
+            <tr><td colspan="6" style="text-align:center;padding:32px;color:var(--text-muted)">
+              <div class="loading-spinner"></div><div style="margin-top:8px">Loading matrix…</div>
+            </td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ────── TAB 4: USER RESEARCH ──────────────────────────────────────── -->
+    <section class="tab-panel" id="tab-research" role="tabpanel">
+      <div class="research-layout">
+
+        <div class="research-toolbar">
+          <h2 class="panel-title"><span class="panel-title-icon">🔬</span>User Research Validation</h2>
+          <div class="research-actions">
+            <button class="btn-primary" id="btnCreateForm" onclick="SurveyForm.open()">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+              New Respondent
+            </button>
+            <a class="btn-ghost" id="btnGoogleForm" href="https://forms.gle/instamart-discovery" target="_blank" rel="noopener">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Share Google Form
+            </a>
+            <button class="btn-ghost" id="btnExportCSV" onclick="OpenTracker.exportCSV()">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Export CSV
+            </button>
+          </div>
+        </div>
+
+        <div class="research-stats-row" id="researchStats"></div>
+
+        <!-- Open Data Tracker Live Table -->
+        <div class="tracker-section">
+          <h2 class="section-heading">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            Open Data Tracker
+            <span style="font-size:10px;color:var(--positive);margin-left:8px;font-weight:600">LIVE · PostgreSQL</span>
+          </h2>
+          <div class="table-wrap">
+            <table class="data-table tracker-table" id="trackerTable">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Respondent</th>
+                  <th>Email</th>
+                  <th>City</th>
+                  <th>Age</th>
+                  <th>Order Freq</th>
+                  <th>Categories</th>
+                  <th>Key Blocker</th>
+                  <th>Suggestion</th>
+                  <th>Score</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody id="trackerBody">
+                <tr><td colspan="11" style="text-align:center;padding:32px;color:var(--text-muted)">
+                  <div class="loading-spinner"></div><div style="margin-top:8px">Loading survey responses…</div>
+                </td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══ KPI DETAIL DRAWER ════════════════════════════════════════════════ -->
+  <div class="drawer-overlay" id="drawerOverlay" onclick="KPIDrawer.close()"></div>
+  <aside class="kpi-drawer" id="kpiDrawer" role="dialog" aria-modal="true" aria-label="KPI Detail">
+    <div class="drawer-header">
+      <h2 class="drawer-title" id="drawerTitle">Detail</h2>
+      <button class="drawer-close" onclick="KPIDrawer.close()" aria-label="Close">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="drawer-body" id="drawerBody">Loading…</div>
+  </aside>
+
+  <!-- ═══ CHART BUILDER MODAL ══════════════════════════════════════════════ -->
+  <div class="modal-overlay" id="builderOverlay" onclick="ChartBuilder.close()" hidden></div>
+  <div class="modal" id="builderModal" hidden role="dialog" aria-modal="true" aria-label="Chart Builder">
+    <div class="modal-header">
+      <h2 class="modal-title">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        Chart Builder
+      </h2>
+      <button class="modal-close" onclick="ChartBuilder.close()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="builder-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="cb-name">Chart Name *</label>
+            <input type="text" id="cb-name" class="form-input" placeholder="e.g. Intent by Source">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="cb-type">Chart Type *</label>
+            <select id="cb-type" class="form-select" onchange="ChartBuilder.preview()">
+              <option value="bar">Bar Chart</option>
+              <option value="horizontalBar">Horizontal Bar</option>
+              <option value="line">Line Chart</option>
+              <option value="doughnut">Donut Chart</option>
+              <option value="pie">Pie Chart</option>
+              <option value="polarArea">Polar Area</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="cb-x">Group By (X-Axis) *</label>
+            <select id="cb-x" class="form-select" onchange="ChartBuilder.preview()">
+              <option value="source">Data Source</option>
+              <option value="intent">Intent</option>
+              <option value="platform">Platform</option>
+              <option value="category">Category</option>
+              <option value="rating">Star Rating</option>
+              <option value="date">Date</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="cb-y">Measure (Y-Axis) *</label>
+            <select id="cb-y" class="form-select" onchange="ChartBuilder.preview()">
+              <option value="count">Count of Reviews</option>
+              <option value="avg_rating">Average Rating</option>
+              <option value="sum_rating">Total Rating Score</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row form-row-3">
+          <div class="form-group">
+            <label class="form-label" for="cb-filter-source">Filter: Source</label>
+            <select id="cb-filter-source" class="form-select" onchange="ChartBuilder.preview()">
+              <option value="">All Sources</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="cb-filter-intent">Filter: Intent</label>
+            <select id="cb-filter-intent" class="form-select" onchange="ChartBuilder.preview()">
+              <option value="">All Intents</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="cb-filter-cat">Filter: Category</label>
+            <select id="cb-filter-cat" class="form-select" onchange="ChartBuilder.preview()">
+              <option value="">All Categories</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="cb-date-from">Date From</label>
+            <input type="date" id="cb-date-from" class="form-input" onchange="ChartBuilder.preview()">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="cb-date-to">Date To</label>
+            <input type="date" id="cb-date-to" class="form-input" onchange="ChartBuilder.preview()">
+          </div>
+        </div>
+      </div>
+
+      <!-- Live preview -->
+      <div class="builder-preview">
+        <div class="preview-header">
+          <span class="preview-label">Live Preview</span>
+          <span class="preview-hint" id="previewHint">Adjust options above to see the chart</span>
+        </div>
+        <div class="preview-canvas-wrap">
+          <canvas id="builderPreviewCanvas" aria-label="Chart preview"></canvas>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-ghost" onclick="ChartBuilder.close()">Cancel</button>
+      <button class="btn-primary" id="saveChartBtn" onclick="ChartBuilder.save()">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13"/><polyline points="7 3 7 8 15 8"/></svg>
+        Save Chart
+      </button>
+    </div>
+  </div>
+
+  <!-- ═══ SURVEY FORM MODAL ════════════════════════════════════════════════ -->
+  <div class="modal-overlay" id="surveyOverlay" onclick="SurveyForm.close()" hidden></div>
+  <div class="modal modal-wide" id="surveyModal" hidden role="dialog" aria-modal="true" aria-label="Screening Survey">
+    <div class="modal-header">
+      <h2 class="modal-title">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        Instamart Discovery Research — Screening Survey
+      </h2>
+      <button class="modal-close" onclick="SurveyForm.close()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="modal-body survey-body">
+      <div class="survey-meta">
+        <span class="survey-meta-item">📧 Linked to kaustubhpawar789@gmail.com</span>
+        <span class="survey-meta-item">🗄️ Responses stored in PostgreSQL</span>
+      </div>
+
+      <div class="survey-form" id="surveyFormEl">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="sf-name">Full Name *</label>
+            <input type="text" id="sf-name" class="form-input" placeholder="e.g. Priya Sharma">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="sf-email">Email Address *</label>
+            <input type="email" id="sf-email" class="form-input" placeholder="e.g. priya@example.com">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="sf-city">City *</label>
+            <select id="sf-city" class="form-select">
+              <option value="">Select city…</option>
+              <option>Mumbai</option><option>Bengaluru</option><option>Delhi NCR</option>
+              <option>Hyderabad</option><option>Pune</option><option>Chennai</option>
+              <option>Kolkata</option><option>Ahmedabad</option><option>Gurugram</option>
+              <option>Noida</option><option>Jaipur</option><option>Surat</option>
+              <option>Kochi</option><option>Lucknow</option><option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="sf-age">Age Group *</label>
+            <select id="sf-age" class="form-select">
+              <option value="">Select age…</option>
+              <option>18–24</option><option>25–34</option><option>35–44</option>
+              <option>45–54</option><option>55+</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="sf-freq">How often do you use Instamart? *</label>
+          <select id="sf-freq" class="form-select">
+            <option value="">Select frequency…</option>
+            <option>Daily</option><option>3–5 times a week</option>
+            <option>Once a week</option><option>2–3 times a month</option><option>Rarely</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Which categories do you buy? (select all that apply)</label>
+          <div class="checkbox-grid" id="sf-cats">
+            <label class="check-item"><input type="checkbox" value="groceries">Groceries</label>
+            <label class="check-item"><input type="checkbox" value="snacks">Snacks</label>
+            <label class="check-item"><input type="checkbox" value="beverages">Beverages</label>
+            <label class="check-item"><input type="checkbox" value="dairy">Dairy</label>
+            <label class="check-item"><input type="checkbox" value="personal_care">Personal Care</label>
+            <label class="check-item"><input type="checkbox" value="baby_products">Baby Products</label>
+            <label class="check-item"><input type="checkbox" value="pet_supplies">Pet Supplies</label>
+            <label class="check-item"><input type="checkbox" value="household">Household</label>
+            <label class="check-item"><input type="checkbox" value="packaged_food">Packaged Food</label>
+            <label class="check-item"><input type="checkbox" value="cleaning">Cleaning</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">What frustrates you most about Instamart? (select all that apply)</label>
+          <div class="checkbox-grid" id="sf-blockers">
+            <label class="check-item"><input type="checkbox" value="repetitive_cart">Always showing same products</label>
+            <label class="check-item"><input type="checkbox" value="no_discovery">No way to discover new items</label>
+            <label class="check-item"><input type="checkbox" value="category_silos">Categories feel disconnected</label>
+            <label class="check-item"><input type="checkbox" value="no_crosssell">No cross-category suggestions</label>
+            <label class="check-item"><input type="checkbox" value="expired_products">Received expired products</label>
+            <label class="check-item"><input type="checkbox" value="poor_search">Search results not helpful</label>
+            <label class="check-item"><input type="checkbox" value="bad_cs">Poor customer support</label>
+            <label class="check-item"><input type="checkbox" value="wrong_items">Wrong items delivered</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="sf-suggest">Your suggestion to improve product discovery</label>
+          <textarea id="sf-suggest" class="form-textarea" rows="3" placeholder="e.g. Show me trending products in categories I've never tried…"></textarea>
+        </div>
+
+        <div class="survey-error" id="surveyError" hidden></div>
+        <div class="survey-success" id="surveySuccess" hidden>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          Response saved to PostgreSQL and Open Data Tracker!
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-ghost" onclick="SurveyForm.close()">Cancel</button>
+      <button class="btn-primary" id="submitSurveyBtn" onclick="SurveyForm.submit()">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        Submit Response
+      </button>
+    </div>
+  </div>
+
+  <!-- ═══ GLOBAL TOOLTIP ═══════════════════════════════════════════════════ -->
+  <div class="tooltip" id="globalTooltip" role="tooltip" aria-hidden="true"></div>
+
+  <!-- ═══ SCRIPTS ══════════════════════════════════════════════════════════ -->
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,460 @@
+[
+  {
+    "id": "REV-001",
+    "source": "ConsumerComplaints.in",
+    "date": "2026-02-11",
+    "platform": "web",
+    "user": "Kiranoza21",
+    "location": "Mumbai, Maharashtra",
+    "text": "Instamart delivered expired product - SMOOR Signature Filled Pistachio & Kunafa Bar expired on 21 Jan 2026, received on 10 Feb 2026. Despite email and proof, they refused refund or replacement.",
+    "intent": "complaint",
+    "categories": [
+      "packaged_food",
+      "snacks"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaints.in/bycompany/swiggy-instamart-a614346.html"
+  },
+  {
+    "id": "REV-002",
+    "source": "ConsumerComplaints.in",
+    "date": "2025-10-25",
+    "platform": "web",
+    "user": "rkelchuri",
+    "location": "Hyderabad, Telangana",
+    "text": "100% penalty charged for order cancellation. Unfair trade practice under Consumer Protection Act 2019. Unknown item added to order without consent.",
+    "intent": "complaint",
+    "categories": [
+      "groceries"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaints.in/bycompany/swiggy-instamart-a614346.html"
+  },
+  {
+    "id": "REV-003",
+    "source": "ConsumerComplaints.in",
+    "date": "2025-09-30",
+    "platform": "web",
+    "user": "ashok.mariyala",
+    "location": "Hyderabad, Andhra Pradesh",
+    "text": "Ordered 2 packs of Mamypoko Pants Size L, received 1 pack L and 1 pack XL. Delivery agent and store manager acknowledged the issue but told to raise complaint separately.",
+    "intent": "complaint",
+    "categories": [
+      "baby_products"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaints.in/bycompany/swiggy-instamart-a614346.html"
+  },
+  {
+    "id": "REV-004",
+    "source": "ConsumerComplaints.in",
+    "date": "2025-07-07",
+    "platform": "web",
+    "user": "Inshal Ahmed",
+    "location": "India",
+    "text": "Ordered GNC Creatine Monohydrate twice, received fake product both times. Verified authenticity code on guardian.in/verify - showed invalid. Swiggy gave coupon first time instead of refund.",
+    "intent": "complaint",
+    "categories": [
+      "personal_care"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaints.in/bycompany/swiggy-instamart-a614346.html"
+  },
+  {
+    "id": "REV-005",
+    "source": "ConsumerComplaints.in",
+    "date": "2025-05-20",
+    "platform": "web",
+    "user": "abhinav2309_",
+    "location": "Vadodara, Gujarat",
+    "text": "Returned faulty earphones but no refund or coupon received. Product quality issues with electronics on Instamart.",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaints.in/bycompany/swiggy-instamart-a614346.html"
+  },
+  {
+    "id": "REV-006",
+    "source": "Reddit",
+    "date": "2025-11-19",
+    "platform": "reddit",
+    "user": "PsyHil89",
+    "location": "India",
+    "text": "Swiggy Instamart delivered underweight vegetables. Paid Rs 89 for cauliflower (400-600g) but received only 145g. Capsicum 170g instead of 250g. Support offered only 50% refund of Rs 88.",
+    "intent": "complaint",
+    "categories": [
+      "groceries"
+    ],
+    "rating": 1,
+    "url": "https://food.ndtv.com/news/customer-alleges-swiggy-instamart-delivered-underweight-vegetables-reddit-reacts-7053678"
+  },
+  {
+    "id": "REV-007",
+    "source": "Reddit",
+    "date": "2025-11-19",
+    "platform": "reddit",
+    "user": "reddit_user_1",
+    "location": "India",
+    "text": "I have a digital scale. Got underweight products. Same story, gave me a 50% refund. How widespread is this practice? I wouldn't even think to weigh it but my son was playing with the scale.",
+    "intent": "observation",
+    "categories": [
+      "groceries"
+    ],
+    "rating": 2,
+    "url": "https://food.ndtv.com/news/customer-alleges-swiggy-instamart-delivered-underweight-vegetables-reddit-reacts-7053678"
+  },
+  {
+    "id": "REV-008",
+    "source": "Reddit",
+    "date": "2025-11-19",
+    "platform": "reddit",
+    "user": "reddit_user_2",
+    "location": "India",
+    "text": "For the last two years, we have ordered vegetables online every day from quick commerce apps. I think I have to calculate how much money these apps looted from us.",
+    "intent": "complaint",
+    "categories": [
+      "groceries"
+    ],
+    "rating": 1,
+    "url": "https://food.ndtv.com/news/customer-alleges-swiggy-instamart-delivered-underweight-vegetables-reddit-reacts-7053678"
+  },
+  {
+    "id": "REV-009",
+    "source": "Reddit",
+    "date": "2025-11-19",
+    "platform": "reddit",
+    "user": "reddit_user_3",
+    "location": "India",
+    "text": "At least my local vendor gives me 20-50gm more every time and charges a fixed rate for items such as cauliflower and cabbage, irrespective of their size.",
+    "intent": "observation",
+    "categories": [
+      "groceries"
+    ],
+    "rating": 3,
+    "url": "https://food.ndtv.com/news/customer-alleges-swiggy-instamart-delivered-underweight-vegetables-reddit-reacts-7053678"
+  },
+  {
+    "id": "REV-010",
+    "source": "Reddit r/LegalAdviceIndia",
+    "date": "2025-02-10",
+    "platform": "reddit",
+    "user": "legal_advice_user",
+    "location": "India",
+    "text": "Consistently defrauded by Swiggy Instamart of substandard and underweight produce. Their refusal to remedy this after paying full premium prices. Will a consumer courts complaint help?",
+    "intent": "complaint",
+    "categories": [
+      "groceries"
+    ],
+    "rating": 1,
+    "url": "https://www.reddit.com/r/LegalAdviceIndia/comments/1awbzu9/"
+  },
+  {
+    "id": "REV-011",
+    "source": "Reddit r/swiggy",
+    "date": "2025-04-15",
+    "platform": "reddit",
+    "user": "swiggy_frustrated",
+    "location": "India",
+    "text": "Swiggy Instamart has the worst customer service. Ordered product worth 1.6k, it doesn't work. Tried returning within 4-day window. They kept telling to wait 6 hours or mail and wait 24-48 hours. After 3 days got email saying they can't return it. No reason given.",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://www.reddit.com/r/swiggy/comments/1k49kia/"
+  },
+  {
+    "id": "REV-012",
+    "source": "Apple App Store",
+    "date": "2025-11-27",
+    "platform": "ios",
+    "user": "Anchal1234567",
+    "location": "India",
+    "text": "Used to be good but now they just want to scam people! Almost 90% of the time, your order will either have missing or wrong items. Delivery is always delayed and they show wrong expected delivery time to fool customers.",
+    "intent": "complaint",
+    "categories": [
+      "groceries",
+      "snacks"
+    ],
+    "rating": 1,
+    "url": "https://apps.apple.com/au/app/swiggy-food-instamart-dineout/id989540920"
+  },
+  {
+    "id": "REV-013",
+    "source": "Apple App Store",
+    "date": "2024-08-26",
+    "platform": "ios",
+    "user": "Dheeraj.007",
+    "location": "India",
+    "text": "Delivery boy spilled half the food while on the way. Customer support didn't compensate fully, only provided discount coupon. 4 months later, still facing unnecessary cancellation charges from their system error.",
+    "intent": "complaint",
+    "categories": [
+      "groceries"
+    ],
+    "rating": 1,
+    "url": "https://apps.apple.com/in/app/swiggy-food-instamart-dineout/id989540920"
+  },
+  {
+    "id": "REV-014",
+    "source": "Apple App Store",
+    "date": "2025-12-13",
+    "platform": "ios",
+    "user": "Mindegy5",
+    "location": "International",
+    "text": "Worst app for westerners. Counterintuitive app design. Chat is in the most obscure part of the app. Driver contacts you, you miss call, order gets cancelled. No refund, only BS voucher with expiration date.",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://apps.apple.com/us/app/swiggy-food-instamart-dineout/id989540920"
+  },
+  {
+    "id": "REV-015",
+    "source": "Apple App Store",
+    "date": "2025-04-03",
+    "platform": "ios",
+    "user": "Huntingvision",
+    "location": "India",
+    "text": "Service is getting worse day by day. Delivery time not updated. Order doesn't get picked up, gets canceled after 45 minutes. Customer service keeps telling it's about to arrive. Don't pay ahead because they don't refund.",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://apps.apple.com/us/app/swiggy-food-instamart-dineout/id989540920"
+  },
+  {
+    "id": "REV-016",
+    "source": "Trustpilot",
+    "date": "2026-07-04",
+    "platform": "web",
+    "user": "trustpilot_reviewer",
+    "location": "India",
+    "text": "AI summary of 380 reviews: Most reviewers were let down. Dissatisfied with customer service - described as pathetic, unhelpful, unresponsive. Problems with orders: missing items, incorrect deliveries, rotten products. Refund process denied or partial amounts.",
+    "intent": "observation",
+    "categories": [
+      "groceries",
+      "personal_care"
+    ],
+    "rating": 1,
+    "url": "https://www.trustpilot.com/review/swiggy.com"
+  },
+  {
+    "id": "REV-017",
+    "source": "FSSAI Report",
+    "date": "2026-07-11",
+    "platform": "news",
+    "user": "FSSAI",
+    "location": "New Delhi",
+    "text": "Food Safety and Standards Authority of India issued 9 notices to Swiggy Instamart. Complaints include expired products, contaminated eggs and milk, damaged packaged food, incorrect FSSAI license numbers, and inadequate grievance redressal.",
+    "intent": "complaint",
+    "categories": [
+      "groceries",
+      "dairy",
+      "packaged_food"
+    ],
+    "rating": 1,
+    "url": "https://www.thehindubusinessline.com/companies/food-standards-authority-issues-9-notices-to-swiggy-instamart-over-consumer-complaints/article71209786.ece"
+  },
+  {
+    "id": "REV-018",
+    "source": "Indian Food Times",
+    "date": "2025-03-16",
+    "platform": "news",
+    "user": "Team IFT",
+    "location": "India",
+    "text": "Quick commerce platforms accused of dark patterns and price manipulation. Hidden fees, device-based price discrimination, and manipulative user interfaces. CCPA expanded probe to include quick commerce platforms.",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 2,
+    "url": "https://indianfoodtimes.com/quick-commerce-under-fire-zepto-blinkit-and-swiggy-instamart-accused-of-dark-patterns-and-price-manipulation"
+  },
+  {
+    "id": "REV-019",
+    "source": "ConsumerComplaints.in",
+    "date": "2026-04-09",
+    "platform": "web",
+    "user": "kalindi2010",
+    "location": "Pune, Maharashtra",
+    "text": "Received expired Rentio brand toor dal from Instamart. Raised concern previously with no adequate response. Want refund or replacement of expired product.",
+    "intent": "complaint",
+    "categories": [
+      "groceries",
+      "packaged_food"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaints.in/bycompany/instamart-a621096.html"
+  },
+  {
+    "id": "REV-020",
+    "source": "ConsumerComplaints.in",
+    "date": "2022-07-07",
+    "platform": "web",
+    "user": "Samanju",
+    "location": "Gurugram, Haryana",
+    "text": "Received carton of cocoa almond milk puffed and spoiled. Need immediate refund for spoiled product.",
+    "intent": "complaint",
+    "categories": [
+      "dairy",
+      "beverages"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaints.in/bycompany/instamart-a621096.html"
+  },
+  {
+    "id": "REV-021",
+    "source": "ConsumerComplaints.in",
+    "date": "2022-06-10",
+    "platform": "web",
+    "user": "Pooji_23",
+    "location": "Bengaluru, Karnataka",
+    "text": "Received 1.5kg rotten chicken from Instamart. Rotten smell emanating from pack. After many emails, they refunded only Rs 100 out of Rs 440. Had to bury rotten meat to prevent strays from eating it.",
+    "intent": "complaint",
+    "categories": [
+      "groceries"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaints.in/bycompany/instamart-a621096.html"
+  },
+  {
+    "id": "REV-022",
+    "source": "ConsumerComplaints.in",
+    "date": "2022-04-03",
+    "platform": "web",
+    "user": "Prachi Shukla_1059",
+    "location": "India",
+    "text": "Payment of Rs 121 deducted via Google Pay but no order placed. No message of order placed, no tracking in the app.",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaints.in/bycompany/instamart-a621096.html"
+  },
+  {
+    "id": "REV-023",
+    "source": "ConsumerComplaints Court",
+    "date": "2025-11-08",
+    "platform": "web",
+    "user": "Shweta Hosur",
+    "location": "India",
+    "text": "Ordered Ankle Belt through Instamart app. Item received was incorrect size/specification, pack was unsealed. Improper handling of return request and unresponsive customer support.",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaintscourt.com/improper-handling-of-return-request-and-unresponsive-customer-support/"
+  },
+  {
+    "id": "REV-024",
+    "source": "ConsumerComplaints Court",
+    "date": "2025-07-27",
+    "platform": "web",
+    "user": "delivery_issue_user",
+    "location": "India",
+    "text": "Delivery issue for order. India Gate Rice ordered but different product delivered instead. Repeated delivery issues and lack of resolution from support team.",
+    "intent": "complaint",
+    "categories": [
+      "groceries"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaintscourt.com/delivery-issue-for-order-no-212249643755212-instamart-swiggy/"
+  },
+  {
+    "id": "REV-025",
+    "source": "Digital in Asia",
+    "date": "2026-06-24",
+    "platform": "news",
+    "user": "Industry Analyst",
+    "location": "India",
+    "text": "Quick commerce pushing beyond groceries - electronics, beauty, fashion growing faster than grocery. Blinkit ~45-50% share, Instamart ~20-25%, Zepto ~20-25%. GMV reached Rs 11,000 crore in Jan 2026 alone.",
+    "intent": "observation",
+    "categories": [
+      "groceries",
+      "personal_care"
+    ],
+    "rating": 3,
+    "url": "https://digitalinasia.com/india-quick-commerce-blinkit-zepto-instamart/"
+  },
+  {
+    "id": "REV-026",
+    "source": "Rest of World",
+    "date": "2024-11-12",
+    "platform": "news",
+    "user": "Ananya Bhattacharya",
+    "location": "Mumbai, India",
+    "text": "Quick commerce estimated to put more than 25% of India's neighborhood kirana stores out of business by 2030. 200,000 kirana stores closed in past year. It's not possible to deliver within 10 minutes, free of cost.",
+    "intent": "observation",
+    "categories": [
+      "groceries"
+    ],
+    "rating": 2,
+    "url": "https://restofworld.org/2024/india-rapid-delivery-zepto-blinkit"
+  },
+  {
+    "id": "REV-027",
+    "source": "Confetti Design",
+    "date": "2026-06-22",
+    "platform": "news",
+    "user": "Industry Guide",
+    "location": "India",
+    "text": "Instamart holds 23-25% market share across 1,000+ dark stores in 120+ cities. Widest geographic footprint. 29% of new Instamart shoppers discover grocery products through Swiggy food orders.",
+    "intent": "observation",
+    "categories": [
+      "groceries"
+    ],
+    "rating": 3,
+    "url": "https://confetti.design/blog/how-to-start-selling-on-quick-commerce-india"
+  },
+  {
+    "id": "REV-028",
+    "source": "BBC",
+    "date": "2026-01-30",
+    "platform": "news",
+    "user": "BBC Reporter",
+    "location": "India",
+    "text": "Unlike traditional retailers, platforms such as Blinkit, Swiggy Instamart and Zepto don't deliver from large supermarkets or distant warehouses. Dark store model enabling 10-minute delivery.",
+    "intent": "observation",
+    "categories": [
+      "groceries"
+    ],
+    "rating": 3,
+    "url": "https://www.bbc.com/news/articles/cvgx7ykl12go"
+  },
+  {
+    "id": "REV-029",
+    "source": "Apple App Store",
+    "date": "2025-06-15",
+    "platform": "ios",
+    "user": "ios_reviewer_1",
+    "location": "India",
+    "text": "Customer support not helpful at all. Delivery agent talks rudely. No customer care number. Regular customer care members talk like robots, trained to say 'we are sorry but we can't do anything' after stealing your money.",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://apps.apple.com/in/app/swiggy-food-instamart-dineout/id989540920"
+  },
+  {
+    "id": "REV-030",
+    "source": "Apple App Store",
+    "date": "2025-09-22",
+    "platform": "ios",
+    "user": "ios_reviewer_2",
+    "location": "India",
+    "text": "I don't care for refund anymore but moving to competitor. In contrast Zomato the call center agent calls back the minute we report an issue and acts on behalf of the customer. Swiggy call center is just a sounding board.",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://apps.apple.com/in/app/swiggy-food-instamart-dineout/id989540920"
+  }
+]

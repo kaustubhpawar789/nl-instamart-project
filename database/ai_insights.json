@@ -1,0 +1,151 @@
+{
+  "title": "Swiggy Instamart Discovery Engine — AI Insights",
+  "total_reviews_analyzed": 148,
+  "source": "AI-generated analysis via Groq (llama-3.3-70b-versatile)",
+  "themes": [
+    {
+      "name": "Repetitive Cart Experience",
+      "frequency": "High",
+      "mentions": 45,
+      "categories": ["groceries", "snacks", "beverages"],
+      "evidence": [
+        {"quote": "I keep ordering the same vegetables every week. There are so many other items on the app I never see.", "source": "Apple App Store", "category": "groceries"},
+        {"quote": "Same Coke and Pepsi every time. I want to see cold pressed juices or kombucha.", "source": "Reddit", "category": "beverages"},
+        {"quote": "I always end up buying the same chips and biscuits. The recommendation engine is stuck.", "source": "Apple App Store", "category": "snacks"},
+        {"quote": "Grocery repeat orders are convenient but I feel stuck in a loop with no discovery.", "source": "Google Play Store", "category": "groceries"},
+        {"quote": "I buy the same rice brand for months. Show me alternatives please.", "source": "Google Play Store", "category": "groceries"}
+      ],
+      "sentiment": {"positive": 5, "neutral": 12, "negative": 28},
+      "blockers": ["No discovery features in the app", "Reorder button dominates the UI", "No 'Try Something New' surface"],
+      "triggers": ["Cross-category recommendations", "Weekly rotating product spotlights", "Personalized discovery feed"]
+    },
+    {
+      "name": "Cross-Category Blind Spots",
+      "frequency": "High",
+      "mentions": 53,
+      "categories": ["pet_supplies", "personal_care", "baby_products", "cleaning"],
+      "evidence": [
+        {"quote": "Pet supplies are completely invisible unless you search. No cross-category discovery.", "source": "Reddit", "category": "pet_supplies"},
+        {"quote": "I never browse personal care because the app never suggests it during grocery checkout.", "source": "Google Play Store", "category": "personal_care"},
+        {"quote": "Why doesn't the app suggest baby products to users who buy milk and cereals?", "source": "Community Forum", "category": "baby_products"},
+        {"quote": "I buy floor cleaner but never see window cleaners or kitchen sprays suggested.", "source": "Twitter/X", "category": "cleaning"},
+        {"quote": "As a pet owner, I want the app to suggest treats and toys alongside my grocery order.", "source": "Apple App Store", "category": "pet_supplies"}
+      ],
+      "sentiment": {"positive": 3, "neutral": 15, "negative": 35},
+      "blockers": ["No cross-sell logic between categories", "Category silos in the app UI", "No checkout-time suggestions for adjacent categories"],
+      "triggers": ["Checkout-time cross-category suggestions", "Category bundles based on purchase patterns", "New parent / pet owner onboarding flows"]
+    },
+    {
+      "name": "Discovery Feature Gap",
+      "frequency": "High",
+      "mentions": 42,
+      "categories": ["groceries", "snacks", "beverages", "household"],
+      "evidence": [
+        {"quote": "The app keeps pushing me back to my usual cart. I want to try something new.", "source": "Apple App Store", "category": "groceries"},
+        {"quote": "Snacks section is repetitive. Where are the healthy alternatives or new brands?", "source": "Twitter/X", "category": "snacks"},
+        {"quote": "The reorder button is too prominent. I want to explore, not just repeat.", "source": "Reddit", "category": "groceries"},
+        {"quote": "Household essentials are on autopilot. I want to discover better products.", "source": "Community Forum", "category": "household"},
+        {"quote": "Would love to see new cleaning products but the app never suggests them.", "source": "Google Play Store", "category": "household"}
+      ],
+      "sentiment": {"positive": 4, "neutral": 14, "negative": 24},
+      "blockers": ["Reorder button dominates the UI", "No browsing or exploration surfaces", "Zero motivation to look beyond usual items"],
+      "triggers": ["Weekly discovery feed with curated products", "New arrivals section", "'Try Something New' incentive program"]
+    },
+    {
+      "name": "Habit-Driven Shopping Lock-In",
+      "frequency": "Medium",
+      "mentions": 28,
+      "categories": ["groceries", "dairy", "packaged_food"],
+      "evidence": [
+        {"quote": "My grocery list is identical every week because the app never shows alternatives.", "source": "Reddit", "category": "groceries"},
+        {"quote": "Dairy is my most bought category but I never see cheese alternatives or yogurt varieties.", "source": "Apple App Store", "category": "dairy"},
+        {"quote": "Packaged food is repetitive. Same noodles and pasta every time.", "source": "Twitter/X", "category": "packaged_food"},
+        {"quote": "The grocery reorder feature is a trap. It keeps me from exploring new products.", "source": "Google Play Store", "category": "groceries"}
+      ],
+      "sentiment": {"positive": 6, "neutral": 10, "negative": 12},
+      "blockers": ["Habit reinforcement through reorder UX", "Lack of novelty incentives", "No first-order discounts on new categories"],
+      "triggers": ["First-order discounts on new categories", "Personalized discovery feed", "Seasonal product spotlights"]
+    },
+    {
+      "name": "Information Barrier to Trial",
+      "frequency": "Medium",
+      "mentions": 22,
+      "categories": ["snacks", "beverages", "personal_care", "dairy"],
+      "evidence": [
+        {"quote": "I want to try Korean snacks but the app only shows domestic brands.", "source": "Reddit", "category": "snacks"},
+        {"quote": "Would love to try matcha or oat milk but the app never suggests them.", "source": "Twitter/X", "category": "beverages"},
+        {"quote": "Personal care products are hard to find. The app needs better cross-selling.", "source": "Community Forum", "category": "personal_care"},
+        {"quote": "Dairy purchases should trigger recommendations for breakfast items or healthy snacks.", "source": "Apple App Store", "category": "dairy"}
+      ],
+      "sentiment": {"positive": 2, "neutral": 8, "negative": 12},
+      "blockers": ["No product education or category descriptions", "No comparison tools", "No guided exploration prompts"],
+      "triggers": ["Product comparison tools", "Category explainer content", "Recipe-based product suggestions"]
+    }
+  ],
+  "insights": [
+    {
+      "title": "Cart Loop Trap",
+      "observation": "45 reviews (30% of all data) mention being stuck in repetitive purchase patterns across groceries, snacks, and beverages. Users explicitly feel the app reinforces their existing habits rather than expanding them.",
+      "user_need": "Users want to discover new products beyond their usual cart but lack the tools and motivation to break out of their routine.",
+      "root_cause": "The app prioritizes reorder functionality over discovery, creating a feedback loop that reinforces habit and suppresses exploration.",
+      "opportunity": "A Try Next Basket feature can break the loop by surfacing adjacent categories at checkout with personalized rationale.",
+      "implication": "MVP must focus on cross-category discovery with clear value propositions for why a user should try something new."
+    },
+    {
+      "title": "Hidden Categories Problem",
+      "observation": "53 reviews across pet supplies, personal care, baby products, and cleaning indicate users are unaware of entire product categories available on the platform. These categories have the highest gap severity.",
+      "user_need": "Users need visibility into categories they have never browsed but would find relevant based on their purchase patterns and life stage.",
+      "root_cause": "No cross-sell logic exists between category silos. The app treats each category as an isolated shopping experience.",
+      "opportunity": "Smart category suggestions based on user-to-category affinity mapping can unlock significant new revenue streams.",
+      "implication": "Backend must implement purchase pattern analysis to detect adjacent category opportunities for each user segment."
+    },
+    {
+      "title": "Discovery UX Failure",
+      "observation": "42 reviews explicitly call out the lack of discovery features. Users describe the experience as being stuck in a loop with no way to explore new products intentionally.",
+      "user_need": "Users want a dedicated space to explore new products without disrupting their efficient repeat-purchase flow.",
+      "root_cause": "The UI is optimized entirely for repeat purchases with no browsing, exploration, or novelty surfaces.",
+      "opportunity": "A weekly discovery feed or curated themed bundles can drive category expansion while maintaining shopping efficiency.",
+      "implication": "Frontend needs a new discovery component that complements the existing cart flow without adding friction."
+    }
+  ],
+  "sentiment": {
+    "positive": {"count": 34, "percentage": 23},
+    "neutral": {"count": 48, "percentage": 32},
+    "negative": {"count": 66, "percentage": 45}
+  },
+  "categories": [
+    {"name": "groceries", "mentions": 18, "gap_severity": "High", "business_impact": "High"},
+    {"name": "cleaning", "mentions": 18, "gap_severity": "Medium", "business_impact": "Medium"},
+    {"name": "personal_care", "mentions": 17, "gap_severity": "High", "business_impact": "High"},
+    {"name": "household", "mentions": 17, "gap_severity": "Medium", "business_impact": "Medium"},
+    {"name": "packaged_food", "mentions": 16, "gap_severity": "Low", "business_impact": "Medium"},
+    {"name": "beverages", "mentions": 14, "gap_severity": "High", "business_impact": "Medium"},
+    {"name": "pet_supplies", "mentions": 13, "gap_severity": "High", "business_impact": "Medium"},
+    {"name": "baby_products", "mentions": 13, "gap_severity": "High", "business_impact": "High"},
+    {"name": "snacks", "mentions": 11, "gap_severity": "Medium", "business_impact": "High"},
+    {"name": "dairy", "mentions": 11, "gap_severity": "Medium", "business_impact": "Low"}
+  ],
+  "mock_research_data": [
+    {
+      "respondent_id": "RES-001",
+      "summary": "Highly engaged user who orders groceries weekly but feels completely stuck in repetitive patterns. Explicitly mentions the app only showing past purchases and never surfacing new categories. Discovered pet food only through a friend's recommendation, not the app.",
+      "matched_themes": ["Repetitive Cart Experience", "Cross-Category Blind Spots", "Discovery Feature Gap"],
+      "quality_score": 88,
+      "recommendation": "Strongly validates the cart loop trap and hidden categories problem. Cross-category discovery at checkout should be the MVP priority."
+    },
+    {
+      "respondent_id": "RES-002",
+      "summary": "New pet owner who discovered pet food through manual search after a neighbor mentioned it. The app never surfaced pet products despite 6 months of weekly grocery orders. Frustrated by the lack of relevant suggestions.",
+      "matched_themes": ["Cross-Category Blind Spots", "Habit-Driven Shopping"],
+      "quality_score": 82,
+      "recommendation": "Validates that life-stage triggers (new pet, new baby) are completely missed by the current app. Onboarding flow for new life events could drive category expansion."
+    },
+    {
+      "respondent_id": "RES-003",
+      "summary": "Power user who buys from 6+ categories but found them all through accidental browsing over 2 years. Wants a dedicated exploration feature and is willing to try new categories if given proper context and incentives.",
+      "matched_themes": ["Discovery Feature Gap", "Information Barrier to Trial"],
+      "quality_score": 75,
+      "recommendation": "Discovery UX is critical. Users want exploration without friction. A weekly curated feed with product education could convert browsers into multi-category buyers."
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # Swiggy Instamart Discovery Engine — AI Insights
 
-**Total Reviews Analyzed:** 148
+**Total Reviews Analyzed:** 154
 
 **Source:** AI-generated analysis via Groq (llama-3.3-70b-versatile)
 

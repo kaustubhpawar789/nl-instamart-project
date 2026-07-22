@@ -1,391 +1,991 @@
 [
   {
-    "source": "Community Forum",
-    "date": "2026-02-21",
-    "platform": "forum",
+    "source": "Apple App Store",
+    "date": "2026-03-24",
+    "platform": "ios",
     "category": "dairy",
     "intent": "complaint",
-    "text": "I buy paneer but never see cream, sour cream, or other dairy alternatives."
+    "text": "Why does the app only recommend full cream milk? Show me toned or flavored options."
+  },
+  {
+    "source": "Google Play Store",
+    "date": "2026-04-15",
+    "platform": "android",
+    "category": "dairy",
+    "intent": "suggestion",
+    "text": "Dairy is repetitive. I see the same milk and butter every day."
+  },
+  {
+    "source": "Apple App Store",
+    "date": "2026-06-30",
+    "platform": "ios",
+    "category": "beverages",
+    "intent": "suggestion",
+    "text": "Why cant the app suggest seasonal drinks like lassi in summer or chai in winter?"
+  },
+  {
+    "source": "Google Play Store",
+    "date": "2026-03-13",
+    "platform": "android",
+    "category": "personal_care",
+    "intent": "praise",
+    "text": "Why does the app hide personal care from grocery shoppers? We need these products too."
+  },
+  {
+    "source": "Apple App Store",
+    "date": "2026-03-05",
+    "platform": "ios",
+    "category": "snacks",
+    "intent": "suggestion",
+    "text": "I buy savory snacks but never see sweet alternatives suggested. Weird."
   },
   {
     "source": "Twitter/X",
-    "date": "2026-01-05",
+    "date": "2026-06-18",
     "platform": "twitter",
     "category": "groceries",
-    "intent": "question",
-    "text": "Love quick grocery delivery but hate that I never discover new products in this category."
+    "intent": "complaint",
+    "text": "Wish the app had a try something new section for grocery buyers like me."
   },
   {
     "source": "Community Forum",
-    "date": "2026-05-21",
+    "date": "2026-02-22",
+    "platform": "forum",
+    "category": "household",
+    "intent": "question",
+    "text": "Household discovery is non-existent. I am stuck buying the same brand forever."
+  },
+  {
+    "source": "Community Forum",
+    "date": "2026-04-12",
+    "platform": "forum",
+    "category": "dairy",
+    "intent": "observation",
+    "text": "Would love seasonal dairy suggestions like kulfi in summer or paneer tikka kits."
+  },
+  {
+    "source": "Twitter/X",
+    "date": "2026-05-07",
+    "platform": "twitter",
+    "category": "beverages",
+    "intent": "suggestion",
+    "text": "Why does the app only show mainstream beverages? I want local or craft options."
+  },
+  {
+    "source": "Google Play Store",
+    "date": "2026-02-22",
+    "platform": "android",
+    "category": "cleaning",
+    "intent": "observation",
+    "text": "Cleaning section is basic. Show me steam cleaners or eco-friendly alternatives."
+  },
+  {
+    "source": "Twitter/X",
+    "date": "2026-02-27",
+    "platform": "twitter",
+    "category": "cleaning",
+    "intent": "praise",
+    "text": "Cleaning section needs a complete discovery overhaul."
+  },
+  {
+    "source": "Community Forum",
+    "date": "2026-02-02",
+    "platform": "forum",
+    "category": "snacks",
+    "intent": "observation",
+    "text": "Snack recommendations should be based on what I have NOT bought before."
+  },
+  {
+    "source": "Apple App Store",
+    "date": "2026-04-06",
+    "platform": "ios",
+    "category": "groceries",
+    "intent": "praise",
+    "text": "The app should suggest seasonal produce or local specials to repeat grocery buyers."
+  },
+  {
+    "source": "Community Forum",
+    "date": "2026-03-06",
     "platform": "forum",
     "category": "pet_supplies",
-    "intent": "suggestion",
-    "text": "I am a cat owner but the app shows me dog products. Needs better targeting."
+    "intent": "observation",
+    "text": "Would love to see seasonal pet products like cooling mats in summer."
   },
   {
-    "source": "Community Forum",
-    "date": "2026-02-18",
-    "platform": "forum",
+    "source": "Reddit",
+    "date": "2026-01-11",
+    "platform": "reddit",
     "category": "groceries",
     "intent": "question",
-    "text": "I have been buying the same rice brand for months. Show me alternatives please."
-  },
-  {
-    "source": "Reddit",
-    "date": "2026-06-30",
-    "platform": "reddit",
-    "category": "cleaning",
-    "intent": "suggestion",
-    "text": "Why doesn't the app recommend cleaning tools alongside cleaning chemicals?"
-  },
-  {
-    "source": "Reddit",
-    "date": "2026-03-18",
-    "platform": "reddit",
-    "category": "snacks",
-    "intent": "praise",
-    "text": "Would love to try exotic snacks but the app only shows mainstream options."
-  },
-  {
-    "source": "Community Forum",
-    "date": "2026-06-04",
-    "platform": "forum",
-    "category": "baby_products",
-    "intent": "complaint",
-    "text": "Why doesn't the app suggest baby products to users who buy milk and cereals?"
+    "text": "The grocery reorder feature is a trap. It keeps me from exploring new products."
   },
   {
     "source": "Apple App Store",
     "date": "2026-01-28",
     "platform": "ios",
-    "category": "packaged_food",
-    "intent": "suggestion",
-    "text": "I buy pasta but never see sauces, oils, or seasoning blends suggested."
+    "category": "household",
+    "intent": "praise",
+    "text": "I buy the same cleaning supplies every month. Suggest me something different."
   },
   {
     "source": "Apple App Store",
-    "date": "2026-04-20",
+    "date": "2026-01-10",
     "platform": "ios",
     "category": "dairy",
-    "intent": "observation",
-    "text": "Dairy discovery is stuck. Same products, same brands, same recommendations."
-  },
-  {
-    "source": "Google Play Store",
-    "date": "2026-01-06",
-    "platform": "android",
-    "category": "snacks",
-    "intent": "praise",
-    "text": "Snack recommendations are stale. I see the same five brands every time."
+    "intent": "question",
+    "text": "I buy ghee every month but never see cooking oils or spreads suggested."
   },
   {
     "source": "Apple App Store",
-    "date": "2026-04-19",
+    "date": "2026-02-24",
     "platform": "ios",
-    "category": "personal_care",
-    "intent": "suggestion",
-    "text": "Personal care section needs better visibility for first-time browsers."
-  },
-  {
-    "source": "Community Forum",
-    "date": "2026-06-16",
-    "platform": "forum",
-    "category": "baby_products",
-    "intent": "complaint",
-    "text": "The app should have a new parent onboarding flow for baby product discovery."
-  },
-  {
-    "source": "Twitter/X",
-    "date": "2026-01-22",
-    "platform": "twitter",
-    "category": "snacks",
-    "intent": "praise",
-    "text": "Snack buyers are stuck in a rut. The app needs better cross-category suggestions."
-  },
-  {
-    "source": "Twitter/X",
-    "date": "2026-01-27",
-    "platform": "twitter",
-    "category": "groceries",
-    "intent": "observation",
-    "text": "Grocery repeat orders are convenient but I feel stuck in a loop with no discovery."
-  },
-  {
-    "source": "Community Forum",
-    "date": "2026-04-10",
-    "platform": "forum",
-    "category": "baby_products",
+    "category": "beverages",
     "intent": "question",
-    "text": "Baby care section is well stocked but impossible to discover naturally."
+    "text": "I saw a new energy drink at a store. The app should stock and recommend these."
   },
   {
-    "source": "Twitter/X",
-    "date": "2026-04-15",
-    "platform": "twitter",
-    "category": "packaged_food",
-    "intent": "suggestion",
-    "text": "I buy cereal but never see granola, muesli, or oat alternatives."
+    "source": "Community Forum",
+    "date": "2026-05-22",
+    "platform": "forum",
+    "category": "pet_supplies",
+    "intent": "observation",
+    "text": "Where is the pet section? I only found it by browsing every category manually."
+  },
+  {
+    "source": "Community Forum",
+    "date": "2026-01-28",
+    "platform": "forum",
+    "category": "beverages",
+    "intent": "complaint",
+    "text": "Beverage recommendations should learn from my grocery patterns, not just drink history."
   },
   {
     "source": "Reddit",
-    "date": "2026-05-30",
-    "platform": "reddit",
-    "category": "cleaning",
-    "intent": "observation",
-    "text": "Why does the app only show chemical cleaners? I want eco-friendly alternatives."
-  },
-  {
-    "source": "Apple App Store",
-    "date": "2026-04-28",
-    "platform": "ios",
-    "category": "groceries",
-    "intent": "suggestion",
-    "text": "The reorder button is too prominent. I want to explore, not just repeat."
-  },
-  {
-    "source": "Apple App Store",
-    "date": "2026-03-13",
-    "platform": "ios",
-    "category": "household",
-    "intent": "complaint",
-    "text": "I spend a lot on household items but get zero personalized discovery."
-  },
-  {
-    "source": "Google Play Store",
     "date": "2026-04-18",
-    "platform": "android",
-    "category": "beverages",
-    "intent": "praise",
-    "text": "Same Coke and Pepsi every time. I want to see cold pressed juices or kombucha."
-  },
-  {
-    "source": "Google Play Store",
-    "date": "2026-05-07",
-    "platform": "android",
-    "category": "baby_products",
-    "intent": "praise",
-    "text": "Baby care discovery is the biggest gap in this app's recommendation engine."
+    "platform": "reddit",
+    "category": "household",
+    "intent": "question",
+    "text": "Would love to see smart home products or organizational tools recommended."
   },
   {
     "source": "Twitter/X",
-    "date": "2026-05-09",
+    "date": "2026-06-13",
+    "platform": "twitter",
+    "category": "packaged_food",
+    "intent": "praise",
+    "text": "Packaged food section is overwhelming. I need curated discovery features."
+  },
+  {
+    "source": "Community Forum",
+    "date": "2026-01-16",
+    "platform": "forum",
+    "category": "snacks",
+    "intent": "suggestion",
+    "text": "Love the snack variety available but the app never helps me find new things."
+  },
+  {
+    "source": "Community Forum",
+    "date": "2026-01-11",
+    "platform": "forum",
+    "category": "cleaning",
+    "intent": "observation",
+    "text": "Cleaning product recommendations are stale. Same brands, same products every time."
+  },
+  {
+    "source": "Google Play Store",
+    "date": "2026-03-08",
+    "platform": "android",
+    "category": "personal_care",
+    "intent": "praise",
+    "text": "I buy the same shampoo for years. Show me alternatives or new launches."
+  },
+  {
+    "source": "Community Forum",
+    "date": "2026-01-11",
+    "platform": "forum",
+    "category": "dairy",
+    "intent": "praise",
+    "text": "Why doesn't the app suggest cheese or yogurt to milk buyers?"
+  },
+  {
+    "source": "Reddit",
+    "date": "2026-05-03",
+    "platform": "reddit",
+    "category": "packaged_food",
+    "intent": "question",
+    "text": "I buy cereal but never see granola, muesli, or oat alternatives."
+  },
+  {
+    "source": "Community Forum",
+    "date": "2026-01-05",
+    "platform": "forum",
+    "category": "personal_care",
+    "intent": "question",
+    "text": "Personal care is a blind spot for the app. No cross-category discovery at all."
+  },
+  {
+    "source": "Google Play Store",
+    "date": "2026-01-11",
+    "platform": "android",
+    "category": "beverages",
+    "intent": "complaint",
+    "text": "Why does the app keep showing me the same bottled water brand?"
+  },
+  {
+    "source": "Community Forum",
+    "date": "2026-06-26",
+    "platform": "forum",
+    "category": "cleaning",
+    "intent": "observation",
+    "text": "Cleaning section is neglected. No new products or brands are ever surfaced."
+  },
+  {
+    "source": "Community Forum",
+    "date": "2026-05-12",
+    "platform": "forum",
+    "category": "cleaning",
+    "intent": "complaint",
+    "text": "I buy bathroom cleaner but never see mold removers or grout cleaners."
+  },
+  {
+    "source": "Twitter/X",
+    "date": "2026-05-02",
+    "platform": "twitter",
+    "category": "baby_products",
+    "intent": "suggestion",
+    "text": "Baby products section exists but the app never surfaces it to relevant buyers."
+  },
+  {
+    "source": "Apple App Store",
+    "date": "2026-06-24",
+    "platform": "ios",
+    "category": "groceries",
+    "intent": "question",
+    "text": "I buy onions and tomatoes every week. Would love to see recipes or ingredient bundles."
+  },
+  {
+    "source": "Community Forum",
+    "date": "2026-04-22",
+    "platform": "forum",
+    "category": "dairy",
+    "intent": "complaint",
+    "text": "Dairy discovery is stuck. Same products, same brands, same recommendations."
+  },
+  {
+    "source": "Twitter/X",
+    "date": "2026-04-11",
+    "platform": "twitter",
+    "category": "cleaning",
+    "intent": "question",
+    "text": "Why doesn't the app recommend cleaning tools alongside cleaning chemicals?"
+  },
+  {
+    "source": "Reddit",
+    "date": "2026-04-03",
+    "platform": "reddit",
+    "category": "groceries",
+    "intent": "praise",
+    "text": "Why does the homepage always show me the same grocery items? I want variety."
+  },
+  {
+    "source": "Twitter/X",
+    "date": "2026-05-25",
+    "platform": "twitter",
+    "category": "baby_products",
+    "intent": "observation",
+    "text": "Why doesn't the app suggest baby products to users who buy milk and cereals?"
+  },
+  {
+    "source": "Community Forum",
+    "date": "2026-01-12",
+    "platform": "forum",
+    "category": "cleaning",
+    "intent": "observation",
+    "text": "I buy dish soap but never see scrubbers, brushes, or kitchen organization tools."
+  },
+  {
+    "source": "Reddit",
+    "date": "2026-04-01",
+    "platform": "reddit",
+    "category": "snacks",
+    "intent": "complaint",
+    "text": "Why cant the app suggest snacks based on my grocery purchases? I buy diapers too, show me baby snacks."
+  },
+  {
+    "source": "Community Forum",
+    "date": "2026-02-10",
+    "platform": "forum",
+    "category": "dairy",
+    "intent": "question",
+    "text": "Dairy section is the most purchased but least discoverable category."
+  },
+  {
+    "source": "Google Play Store",
+    "date": "2026-03-16",
+    "platform": "android",
+    "category": "pet_supplies",
+    "intent": "question",
+    "text": "Pet supplies are completely invisible unless you search. No cross-category discovery."
+  },
+  {
+    "source": "Apple App Store",
+    "date": "2026-03-18",
+    "platform": "ios",
+    "category": "cleaning",
+    "intent": "praise",
+    "text": "The app should suggest seasonal cleaning products like spring cleaning kits."
+  },
+  {
+    "source": "Google Play Store",
+    "date": "2026-03-10",
+    "platform": "android",
+    "category": "groceries",
+    "intent": "question",
+    "text": "Grocery shopping on this app is efficient but completely lacks serendipity."
+  },
+  {
+    "source": "Twitter/X",
+    "date": "2026-02-12",
+    "platform": "twitter",
+    "category": "cleaning",
+    "intent": "question",
+    "text": "Cleaning supplies are on autopilot. I want to discover better and greener options."
+  },
+  {
+    "source": "Community Forum",
+    "date": "2026-01-29",
+    "platform": "forum",
+    "category": "beverages",
+    "intent": "observation",
+    "text": "The app should have a drink of the day feature for beverage exploration."
+  },
+  {
+    "source": "Apple App Store",
+    "date": "2026-01-04",
+    "platform": "ios",
+    "category": "snacks",
+    "intent": "question",
+    "text": "The app recommends snacks I already bought. I want new and interesting options."
+  },
+  {
+    "source": "Community Forum",
+    "date": "2026-01-24",
+    "platform": "forum",
+    "category": "dairy",
+    "intent": "praise",
+    "text": "Dairy section needs better curation. Same Amul products every time."
+  },
+  {
+    "source": "Reddit",
+    "date": "2026-06-05",
+    "platform": "reddit",
+    "category": "packaged_food",
+    "intent": "observation",
+    "text": "Would love to see meal kit components or recipe-specific packaged items."
+  },
+  {
+    "source": "Twitter/X",
+    "date": "2026-06-02",
     "platform": "twitter",
     "category": "personal_care",
-    "intent": "observation",
-    "text": "I never browse personal care because the app never suggests it during grocery checkout."
+    "intent": "complaint",
+    "text": "I discovered a new sunscreen by searching. The app should recommend these proactively."
+  },
+  {
+    "source": "Reddit",
+    "date": "2026-04-22",
+    "platform": "reddit",
+    "category": "beverages",
+    "intent": "question",
+    "text": "I want to try matcha or oat milk but the app never suggests them."
+  },
+  {
+    "source": "Google Play Store",
+    "date": "2026-03-29",
+    "platform": "android",
+    "category": "household",
+    "intent": "complaint",
+    "text": "Why doesnt the app show me trending household products or new arrivals?"
+  },
+  {
+    "source": "Google Play Store",
+    "date": "2026-03-25",
+    "platform": "android",
+    "category": "groceries",
+    "intent": "question",
+    "text": "Fresh produce is good but I wish the app recommended items from other categories I might like."
   },
   {
     "source": "Reddit",
     "date": "2026-03-04",
     "platform": "reddit",
-    "category": "beverages",
+    "category": "packaged_food",
+    "intent": "question",
+    "text": "The app should have a world food section for discovering international products."
+  },
+  {
+    "source": "Reddit",
+    "date": "2026-03-12",
+    "platform": "reddit",
+    "category": "groceries",
     "intent": "complaint",
-    "text": "Beverage discovery is broken. I only see what I have already purchased."
+    "text": "I discovered a new spice brand by accident. The app should help me find things like that."
+  },
+  {
+    "source": "Community Forum",
+    "date": "2026-01-27",
+    "platform": "forum",
+    "category": "groceries",
+    "intent": "question",
+    "text": "My grocery list is identical every week because the app never shows alternatives."
+  },
+  {
+    "source": "Google Play Store",
+    "date": "2026-01-21",
+    "platform": "android",
+    "category": "personal_care",
+    "intent": "question",
+    "text": "Personal care section needs better visibility for first-time browsers."
   },
   {
     "source": "Apple App Store",
-    "date": "2026-04-28",
+    "date": "2026-02-16",
     "platform": "ios",
-    "category": "baby_products",
+    "category": "packaged_food",
+    "intent": "praise",
+    "text": "Packaged food is repetitive. Same noodles and pasta every time."
+  },
+  {
+    "source": "Google Play Store",
+    "date": "2026-02-11",
+    "platform": "android",
+    "category": "household",
+    "intent": "complaint",
+    "text": "The app keeps showing me the same detergent. There are better options out there."
+  },
+  {
+    "source": "Community Forum",
+    "date": "2026-03-04",
+    "platform": "forum",
+    "category": "groceries",
+    "intent": "complaint",
+    "text": "I have been buying the same rice brand for months. Show me alternatives please."
+  },
+  {
+    "source": "Community Forum",
+    "date": "2026-05-16",
+    "platform": "forum",
+    "category": "household",
+    "intent": "praise",
+    "text": "I buy basic detergent but there are premium options I never see."
+  },
+  {
+    "source": "Reddit",
+    "date": "2026-04-06",
+    "platform": "reddit",
+    "category": "pet_supplies",
     "intent": "suggestion",
-    "text": "Baby care is hard to find. The app should recommend it to first-time parents."
+    "text": "Bought pet food once manually. The app never suggested it again or showed related items."
+  },
+  {
+    "source": "Reddit",
+    "date": "2026-02-16",
+    "platform": "reddit",
+    "category": "personal_care",
+    "intent": "praise",
+    "text": "Personal care section is hidden. I buy groceries but never see skincare or haircare."
+  },
+  {
+    "source": "Reddit",
+    "date": "2026-01-08",
+    "platform": "reddit",
+    "category": "snacks",
+    "intent": "complaint",
+    "text": "Snacks section is repetitive. Where are the healthy alternatives or new brands?"
+  },
+  {
+    "source": "Google Play Store",
+    "date": "2026-01-17",
+    "platform": "android",
+    "category": "household",
+    "intent": "complaint",
+    "text": "Household essentials are fine but I never discover new cleaning products."
+  },
+  {
+    "source": "Apple App Store",
+    "date": "2026-06-03",
+    "platform": "ios",
+    "category": "groceries",
+    "intent": "observation",
+    "text": "Love quick grocery delivery but hate that I never discover new products in this category."
+  },
+  {
+    "source": "Google Play Store",
+    "date": "2026-01-11",
+    "platform": "android",
+    "category": "personal_care",
+    "intent": "suggestion",
+    "text": "I never browse personal care because the app never suggests it during grocery checkout."
+  },
+  {
+    "source": "Community Forum",
+    "date": "2026-04-21",
+    "platform": "forum",
+    "category": "baby_products",
+    "intent": "praise",
+    "text": "Baby product recommendations are generic. Show me age-appropriate items."
   },
   {
     "source": "Twitter/X",
-    "date": "2026-05-31",
+    "date": "2026-05-02",
     "platform": "twitter",
-    "category": "snacks",
+    "category": "household",
     "intent": "complaint",
-    "text": "Why doesnt the app have a snack of the week feature? That would help me try new things."
+    "text": "The app should suggest seasonal household items like mosquito repellent in summer."
+  },
+  {
+    "source": "Twitter/X",
+    "date": "2026-02-28",
+    "platform": "twitter",
+    "category": "dairy",
+    "intent": "question",
+    "text": "Dairy section should have a try something new feature for regular buyers."
   },
   {
     "source": "Apple App Store",
-    "date": "2026-01-26",
+    "date": "2026-04-30",
     "platform": "ios",
-    "category": "packaged_food",
-    "intent": "complaint",
-    "text": "Packaged food section is the largest but has the worst discovery experience."
-  },
-  {
-    "source": "Community Forum",
-    "date": "2026-02-17",
-    "platform": "forum",
-    "category": "beverages",
-    "intent": "praise",
-    "text": "I saw a new energy drink at a store. The app should stock and recommend these."
-  },
-  {
-    "source": "Community Forum",
-    "date": "2026-06-11",
-    "platform": "forum",
-    "category": "personal_care",
+    "category": "cleaning",
     "intent": "suggestion",
+    "text": "Cleaning supplies never change. I want to see new disinfectant brands or tools."
+  },
+  {
+    "source": "Twitter/X",
+    "date": "2026-05-21",
+    "platform": "twitter",
+    "category": "household",
+    "intent": "observation",
+    "text": "The app knows my household purchases. Why not suggest related items?"
+  },
+  {
+    "source": "Twitter/X",
+    "date": "2026-05-15",
+    "platform": "twitter",
+    "category": "personal_care",
+    "intent": "question",
     "text": "Personal care products are hard to find. The app needs better cross-selling."
   },
   {
     "source": "Apple App Store",
-    "date": "2026-06-16",
-    "platform": "ios",
-    "category": "household",
-    "intent": "observation",
-    "text": "I buy basic detergent but there are premium options I never see."
-  },
-  {
-    "source": "Twitter/X",
-    "date": "2026-04-10",
-    "platform": "twitter",
-    "category": "household",
-    "intent": "observation",
-    "text": "Would love a household essentials bundle that includes new product samples."
-  },
-  {
-    "source": "Google Play Store",
-    "date": "2026-06-27",
-    "platform": "android",
-    "category": "groceries",
-    "intent": "observation",
-    "text": "I keep ordering the same vegetables every week. There are so many other items on the app I never see."
-  },
-  {
-    "source": "Apple App Store",
-    "date": "2026-02-20",
-    "platform": "ios",
-    "category": "household",
-    "intent": "suggestion",
-    "text": "Household section feels stale. Show me eco-friendly alternatives or new brands."
-  },
-  {
-    "source": "Google Play Store",
-    "date": "2026-02-08",
-    "platform": "android",
-    "category": "snacks",
-    "intent": "praise",
-    "text": "I buy chips weekly but never see nuts, dried fruit, or healthy snack alternatives."
-  },
-  {
-    "source": "Apple App Store",
-    "date": "2026-05-12",
+    "date": "2026-02-05",
     "platform": "ios",
     "category": "personal_care",
     "intent": "suggestion",
-    "text": "Found a great shampoo by accident. The app should surface personal care items to grocery buyers."
+    "text": "The app should have a grooming essentials section for new product discovery."
   },
   {
-    "source": "Community Forum",
-    "date": "2026-01-13",
-    "platform": "forum",
+    "source": "Google Play Store",
+    "date": "2026-06-10",
+    "platform": "android",
+    "category": "packaged_food",
+    "intent": "question",
+    "text": "Packaged food needs better categorization. I cannot find healthy options easily."
+  },
+  {
+    "source": "Reddit",
+    "date": "2026-06-12",
+    "platform": "reddit",
+    "category": "packaged_food",
+    "intent": "observation",
+    "text": "I want to try international snacks but the app only shows domestic brands."
+  },
+  {
+    "source": "Twitter/X",
+    "date": "2026-03-05",
+    "platform": "twitter",
     "category": "packaged_food",
     "intent": "suggestion",
     "text": "Why cant the app suggest packaged foods based on cuisine or dietary preference?"
   },
   {
     "source": "Reddit",
-    "date": "2026-05-07",
+    "date": "2026-02-21",
     "platform": "reddit",
-    "category": "beverages",
-    "intent": "suggestion",
-    "text": "I want to try matcha or oat milk but the app never suggests them."
-  },
-  {
-    "source": "Apple App Store",
-    "date": "2026-02-03",
-    "platform": "ios",
-    "category": "personal_care",
-    "intent": "suggestion",
-    "text": "Would love to discover new personal care brands but the app keeps me in my bubble."
-  },
-  {
-    "source": "Twitter/X",
-    "date": "2026-03-06",
-    "platform": "twitter",
-    "category": "cleaning",
+    "category": "groceries",
     "intent": "question",
-    "text": "Cleaning section is neglected. No new products or brands are ever surfaced."
+    "text": "Why does the app only show me dal and rice? I already buy those. Show me something different."
+  },
+  {
+    "source": "Reddit",
+    "date": "2026-05-16",
+    "platform": "reddit",
+    "category": "packaged_food",
+    "intent": "observation",
+    "text": "I buy pasta but never see sauces, oils, or seasoning blends suggested."
   },
   {
     "source": "Community Forum",
-    "date": "2026-06-12",
+    "date": "2026-02-18",
     "platform": "forum",
+    "category": "snacks",
+    "intent": "complaint",
+    "text": "I found a great protein bar by searching randomly. The app should surface these."
+  },
+  {
+    "source": "Apple App Store",
+    "date": "2026-02-06",
+    "platform": "ios",
     "category": "baby_products",
+    "intent": "question",
+    "text": "Baby product recommendations are stale. Show me new arrivals and safety-tested items."
+  },
+  {
+    "source": "Twitter/X",
+    "date": "2026-03-28",
+    "platform": "twitter",
+    "category": "dairy",
+    "intent": "complaint",
+    "text": "I buy milk daily. Why not suggest flavored yogurt or plant-based milk?"
+  },
+  {
+    "source": "Google Play Store",
+    "date": "2026-02-08",
+    "platform": "android",
+    "category": "dairy",
     "intent": "observation",
+    "text": "Dairy section needs better product diversity in its recommendations."
+  },
+  {
+    "source": "Apple App Store",
+    "date": "2026-06-01",
+    "platform": "ios",
+    "category": "beverages",
+    "intent": "suggestion",
+    "text": "The beverage aisle is cluttered. Finding new drinks is exhausting."
+  },
+  {
+    "source": "Reddit",
+    "date": "2026-04-28",
+    "platform": "reddit",
+    "category": "household",
+    "intent": "praise",
+    "text": "Why doesnt the app recommend kitchen organizers or storage solutions?"
+  },
+  {
+    "source": "Twitter/X",
+    "date": "2026-05-10",
+    "platform": "twitter",
+    "category": "groceries",
+    "intent": "observation",
+    "text": "Grocery repeat orders are convenient but I feel stuck in a loop with no discovery."
+  },
+  {
+    "source": "Reddit",
+    "date": "2026-04-03",
+    "platform": "reddit",
+    "category": "pet_supplies",
+    "intent": "praise",
+    "text": "I buy pet food but never see grooming products or accessories suggested."
+  },
+  {
+    "source": "Google Play Store",
+    "date": "2026-01-21",
+    "platform": "android",
+    "category": "cleaning",
+    "intent": "question",
+    "text": "Why does the app only show chemical cleaners? I want eco-friendly alternatives."
+  },
+  {
+    "source": "Google Play Store",
+    "date": "2026-04-07",
+    "platform": "android",
+    "category": "pet_supplies",
+    "intent": "suggestion",
+    "text": "The app should recommend pet products to users who buy pet-adjacent items."
+  },
+  {
+    "source": "Twitter/X",
+    "date": "2026-04-16",
+    "platform": "twitter",
+    "category": "beverages",
+    "intent": "suggestion",
+    "text": "I buy juice every morning but never see smoothie alternatives. Annoying."
+  },
+  {
+    "source": "Twitter/X",
+    "date": "2026-01-23",
+    "platform": "twitter",
+    "category": "packaged_food",
+    "intent": "observation",
+    "text": "Packaged food section is the largest but has the worst discovery experience."
+  },
+  {
+    "source": "Google Play Store",
+    "date": "2026-06-20",
+    "platform": "android",
+    "category": "dairy",
+    "intent": "observation",
+    "text": "Dairy purchases should unlock breakfast or recipe-based product suggestions."
+  },
+  {
+    "source": "Google Play Store",
+    "date": "2026-02-02",
+    "platform": "android",
+    "category": "snacks",
+    "intent": "question",
+    "text": "I buy chips weekly but never see nuts, dried fruit, or healthy snack alternatives."
+  },
+  {
+    "source": "Google Play Store",
+    "date": "2026-05-13",
+    "platform": "android",
+    "category": "baby_products",
+    "intent": "praise",
     "text": "Baby section needs a curated new parent essentials bundle."
   },
   {
     "source": "Community Forum",
-    "date": "2026-05-27",
+    "date": "2026-06-28",
     "platform": "forum",
-    "category": "household",
+    "category": "dairy",
+    "intent": "suggestion",
+    "text": "I buy curd daily but never see raita or probiotic drinks suggested."
+  },
+  {
+    "source": "Twitter/X",
+    "date": "2026-05-27",
+    "platform": "twitter",
+    "category": "personal_care",
     "intent": "praise",
-    "text": "Household essentials are on autopilot. I want to discover better products."
+    "text": "The app knows I buy household items. Why not suggest personal care bundles?"
   },
   {
     "source": "Google Play Store",
-    "date": "2026-04-24",
+    "date": "2026-05-25",
     "platform": "android",
-    "category": "dairy",
-    "intent": "complaint",
-    "text": "Dairy recommendations are predictable. Show me something new and interesting."
+    "category": "snacks",
+    "intent": "question",
+    "text": "I am bored of the same biscuits. Show me something from a new brand."
   },
   {
-    "source": "Reddit",
-    "date": "2026-02-24",
-    "platform": "reddit",
+    "source": "Google Play Store",
+    "date": "2026-05-28",
+    "platform": "android",
+    "category": "household",
+    "intent": "suggestion",
+    "text": "Household essentials are on autopilot. I want to discover better products."
+  },
+  {
+    "source": "Community Forum",
+    "date": "2026-01-25",
+    "platform": "forum",
     "category": "cleaning",
     "intent": "complaint",
     "text": "I buy laundry detergent but never see stain removers or fabric softeners."
   },
   {
-    "source": "Reddit",
-    "date": "2026-06-25",
-    "platform": "reddit",
-    "category": "pet_supplies",
-    "intent": "complaint",
-    "text": "I buy premium pet food but never see matching premium toys or beds."
-  },
-  {
     "source": "Apple App Store",
-    "date": "2026-04-28",
+    "date": "2026-05-25",
     "platform": "ios",
-    "category": "groceries",
-    "intent": "praise",
-    "text": "Grocery section is fine but there is zero motivation to browse beyond my usual."
+    "category": "beverages",
+    "intent": "suggestion",
+    "text": "The drink section needs better discovery. I had to search manually for coconut water."
   },
   {
     "source": "Community Forum",
-    "date": "2026-02-06",
+    "date": "2026-05-27",
     "platform": "forum",
     "category": "personal_care",
-    "intent": "suggestion",
-    "text": "The app should have a grooming essentials section for new product discovery."
+    "intent": "praise",
+    "text": "Why doesnt the app suggest personal care during checkout for relevant buyers?"
   },
   {
     "source": "Apple App Store",
-    "date": "2026-06-13",
+    "date": "2026-02-13",
     "platform": "ios",
-    "category": "household",
+    "category": "snacks",
     "intent": "praise",
-    "text": "Household product recommendations are predictable and boring."
+    "text": "Great snack selection but zero discovery. I only find new things by accident."
+  },
+  {
+    "source": "Google Play Store",
+    "date": "2026-02-03",
+    "platform": "android",
+    "category": "beverages",
+    "intent": "observation",
+    "text": "Beverage section is the most repetitive category on the app. Needs fixing."
   },
   {
     "source": "Twitter/X",
-    "date": "2026-05-22",
+    "date": "2026-06-10",
     "platform": "twitter",
-    "category": "pet_supplies",
+    "category": "groceries",
     "intent": "question",
-    "text": "As a pet owner, I want the app to suggest treats and toys alongside my grocery order."
+    "text": "I keep ordering the same vegetables every week. There are so many other items on the app I never see."
+  },
+  {
+    "source": "Twitter/X",
+    "date": "2026-05-27",
+    "platform": "twitter",
+    "category": "baby_products",
+    "intent": "observation",
+    "text": "Baby care discovery is the biggest gap in this app's recommendation engine."
+  },
+  {
+    "source": "Google Play Store",
+    "date": "2026-04-16",
+    "platform": "android",
+    "category": "snacks",
+    "intent": "complaint",
+    "text": "Would love to try exotic snacks but the app only shows mainstream options."
+  },
+  {
+    "source": "Twitter/X",
+    "date": "2026-01-20",
+    "platform": "twitter",
+    "category": "dairy",
+    "intent": "complaint",
+    "text": "I buy paneer but never see cream, sour cream, or other dairy alternatives."
+  },
+  {
+    "source": "Reddit",
+    "date": "2026-01-23",
+    "platform": "reddit",
+    "category": "groceries",
+    "intent": "suggestion",
+    "text": "Love the grocery section but there is no way to discover organic snacks or imported items easily."
+  },
+  {
+    "source": "Reddit",
+    "date": "2026-01-06",
+    "platform": "reddit",
+    "category": "dairy",
+    "intent": "question",
+    "text": "Dairy purchases should trigger recommendations for breakfast items or healthy snacks."
   },
   {
     "source": "Community Forum",
-    "date": "2026-06-07",
+    "date": "2026-02-17",
     "platform": "forum",
-    "category": "pet_supplies",
-    "intent": "observation",
-    "text": "Why doesn't the app have a pet parent section with curated recommendations?"
+    "category": "snacks",
+    "intent": "suggestion",
+    "text": "The snack aisle on this app needs a complete overhaul in terms of discovery."
   },
   {
     "source": "Apple App Store",
+    "date": "2026-06-15",
+    "platform": "ios",
+    "category": "household",
+    "intent": "observation",
+    "text": "Household section needs a refresh. Same products recommended every time."
+  },
+  {
+    "source": "Twitter/X",
+    "date": "2026-01-07",
+    "platform": "twitter",
+    "category": "snacks",
+    "intent": "observation",
+    "text": "Why doesnt the app have a snack of the week feature? That would help me try new things."
+  },
+  {
+    "source": "Reddit",
+    "date": "2026-03-20",
+    "platform": "reddit",
+    "category": "dairy",
+    "intent": "suggestion",
+    "text": "Would love to discover artisanal cheese or greek yogurt but the app doesnt show them."
+  },
+  {
+    "source": "Google Play Store",
+    "date": "2026-02-13",
+    "platform": "android",
+    "category": "packaged_food",
+    "intent": "suggestion",
+    "text": "Packaged food section is huge but discovery is terrible. Everything looks the same."
+  },
+  {
+    "source": "Reddit",
+    "date": "2026-04-09",
+    "platform": "reddit",
+    "category": "baby_products",
+    "intent": "complaint",
+    "text": "Baby product discovery is critical for new parents. The app fails here."
+  },
+  {
+    "source": "Twitter/X",
+    "date": "2026-03-11",
+    "platform": "twitter",
+    "category": "personal_care",
+    "intent": "question",
+    "text": "I would buy more personal care items if the app showed them to me."
+  },
+  {
+    "source": "Google Play Store",
+    "date": "2026-04-29",
+    "platform": "android",
+    "category": "household",
+    "intent": "question",
+    "text": "Household section feels stale. Show me eco-friendly alternatives or new brands."
+  },
+  {
+    "source": "Community Forum",
+    "date": "2026-04-01",
+    "platform": "forum",
+    "category": "pet_supplies",
+    "intent": "complaint",
+    "text": "Pet section is an afterthought on this app. Needs proper discovery features."
+  },
+  {
+    "source": "Google Play Store",
     "date": "2026-04-26",
+    "platform": "android",
+    "category": "packaged_food",
+    "intent": "question",
+    "text": "Why does the app recommend the same pasta sauce? Show me Thai curry paste or hummus."
+  },
+  {
+    "source": "Google Play Store",
+    "date": "2026-04-22",
+    "platform": "android",
+    "category": "packaged_food",
+    "intent": "praise",
+    "text": "Would love a try new foods section that rotates weekly featured products."
+  },
+  {
+    "source": "Twitter/X",
+    "date": "2026-03-25",
+    "platform": "twitter",
+    "category": "packaged_food",
+    "intent": "question",
+    "text": "Packaged food recommendations are boring. Show me gourmet or artisanal options."
+  },
+  {
+    "source": "Community Forum",
+    "date": "2026-05-31",
+    "platform": "forum",
+    "category": "snacks",
+    "intent": "question",
+    "text": "Snack buyers are stuck in a rut. The app needs better cross-category suggestions."
+  },
+  {
+    "source": "Google Play Store",
+    "date": "2026-06-22",
+    "platform": "android",
+    "category": "groceries",
+    "intent": "complaint",
+    "text": "Groceries are my main use case but I never get personalized suggestions for new items."
+  },
+  {
+    "source": "Reddit",
+    "date": "2026-04-20",
+    "platform": "reddit",
+    "category": "beverages",
+    "intent": "observation",
+    "text": "Beverage section is dominated by colas. Where are the artisanal options?"
+  },
+  {
+    "source": "Apple App Store",
+    "date": "2026-04-11",
     "platform": "ios",
     "category": "cleaning",
     "intent": "complaint",
@@ -393,794 +993,202 @@
   },
   {
     "source": "Apple App Store",
-    "date": "2026-02-02",
+    "date": "2026-04-13",
     "platform": "ios",
-    "category": "packaged_food",
-    "intent": "praise",
-    "text": "Would love a try new foods section that rotates weekly featured products."
-  },
-  {
-    "source": "Apple App Store",
-    "date": "2026-01-21",
-    "platform": "ios",
-    "category": "cleaning",
-    "intent": "praise",
-    "text": "Cleaning section needs a complete discovery overhaul."
+    "category": "pet_supplies",
+    "intent": "complaint",
+    "text": "The app should suggest pet products based on the pet type if the user specifies."
   },
   {
     "source": "Twitter/X",
-    "date": "2026-04-11",
+    "date": "2026-02-15",
     "platform": "twitter",
-    "category": "packaged_food",
-    "intent": "question",
-    "text": "I want to try international snacks but the app only shows domestic brands."
+    "category": "pet_supplies",
+    "intent": "praise",
+    "text": "Why doesn't the app have a pet parent section with curated recommendations?"
   },
   {
     "source": "Reddit",
-    "date": "2026-01-13",
+    "date": "2026-05-04",
     "platform": "reddit",
-    "category": "baby_products",
+    "category": "pet_supplies",
     "intent": "suggestion",
-    "text": "Baby products section exists but the app never surfaces it to relevant buyers."
-  },
-  {
-    "source": "Google Play Store",
-    "date": "2026-03-12",
-    "platform": "android",
-    "category": "household",
-    "intent": "suggestion",
-    "text": "Household section needs a refresh. Same products recommended every time."
-  },
-  {
-    "source": "Community Forum",
-    "date": "2026-03-02",
-    "platform": "forum",
-    "category": "pet_supplies",
-    "intent": "observation",
-    "text": "Why cant the app create a pet essentials bundle for new pet owners?"
-  },
-  {
-    "source": "Reddit",
-    "date": "2026-03-21",
-    "platform": "reddit",
-    "category": "personal_care",
-    "intent": "complaint",
-    "text": "The app knows I buy household items. Why not suggest personal care bundles?"
-  },
-  {
-    "source": "Twitter/X",
-    "date": "2026-02-25",
-    "platform": "twitter",
-    "category": "groceries",
-    "intent": "complaint",
-    "text": "Grocery delivery is great but the app keeps pushing me back to my usual cart. I want to try something new."
-  },
-  {
-    "source": "Google Play Store",
-    "date": "2026-05-29",
-    "platform": "android",
-    "category": "pet_supplies",
-    "intent": "complaint",
-    "text": "Pet supplies are buried in the app. Needs a dedicated discovery flow."
-  },
-  {
-    "source": "Reddit",
-    "date": "2026-05-13",
-    "platform": "reddit",
-    "category": "personal_care",
-    "intent": "praise",
-    "text": "Personal care recommendations are generic. Show me products based on my profile."
-  },
-  {
-    "source": "Google Play Store",
-    "date": "2026-04-12",
-    "platform": "android",
-    "category": "pet_supplies",
-    "intent": "observation",
-    "text": "I buy pet food but never see grooming products or accessories suggested."
-  },
-  {
-    "source": "Apple App Store",
-    "date": "2026-01-17",
-    "platform": "ios",
-    "category": "beverages",
-    "intent": "observation",
-    "text": "The drink section needs better discovery. I had to search manually for coconut water."
-  },
-  {
-    "source": "Apple App Store",
-    "date": "2026-01-12",
-    "platform": "ios",
-    "category": "groceries",
-    "intent": "observation",
-    "text": "Wish the app had a try something new section for grocery buyers like me."
-  },
-  {
-    "source": "Twitter/X",
-    "date": "2026-06-28",
-    "platform": "twitter",
-    "category": "household",
-    "intent": "praise",
-    "text": "Would love to see smart home products or organizational tools recommended."
-  },
-  {
-    "source": "Apple App Store",
-    "date": "2026-03-01",
-    "platform": "ios",
-    "category": "packaged_food",
-    "intent": "praise",
-    "text": "Would love to see meal kit components or recipe-specific packaged items."
-  },
-  {
-    "source": "Apple App Store",
-    "date": "2026-03-04",
-    "platform": "ios",
-    "category": "household",
-    "intent": "complaint",
-    "text": "I buy the same cleaning supplies every month. Suggest me something different."
-  },
-  {
-    "source": "Reddit",
-    "date": "2026-05-01",
-    "platform": "reddit",
-    "category": "dairy",
-    "intent": "praise",
-    "text": "Dairy is my most bought category but I never see cheese alternatives or yogurt varieties."
-  },
-  {
-    "source": "Community Forum",
-    "date": "2026-01-15",
-    "platform": "forum",
-    "category": "dairy",
-    "intent": "observation",
-    "text": "Would love to discover plant-based dairy alternatives but the app never suggests them."
-  },
-  {
-    "source": "Twitter/X",
-    "date": "2026-01-10",
-    "platform": "twitter",
-    "category": "beverages",
-    "intent": "praise",
-    "text": "Beverage section is dominated by colas. Where are the artisanal options?"
-  },
-  {
-    "source": "Twitter/X",
-    "date": "2026-06-28",
-    "platform": "twitter",
-    "category": "snacks",
-    "intent": "praise",
-    "text": "I found a great protein bar by searching randomly. The app should surface these."
-  },
-  {
-    "source": "Community Forum",
-    "date": "2026-01-25",
-    "platform": "forum",
-    "category": "personal_care",
-    "intent": "complaint",
-    "text": "I buy the same shampoo for years. Show me alternatives or new launches."
-  },
-  {
-    "source": "Twitter/X",
-    "date": "2026-02-03",
-    "platform": "twitter",
-    "category": "groceries",
-    "intent": "observation",
-    "text": "I buy onions and tomatoes every week. Would love to see recipes or ingredient bundles."
-  },
-  {
-    "source": "Apple App Store",
-    "date": "2026-05-05",
-    "platform": "ios",
-    "category": "dairy",
-    "intent": "observation",
-    "text": "Dairy is repetitive. I see the same milk and butter every day."
-  },
-  {
-    "source": "Twitter/X",
-    "date": "2026-05-28",
-    "platform": "twitter",
-    "category": "personal_care",
-    "intent": "observation",
-    "text": "Why are personal care recommendations so basic? Show me serums, masks, and tools."
-  },
-  {
-    "source": "Apple App Store",
-    "date": "2026-02-27",
-    "platform": "ios",
-    "category": "cleaning",
-    "intent": "observation",
-    "text": "Cleaning supplies are on autopilot. I want to discover better and greener options."
-  },
-  {
-    "source": "Reddit",
-    "date": "2026-05-09",
-    "platform": "reddit",
-    "category": "personal_care",
-    "intent": "praise",
-    "text": "Personal care discovery is broken. I only find things through manual search."
-  },
-  {
-    "source": "Google Play Store",
-    "date": "2026-01-19",
-    "platform": "android",
-    "category": "personal_care",
-    "intent": "question",
-    "text": "Why does the app hide personal care from grocery shoppers? We need these products too."
-  },
-  {
-    "source": "Twitter/X",
-    "date": "2026-03-22",
-    "platform": "twitter",
-    "category": "baby_products",
-    "intent": "complaint",
-    "text": "I buy baby wipes but never see diaper cream or rash solutions."
-  },
-  {
-    "source": "Google Play Store",
-    "date": "2026-02-21",
-    "platform": "android",
-    "category": "beverages",
-    "intent": "observation",
-    "text": "I buy juice every morning but never see smoothie alternatives. Annoying."
-  },
-  {
-    "source": "Reddit",
-    "date": "2026-05-19",
-    "platform": "reddit",
-    "category": "groceries",
-    "intent": "complaint",
-    "text": "Why does the app only show me dal and rice? I already buy those. Show me something different."
-  },
-  {
-    "source": "Apple App Store",
-    "date": "2026-04-21",
-    "platform": "ios",
-    "category": "beverages",
-    "intent": "suggestion",
-    "text": "I wish the app would suggest beverages that pair with my grocery items."
-  },
-  {
-    "source": "Reddit",
-    "date": "2026-03-24",
-    "platform": "reddit",
-    "category": "packaged_food",
-    "intent": "praise",
-    "text": "I buy instant noodles but never see ramen or pho alternatives."
-  },
-  {
-    "source": "Apple App Store",
-    "date": "2026-06-26",
-    "platform": "ios",
-    "category": "groceries",
-    "intent": "question",
-    "text": "Fresh produce is good but I wish the app recommended items from other categories I might like."
-  },
-  {
-    "source": "Google Play Store",
-    "date": "2026-01-16",
-    "platform": "android",
-    "category": "household",
-    "intent": "observation",
-    "text": "Why doesnt the app recommend kitchen organizers or storage solutions?"
-  },
-  {
-    "source": "Twitter/X",
-    "date": "2026-04-27",
-    "platform": "twitter",
-    "category": "cleaning",
-    "intent": "suggestion",
-    "text": "The app should suggest seasonal cleaning products like spring cleaning kits."
-  },
-  {
-    "source": "Reddit",
-    "date": "2026-02-25",
-    "platform": "reddit",
-    "category": "snacks",
-    "intent": "praise",
-    "text": "I always end up buying the same chips and biscuits. The recommendation engine is stuck."
-  },
-  {
-    "source": "Apple App Store",
-    "date": "2026-03-16",
-    "platform": "ios",
-    "category": "baby_products",
-    "intent": "praise",
-    "text": "I buy milk and snacks but never see baby formula or wipes suggested."
-  },
-  {
-    "source": "Community Forum",
-    "date": "2026-03-29",
-    "platform": "forum",
-    "category": "dairy",
-    "intent": "question",
-    "text": "Dairy section needs better curation. Same Amul products every time."
-  },
-  {
-    "source": "Google Play Store",
-    "date": "2026-04-11",
-    "platform": "android",
-    "category": "pet_supplies",
-    "intent": "praise",
-    "text": "Pet supplies are completely invisible unless you search. No cross-category discovery."
-  },
-  {
-    "source": "Google Play Store",
-    "date": "2026-02-09",
-    "platform": "android",
-    "category": "packaged_food",
-    "intent": "observation",
-    "text": "Packaged food discovery is non-existent. I only buy what I already know."
-  },
-  {
-    "source": "Apple App Store",
-    "date": "2026-02-12",
-    "platform": "ios",
-    "category": "pet_supplies",
-    "intent": "question",
     "text": "I buy pet treats but never see health supplements or toys. Frustrating."
   },
   {
+    "source": "Reddit",
+    "date": "2026-06-14",
+    "platform": "reddit",
+    "category": "snacks",
+    "intent": "praise",
+    "text": "Snack recommendations are stale. I see the same five brands every time."
+  },
+  {
     "source": "Google Play Store",
-    "date": "2026-01-01",
+    "date": "2026-02-01",
     "platform": "android",
-    "category": "cleaning",
-    "intent": "question",
-    "text": "Cleaning supplies never change. I want to see new disinfectant brands or tools."
+    "category": "baby_products",
+    "intent": "complaint",
+    "text": "The app should recommend baby products alongside dairy and food purchases."
+  },
+  {
+    "source": "Google Play Store",
+    "date": "2026-05-17",
+    "platform": "android",
+    "category": "snacks",
+    "intent": "suggestion",
+    "text": "Snack section is huge but poorly organized. Discovery is nearly impossible."
   },
   {
     "source": "Reddit",
-    "date": "2026-01-07",
+    "date": "2026-01-28",
     "platform": "reddit",
-    "category": "groceries",
-    "intent": "observation",
-    "text": "The grocery reorder feature is a trap. It keeps me from exploring new products."
-  },
-  {
-    "source": "Community Forum",
-    "date": "2026-05-13",
-    "platform": "forum",
-    "category": "beverages",
-    "intent": "praise",
-    "text": "Beverage recommendations should learn from my grocery patterns, not just drink history."
+    "category": "baby_products",
+    "intent": "complaint",
+    "text": "Parenting is exhausting. The app should make discovering baby products easier."
   },
   {
     "source": "Twitter/X",
-    "date": "2026-05-18",
+    "date": "2026-01-22",
     "platform": "twitter",
-    "category": "cleaning",
-    "intent": "praise",
-    "text": "I buy floor cleaner but never see window cleaners or kitchen sprays suggested."
-  },
-  {
-    "source": "Apple App Store",
-    "date": "2026-06-15",
-    "platform": "ios",
-    "category": "household",
-    "intent": "observation",
-    "text": "I buy tissues and paper towels but never see cloth alternatives suggested."
-  },
-  {
-    "source": "Google Play Store",
-    "date": "2026-03-19",
-    "platform": "android",
-    "category": "cleaning",
-    "intent": "observation",
-    "text": "The app should suggest cleaning bundles based on the room or task."
-  },
-  {
-    "source": "Reddit",
-    "date": "2026-01-10",
-    "platform": "reddit",
-    "category": "pet_supplies",
-    "intent": "praise",
-    "text": "Pet supply recommendations are random. They should be based on purchase history."
-  },
-  {
-    "source": "Community Forum",
-    "date": "2026-04-02",
-    "platform": "forum",
-    "category": "packaged_food",
-    "intent": "complaint",
-    "text": "I discovered a new pasta brand at a store. The app should stock and recommend these."
-  },
-  {
-    "source": "Apple App Store",
-    "date": "2026-02-13",
-    "platform": "ios",
-    "category": "snacks",
-    "intent": "suggestion",
-    "text": "I am bored of the same biscuits. Show me something from a new brand."
-  },
-  {
-    "source": "Apple App Store",
-    "date": "2026-06-11",
-    "platform": "ios",
-    "category": "beverages",
-    "intent": "complaint",
-    "text": "Would love if the app showed me beverages from other categories like health drinks."
-  },
-  {
-    "source": "Google Play Store",
-    "date": "2026-03-15",
-    "platform": "android",
-    "category": "personal_care",
-    "intent": "question",
-    "text": "Why doesnt the app suggest personal care during checkout for relevant buyers?"
-  },
-  {
-    "source": "Reddit",
-    "date": "2026-05-21",
-    "platform": "reddit",
-    "category": "beverages",
-    "intent": "question",
-    "text": "Beverage section is the most repetitive category on the app. Needs fixing."
-  },
-  {
-    "source": "Community Forum",
-    "date": "2026-01-03",
-    "platform": "forum",
-    "category": "personal_care",
-    "intent": "complaint",
-    "text": "Personal care section is hidden. I buy groceries but never see skincare or haircare."
-  },
-  {
-    "source": "Apple App Store",
-    "date": "2026-01-27",
-    "platform": "ios",
-    "category": "beverages",
-    "intent": "question",
-    "text": "Beverage section needs better curation. Everything looks the same."
-  },
-  {
-    "source": "Apple App Store",
-    "date": "2026-06-09",
-    "platform": "ios",
-    "category": "groceries",
-    "intent": "suggestion",
-    "text": "I discovered a new spice brand by accident. The app should help me find things like that."
-  },
-  {
-    "source": "Apple App Store",
-    "date": "2026-04-30",
-    "platform": "ios",
-    "category": "baby_products",
-    "intent": "praise",
-    "text": "Why cant the app suggest baby essentials based on the child's age?"
-  },
-  {
-    "source": "Apple App Store",
-    "date": "2026-03-03",
-    "platform": "ios",
-    "category": "groceries",
-    "intent": "question",
-    "text": "Love the grocery section but there is no way to discover organic snacks or imported items easily."
-  },
-  {
-    "source": "Community Forum",
-    "date": "2026-01-12",
-    "platform": "forum",
-    "category": "cleaning",
-    "intent": "observation",
-    "text": "I buy bathroom cleaner but never see mold removers or grout cleaners."
-  },
-  {
-    "source": "Apple App Store",
-    "date": "2026-05-08",
-    "platform": "ios",
-    "category": "cleaning",
-    "intent": "praise",
-    "text": "Cleaning product recommendations are stale. Same brands, same products every time."
-  },
-  {
-    "source": "Apple App Store",
-    "date": "2026-05-20",
-    "platform": "ios",
-    "category": "groceries",
-    "intent": "observation",
-    "text": "The app should suggest seasonal produce or local specials to repeat grocery buyers."
-  },
-  {
-    "source": "Reddit",
-    "date": "2026-01-29",
-    "platform": "reddit",
-    "category": "dairy",
-    "intent": "observation",
-    "text": "Why doesn't the app suggest cheese or yogurt to milk buyers?"
-  },
-  {
-    "source": "Community Forum",
-    "date": "2026-06-18",
-    "platform": "forum",
-    "category": "dairy",
-    "intent": "suggestion",
-    "text": "Dairy section should have a try something new feature for regular buyers."
-  },
-  {
-    "source": "Reddit",
-    "date": "2026-02-08",
-    "platform": "reddit",
-    "category": "cleaning",
-    "intent": "observation",
-    "text": "Cleaning section is basic. Show me steam cleaners or eco-friendly alternatives."
-  },
-  {
-    "source": "Reddit",
-    "date": "2026-04-11",
-    "platform": "reddit",
     "category": "personal_care",
     "intent": "question",
     "text": "Personal care should be surfaced to users based on their purchase patterns."
   },
   {
-    "source": "Apple App Store",
-    "date": "2026-03-29",
-    "platform": "ios",
-    "category": "groceries",
-    "intent": "observation",
-    "text": "Why does the homepage always show me the same grocery items? I want variety."
-  },
-  {
-    "source": "Reddit",
-    "date": "2026-06-09",
-    "platform": "reddit",
-    "category": "cleaning",
-    "intent": "complaint",
-    "text": "Would love to see smart cleaning devices or automated solutions recommended."
+    "source": "Twitter/X",
+    "date": "2026-06-10",
+    "platform": "twitter",
+    "category": "beverages",
+    "intent": "question",
+    "text": "Same Coke and Pepsi every time. I want to see cold pressed juices or kombucha."
   },
   {
     "source": "Google Play Store",
-    "date": "2026-01-17",
+    "date": "2026-03-01",
     "platform": "android",
+    "category": "baby_products",
+    "intent": "complaint",
+    "text": "I buy diapers weekly but never see baby shampoo or lotion suggested."
+  },
+  {
+    "source": "Twitter/X",
+    "date": "2026-02-05",
+    "platform": "twitter",
+    "category": "cleaning",
+    "intent": "suggestion",
+    "text": "The app should suggest cleaning bundles based on the room or task."
+  },
+  {
+    "source": "Apple App Store",
+    "date": "2026-04-02",
+    "platform": "ios",
+    "category": "cleaning",
+    "intent": "question",
+    "text": "Cleaning products need cross-selling. I buy mops but never see replacement heads."
+  },
+  {
+    "source": "Apple App Store",
+    "date": "2026-04-13",
+    "platform": "ios",
+    "category": "packaged_food",
+    "intent": "suggestion",
+    "text": "Why doesn't the app suggest international packaged foods to adventurous eaters?"
+  },
+  {
+    "source": "Apple App Store",
+    "date": "2026-03-28",
+    "platform": "ios",
     "category": "household",
-    "intent": "observation",
-    "text": "The household section should have a try new brands section."
+    "intent": "complaint",
+    "text": "Why does the app never suggest upgraded versions of what I buy?"
+  },
+  {
+    "source": "Google Play Store",
+    "date": "2026-03-22",
+    "platform": "android",
+    "category": "personal_care",
+    "intent": "question",
+    "text": "Would love to discover new personal care brands but the app keeps me in my bubble."
   },
   {
     "source": "Community Forum",
     "date": "2026-03-19",
     "platform": "forum",
-    "category": "cleaning",
-    "intent": "observation",
-    "text": "The app keeps showing me Harpic and Lizol. There are better options."
-  },
-  {
-    "source": "Twitter/X",
-    "date": "2026-04-11",
-    "platform": "twitter",
-    "category": "household",
-    "intent": "praise",
-    "text": "Household discovery is non-existent. I am stuck buying the same brand forever."
+    "category": "beverages",
+    "intent": "suggestion",
+    "text": "I wish the app would suggest beverages that pair with my grocery items."
   },
   {
     "source": "Apple App Store",
     "date": "2026-04-01",
     "platform": "ios",
-    "category": "packaged_food",
-    "intent": "question",
-    "text": "Packaged food section is huge but discovery is terrible. Everything looks the same."
-  },
-  {
-    "source": "Apple App Store",
-    "date": "2026-05-20",
-    "platform": "ios",
-    "category": "beverages",
-    "intent": "observation",
-    "text": "Why does the app keep showing me the same bottled water brand?"
-  },
-  {
-    "source": "Google Play Store",
-    "date": "2026-02-21",
-    "platform": "android",
-    "category": "snacks",
-    "intent": "suggestion",
-    "text": "I buy savory snacks but never see sweet alternatives suggested. Weird."
-  },
-  {
-    "source": "Twitter/X",
-    "date": "2026-06-14",
-    "platform": "twitter",
-    "category": "snacks",
-    "intent": "suggestion",
-    "text": "The snack aisle on this app needs a complete overhaul in terms of discovery."
-  },
-  {
-    "source": "Reddit",
-    "date": "2026-01-18",
-    "platform": "reddit",
-    "category": "household",
-    "intent": "observation",
-    "text": "The app should suggest seasonal household items like mosquito repellent in summer."
-  },
-  {
-    "source": "Twitter/X",
-    "date": "2026-01-03",
-    "platform": "twitter",
-    "category": "beverages",
-    "intent": "praise",
-    "text": "I drink coffee but would love to discover cold brew or specialty teas."
-  },
-  {
-    "source": "Apple App Store",
-    "date": "2026-06-15",
-    "platform": "ios",
-    "category": "packaged_food",
-    "intent": "suggestion",
-    "text": "Packaged food recommendations are boring. Show me gourmet or artisanal options."
-  },
-  {
-    "source": "Google Play Store",
-    "date": "2026-06-19",
-    "platform": "android",
-    "category": "groceries",
-    "intent": "question",
-    "text": "The app remembers what I buy but never suggests anything beyond my usual vegetables."
-  },
-  {
-    "source": "Twitter/X",
-    "date": "2026-06-08",
-    "platform": "twitter",
-    "category": "pet_supplies",
-    "intent": "observation",
-    "text": "The app should cross-sell pet products during grocery checkout for pet owners."
-  },
-  {
-    "source": "Reddit",
-    "date": "2026-04-02",
-    "platform": "reddit",
-    "category": "household",
+    "category": "personal_care",
     "intent": "complaint",
-    "text": "The app knows my household purchases. Why not suggest related items?"
+    "text": "I buy soap but never see face wash or moisturizer alternatives."
   },
   {
-    "source": "Apple App Store",
-    "date": "2026-03-13",
-    "platform": "ios",
+    "source": "Google Play Store",
+    "date": "2026-01-10",
+    "platform": "android",
     "category": "pet_supplies",
-    "intent": "suggestion",
-    "text": "Would love to see seasonal pet products like cooling mats in summer."
+    "intent": "question",
+    "text": "I buy premium pet food but never see matching premium toys or beds."
   },
   {
-    "source": "Twitter/X",
+    "source": "Community Forum",
+    "date": "2026-04-07",
+    "platform": "forum",
+    "category": "personal_care",
+    "intent": "complaint",
+    "text": "Found a great shampoo by accident. The app should surface personal care items to grocery buyers."
+  },
+  {
+    "source": "Reddit",
     "date": "2026-03-20",
-    "platform": "twitter",
-    "category": "baby_products",
-    "intent": "suggestion",
-    "text": "I buy diapers weekly but never see baby shampoo or lotion suggested."
-  },
-  {
-    "source": "Google Play Store",
-    "date": "2026-01-22",
-    "platform": "android",
-    "category": "baby_products",
-    "intent": "observation",
-    "text": "Baby product recommendations are generic. Show me age-appropriate items."
-  },
-  {
-    "source": "Community Forum",
-    "date": "2026-03-02",
-    "platform": "forum",
-    "category": "packaged_food",
-    "intent": "praise",
-    "text": "Why doesn't the app suggest international packaged foods to adventurous eaters?"
-  },
-  {
-    "source": "Apple App Store",
-    "date": "2026-06-16",
-    "platform": "ios",
-    "category": "personal_care",
-    "intent": "complaint",
-    "text": "I buy household cleaning products but never see personal care bundles."
-  },
-  {
-    "source": "Apple App Store",
-    "date": "2026-01-18",
-    "platform": "ios",
-    "category": "packaged_food",
-    "intent": "observation",
-    "text": "Packaged food is repetitive. Same noodles and pasta every time."
-  },
-  {
-    "source": "Google Play Store",
-    "date": "2026-06-03",
-    "platform": "android",
-    "category": "cleaning",
-    "intent": "suggestion",
-    "text": "Cleaning section has zero personality. It needs curated recommendations."
-  },
-  {
-    "source": "Google Play Store",
-    "date": "2026-04-13",
-    "platform": "android",
-    "category": "household",
-    "intent": "observation",
-    "text": "Why does the app never suggest upgraded versions of what I buy?"
-  },
-  {
-    "source": "Apple App Store",
-    "date": "2026-02-27",
-    "platform": "ios",
-    "category": "packaged_food",
-    "intent": "complaint",
-    "text": "The app should have a world food section for discovering international products."
-  },
-  {
-    "source": "Google Play Store",
-    "date": "2026-06-03",
-    "platform": "android",
-    "category": "packaged_food",
-    "intent": "complaint",
-    "text": "Packaged food needs better cross-selling. Snacks should pair with beverages."
-  },
-  {
-    "source": "Twitter/X",
-    "date": "2026-04-17",
-    "platform": "twitter",
-    "category": "personal_care",
-    "intent": "praise",
-    "text": "I discovered a new sunscreen by searching. The app should recommend these proactively."
-  },
-  {
-    "source": "Google Play Store",
-    "date": "2026-03-14",
-    "platform": "android",
-    "category": "groceries",
-    "intent": "question",
-    "text": "Groceries are my main use case but I never get personalized suggestions for new items."
-  },
-  {
-    "source": "Reddit",
-    "date": "2026-05-27",
     "platform": "reddit",
-    "category": "baby_products",
-    "intent": "complaint",
-    "text": "I discovered baby food by accident. The app should surface these proactively."
-  },
-  {
-    "source": "Apple App Store",
-    "date": "2026-04-27",
-    "platform": "ios",
     "category": "pet_supplies",
-    "intent": "praise",
-    "text": "The app should recommend pet products to users who buy pet-adjacent items."
+    "intent": "question",
+    "text": "Pet supply recommendations are random. They should be based on purchase history."
+  },
+  {
+    "source": "Twitter/X",
+    "date": "2026-03-31",
+    "platform": "twitter",
+    "category": "packaged_food",
+    "intent": "observation",
+    "text": "Packaged food recommendations are stuck in a loop. Same brands, same products."
   },
   {
     "source": "Community Forum",
-    "date": "2026-05-30",
+    "date": "2026-03-03",
     "platform": "forum",
-    "category": "cleaning",
-    "intent": "suggestion",
-    "text": "Cleaning products need cross-selling. I buy mops but never see replacement heads."
+    "category": "personal_care",
+    "intent": "observation",
+    "text": "Personal care discovery is broken. I only find things through manual search."
   },
   {
     "source": "Apple App Store",
-    "date": "2026-05-04",
+    "date": "2026-02-04",
     "platform": "ios",
-    "category": "dairy",
-    "intent": "praise",
-    "text": "Dairy section is the most purchased but least discoverable category."
-  },
-  {
-    "source": "Twitter/X",
-    "date": "2026-01-06",
-    "platform": "twitter",
     "category": "household",
-    "intent": "observation",
-    "text": "Why doesnt the app show me trending household products or new arrivals?"
+    "intent": "question",
+    "text": "I buy trash bags but never see recycling bins or eco alternatives."
   },
   {
-    "source": "Reddit",
-    "date": "2026-05-27",
-    "platform": "reddit",
-    "category": "snacks",
-    "intent": "suggestion",
-    "text": "Love the snack variety available but the app never helps me find new things."
+    "source": "Community Forum",
+    "date": "2026-06-05",
+    "platform": "forum",
+    "category": "beverages",
+    "intent": "praise",
+    "text": "Beverage discovery is broken. I only see what I have already purchased."
   },
   {
     "source": "Twitter/X",
-    "date": "2026-03-07",
+    "date": "2026-01-13",
     "platform": "twitter",
-    "category": "dairy",
-    "intent": "observation",
-    "text": "Dairy purchases should unlock breakfast or recipe-based product suggestions."
+    "category": "beverages",
+    "intent": "praise",
+    "text": "Would love if the app showed me beverages from other categories like health drinks."
   }
 ]

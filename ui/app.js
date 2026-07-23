@@ -442,11 +442,20 @@ const LiveData = {
       return;
     }
     const BADGE = { complaint:'badge-complaint', observation:'badge-observation', suggestion:'badge-suggestion', praise:'badge-praise', question:'badge-question' };
+    
+    // Helper to strip HTML and escape for safe DOM insertion
+    const sanitizeText = (txt) => {
+      if (!txt) return '';
+      const stripped = txt.replace(/<[^>]*>?/gm, '');
+      return stripped.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+    };
+
     rows.innerHTML = records.map((r, i) => {
       const stars   = '★'.repeat(r.rating) + '☆'.repeat(5 - r.rating);
       const cats    = (r.categories||[]).map(c=>`<span class="cat-tag">${c.replace(/_/g,' ')}</span>`).join('');
-      const snippet = r.text.length > 130 ? r.text.slice(0,130) + '…' : r.text;
-      const tooltip = r.text.replace(/"/g,'&quot;').slice(0,280);
+      const cleanText = sanitizeText(r.text);
+      const snippet = cleanText.length > 130 ? cleanText.slice(0, 130) + '…' : cleanText;
+      const tooltip = cleanText.slice(0, 280);
       return `<div class="vt-data-row ${i%2===0?'even':''}"
         onmouseenter="Tooltip.show(event,'<b>${r.id}</b><br><span style=color:var(--text-muted)>${r.source} · ${r.date}</span><br><br>${tooltip}')"
         onmouseleave="Tooltip.hide()">
@@ -1292,6 +1301,9 @@ const AISearch = {
     if (!query) return;
 
     if (empty) empty.style.display = 'none';
+
+    const layout = document.getElementById('aisearchLayout');
+    if (layout) layout.classList.add('search-active');
 
     const userMsg = document.createElement('div');
     userMsg.className = 'aisearch-msg aisearch-user';

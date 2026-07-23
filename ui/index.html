@@ -368,21 +368,24 @@
 
     <!-- ────── TAB 5: AI SEARCH ────────────────────────────────────────── -->
     <section class="tab-panel" id="tab-aisearch" role="tabpanel">
-      <div class="aisearch-layout">
-        <div class="aisearch-toolbar">
-          <h2 class="panel-title"><span class="panel-title-icon">🔍</span>AI Data Search</h2>
-          <span class="matrix-hint">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-            Ask questions about the Discovery Engine data — powered by Groq AI
-          </span>
+      <div class="aisearch-layout" id="aisearchLayout">
+        
+        <div class="aisearch-brand-header">
+          <div class="brand-logo-large">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2L2 7l10 5 10-5-10-5z" fill="#f97316"/>
+              <path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h1 class="aisearch-brand-title">Discovery Engine</h1>
         </div>
 
         <div class="aisearch-input-bar">
           <div class="aisearch-input-wrap">
-            <svg class="aisearch-input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            <input type="text" id="aisearchInput" class="aisearch-input" placeholder="e.g. Why do users avoid buying personal care products?" autocomplete="off" />
+            <svg class="aisearch-input-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" id="aisearchInput" class="aisearch-input" placeholder="Ask questions about the Discovery Engine data..." autocomplete="off" />
             <button id="aisearchBtn" class="aisearch-submit" onclick="AISearch.search()">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
             </button>
           </div>
         </div>
@@ -398,8 +401,8 @@
         <div class="aisearch-results" id="aisearchResults">
           <div class="aisearch-empty" id="aisearchEmpty">
             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" opacity="0.3"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            <p>Ask a question about the Discovery Engine data</p>
-            <p class="aisearch-empty-sub">The AI will analyze 274+ scraped reviews, themes, and insights to answer</p>
+            <p>Powered by Groq AI</p>
+            <p class="aisearch-empty-sub">Analyzing 274+ scraped reviews, themes, and insights in real-time</p>
           </div>
         </div>
       </div>

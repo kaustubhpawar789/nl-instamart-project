@@ -23,6 +23,10 @@
   --bg-card-hover:#232a40;
   --bg-elevated:  #1f2338;
 
+  /* Aliases for compatibility */
+  --surface-elevated: #1a1f35;
+  --border-subtle: rgba(255,255,255,0.08);
+
   --border:       rgba(255,255,255,0.06);
   --border-strong:#2a3050;
 
@@ -316,7 +320,7 @@ svg { flex-shrink: 0; }
    ════════════════════════════════════════════════════════════════════════════ */
 .tab-panel {
   display: none;
-  padding: 20px 24px 40px;
+  padding: 24px 32px 60px;
   animation: fadeIn 0.25s ease;
 }
 
@@ -490,7 +494,7 @@ svg { flex-shrink: 0; }
 
 .vt-row {
   display: grid;
-  grid-template-columns: 60px 100px 90px 110px 100px 100px 1fr 80px 1fr;
+  grid-template-columns: 110px 100px 100px 130px 100px 110px 1.5fr 110px 2.5fr;
   gap: 0;
   align-items: center;
   min-height: 36px;
@@ -502,12 +506,12 @@ svg { flex-shrink: 0; }
 }
 
 .vt-head-row .vt-cell {
-  font-size: 10.5px;
+  font-size: 11px;
   font-weight: 700;
   color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  padding: 10px 12px;
+  padding: 13px 14px;
   cursor: default;
   user-select: none;
   border-right: 1px solid var(--border);
@@ -551,10 +555,10 @@ svg { flex-shrink: 0; }
 
 .vt-data-row {
   display: grid;
-  grid-template-columns: 60px 100px 90px 110px 100px 100px 1fr 80px 1fr;
+  grid-template-columns: 110px 100px 100px 130px 100px 110px 1.5fr 110px 2.5fr;
   gap: 0;
   align-items: center;
-  min-height: 40px;
+  min-height: 52px;
   border-bottom: 1px solid var(--border);
   transition: background 0.15s;
 }
@@ -572,9 +576,9 @@ svg { flex-shrink: 0; }
 }
 
 .vt-cell {
-  font-size: 12px;
+  font-size: 12.5px;
   color: var(--text-secondary);
-  padding: 8px 12px;
+  padding: 12px 14px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -717,8 +721,8 @@ svg { flex-shrink: 0; }
 }
 
 .data-table th {
-  padding: 10px 14px;
-  font-size: 10.5px;
+  padding: 14px 18px;
+  font-size: 11px;
   font-weight: 700;
   color: var(--text-muted);
   text-transform: uppercase;
@@ -728,7 +732,7 @@ svg { flex-shrink: 0; }
 }
 
 .data-table td {
-  padding: 10px 14px;
+  padding: 14px 18px;
   color: var(--text-secondary);
   border-bottom: 1px solid var(--border);
   vertical-align: top;
@@ -1691,8 +1695,8 @@ svg { flex-shrink: 0; }
 }
 
 .matrix-table th {
-  padding: 10px 14px;
-  font-size: 10.5px;
+  padding: 14px 18px;
+  font-size: 11px;
   font-weight: 700;
   color: var(--text-muted);
   text-transform: uppercase;
@@ -1709,7 +1713,7 @@ svg { flex-shrink: 0; }
 .matrix-col-score { text-align: center; }
 
 .matrix-table td {
-  padding: 10px 14px;
+  padding: 14px 18px;
   font-size: 12px;
   color: var(--text-secondary);
   border-bottom: 1px solid var(--border);
@@ -2087,22 +2091,23 @@ svg { flex-shrink: 0; }
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 7px 16px;
-  font-size: 12px;
+  padding: 8px 18px;
+  font-size: 12.5px;
   font-weight: 600;
   color: #fff;
   background: var(--accent);
   border: 1px solid var(--accent);
   border-radius: var(--radius);
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   white-space: nowrap;
 }
 
 .btn-primary:hover:not(:disabled) {
   background: #6d28d9;
   border-color: #6d28d9;
-  box-shadow: 0 2px 12px rgba(124,58,237,0.3);
+  box-shadow: 0 4px 14px rgba(124,58,237,0.4);
+  transform: translateY(-1px);
 }
 
 .btn-primary:active:not(:disabled) {
@@ -2269,7 +2274,7 @@ svg { flex-shrink: 0; }
 
   .vt-row,
   .vt-data-row {
-    grid-template-columns: 50px 80px 80px 90px 80px 80px 1fr 60px 1fr;
+    grid-template-columns: 90px 90px 90px 100px 90px 90px 1fr 90px 1.5fr;
     font-size: 11px;
   }
 
@@ -2325,62 +2330,123 @@ svg { flex-shrink: 0; }
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
-   AI SEARCH TAB
+   AI SEARCH TAB — Google-Style
    ════════════════════════════════════════════════════════════════════════════ */
+
+/* The full tab panel for AI Search gets no left/right padding so we control
+   centering ourselves */
+/* ── AI Search Tab: override the default tab-panel padding & display ─── */
+#tab-aisearch {
+  padding: 0 !important;
+}
+
+#tab-aisearch.active {
+  display: block !important;
+}
+
 .aisearch-layout {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  max-width: 900px;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 680px;
   margin: 0 auto;
+  padding: 12vh 24px 60px;
+  box-sizing: border-box;
+  transition: padding-top 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.aisearch-layout.search-active {
+  padding-top: 28px;
+  align-items: stretch;
+}
+
+/* ── Branding Header ────────────────────────────────────────────────────── */
+.aisearch-brand-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  transition: opacity 0.3s ease, transform 0.3s ease, max-height 0.4s ease;
+  max-height: 200px;
+  overflow: hidden;
+}
+
+.aisearch-brand-title {
+  font-size: 40px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  text-align: center;
+  background: linear-gradient(135deg, #f97316 0%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
   width: 100%;
 }
 
-.aisearch-toolbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  flex-wrap: wrap;
+.aisearch-layout.search-active .aisearch-brand-header {
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-12px);
+  pointer-events: none;
 }
 
+/* ── Search Input ───────────────────────────────────────────────────────── */
 .aisearch-input-bar {
   width: 100%;
+  align-self: stretch;
 }
 
 .aisearch-input-wrap {
   display: flex;
   align-items: center;
-  background: var(--surface-elevated);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius);
-  padding: 4px 4px 4px 16px;
-  transition: border-color 0.2s;
+  width: 100%;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-strong);
+  border-radius: 40px;
+  padding: 8px 8px 8px 22px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.3);
+  transition: border-color 0.25s, box-shadow 0.25s;
+  gap: 8px;
 }
 
 .aisearch-input-wrap:focus-within {
   border-color: var(--accent);
-  box-shadow: 0 0 0 2px rgba(124,58,237,0.15);
+  box-shadow: 0 4px 24px rgba(124,58,237,0.3);
 }
 
 .aisearch-input-icon {
   flex-shrink: 0;
   color: var(--text-muted);
+  margin-left: 4px;
 }
 
 .aisearch-input {
   flex: 1;
-  background: transparent;
-  border: none;
-  outline: none;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  outline: none !important;
+  box-shadow: none !important;
   color: var(--text-primary);
-  font-size: 14px;
-  padding: 12px;
-  font-family: inherit;
+  font-size: 16px;
+  padding: 12px 12px;
+  font-family: var(--font);
+  min-width: 0;
+}
+
+.aisearch-input:focus {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
 }
 
 .aisearch-input::placeholder {
   color: var(--text-muted);
+  font-size: 15px;
 }
 
 .aisearch-submit {
@@ -2388,18 +2454,20 @@ svg { flex-shrink: 0; }
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border: none;
-  border-radius: var(--radius-sm);
+  border-radius: 50%;
   background: var(--accent);
   color: #fff;
   cursor: pointer;
-  transition: opacity 0.2s;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
 }
 
-.aisearch-submit:hover {
-  opacity: 0.85;
+.aisearch-submit:hover:not(:disabled) {
+  background: #6d28d9;
+  box-shadow: 0 4px 12px rgba(124,58,237,0.4);
+  transform: scale(1.05);
 }
 
 .aisearch-submit:disabled {
@@ -2407,48 +2475,55 @@ svg { flex-shrink: 0; }
   cursor: not-allowed;
 }
 
+/* ── Suggestion Chips ───────────────────────────────────────────────────── */
 .aisearch-presets {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   flex-wrap: wrap;
+  width: 100%;
 }
 
 .aisearch-presets-label {
-  font-size: 12px;
-  font-weight: 600;
+  font-size: 11px;
+  font-weight: 700;
   color: var(--text-muted);
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
+  margin-right: 4px;
 }
 
 .aisearch-preset {
   display: inline-flex;
   align-items: center;
-  padding: 5px 12px;
-  font-size: 12px;
+  padding: 6px 14px;
+  font-size: 12.5px;
   font-weight: 500;
   color: var(--text-secondary);
-  background: var(--surface-elevated);
-  border: 1px solid var(--border-subtle);
-  border-radius: 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-strong);
+  border-radius: 24px;
   cursor: pointer;
-  transition: all 0.15s;
+  transition: all 0.2s ease;
   white-space: nowrap;
+  font-family: var(--font);
 }
 
 .aisearch-preset:hover {
-  color: var(--accent);
+  color: var(--accent-light);
   border-color: var(--accent);
-  background: rgba(124,58,237,0.06);
+  background: rgba(124,58,237,0.08);
+  transform: translateY(-1px);
 }
 
+/* ── Results Area ───────────────────────────────────────────────────────── */
 .aisearch-results {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  min-height: 200px;
-  padding: 8px 0;
+  gap: 16px;
+  width: 100%;
+  padding: 4px 0;
 }
 
 .aisearch-empty {
@@ -2456,32 +2531,33 @@ svg { flex-shrink: 0; }
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 48px 24px;
+  padding: 40px 24px;
   text-align: center;
   color: var(--text-muted);
-  gap: 8px;
+  gap: 10px;
 }
 
 .aisearch-empty p {
-  font-size: 14px;
+  font-size: 15px;
+  font-weight: 500;
   margin: 0;
 }
 
 .aisearch-empty-sub {
-  font-size: 12px !important;
-  opacity: 0.6;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  opacity: 0.65;
 }
 
+/* ── Result Cards ───────────────────────────────────────────────────────── */
 .aisearch-msg {
-  padding: 14px 18px;
-  border-radius: var(--radius);
-  max-width: 100%;
-  animation: aisearchFadeIn 0.25s ease;
+  border-radius: var(--radius-lg);
+  animation: aisearchFadeIn 0.3s ease;
 }
 
 @keyframes aisearchFadeIn {
-  from { opacity: 0; transform: translateY(6px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 .aisearch-user {
@@ -2490,105 +2566,102 @@ svg { flex-shrink: 0; }
   color: #fff;
   font-size: 14px;
   font-weight: 500;
-  border-radius: var(--radius) var(--radius) 4px var(--radius);
-  max-width: 75%;
+  padding: 10px 18px;
+  border-radius: 20px 20px 4px 20px;
+  max-width: 80%;
 }
 
 .aisearch-ai {
   align-self: flex-start;
-  background: var(--surface-elevated);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius) var(--radius) var(--radius) 4px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  padding: 20px 24px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.2);
   max-width: 100%;
   width: 100%;
 }
 
 .aisearch-answer {
-  font-size: 13.5px;
-  line-height: 1.65;
+  font-size: 14px;
+  line-height: 1.7;
   color: var(--text-primary);
 }
 
-.aisearch-answer p {
-  margin: 0 0 10px;
-}
-
-.aisearch-answer p:last-child {
-  margin-bottom: 0;
-}
+.aisearch-answer p { margin: 0 0 12px; }
+.aisearch-answer p:last-child { margin-bottom: 0; }
 
 .aisearch-answer h4 {
   font-size: 14px;
   font-weight: 700;
-  margin: 14px 0 6px;
+  margin: 16px 0 6px;
   color: var(--text-primary);
 }
 
 .aisearch-answer li {
-  margin: 2px 0 2px 18px;
+  margin: 4px 0 4px 20px;
   list-style: disc;
+  color: var(--text-secondary);
 }
 
 .aisearch-answer code {
-  background: rgba(124,58,237,0.08);
-  padding: 1px 5px;
-  border-radius: 3px;
-  font-size: 12px;
+  background: rgba(124,58,237,0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 12.5px;
   font-family: 'SF Mono', 'Fira Code', monospace;
 }
 
 .aisearch-answer strong {
-  color: var(--accent);
+  color: var(--accent-light);
+  font-weight: 600;
 }
 
 .aisearch-sources {
-  margin-top: 10px;
-  padding-top: 10px;
-  border-top: 1px solid var(--border-subtle);
-  font-size: 11px;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border-strong);
+  font-size: 11.5px;
   color: var(--text-muted);
 }
 
 .aisearch-loading {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   color: var(--text-muted);
-  font-size: 13px;
+  font-size: 13.5px;
+  padding: 20px 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
 }
 
 .aisearch-spinner {
   width: 18px;
   height: 18px;
-  border: 2px solid var(--border-subtle);
+  border: 2.5px solid var(--border-strong);
   border-top-color: var(--accent);
   border-radius: 50%;
-  animation: aisearchSpin 0.7s linear infinite;
+  flex-shrink: 0;
+  animation: aisearchSpin 0.75s linear infinite;
 }
 
-@keyframes aisearchSpin {
-  to { transform: rotate(360deg); }
-}
+@keyframes aisearchSpin { to { transform: rotate(360deg); } }
 
 .aisearch-error {
   background: rgba(239,68,68,0.08);
   color: #fca5a5;
   border: 1px solid rgba(239,68,68,0.2);
-  font-size: 13px;
+  font-size: 13.5px;
+  padding: 16px 20px;
 }
 
 @media (max-width: 900px) {
-  .aisearch-layout {
-    max-width: 100%;
-  }
-  .aisearch-presets {
-    gap: 6px;
-  }
-  .aisearch-preset {
-    font-size: 11px;
-    padding: 4px 10px;
-  }
-  .aisearch-user {
-    max-width: 90%;
-  }
+  .aisearch-layout { max-width: 100%; }
+  .aisearch-presets { gap: 6px; }
+  .aisearch-preset { font-size: 11.5px; padding: 5px 11px; }
+  .aisearch-user { max-width: 90%; }
+  .aisearch-brand-title { font-size: 28px; }
 }
+

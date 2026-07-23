@@ -95,6 +95,13 @@ class APIHandler(SimpleHTTPRequestHandler):
         else:
             self.send_error(404)
 
+    def send_response(self, code, message=None):
+        super().send_response(code, message)
+        # Disable caching for all static UI assets so CSS/JS changes are immediate
+        if not self.path.startswith("/api/"):
+            self.send_header("Cache-Control", "no-store, no-cache, must-revalidate")
+            self.send_header("Pragma", "no-cache")
+
     def do_POST(self):
         parsed = urlparse(self.path)
         path = parsed.path

@@ -38,8 +38,9 @@ const API = {
       headers: { 'Content-Type': 'application/json' },
       body:    JSON.stringify(body),
     });
-    if (!res.ok) throw new Error(`POST ${path} → ${res.status}`);
-    return res.json();
+    const json = await res.json().catch(() => ({ error: `POST ${path} failed` }));
+    if (!res.ok && !json.error) json.error = `Server error ${res.status}`;
+    return json;
   },
 
   async del(path) {
@@ -64,7 +65,7 @@ const State = {
    TAB MANAGER
    ════════════════════════════════════════════════════════════════════════════ */
 const TabManager = {
-  tabs: ['scraping','insights','matrix','research'],
+  tabs: ['scraping','insights','matrix','research','aisearch'],
   active: 'scraping',
 
   init() {
@@ -98,6 +99,8 @@ const TabManager = {
       DrillDownMatrix.init();
     if (tabId === 'research' && !OpenTracker.initialized)
       OpenTracker.init();
+    if (tabId === 'aisearch' && !AISearch.initialized)
+      AISearch.init();
   },
 };
 
@@ -1250,6 +1253,112 @@ const Tooltip = {
       this._el.classList.remove('visible');
       this._el.style.cssText = '';
     }, 2800);
+  },
+};
+
+/* ════════════════════════════════════════════════════════════════════════════
+   AI SEARCH  —  natural language query → Groq AI → answer from data
+   ════════════════════════════════════════════════════════════════════════════ */
+const AISearch = {
+  initialized: false,
+  _history: [],
+
+  init() {
+    this.initialized = true;
+    const input = document.getElementById('aisearchInput');
+    if (input) {
+      input.addEventListener('keydown', e => {
+        if (e.key === 'Enter') this.search();
+      });
+    }
+  },
+
+  askPreset(btn) {
+    const input = document.getElementById('aisearchInput');
+    if (input && btn.textContent) {
+      input.value = btn.textContent.trim();
+      this.search();
+    }
+  },
+
+  async search() {
+    const input = document.getElementById('aisearchInput');
+    const results = document.getElementById('aisearchResults');
+    const empty = document.getElementById('aisearchEmpty');
+    const btn = document.getElementById('aisearchBtn');
+    if (!input || !results) return;
+
+    const query = input.value.trim();
+    if (!query) return;
+
+    if (empty) empty.style.display = 'none';
+
+    const userMsg = document.createElement('div');
+    userMsg.className = 'aisearch-msg aisearch-user';
+    userMsg.textContent = query;
+    results.appendChild(userMsg);
+
+    const loading = document.createElement('div');
+    loading.className = 'aisearch-msg aisearch-loading';
+    loading.innerHTML = '<div class="aisearch-spinner"></div><span>Analyzing data…</span>';
+    results.appendChild(loading);
+
+    if (btn) btn.disabled = true;
+    input.value = '';
+    results.scrollTop = results.scrollHeight;
+
+    try {
+      const data = await API.post('/api/search', { query });
+      loading.remove();
+
+      if (data.error) {
+        const errDiv = document.createElement('div');
+        errDiv.className = 'aisearch-msg aisearch-error';
+        errDiv.textContent = data.error;
+        results.appendChild(errDiv);
+      } else {
+        const aiMsg = document.createElement('div');
+        aiMsg.className = 'aisearch-msg aisearch-ai';
+
+        const answerDiv = document.createElement('div');
+        answerDiv.className = 'aisearch-answer';
+        answerDiv.innerHTML = this._formatAnswer(data.answer);
+        aiMsg.appendChild(answerDiv);
+
+        if (data.sources && data.sources.length) {
+          const srcDiv = document.createElement('div');
+          srcDiv.className = 'aisearch-sources';
+          srcDiv.textContent = 'Sources: ' + data.sources.join(', ');
+          aiMsg.appendChild(srcDiv);
+        }
+        results.appendChild(aiMsg);
+      }
+    } catch (e) {
+      loading.remove();
+      const errDiv = document.createElement('div');
+      errDiv.className = 'aisearch-msg aisearch-error';
+      errDiv.textContent = 'Network error — is the API server running?';
+      results.appendChild(errDiv);
+    }
+
+    if (btn) btn.disabled = false;
+    results.scrollTop = results.scrollHeight;
+  },
+
+  _formatAnswer(text) {
+    if (!text) return '';
+    let html = text
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+      .replace(/`(.*?)`/g, '<code>$1</code>')
+      .replace(/^### (.*$)/gm, '<h4>$1</h4>')
+      .replace(/^## (.*$)/gm, '<h4>$1</h4>')
+      .replace(/^# (.*$)/gm, '<h4>$1</h4>')
+      .replace(/^- (.*$)/gm, '<li>$1</li>')
+      .replace(/^(\d+)\. (.*$)/gm, '<li>$2</li>')
+      .replace(/\n{2,}/g, '</p><p>')
+      .replace(/\n/g, '<br>');
+    return `<p>${html}</p>`;
   },
 };
 

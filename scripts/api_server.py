@@ -8,6 +8,7 @@ Persistence via JSON files in database/.
 
 import json
 import os
+import re
 import sys
 import threading
 import time
@@ -17,8 +18,18 @@ from http.server import HTTPServer, SimpleHTTPRequestHandler
 from socketserver import ThreadingMixIn
 from urllib.parse import parse_qs, urlparse
 
+import requests as _http_requests
+from dotenv import load_dotenv
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATABASE = os.path.join(ROOT, "database")
+
+load_dotenv(os.path.join(ROOT, ".env"))
+load_dotenv(os.path.join(ROOT, "secrets", ".env"))
+
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+GROQ_ENDPOINT = "https://api.groq.com/openai/v1/chat/completions"
+GROQ_MODEL = "llama-3.3-70b-versatile"
 
 SCRAPE_SIM_DELAY = 4
 
@@ -94,6 +105,8 @@ class APIHandler(SimpleHTTPRequestHandler):
             self._post_scrape()
         elif path == "/api/survey/submit":
             self._post_survey_submit()
+        elif path == "/api/search":
+            self._post_search()
         else:
             self.send_error(404)
 
@@ -620,6 +633,190 @@ class APIHandler(SimpleHTTPRequestHandler):
                 break
         return picked
 
+    # ── POST /api/search ──────────────────────────────────────────────────
+
+    def _post_search(self):
+        body = self._parse_body()
+        query = (body.get("query") or "").strip()
+        if not query:
+            self._json({"error": "Query is required"}, 400)
+            return
+
+        if not GROQ_API_KEY:
+            self._json({"error": "AI service not configured — GROQ_API_KEY missing"}, 503)
+            return
+
+        query = self._sanitize_query(query)
+
+        try:
+            context = self._build_search_context(query)
+            answer = self._call_groq_search(query, context)
+            self._json({"answer": answer, "query": query, "sources": context["source_list"]})
+        except Exception as e:
+            self._json({"error": f"AI service temporarily unavailable: {str(e)}"}, 502)
+
+    def _sanitize_query(self, query):
+        query = re.sub(r'<[^>]+>', '', query)
+        query = re.sub(r'[`$]', '', query)
+        return query[:500]
+
+    def _build_search_context(self, query):
+        cleaned = _read_json(os.path.join(DATABASE, "cleaned_feedback.json"), [])
+        if not isinstance(cleaned, list):
+            cleaned = []
+        insights = _read_json(os.path.join(DATABASE, "ai_insights.json"), {})
+        if not isinstance(insights, dict):
+            insights = {}
+
+        source_set = set()
+        all_cats = set()
+        sentiment_counts = {"positive": 0, "neutral": 0, "negative": 0}
+        rating_sum = 0
+        rating_count = 0
+        cat_data = {}
+
+        for r in cleaned:
+            sentiment = r.get("sentiment", "neutral") or "neutral"
+            if sentiment in sentiment_counts:
+                sentiment_counts[sentiment] += 1
+            cats = r.get("categories") or ["general"]
+            for c in cats:
+                all_cats.add(c)
+                if c not in cat_data:
+                    cat_data[c] = {"mentions": 0, "positive": 0, "neutral": 0, "negative": 0, "ratings": []}
+                cat_data[c]["mentions"] += 1
+                if sentiment in ("positive", "neutral", "negative"):
+                    cat_data[c][sentiment] += 1
+                if r.get("rating"):
+                    cat_data[c]["ratings"].append(r["rating"])
+            if r.get("source"):
+                source_set.add(r["source"])
+            if r.get("rating"):
+                rating_sum += r["rating"]
+                rating_count += 1
+
+        total = len(cleaned)
+        avg_rating = round(rating_sum / rating_count, 1) if rating_count else 0
+
+        sections = []
+
+        sections.append(f"=== SWIGGY INSTAMART DISCOVERY ENGINE — COMPLETE DATA EXPORT ===")
+        sections.append(f"Total reviews analyzed: {total}")
+        sections.append(f"Data sources: {', '.join(sorted(source_set)) if source_set else 'N/A'}")
+        sections.append(f"Overall average rating: {avg_rating}/5")
+        sections.append(f"Sentiment distribution: Positive {sentiment_counts['positive']} ({round(sentiment_counts['positive']/total*100,1) if total else 0}%), Neutral {sentiment_counts['neutral']} ({round(sentiment_counts['neutral']/total*100,1) if total else 0}%), Negative {sentiment_counts['negative']} ({round(sentiment_counts['negative']/total*100,1) if total else 0}%)")
+
+        sections.append(f"\n=== CATEGORY BREAKDOWN ===")
+        sorted_cats = sorted(cat_data.items(), key=lambda x: -x[1]["mentions"])
+        for name, d in sorted_cats:
+            neg_pct = round(d["negative"] / d["mentions"] * 100) if d["mentions"] else 0
+            avg_r = round(sum(d["ratings"]) / len(d["ratings"]), 1) if d["ratings"] else 0
+            severity = "High" if neg_pct > 50 else ("Medium" if neg_pct > 30 else "Low")
+            impact = "High" if d["mentions"] > 20 else ("Medium" if d["mentions"] > 10 else "Low")
+            sections.append(
+                f"- {name}: {d['mentions']} reviews, sentiment (+{d['positive']}/{d['neutral']}/{d['negative']}), "
+                f"avg rating {avg_r}, negative% {neg_pct}%, gap_severity={severity}, business_impact={impact}"
+            )
+
+        themes = insights.get("themes", [])
+        if themes:
+            sections.append(f"\n=== DISCOVERED THEMES ({len(themes)} total) ===")
+            for t in themes:
+                blocks = t.get("blockers", [])
+                triggers = t.get("triggers", [])
+                evidence = t.get("evidence", [])
+                block_str = "; ".join(blocks[:3]) if blocks else "none identified"
+                trigger_str = "; ".join(triggers[:3]) if triggers else "none identified"
+                sections.append(
+                    f"- {t.get('name', 'Unknown')}: {t.get('mentions', 0)} mentions, "
+                    f"frequency={t.get('frequency', 'N/A')}, sentiment (+{t.get('sentiment',{}).get('positive',0)}/"
+                    f"{t.get('sentiment',{}).get('neutral',0)}/{t.get('sentiment',{}).get('negative',0)})"
+                )
+                sections.append(f"  Blockers: {block_str}")
+                sections.append(f"  Triggers: {trigger_str}")
+                if evidence:
+                    for ev in evidence[:3]:
+                        sections.append(f'  Evidence: "{ev.get("text","")[:200]}" (source: {ev.get("source","")}, category: {ev.get("category","")})')
+
+        structured = insights.get("insights", [])
+        if structured:
+            sections.append(f"\n=== STRUCTURED INSIGHTS ({len(structured)} total) ===")
+            for ins in structured:
+                sections.append(f"- {ins.get('title', 'Untitled')}")
+                sections.append(f"  Observation: {ins.get('observation', '')}")
+                sections.append(f"  User Need: {ins.get('user_need', '')}")
+                sections.append(f"  Root Cause: {ins.get('root_cause', '')}")
+                sections.append(f"  Opportunity: {ins.get('opportunity', '')}")
+                sections.append(f"  Implication: {ins.get('implication', '')}")
+
+        sections.append(f"\n=== REVIEWS (showing {min(80, total)} of {total} — negative/neutral prioritized) ===")
+        sections.append("Format: [SENTIMENT] (Source, Categories, Rating) — Review text")
+
+        neg_reviews = [r for r in cleaned if r.get("sentiment") == "negative"]
+        neu_reviews = [r for r in cleaned if r.get("sentiment") == "neutral"]
+        pos_reviews = [r for r in cleaned if r.get("sentiment") == "positive"]
+        curated = neg_reviews[:40] + neu_reviews[:25] + pos_reviews[:15]
+
+        for r in curated:
+            text = (r.get("text") or "").strip()[:150]
+            sentiment = r.get("sentiment", "unknown")
+            cats = ", ".join(r.get("categories") or ["general"])
+            source = r.get("source", "unknown")
+            rating = r.get("rating", "N/A")
+            themes_str = ", ".join(r.get("themes") or [])
+            sections.append(f"- [{sentiment}] ({source}, {cats}, rating={rating}, themes=[{themes_str}]): {text}")
+
+        context_text = "\n".join(sections)
+        return {"context": context_text, "source_list": sorted(source_set)}
+
+    def _call_groq_search(self, query, context):
+        system_prompt = (
+            "You are a sharp, insightful product analyst. A PM has given you a dataset of "
+            "274 user reviews from Swiggy Instamart (India's grocery delivery app) along with "
+            "pre-computed analytics (sentiment, themes, category breakdowns, insights).\n\n"
+            "Answer the question directly — no introductions, no filler, no 'Based on the data...'. "
+            "Start with your answer immediately.\n\n"
+            "Rules:\n"
+            "- Think before answering. Identify what the data actually says vs what you're inferring.\n"
+            "- Use specific numbers and quote real reviews to back up claims.\n"
+            "- If you're inferring something, say so briefly ('This likely means...' or 'The pattern suggests...').\n"
+            "- Keep it concise. Aim for a clear, meaty 2-4 paragraph answer. Don't pad with headers and bullet points unless the question truly needs them.\n"
+            "- Write like a thoughtful colleague, not a report template.\n"
+            "- Never say 'the data doesn't contain enough information'. Work with what you have.\n"
+            "- Never start with 'Introduction' or 'To understand...'. Just answer."
+        )
+
+        user_prompt = f"DATA:\n{context}\n\nQUESTION: {query}"
+
+        headers = {
+            "Authorization": f"Bearer {GROQ_API_KEY}",
+            "Content-Type": "application/json",
+        }
+        payload = {
+            "model": GROQ_MODEL,
+            "messages": [
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_prompt},
+            ],
+            "temperature": 0.4,
+            "max_tokens": 2000,
+        }
+
+        resp = _http_requests.post(GROQ_ENDPOINT, headers=headers, json=payload, timeout=90)
+
+        retries = 0
+        max_retries = 3
+        while resp.status_code == 429 and retries < max_retries:
+            retries += 1
+            retry_after = resp.headers.get("Retry-After")
+            wait = int(retry_after) if retry_after else (5 * retries)
+            time.sleep(wait)
+            resp = _http_requests.post(GROQ_ENDPOINT, headers=headers, json=payload, timeout=90)
+
+        resp.raise_for_status()
+        data = resp.json()
+        return data["choices"][0]["message"]["content"]
+
     # ── DELETE /api/charts/configs/<id> ───────────────────────────────────
 
     def _delete_charts_config(self, chart_id):
@@ -651,6 +848,7 @@ def main():
     print(f"  POST /api/charts/configs   - Save chart config")
     print(f"  POST /api/scrape           - Start scrape job")
     print(f"  POST /api/survey/submit    - Submit survey response")
+    print(f"  POST /api/search           - AI natural language search")
     print(f"  DEL  /api/charts/configs/<id> - Delete chart config")
     server.serve_forever()
 

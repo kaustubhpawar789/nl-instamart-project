@@ -71,6 +71,7 @@ class APIHandler(SimpleHTTPRequestHandler):
             "/api/charts/configs":   self._get_charts_configs,
             "/api/scrape/status":    self._get_scrape_status,
             "/api/survey/responses": self._get_survey_responses,
+            "/api/matrix":           self._get_matrix,
         }
 
         handler = routes.get(path)
@@ -140,7 +141,7 @@ class APIHandler(SimpleHTTPRequestHandler):
 
     def _get_insights(self, params):
         data = _read_json(os.path.join(DATABASE, "ai_insights.json"))
-        if data is None:
+        if data is None or not isinstance(data, dict):
             data = {
                 "themes": [],
                 "insights": [],
@@ -155,18 +156,26 @@ class APIHandler(SimpleHTTPRequestHandler):
 
     def _get_kpis(self, params):
         live = _read_json(os.path.join(DATABASE, "live_scraped_data.json"), [])
+        if not isinstance(live, list):
+            live = []
         insights = _read_json(os.path.join(DATABASE, "ai_insights.json"), {})
+        if not isinstance(insights, dict):
+            insights = {"themes": [], "insights": [], "categories": []}
         survey = _read_json(os.path.join(DATABASE, "survey_responses.json"), [])
+        if not isinstance(survey, list):
+            survey = []
         status = _read_json(os.path.join(DATABASE, "scrape_status.json"),
                             {"running": False, "added": 0, "error": None})
+        if not isinstance(status, dict):
+            status = {"running": False, "added": 0, "error": None}
 
         total_reviews = len(live)
         unique_sources = list({r.get("source", "unknown") for r in live})
 
         avg_rating = 0.0
         if live:
-            ratings = [r.get("rating", 0) for r in live]
-            avg_rating = round(sum(ratings) / len(ratings), 1)
+            ratings = [r.get("rating", 0) for r in live if r.get("rating")]
+            avg_rating = round(sum(ratings) / len(ratings), 1) if ratings else 0.0
 
         themes = insights.get("themes", [])
         cats = insights.get("categories", [])
@@ -317,6 +326,8 @@ class APIHandler(SimpleHTTPRequestHandler):
         status = _read_json(os.path.join(DATABASE, "scrape_status.json"), {
             "running": False, "added": 0, "error": None,
         })
+        if not isinstance(status, dict):
+            status = {"running": False, "added": 0, "error": None}
         self._json(status)
 
     # ── GET /api/survey/responses ─────────────────────────────────────────
@@ -370,16 +381,12 @@ class APIHandler(SimpleHTTPRequestHandler):
         status = _read_json(filepath, {
             "running": False, "added": 0, "error": None,
         })
+        if not isinstance(status, dict):
+            status = {"running": False, "added": 0, "error": None}
 
         if status.get("running"):
             self._json({"error": "Scrape already in progress"}, 409)
             return
-
-        added = 0
-        live = _read_json(os.path.join(DATABASE, "live_scraped_data.json"), [])
-        if live:
-            import random
-            added = random.randint(3, 12)
 
         status = {
             "running":     True,
@@ -391,13 +398,78 @@ class APIHandler(SimpleHTTPRequestHandler):
         _write_json(filepath, status)
 
         def run():
-            time.sleep(SCRAPE_SIM_DELAY)
+            added = 0
+            try:
+                import sys as _sys
+                _sys.path.insert(0, ROOT)
+                from scripts.scrapers.apple_store_scraper import AppleStoreScraper
+                from scripts.scrapers.base_scraper import BaseScraper
+
+                live_path = os.path.join(DATABASE, "live_scraped_data.json")
+                live = _read_json(live_path, [])
+                if not isinstance(live, list):
+                    live = []
+                existing_ids = {r.get("id") for r in live}
+                existing_texts = {r.get("text", "")[:80] for r in live}
+
+                apple_scraper = AppleStoreScraper()
+                print("[API Scrape] Scraping Apple App Store...")
+                apple_reviews = apple_scraper.scrape()
+                new_apple = 0
+                for r in apple_reviews:
+                    text_key = r["text"][:80]
+                    if r["id"] not in existing_ids and text_key not in existing_texts:
+                        r["sentiment"] = "neutral"
+                        r["themes"] = []
+                        live.append(r)
+                        existing_ids.add(r["id"])
+                        existing_texts.add(text_key)
+                        new_apple += 1
+                print(f"[API Scrape] Apple App Store: {new_apple} new reviews")
+
+                try:
+                    from scripts.scrapers.google_play_scraper import GooglePlayScraper
+                    gp_scraper = GooglePlayScraper()
+                    print("[API Scrape] Scraping Google Play Store...")
+                    gp_reviews = gp_scraper.scrape()
+                    new_gp = 0
+                    for r in gp_reviews:
+                        text_key = r["text"][:80]
+                        if r["id"] not in existing_ids and text_key not in existing_texts:
+                            r["sentiment"] = "neutral"
+                            r["themes"] = []
+                            live.append(r)
+                            existing_ids.add(r["id"])
+                            existing_texts.add(text_key)
+                            new_gp += 1
+                    print(f"[API Scrape] Google Play Store: {new_gp} new reviews")
+                except ImportError:
+                    print("[API Scrape] Google Play scraper not available, skipping")
+
+                _write_json(live_path, live)
+                added = new_apple
+                try:
+                    added += new_gp
+                except Exception:
+                    pass
+
+                try:
+                    from scripts.generate_insights import generate_insights
+                    generate_insights()
+                    print("[API Scrape] Insights regenerated")
+                except Exception as e:
+                    print(f"[API Scrape] Insights generation skipped: {e}")
+
+            except Exception as e:
+                print(f"[API Scrape] Error: {e}")
+                status["error"] = str(e)
+
             _write_json(filepath, {
                 "running":     False,
                 "added":       added,
                 "started_at":  status["started_at"],
                 "finished_at": _now_iso(),
-                "error":       None,
+                "error":       status.get("error"),
             })
 
         threading.Thread(target=run, daemon=True).start()
@@ -445,9 +517,108 @@ class APIHandler(SimpleHTTPRequestHandler):
 
         filepath = os.path.join(DATABASE, "survey_responses.json")
         responses = _read_json(filepath, [])
+        if not isinstance(responses, list):
+            responses = []
         responses.append(response)
         _write_json(filepath, responses)
         self._json(response)
+
+    # ── GET /api/matrix ─────────────────────────────────────────────────
+
+    def _get_matrix(self, params):
+        cleaned = _read_json(os.path.join(DATABASE, "cleaned_feedback.json"), [])
+        if not isinstance(cleaned, list) or not cleaned:
+            cleaned = _read_json(os.path.join(DATABASE, "live_scraped_data.json"), [])
+        if not isinstance(cleaned, list):
+            cleaned = []
+
+        category_data = {}
+        for r in cleaned:
+            cats = r.get("categories", []) or ["general"]
+            sentiment = r.get("sentiment", "neutral") or "neutral"
+            if sentiment not in ("positive", "neutral", "negative"):
+                sentiment = "neutral"
+            for cat in cats:
+                if cat not in category_data:
+                    category_data[cat] = {
+                        "mentions": 0, "positive": 0, "neutral": 0, "negative": 0,
+                        "ratings": [], "sources": set(), "candidates": [],
+                    }
+                category_data[cat]["mentions"] += 1
+                if sentiment in ("positive", "neutral", "negative"):
+                    category_data[cat][sentiment] += 1
+                if r.get("rating"):
+                    category_data[cat]["ratings"].append(r["rating"])
+                if r.get("source"):
+                    category_data[cat]["sources"].add(r["source"])
+                text = (r.get("text") or "").strip()
+                if text and len(text) >= 20:
+                    category_data[cat]["candidates"].append({
+                        "text": text[:250],
+                        "source": r.get("source", ""),
+                        "sentiment": sentiment,
+                        "rating": r.get("rating"),
+                    })
+
+        for cat_data in category_data.values():
+            cat_data["quotes"] = self._pick_best_quotes(cat_data["candidates"], 3)
+            del cat_data["candidates"]
+
+        categories = []
+        for name, data in sorted(category_data.items(), key=lambda x: -x[1]["mentions"]):
+            avg_rating = round(sum(data["ratings"]) / len(data["ratings"]), 1) if data["ratings"] else 0
+            total = data["mentions"]
+            neg_pct = round(data["negative"] / total * 100) if total else 0
+            gap_severity = "High" if neg_pct > 50 else ("Medium" if neg_pct > 30 else "Low")
+            business_impact = "High" if total > 20 else ("Medium" if total > 10 else "Low")
+
+            categories.append({
+                "id": name,
+                "name": name.replace("_", " ").title(),
+                "mentions": total,
+                "gap_severity": gap_severity,
+                "business_impact": business_impact,
+                "neg_pct": neg_pct,
+                "avg_rating": avg_rating,
+                "sentiment": {"positive": data["positive"], "neutral": data["neutral"], "negative": data["negative"]},
+                "sources": list(data["sources"]),
+                "quotes": data["quotes"],
+            })
+
+        self._json({"categories": categories, "total_reviews": len(cleaned)})
+
+    def _pick_best_quotes(self, candidates, limit=3):
+        if not candidates:
+            return []
+        scored = []
+        for c in candidates:
+            score = 0
+            if c["sentiment"] == "negative":
+                score += 100
+            elif c["sentiment"] == "neutral":
+                score += 30
+            text = c["text"]
+            if len(text) > 100:
+                score += 20
+            if len(text) > 180:
+                score += 10
+            if any(kw in text.lower() for kw in ["refund", "expired", "wrong", "late", "cancelled",
+                    "worst", "terrible", "never received", "no response", "fake", "damaged",
+                    "complaint", "fraud", "poor", "disappointed", "unacceptable"]):
+                score += 30
+            scored.append((score, c))
+        scored.sort(key=lambda x: -x[0])
+        seen_texts = set()
+        picked = []
+        for _, c in scored:
+            short = c["text"][:60].lower().strip()
+            if short in seen_texts:
+                continue
+            seen_texts.add(short)
+            picked.append(c)
+            if len(picked) >= limit:
+                break
+        return picked
 
     # ── DELETE /api/charts/configs/<id> ───────────────────────────────────
 

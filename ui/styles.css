@@ -1881,6 +1881,91 @@ svg { flex-shrink: 0; }
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
 }
 
+/* ── Matrix Legend ──────────────────────────────────────────────────────── */
+.matrix-legend {
+  margin-top: 16px;
+  padding: 16px 20px;
+  background: var(--surface-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+}
+
+.matrix-legend-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.matrix-legend-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.matrix-legend-section {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.matrix-legend-subtitle {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.matrix-legend-subtitle-desc {
+  font-size: 10px;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.matrix-legend-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+}
+
+.matrix-legend-table td {
+  padding: 4px 8px 4px 0;
+  color: var(--text-secondary);
+  vertical-align: top;
+}
+
+.matrix-legend-table td:first-child {
+  width: 80px;
+  white-space: nowrap;
+}
+
+.matrix-legend-table td:nth-child(2) {
+  width: 80px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.matrix-legend-formula {
+  font-size: 11px;
+  padding: 8px 10px;
+  background: rgba(124,58,237,0.05);
+  border-radius: var(--radius-sm);
+  border-left: 2px solid var(--accent);
+}
+
+.matrix-legend-formula code {
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: 10.5px;
+  color: var(--accent);
+}
+
+@media (max-width: 900px) {
+  .matrix-legend-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
 
 /* ════════════════════════════════════════════════════════════════════════════
    RESEARCH

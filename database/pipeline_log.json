@@ -1,0 +1,44 @@
+[
+  {
+    "timestamp": "2026-07-23T11:06:50.933352",
+    "total_scraped": 0,
+    "total_cleaned": 0,
+    "sources_scraped": 0
+  },
+  {
+    "timestamp": "2026-07-23T11:08:22.788587",
+    "total_scraped": 0,
+    "total_cleaned": 0,
+    "sources_scraped": 0
+  },
+  {
+    "timestamp": "2026-07-23T11:09:12.649993",
+    "total_scraped": 94,
+    "total_cleaned": 94,
+    "sources_scraped": 1
+  },
+  {
+    "timestamp": "2026-07-23T11:09:44.201997",
+    "total_scraped": 28,
+    "total_cleaned": 28,
+    "sources_scraped": 4
+  },
+  {
+    "timestamp": "2026-07-23T11:11:57.773698",
+    "total_scraped": 188,
+    "total_cleaned": 160,
+    "sources_scraped": 8
+  },
+  {
+    "timestamp": "2026-07-23T11:14:52.680165",
+    "total_scraped": 112,
+    "total_cleaned": 112,
+    "sources_scraped": 8
+  },
+  {
+    "timestamp": "2026-07-23T11:34:11.585309",
+    "total_scraped": 274,
+    "total_cleaned": 172,
+    "sources_scraped": 7
+  }
+]

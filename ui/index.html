@@ -268,6 +268,36 @@
           </tbody>
         </table>
       </div>
+      <div class="matrix-legend">
+        <div class="matrix-legend-title">How to read this matrix</div>
+        <div class="matrix-legend-grid">
+          <div class="matrix-legend-section">
+            <div class="matrix-legend-subtitle">Gap Severity</div>
+            <div class="matrix-legend-subtitle-desc">% of negative reviews in category</div>
+            <table class="matrix-legend-table">
+              <tr><td><span class="badge badge-high">High</span></td><td>≥ 50% negative</td><td>More than half of all feedback is complaints</td></tr>
+              <tr><td><span class="badge badge-medium">Medium</span></td><td>≥ 30% negative</td><td>Significant problems but some positive/neutral feedback</td></tr>
+              <tr><td><span class="badge badge-low">Low</span></td><td>&lt; 30% negative</td><td>Majority of feedback is positive or neutral</td></tr>
+            </table>
+          </div>
+          <div class="matrix-legend-section">
+            <div class="matrix-legend-subtitle">Business Impact</div>
+            <div class="matrix-legend-subtitle-desc">Volume of feedback in this category</div>
+            <table class="matrix-legend-table">
+              <tr><td><span class="badge badge-high">High</span></td><td>&gt; 20 mentions</td><td>Large user base affected — strategic priority</td></tr>
+              <tr><td><span class="badge badge-medium">Medium</span></td><td>&gt; 10 mentions</td><td>Meaningful feedback volume — monitor closely</td></tr>
+              <tr><td><span class="badge badge-low">Low</span></td><td>≤ 10 mentions</td><td>Emerging or niche topic — watch for trends</td></tr>
+            </table>
+          </div>
+          <div class="matrix-legend-section">
+            <div class="matrix-legend-subtitle">Priority Score</div>
+            <div class="matrix-legend-subtitle-desc">Combined urgency = Gap Severity + Business Impact + Trend</div>
+            <div class="matrix-legend-formula">
+              <code>score = gap(40/25/10) + impact(40/25/10) + trend(±0.5%/pt)</code>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- ────── TAB 4: USER RESEARCH ──────────────────────────────────────── -->

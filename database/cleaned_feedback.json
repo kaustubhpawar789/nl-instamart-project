@@ -1,1194 +1,3395 @@
 [
   {
-    "source": "Apple App Store",
-    "date": "2026-03-24",
-    "platform": "ios",
-    "category": "dairy",
-    "intent": "complaint",
-    "text": "Why does the app only recommend full cream milk? Show me toned or flavored options."
-  },
-  {
+    "id": "GOOG-830C9685",
     "source": "Google Play Store",
-    "date": "2026-04-15",
+    "date": "2026-07-22",
     "platform": "android",
-    "category": "dairy",
-    "intent": "suggestion",
-    "text": "Dairy is repetitive. I see the same milk and butter every day."
-  },
-  {
-    "source": "Apple App Store",
-    "date": "2026-06-30",
-    "platform": "ios",
-    "category": "beverages",
-    "intent": "suggestion",
-    "text": "Why cant the app suggest seasonal drinks like lassi in summer or chai in winter?"
-  },
-  {
-    "source": "Google Play Store",
-    "date": "2026-03-13",
-    "platform": "android",
-    "category": "personal_care",
+    "user": "Tajinder Kaur",
+    "location": "India",
+    "text": "very very good app nice work and food low price but best ,good",
     "intent": "praise",
-    "text": "Why does the app hide personal care from grocery shoppers? We need these products too."
+    "categories": [
+      "groceries",
+      "packaged_food"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "positive",
+    "themes": [
+      "product_quality",
+      "pricing"
+    ]
   },
   {
-    "source": "Apple App Store",
-    "date": "2026-03-05",
-    "platform": "ios",
-    "category": "snacks",
-    "intent": "suggestion",
-    "text": "I buy savory snacks but never see sweet alternatives suggested. Weird."
-  },
-  {
-    "source": "Twitter/X",
-    "date": "2026-06-18",
-    "platform": "twitter",
-    "category": "groceries",
-    "intent": "complaint",
-    "text": "Wish the app had a try something new section for grocery buyers like me."
-  },
-  {
-    "source": "Community Forum",
-    "date": "2026-02-22",
-    "platform": "forum",
-    "category": "household",
-    "intent": "question",
-    "text": "Household discovery is non-existent. I am stuck buying the same brand forever."
-  },
-  {
-    "source": "Community Forum",
-    "date": "2026-04-12",
-    "platform": "forum",
-    "category": "dairy",
-    "intent": "observation",
-    "text": "Would love seasonal dairy suggestions like kulfi in summer or paneer tikka kits."
-  },
-  {
-    "source": "Twitter/X",
-    "date": "2026-05-07",
-    "platform": "twitter",
-    "category": "beverages",
-    "intent": "suggestion",
-    "text": "Why does the app only show mainstream beverages? I want local or craft options."
-  },
-  {
+    "id": "GOOG-93A78F72",
     "source": "Google Play Store",
-    "date": "2026-02-22",
+    "date": "2026-07-22",
     "platform": "android",
-    "category": "cleaning",
+    "user": "preeni Preeni",
+    "location": "India",
+    "text": "vari nice \ud83e\ude77\ud83e\ude77",
     "intent": "observation",
-    "text": "Cleaning section is basic. Show me steam cleaners or eco-friendly alternatives."
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "neutral",
+    "themes": [
+      "app_experience"
+    ]
   },
   {
-    "source": "Twitter/X",
-    "date": "2026-02-27",
-    "platform": "twitter",
-    "category": "cleaning",
+    "id": "GOOG-521A5354",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "mohd juned",
+    "location": "India",
+    "text": "I had a terrible experience buying from Instamart. I paid for my order but never received it. I emailed them, but I didn't receive a refund or an order.",
+    "intent": "complaint",
+    "categories": [
+      "groceries",
+      "packaged_food"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "delivery_quality",
+      "refund_issues"
+    ]
+  },
+  {
+    "id": "GOOG-39A14390",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Priya Tripathi",
+    "location": "India",
+    "text": "idiot orders must be in front.",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "neutral",
+    "themes": [
+      "app_experience"
+    ]
+  },
+  {
+    "id": "GOOG-7FE8CF1E",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Piyush Raj",
+    "location": "India",
+    "text": "Best app for food",
     "intent": "praise",
-    "text": "Cleaning section needs a complete discovery overhaul."
+    "categories": [
+      "groceries",
+      "packaged_food"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "positive",
+    "themes": [
+      "app_experience"
+    ]
   },
   {
-    "source": "Community Forum",
-    "date": "2026-02-02",
-    "platform": "forum",
-    "category": "snacks",
-    "intent": "observation",
-    "text": "Snack recommendations should be based on what I have NOT bought before."
-  },
-  {
-    "source": "Apple App Store",
-    "date": "2026-04-06",
-    "platform": "ios",
-    "category": "groceries",
-    "intent": "praise",
-    "text": "The app should suggest seasonal produce or local specials to repeat grocery buyers."
-  },
-  {
-    "source": "Community Forum",
-    "date": "2026-03-06",
-    "platform": "forum",
-    "category": "pet_supplies",
-    "intent": "observation",
-    "text": "Would love to see seasonal pet products like cooling mats in summer."
-  },
-  {
-    "source": "Reddit",
-    "date": "2026-01-11",
-    "platform": "reddit",
-    "category": "groceries",
-    "intent": "question",
-    "text": "The grocery reorder feature is a trap. It keeps me from exploring new products."
-  },
-  {
-    "source": "Apple App Store",
-    "date": "2026-01-28",
-    "platform": "ios",
-    "category": "household",
-    "intent": "praise",
-    "text": "I buy the same cleaning supplies every month. Suggest me something different."
-  },
-  {
-    "source": "Apple App Store",
-    "date": "2026-01-10",
-    "platform": "ios",
-    "category": "dairy",
-    "intent": "question",
-    "text": "I buy ghee every month but never see cooking oils or spreads suggested."
-  },
-  {
-    "source": "Apple App Store",
-    "date": "2026-02-24",
-    "platform": "ios",
-    "category": "beverages",
-    "intent": "question",
-    "text": "I saw a new energy drink at a store. The app should stock and recommend these."
-  },
-  {
-    "source": "Community Forum",
-    "date": "2026-05-22",
-    "platform": "forum",
-    "category": "pet_supplies",
-    "intent": "observation",
-    "text": "Where is the pet section? I only found it by browsing every category manually."
-  },
-  {
-    "source": "Community Forum",
-    "date": "2026-01-28",
-    "platform": "forum",
-    "category": "beverages",
+    "id": "GOOG-3C6E309A",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "amarpali aggarwal",
+    "location": "India",
+    "text": "the screen isn't working. no matter where I tap. tried deleting and reinstalling it but it still is stuck.",
     "intent": "complaint",
-    "text": "Beverage recommendations should learn from my grocery patterns, not just drink history."
+    "categories": [
+      "electronics",
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "app_experience",
+      "technical_issues"
+    ]
   },
   {
-    "source": "Reddit",
-    "date": "2026-04-18",
-    "platform": "reddit",
-    "category": "household",
-    "intent": "question",
-    "text": "Would love to see smart home products or organizational tools recommended."
-  },
-  {
-    "source": "Twitter/X",
-    "date": "2026-06-13",
-    "platform": "twitter",
-    "category": "packaged_food",
+    "id": "GOOG-C9BF70FD",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Nitya Naik",
+    "location": "India",
+    "text": "excellent \ud83d\udc4c",
     "intent": "praise",
-    "text": "Packaged food section is overwhelming. I need curated discovery features."
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "positive",
+    "themes": [
+      "app_experience"
+    ]
   },
   {
-    "source": "Community Forum",
-    "date": "2026-01-16",
-    "platform": "forum",
-    "category": "snacks",
+    "id": "GOOG-400CAC0D",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Mehak Kumari",
+    "location": "India",
+    "text": "I Don't Like it......i Order at 9:25 at night....my Delivery in 30 min but i Wait for 2 Hours.....NO DELIVERY TO ME\ud83d\ude42\ud83d\ude20I AM VERY DISAPPOINTED..... THANKS GOD I DON'T PAY ONLINE \ud83e\udd72I CHOOSE CASH ON DELIVERY.....\ud83d\ude42MY MONEY IS SAVE FROM WASHING",
+    "intent": "complaint",
+    "categories": [
+      "groceries",
+      "packaged_food"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "delivery_quality",
+      "refund_issues"
+    ]
+  },
+  {
+    "id": "GOOG-66DBEB51",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Harshith Banuri",
+    "location": "India",
+    "text": "bad app, late delivery and not worth the money",
+    "intent": "complaint",
+    "categories": [
+      "groceries",
+      "packaged_food"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "delivery_quality",
+      "pricing"
+    ]
+  },
+  {
+    "id": "GOOG-88847919",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Sneha Sofy",
+    "location": "India",
+    "text": "posting a review for the second time. the delivery is no longer on time as promised and agent repsonds like a bot ..sorry mam for the delay ..complete useless repeating same script.. plz train your team to show some empathy if customer is frustrated",
+    "intent": "complaint",
+    "categories": [
+      "beverages",
+      "groceries"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "delivery_quality",
+      "customer_service"
+    ]
+  },
+  {
+    "id": "GOOG-16AA8ACC",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "dragon king",
+    "location": "India",
+    "text": "not able to use the app after downloading",
+    "intent": "complaint",
+    "categories": [
+      "electronics",
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "app_experience",
+      "technical_issues"
+    ]
+  },
+  {
+    "id": "GOOG-427763BE",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "mahesh iyer",
+    "location": "India",
+    "text": "pathetic people.I ordered food on 20th July 2026 for 800+ from Prasad food divine and within few minutes I had to cancel it due to some reason.I called the resturant and informed to. not process the order and also tried to find option to cancel it in the app but couldn't find .After some search I got to know that I have to call the Swiggy customer care and that there is no support in the app which was crazy.Customer care lady told me that she will charge 100% of the order as penalty.This is stup",
+    "intent": "complaint",
+    "categories": [
+      "groceries",
+      "packaged_food"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "refund_issues",
+      "customer_service"
+    ]
+  },
+  {
+    "id": "GOOG-DF63A25A",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Satya Bhai",
+    "location": "India",
+    "text": "i support you \ud83d\ude0d",
+    "intent": "praise",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "positive",
+    "themes": [
+      "app_experience"
+    ]
+  },
+  {
+    "id": "GOOG-BC592AE9",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Tejashwani Singh",
+    "location": "India",
+    "text": "very slow delivery",
+    "intent": "complaint",
+    "categories": [
+      "groceries",
+      "packaged_food"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "delivery_quality"
+    ]
+  },
+  {
+    "id": "GOOG-BD6ACCB0",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "raj avi",
+    "location": "India",
+    "text": "company me offer diya tha buy 1 get 1 free but 1 he aaya hai kya farzi wada kar rakha hai aaj tk company ka koi rply nahi hai",
+    "intent": "complaint",
+    "categories": [
+      "groceries",
+      "packaged_food"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "pricing",
+      "customer_service"
+    ]
+  },
+  {
+    "id": "GOOG-FB727D7A",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Tripura Vallabhaneni",
+    "location": "India",
+    "text": "waste of my service also not good",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "customer_service",
+      "app_experience"
+    ]
+  },
+  {
+    "id": "GOOG-21BB33AD",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Sirisha madani",
+    "location": "India",
+    "text": "quality food",
+    "intent": "praise",
+    "categories": [
+      "packaged_food"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "positive",
+    "themes": [
+      "product_quality"
+    ]
+  },
+  {
+    "id": "GOOG-C7C19BFD",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Sai Krishna",
+    "location": "India",
+    "text": "A very bad experience I ordered food from a restaurant but in the parcel one biriyani is missing spoke to customer care and their response is pathetic . Please avoid Swiggy",
+    "intent": "complaint",
+    "categories": [
+      "packaged_food"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "delivery_quality",
+      "customer_service"
+    ]
+  },
+  {
+    "id": "GOOG-59F46378",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Alangat krishna kutti GOPI",
+    "location": "India",
+    "text": "so good fast delivery i love Swiggy",
+    "intent": "praise",
+    "categories": [
+      "packaged_food"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "positive",
+    "themes": [
+      "delivery_quality"
+    ]
+  },
+  {
+    "id": "GOOG-F1CBFF50",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "ambikesh kumar",
+    "location": "India",
+    "text": "please delhi jantar mantar pr protest kar rhe logo ko deliver kar dijiye thank you",
     "intent": "suggestion",
-    "text": "Love the snack variety available but the app never helps me find new things."
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "neutral",
+    "themes": [
+      "delivery_quality"
+    ]
   },
   {
-    "source": "Community Forum",
-    "date": "2026-01-11",
-    "platform": "forum",
-    "category": "cleaning",
-    "intent": "observation",
-    "text": "Cleaning product recommendations are stale. Same brands, same products every time."
-  },
-  {
+    "id": "GOOG-17C3825D",
     "source": "Google Play Store",
-    "date": "2026-03-08",
+    "date": "2026-07-22",
     "platform": "android",
-    "category": "personal_care",
+    "user": "Jesus Cares Media",
+    "location": "India",
+    "text": "swiggy is a best app for food delivery it gives us food at time and it is very fast everything is very good in it. I'm impressed i regularly order food from swiggy and I really enjoy it with my friends and family... I give you 5star rating for it.\u2b50\u2b50\u2b50\u2b50\u2b50",
     "intent": "praise",
-    "text": "I buy the same shampoo for years. Show me alternatives or new launches."
+    "categories": [
+      "packaged_food"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "positive",
+    "themes": [
+      "app_experience",
+      "delivery_quality"
+    ]
   },
   {
-    "source": "Community Forum",
-    "date": "2026-01-11",
-    "platform": "forum",
-    "category": "dairy",
+    "id": "GOOG-3E67D49A",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Jaya Raj",
+    "location": "India",
+    "text": "service unavailable at jantar mantar",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "neutral",
+    "themes": [
+      "delivery_quality"
+    ]
+  },
+  {
+    "id": "GOOG-46530434",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "sumeet singh",
+    "location": "India",
+    "text": "I was told to apply for swiggy orange credit card and limit was also approved but after kyc they just declined my application which impacted my cibil score , just don't apply for orange credit of hdfc bank",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "refund_issues"
+    ]
+  },
+  {
+    "id": "GOOG-3AD74043",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Muneer Munni",
+    "location": "India",
+    "text": "High rate of GST more than what government puts in all outlets in this app",
+    "intent": "complaint",
+    "categories": [
+      "packaged_food"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "pricing"
+    ]
+  },
+  {
+    "id": "GOOG-6A9FE6FA",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Shubham Bhagat",
+    "location": "India",
+    "text": "very bad customer services worst food delivery app I love to give it 0 star for customer service and there no need to pay for swiggy one its no use because you never get your food on time",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "customer_service",
+      "delivery_quality"
+    ]
+  },
+  {
+    "id": "GOOG-5F08182E",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Ajay Bharti",
+    "location": "India",
+    "text": "cik cik \ud83e\udd2c\ud83e\udd2c\ud83e\udd2c\ud83e\udd2c\ud83e\udd2c\ud83e\udd2c",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "neutral",
+    "themes": []
+  },
+  {
+    "id": "GOOG-503768E0",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Aakash Solanki",
+    "location": "India",
+    "text": "swingy se mane order kiya tha to unhone mujhe tukda tukda or addha addha pis bheja hai or mai isko refund kar raha hu",
+    "intent": "complaint",
+    "categories": [
+      "packaged_food"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "product_quality",
+      "refund_issues"
+    ]
+  },
+  {
+    "id": "GOOG-4CC42294",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Kaivalya Kashid",
+    "location": "India",
+    "text": "worst costumer support",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "customer_service"
+    ]
+  },
+  {
+    "id": "GOOG-B0F431BC",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Saima Irfan",
+    "location": "India",
+    "text": "WORST APP. had the worst experience,I ordered a waffle and a drink from belgian waffle co.through Swiggy and received a damaged,crushed,drenched in water packet which the delivery guy handed me and ran. it was a packaging issue the drink was sent by the stupid waffle co guys in paper cup,by the time it reached the cup's base got torn and I received an empty cup and all the drink was absorbed by the waffle.i was delivered a trash and I kept writing to them with videos and pics,got no resolution.",
+    "intent": "complaint",
+    "categories": [
+      "beverages",
+      "packaged_food"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "product_quality",
+      "delivery_quality"
+    ]
+  },
+  {
+    "id": "GOOG-E8F7E727",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Pratik Joshi",
+    "location": "India",
+    "text": "no customer support. if there is any. its a worst customer support. eats peoples money. 2026 july they are even more worst now. this app deserves negative rating but anyways i will miss being in this platform.",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "customer_service",
+      "refund_issues"
+    ]
+  },
+  {
+    "id": "GOOG-F11A84AB",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Loverboy Loverboy",
+    "location": "India",
+    "text": "Dear Swiggy Customer Support, I am writing to express my extreme disappointment regarding my recent order. I placed my order at 9:41 AM, and as of 1:18 PM, it had still not been delivered. During this time, I contacted your customer support multiple times. I interacted with your chatbot, which was extremely slow, and it took nearly 40 minutes just to receive responses. I also spoke with three different customer support executives, but no one provided a proper resolution. Instead, I was repeat",
+    "intent": "complaint",
+    "categories": [
+      "general",
+      "food"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "delivery_quality",
+      "customer_service"
+    ]
+  },
+  {
+    "id": "GOOG-AFDE7BBF",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Adeeb syyed",
+    "location": "India",
+    "text": "good service",
     "intent": "praise",
-    "text": "Why doesn't the app suggest cheese or yogurt to milk buyers?"
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "positive",
+    "themes": [
+      "app_experience"
+    ]
   },
   {
-    "source": "Reddit",
-    "date": "2026-05-03",
-    "platform": "reddit",
-    "category": "packaged_food",
-    "intent": "question",
-    "text": "I buy cereal but never see granola, muesli, or oat alternatives."
-  },
-  {
-    "source": "Community Forum",
-    "date": "2026-01-05",
-    "platform": "forum",
-    "category": "personal_care",
-    "intent": "question",
-    "text": "Personal care is a blind spot for the app. No cross-category discovery at all."
-  },
-  {
+    "id": "GOOG-69612012",
     "source": "Google Play Store",
-    "date": "2026-01-11",
+    "date": "2026-07-22",
     "platform": "android",
-    "category": "beverages",
-    "intent": "complaint",
-    "text": "Why does the app keep showing me the same bottled water brand?"
-  },
-  {
-    "source": "Community Forum",
-    "date": "2026-06-26",
-    "platform": "forum",
-    "category": "cleaning",
-    "intent": "observation",
-    "text": "Cleaning section is neglected. No new products or brands are ever surfaced."
-  },
-  {
-    "source": "Community Forum",
-    "date": "2026-05-12",
-    "platform": "forum",
-    "category": "cleaning",
-    "intent": "complaint",
-    "text": "I buy bathroom cleaner but never see mold removers or grout cleaners."
-  },
-  {
-    "source": "Twitter/X",
-    "date": "2026-05-02",
-    "platform": "twitter",
-    "category": "baby_products",
-    "intent": "suggestion",
-    "text": "Baby products section exists but the app never surfaces it to relevant buyers."
-  },
-  {
-    "source": "Apple App Store",
-    "date": "2026-06-24",
-    "platform": "ios",
-    "category": "groceries",
-    "intent": "question",
-    "text": "I buy onions and tomatoes every week. Would love to see recipes or ingredient bundles."
-  },
-  {
-    "source": "Community Forum",
-    "date": "2026-04-22",
-    "platform": "forum",
-    "category": "dairy",
-    "intent": "complaint",
-    "text": "Dairy discovery is stuck. Same products, same brands, same recommendations."
-  },
-  {
-    "source": "Twitter/X",
-    "date": "2026-04-11",
-    "platform": "twitter",
-    "category": "cleaning",
-    "intent": "question",
-    "text": "Why doesn't the app recommend cleaning tools alongside cleaning chemicals?"
-  },
-  {
-    "source": "Reddit",
-    "date": "2026-04-03",
-    "platform": "reddit",
-    "category": "groceries",
+    "user": "barun ray",
+    "location": "India",
+    "text": "very nice \ud83d\udc4d",
     "intent": "praise",
-    "text": "Why does the homepage always show me the same grocery items? I want variety."
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "positive",
+    "themes": [
+      "general"
+    ]
   },
   {
-    "source": "Twitter/X",
-    "date": "2026-05-25",
-    "platform": "twitter",
-    "category": "baby_products",
-    "intent": "observation",
-    "text": "Why doesn't the app suggest baby products to users who buy milk and cereals?"
-  },
-  {
-    "source": "Community Forum",
-    "date": "2026-01-12",
-    "platform": "forum",
-    "category": "cleaning",
-    "intent": "observation",
-    "text": "I buy dish soap but never see scrubbers, brushes, or kitchen organization tools."
-  },
-  {
-    "source": "Reddit",
-    "date": "2026-04-01",
-    "platform": "reddit",
-    "category": "snacks",
-    "intent": "complaint",
-    "text": "Why cant the app suggest snacks based on my grocery purchases? I buy diapers too, show me baby snacks."
-  },
-  {
-    "source": "Community Forum",
-    "date": "2026-02-10",
-    "platform": "forum",
-    "category": "dairy",
-    "intent": "question",
-    "text": "Dairy section is the most purchased but least discoverable category."
-  },
-  {
+    "id": "GOOG-F8F463CC",
     "source": "Google Play Store",
-    "date": "2026-03-16",
+    "date": "2026-07-22",
     "platform": "android",
-    "category": "pet_supplies",
-    "intent": "question",
-    "text": "Pet supplies are completely invisible unless you search. No cross-category discovery."
+    "user": "yousuf Ali Khan",
+    "location": "India",
+    "text": "I order mandi entire order uncooked and I'm report swiggy not responding I want my money back",
+    "intent": "complaint",
+    "categories": [
+      "general",
+      "food"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "product_quality",
+      "refund_issues"
+    ]
   },
   {
-    "source": "Apple App Store",
-    "date": "2026-03-18",
-    "platform": "ios",
-    "category": "cleaning",
+    "id": "GOOG-3E7F5241",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Sunil Singh Bohra",
+    "location": "India",
+    "text": "cash on delivery verry best.",
     "intent": "praise",
-    "text": "The app should suggest seasonal cleaning products like spring cleaning kits."
+    "categories": [
+      "general"
+    ],
+    "rating": 3,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "positive",
+    "themes": [
+      "payment_options"
+    ]
   },
   {
+    "id": "GOOG-346A36EA",
     "source": "Google Play Store",
-    "date": "2026-03-10",
+    "date": "2026-07-22",
     "platform": "android",
-    "category": "groceries",
-    "intent": "question",
-    "text": "Grocery shopping on this app is efficient but completely lacks serendipity."
+    "user": "Soul Creations",
+    "location": "India",
+    "text": "ban ke lodo aadi raat ko ma kyo cudvate ho aapni",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "app_experience"
+    ]
   },
   {
-    "source": "Twitter/X",
-    "date": "2026-02-12",
-    "platform": "twitter",
-    "category": "cleaning",
-    "intent": "question",
-    "text": "Cleaning supplies are on autopilot. I want to discover better and greener options."
-  },
-  {
-    "source": "Community Forum",
-    "date": "2026-01-29",
-    "platform": "forum",
-    "category": "beverages",
-    "intent": "observation",
-    "text": "The app should have a drink of the day feature for beverage exploration."
-  },
-  {
-    "source": "Apple App Store",
-    "date": "2026-01-04",
-    "platform": "ios",
-    "category": "snacks",
-    "intent": "question",
-    "text": "The app recommends snacks I already bought. I want new and interesting options."
-  },
-  {
-    "source": "Community Forum",
-    "date": "2026-01-24",
-    "platform": "forum",
-    "category": "dairy",
+    "id": "GOOG-4E1591FC",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Gurshan Singh",
+    "location": "India",
+    "text": "to fast service",
     "intent": "praise",
-    "text": "Dairy section needs better curation. Same Amul products every time."
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "positive",
+    "themes": [
+      "delivery_quality"
+    ]
   },
   {
-    "source": "Reddit",
-    "date": "2026-06-05",
-    "platform": "reddit",
-    "category": "packaged_food",
-    "intent": "observation",
-    "text": "Would love to see meal kit components or recipe-specific packaged items."
-  },
-  {
-    "source": "Twitter/X",
-    "date": "2026-06-02",
-    "platform": "twitter",
-    "category": "personal_care",
-    "intent": "complaint",
-    "text": "I discovered a new sunscreen by searching. The app should recommend these proactively."
-  },
-  {
-    "source": "Reddit",
-    "date": "2026-04-22",
-    "platform": "reddit",
-    "category": "beverages",
-    "intent": "question",
-    "text": "I want to try matcha or oat milk but the app never suggests them."
-  },
-  {
+    "id": "GOOG-DDE6A0BC",
     "source": "Google Play Store",
-    "date": "2026-03-29",
+    "date": "2026-07-22",
     "platform": "android",
-    "category": "household",
-    "intent": "complaint",
-    "text": "Why doesnt the app show me trending household products or new arrivals?"
-  },
-  {
-    "source": "Google Play Store",
-    "date": "2026-03-25",
-    "platform": "android",
-    "category": "groceries",
-    "intent": "question",
-    "text": "Fresh produce is good but I wish the app recommended items from other categories I might like."
-  },
-  {
-    "source": "Reddit",
-    "date": "2026-03-04",
-    "platform": "reddit",
-    "category": "packaged_food",
-    "intent": "question",
-    "text": "The app should have a world food section for discovering international products."
-  },
-  {
-    "source": "Reddit",
-    "date": "2026-03-12",
-    "platform": "reddit",
-    "category": "groceries",
-    "intent": "complaint",
-    "text": "I discovered a new spice brand by accident. The app should help me find things like that."
-  },
-  {
-    "source": "Community Forum",
-    "date": "2026-01-27",
-    "platform": "forum",
-    "category": "groceries",
-    "intent": "question",
-    "text": "My grocery list is identical every week because the app never shows alternatives."
-  },
-  {
-    "source": "Google Play Store",
-    "date": "2026-01-21",
-    "platform": "android",
-    "category": "personal_care",
-    "intent": "question",
-    "text": "Personal care section needs better visibility for first-time browsers."
-  },
-  {
-    "source": "Apple App Store",
-    "date": "2026-02-16",
-    "platform": "ios",
-    "category": "packaged_food",
+    "user": "priya P",
+    "location": "India",
+    "text": "Thankfull to have a channel to order online without any hassle and even in such times of epidemic. Thanks swiggy... Loving it as always.. just it's getting a bit expensive day by day.. my experiences stay the same, all good but swiggy is increasingly getting expensive, just not affordable anymore.",
     "intent": "praise",
-    "text": "Packaged food is repetitive. Same noodles and pasta every time."
+    "categories": [
+      "general",
+      "food"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "positive",
+    "themes": [
+      "app_experience",
+      "pricing"
+    ]
   },
   {
+    "id": "GOOG-D2C0CE28",
     "source": "Google Play Store",
-    "date": "2026-02-11",
+    "date": "2026-07-22",
     "platform": "android",
-    "category": "household",
+    "user": "Loganathan Chandran",
+    "location": "India",
+    "text": "best scaming app I ever seen i don't want to give a 1 star rating they scam coustomer oders during night time better not install this app",
     "intent": "complaint",
-    "text": "The app keeps showing me the same detergent. There are better options out there."
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "app_experience",
+      "customer_service"
+    ]
   },
   {
-    "source": "Community Forum",
-    "date": "2026-03-04",
-    "platform": "forum",
-    "category": "groceries",
-    "intent": "complaint",
-    "text": "I have been buying the same rice brand for months. Show me alternatives please."
+    "id": "GOOG-4A96CE2E",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Atindra Rai",
+    "location": "India",
+    "text": "improve delivery timing",
+    "intent": "suggestion",
+    "categories": [
+      "general"
+    ],
+    "rating": 4,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "neutral",
+    "themes": [
+      "delivery_quality"
+    ]
   },
   {
-    "source": "Community Forum",
-    "date": "2026-05-16",
-    "platform": "forum",
-    "category": "household",
+    "id": "GOOG-465897F8",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Saima Chouhan",
+    "location": "India",
+    "text": "the app per aap jo cheez mangwai wo bilkul mbi meri paas nahi aayi or costumer service per call Kiya tho unhone bola ki 6 Howers baad mile aayga hmm ko jo cheez urgent chahiye thi wo is aap ne diya nahi or paise bhi nahi diye I don't like this app",
+    "intent": "complaint",
+    "categories": [
+      "general",
+      "food"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "product_quality",
+      "customer_service"
+    ]
+  },
+  {
+    "id": "GOOG-79AF4FA9",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Ashok kampati",
+    "location": "India",
+    "text": "Worst app and service. Not recommended",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "app_experience"
+    ]
+  },
+  {
+    "id": "GOOG-21C2BDD0",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Shaik Jaffer",
+    "location": "India",
+    "text": "Disgusting and frustrated service, Don't use Swiggy at all, It's my humble request. Fraud delivery guys and fraud support service. For one of the order I have cancelled and they have charged me the w order amount in my next order and the same issue if we as customer face the issue they won't give any compensation. There is an incident with an order today, I have waited for 2 hours and the ord isn' delivered yet and the deli person is not responding at all and customer service is totally worst.",
+    "intent": "complaint",
+    "categories": [
+      "general",
+      "food"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "delivery_quality",
+      "customer_service",
+      "refund_issues"
+    ]
+  },
+  {
+    "id": "GOOG-42571811",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Sai Finance",
+    "location": "India",
+    "text": "worest app due to bad response I am uninstall it and make prompt that not to use customer care is also worest",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "app_experience",
+      "customer_service"
+    ]
+  },
+  {
+    "id": "GOOG-891E1C98",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Advocate Padaliya",
+    "location": "India",
+    "text": "service is good",
     "intent": "praise",
-    "text": "I buy basic detergent but there are premium options I never see."
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "positive",
+    "themes": [
+      "app_experience"
+    ]
   },
   {
-    "source": "Reddit",
-    "date": "2026-04-06",
-    "platform": "reddit",
-    "category": "pet_supplies",
-    "intent": "suggestion",
-    "text": "Bought pet food once manually. The app never suggested it again or showed related items."
+    "id": "GOOG-D2670F65",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Raghav Kumar",
+    "location": "India",
+    "text": "back to 1 star. worst customer care",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "customer_service"
+    ]
   },
   {
-    "source": "Reddit",
-    "date": "2026-02-16",
-    "platform": "reddit",
-    "category": "personal_care",
+    "id": "GOOG-635C4BC4",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Aditya Kamath",
+    "location": "India",
+    "text": "Swiggy customer service has deteriorated. The app accepts orders and doesn't deliver..This has happened for the third time..",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "delivery_quality"
+    ]
+  },
+  {
+    "id": "GOOG-2B849500",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Kurma King",
+    "location": "India",
+    "text": "good morning",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "neutral",
+    "themes": []
+  },
+  {
+    "id": "GOOG-6CE1229B",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Tharun",
+    "location": "India",
+    "text": "quick response",
     "intent": "praise",
-    "text": "Personal care section is hidden. I buy groceries but never see skincare or haircare."
+    "categories": [
+      "general"
+    ],
+    "rating": 4,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "positive",
+    "themes": [
+      "customer_service"
+    ]
   },
   {
-    "source": "Reddit",
-    "date": "2026-01-08",
-    "platform": "reddit",
-    "category": "snacks",
-    "intent": "complaint",
-    "text": "Snacks section is repetitive. Where are the healthy alternatives or new brands?"
-  },
-  {
+    "id": "GOOG-F0100344",
     "source": "Google Play Store",
-    "date": "2026-01-17",
+    "date": "2026-07-21",
     "platform": "android",
-    "category": "household",
+    "user": "Arvind",
+    "location": "India",
+    "text": "poor , very bad experience , sometimes delivery service is very bad , uninstalled the app , refund policy is confusing if delivery person is responsible for cancellation then also refund is refused by Swiggy service . misbehaviors by delivery person is passed on to customer .",
     "intent": "complaint",
-    "text": "Household essentials are fine but I never discover new cleaning products."
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "delivery_quality",
+      "refund_issues"
+    ]
   },
   {
-    "source": "Apple App Store",
-    "date": "2026-06-03",
-    "platform": "ios",
-    "category": "groceries",
+    "id": "GOOG-91196736",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Manish",
+    "location": "India",
+    "text": "verry nice food court ok",
     "intent": "observation",
-    "text": "Love quick grocery delivery but hate that I never discover new products in this category."
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "positive",
+    "themes": [
+      "product_quality"
+    ]
   },
   {
+    "id": "GOOG-A4F90102",
     "source": "Google Play Store",
-    "date": "2026-01-11",
+    "date": "2026-07-21",
     "platform": "android",
-    "category": "personal_care",
-    "intent": "suggestion",
-    "text": "I never browse personal care because the app never suggests it during grocery checkout."
+    "user": "Satvinder Singh",
+    "location": "India",
+    "text": "I m not received my Paytm UPI cashback \ud83d\ude21\ud83d\ude21",
+    "intent": "question",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "neutral",
+    "themes": [
+      "refund_issues"
+    ]
   },
   {
-    "source": "Community Forum",
-    "date": "2026-04-21",
-    "platform": "forum",
-    "category": "baby_products",
+    "id": "GOOG-D6B03D2B",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Satya ranjan Barik",
+    "location": "India",
+    "text": "very bad service and delivery person has no responsibility to delivery in time \ud83d\ude15",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "delivery_quality"
+    ]
+  },
+  {
+    "id": "GOOG-EE0671C9",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Pankaj Arora",
+    "location": "India",
+    "text": "too many charges",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "pricing"
+    ]
+  },
+  {
+    "id": "GOOG-F6206C92",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Tushar Bokde",
+    "location": "India",
+    "text": "Very disappointing experience. I ordered Chicken Chilly from Prathamesh Rolls, but the delivery status kept showing \"10 minutes away\" for over 30 minutes. Due to the unnecessary delay, I cancelled the order, yet Swiggy charged the full \u20b9159 as a cancellation fee. It's unfair to make customers pay the entire amount when the delay is on the platform's side. Swiggy should have a fair cancellation policy for delayed orders.",
+    "intent": "suggestion",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "delivery_quality",
+      "refund_issues"
+    ]
+  },
+  {
+    "id": "GOOG-17A6FB8B",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "abdul mannan",
+    "location": "India",
+    "text": "Worst experience. No option to download invoice. Pathetic customer support. After receiving advice from the developer order details shared via email, however still no invoice was received. As I mentioned earlier pathetic service.",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "customer_service"
+    ]
+  },
+  {
+    "id": "GOOG-FED81542",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Rohan Mhaske",
+    "location": "India",
+    "text": "\u0921\u093f\u0932\u093f\u0935\u094d\u0939\u0930\u0940 \u092c\u0949\u092f \u0926\u093e\u0930\u0942 \u092a\u093f\u090a\u0928 \u0926\u093e\u0930\u093e\u0924 \u092f\u0947\u0924\u093e\u0924 \u0935 \u0927\u092e\u0915\u0940 \u0938\u094d\u0935\u0930\u0942\u092a\u093e\u0924 \u092c\u094b\u0932\u0924 \u0930\u093e\u0939\u0924\u093e\u0924 \u0921\u093f\u0932\u093f\u0935\u094d\u0939\u0930\u0940 \u092c\u0949\u092f \u0915\u093e\u0939\u0940 \u091a\u093e\u0902\u0917\u0932\u0947 \u0928\u093e\u0939\u0940\u0924 \u0938\u0930\u094d\u0935\u093f\u0938 \u0905\u0924\u093f\u0936\u092f \u0916\u0930\u093e\u092c",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "delivery_quality"
+    ]
+  },
+  {
+    "id": "GOOG-6C798DEE",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Selva Mubhash",
+    "location": "India",
+    "text": "Worst experience. They made me wait for 2 hours and still let me go to sleep with hunger.",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "delivery_quality"
+    ]
+  },
+  {
+    "id": "GOOG-21C0DCE0",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Sudhanthira Mani",
+    "location": "India",
+    "text": "Worst service ever. they taking too long to deliver the food which is hardly 3kms distance. This is happening for multiple time . no improvements after so many complaints.",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "delivery_quality"
+    ]
+  },
+  {
+    "id": "GOOG-12C8C8B2",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "DEEP SHIKHA EKKA",
+    "location": "India",
+    "text": "this app is pathetic, and their customer care doesn't know how to talk",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "customer_service",
+      "app_experience"
+    ]
+  },
+  {
+    "id": "GOOG-775A3C84",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Alok Yadav",
+    "location": "India",
+    "text": "delivery worst no value for your time",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "delivery_quality"
+    ]
+  },
+  {
+    "id": "GOOG-B1DDCFDE",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "prashanth kumar.R",
+    "location": "India",
+    "text": "worst app to order food. order food they will make you wait and cancel by yourself. cheating app",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "delivery_quality",
+      "app_experience"
+    ]
+  },
+  {
+    "id": "GOOG-AD4642D1",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Shivanshu20 awasthi",
+    "location": "India",
+    "text": "variety is good",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "neutral",
+    "themes": [
+      "product_quality"
+    ]
+  },
+  {
+    "id": "GOOG-829AD261",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "sourav kumar",
+    "location": "India",
+    "text": "Honestly, better apps are there - Eat club, Eat Sure. Most orders are delivered late or not delivered. There is no standard maintained but rates are high. I actually think they should pivot their strategy. I don't want 10 mins delivery I want better service, food and the right representation. All timings are fake and have no relevance. Other apps are not better but I would say someone needs to think on these lines.",
+    "intent": "suggestion",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "delivery_quality",
+      "customer_service",
+      "pricing"
+    ]
+  },
+  {
+    "id": "GOOG-3734A0D7",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Tanmay Vasishtha",
+    "location": "India",
+    "text": "A bunch of fraudsters. Delivering wrong items, overcharging and thinking of the customer as a joke. Extremely difficult to make returns (specially on instamart). The support staff is incompetent in any situation..",
+    "intent": "complaint",
+    "categories": [
+      "general",
+      "groceries"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "product_quality",
+      "customer_service",
+      "refund_issues"
+    ]
+  },
+  {
+    "id": "GOOG-294D8EE6",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "mayuri shrungare",
+    "location": "India",
+    "text": "good quality",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "neutral",
+    "themes": [
+      "product_quality"
+    ]
+  },
+  {
+    "id": "GOOG-B1D2574D",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Puchpa Thakur",
+    "location": "India",
+    "text": "good service \ud83d\udc4d",
     "intent": "praise",
-    "text": "Baby product recommendations are generic. Show me age-appropriate items."
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "positive",
+    "themes": [
+      "customer_service"
+    ]
   },
   {
-    "source": "Twitter/X",
-    "date": "2026-05-02",
-    "platform": "twitter",
-    "category": "household",
-    "intent": "complaint",
-    "text": "The app should suggest seasonal household items like mosquito repellent in summer."
-  },
-  {
-    "source": "Twitter/X",
-    "date": "2026-02-28",
-    "platform": "twitter",
-    "category": "dairy",
-    "intent": "question",
-    "text": "Dairy section should have a try something new feature for regular buyers."
-  },
-  {
-    "source": "Apple App Store",
-    "date": "2026-04-30",
-    "platform": "ios",
-    "category": "cleaning",
-    "intent": "suggestion",
-    "text": "Cleaning supplies never change. I want to see new disinfectant brands or tools."
-  },
-  {
-    "source": "Twitter/X",
-    "date": "2026-05-21",
-    "platform": "twitter",
-    "category": "household",
-    "intent": "observation",
-    "text": "The app knows my household purchases. Why not suggest related items?"
-  },
-  {
-    "source": "Twitter/X",
-    "date": "2026-05-15",
-    "platform": "twitter",
-    "category": "personal_care",
-    "intent": "question",
-    "text": "Personal care products are hard to find. The app needs better cross-selling."
-  },
-  {
-    "source": "Apple App Store",
-    "date": "2026-02-05",
-    "platform": "ios",
-    "category": "personal_care",
-    "intent": "suggestion",
-    "text": "The app should have a grooming essentials section for new product discovery."
-  },
-  {
+    "id": "GOOG-B69528F0",
     "source": "Google Play Store",
-    "date": "2026-06-10",
+    "date": "2026-07-21",
     "platform": "android",
-    "category": "packaged_food",
-    "intent": "question",
-    "text": "Packaged food needs better categorization. I cannot find healthy options easily."
-  },
-  {
-    "source": "Reddit",
-    "date": "2026-06-12",
-    "platform": "reddit",
-    "category": "packaged_food",
-    "intent": "observation",
-    "text": "I want to try international snacks but the app only shows domestic brands."
-  },
-  {
-    "source": "Twitter/X",
-    "date": "2026-03-05",
-    "platform": "twitter",
-    "category": "packaged_food",
-    "intent": "suggestion",
-    "text": "Why cant the app suggest packaged foods based on cuisine or dietary preference?"
-  },
-  {
-    "source": "Reddit",
-    "date": "2026-02-21",
-    "platform": "reddit",
-    "category": "groceries",
-    "intent": "question",
-    "text": "Why does the app only show me dal and rice? I already buy those. Show me something different."
-  },
-  {
-    "source": "Reddit",
-    "date": "2026-05-16",
-    "platform": "reddit",
-    "category": "packaged_food",
-    "intent": "observation",
-    "text": "I buy pasta but never see sauces, oils, or seasoning blends suggested."
-  },
-  {
-    "source": "Community Forum",
-    "date": "2026-02-18",
-    "platform": "forum",
-    "category": "snacks",
-    "intent": "complaint",
-    "text": "I found a great protein bar by searching randomly. The app should surface these."
-  },
-  {
-    "source": "Apple App Store",
-    "date": "2026-02-06",
-    "platform": "ios",
-    "category": "baby_products",
-    "intent": "question",
-    "text": "Baby product recommendations are stale. Show me new arrivals and safety-tested items."
-  },
-  {
-    "source": "Twitter/X",
-    "date": "2026-03-28",
-    "platform": "twitter",
-    "category": "dairy",
-    "intent": "complaint",
-    "text": "I buy milk daily. Why not suggest flavored yogurt or plant-based milk?"
-  },
-  {
-    "source": "Google Play Store",
-    "date": "2026-02-08",
-    "platform": "android",
-    "category": "dairy",
-    "intent": "observation",
-    "text": "Dairy section needs better product diversity in its recommendations."
-  },
-  {
-    "source": "Apple App Store",
-    "date": "2026-06-01",
-    "platform": "ios",
-    "category": "beverages",
-    "intent": "suggestion",
-    "text": "The beverage aisle is cluttered. Finding new drinks is exhausting."
-  },
-  {
-    "source": "Reddit",
-    "date": "2026-04-28",
-    "platform": "reddit",
-    "category": "household",
+    "user": "vignesh vignes",
+    "location": "India",
+    "text": "very good service",
     "intent": "praise",
-    "text": "Why doesnt the app recommend kitchen organizers or storage solutions?"
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "positive",
+    "themes": [
+      "customer_service"
+    ]
   },
   {
-    "source": "Twitter/X",
-    "date": "2026-05-10",
-    "platform": "twitter",
-    "category": "groceries",
+    "id": "GOOG-22EB5034",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Akshay Kumar",
+    "location": "India",
+    "text": "30 mintue ke bad mera order cancel kar diya mera 30 mintue waste kisi hai bad service",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "delivery_quality"
+    ]
+  },
+  {
+    "id": "GOOG-1660CB4B",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Shreeyasi Patra",
+    "location": "India",
+    "text": "veryyy latee delivery",
     "intent": "observation",
-    "text": "Grocery repeat orders are convenient but I feel stuck in a loop with no discovery."
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "neutral",
+    "themes": [
+      "delivery_quality"
+    ]
   },
   {
-    "source": "Reddit",
-    "date": "2026-04-03",
-    "platform": "reddit",
-    "category": "pet_supplies",
-    "intent": "praise",
-    "text": "I buy pet food but never see grooming products or accessories suggested."
-  },
-  {
+    "id": "GOOG-0657B1D1",
     "source": "Google Play Store",
-    "date": "2026-01-21",
+    "date": "2026-07-21",
     "platform": "android",
-    "category": "cleaning",
-    "intent": "question",
-    "text": "Why does the app only show chemical cleaners? I want eco-friendly alternatives."
+    "user": "Fun with Ashik",
+    "location": "India",
+    "text": "I accidentally placed a \u20b9249 food order on Swiggy and requested cancellation immediately. However, customer support did not respond properly. When the delivery partner arrived, I refused the order and asked him to cancel it, but he told me to contact customer care. Later, customer support informed me that I would have to pay a cancellation penalty on my next order. I don't understand why I should be charged when I canceled the order immediately. This was a very disappointing experience.",
+    "intent": "suggestion",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "customer_service",
+      "refund_issues"
+    ]
   },
   {
+    "id": "GOOG-084F116C",
     "source": "Google Play Store",
-    "date": "2026-04-07",
+    "date": "2026-07-21",
     "platform": "android",
-    "category": "pet_supplies",
-    "intent": "suggestion",
-    "text": "The app should recommend pet products to users who buy pet-adjacent items."
+    "user": "rajendra raju",
+    "location": "India",
+    "text": "worst service",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "customer_service"
+    ]
   },
   {
-    "source": "Twitter/X",
-    "date": "2026-04-16",
-    "platform": "twitter",
-    "category": "beverages",
-    "intent": "suggestion",
-    "text": "I buy juice every morning but never see smoothie alternatives. Annoying."
+    "id": "GOOG-7CD4F7ED",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Savaliya Satish",
+    "location": "India",
+    "text": "third class service and third class material",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "product_quality",
+      "customer_service"
+    ]
   },
   {
-    "source": "Twitter/X",
-    "date": "2026-01-23",
-    "platform": "twitter",
-    "category": "packaged_food",
+    "id": "GOOG-5B7CF2EC",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Mohamed Shoeb",
+    "location": "India",
+    "text": "terrible customer care. order from burger king was wrong and no resolution provided by Swiggy for complaint Request no 29243415 and 29243413. if your order is not complete or incorrect, dont make payment to delivery guy, because they will never process your refund nor can you speak to a human customer care over the phone and thei chatbot and chat representatives are lousy and robotic. 0 stars. thank you Swiggy for cheating a genuine customer, thank god my bill was only 327 rupees. lesson learnt",
+    "intent": "complaint",
+    "categories": [
+      "general",
+      "packaged_food"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "product_quality",
+      "customer_service",
+      "refund_issues"
+    ]
+  },
+  {
+    "id": "GOOG-D61D1F83",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "neelam sharma",
+    "location": "India",
+    "text": "it clearly shows that the items are available but after I place an order it calls and says that it is not available for 3 straight orders very disappointed",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "product_availability"
+    ]
+  },
+  {
+    "id": "GOOG-2C281D07",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Sahil Pal",
+    "location": "India",
+    "text": "Looters! They just want more money even after charging hefty platform fee and gst. 10 min order takes 1 hour very often. I would say to not download this app and avoid boiling your blood on every single order. F#%@olls Swiggy!",
+    "intent": "complaint",
+    "categories": [
+      "general",
+      "groceries"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "delivery_quality",
+      "pricing"
+    ]
+  },
+  {
+    "id": "GOOG-C3D6B441",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "POOVARASAN jeyakumar",
+    "location": "India",
+    "text": "don't order and suffer from this fraud app. if u order some items from this app and they may deliver the damaged product even it was found it with presence of delivery person. they won't refund or replace the product. finally we have to bear the loss for their mistakes, irrespective of the value of the product. Dont waste ur money and time even after multiple times/mode of communication to customer support you won't get your money back.",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "refund_issues",
+      "customer_service"
+    ]
+  },
+  {
+    "id": "GOOG-6E7DECC9",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Meena Negi",
+    "location": "India",
+    "text": "not satisfy because in photo the food quantity is very high when we receive the our order its quantity is very low and prices are very high according to other",
     "intent": "observation",
-    "text": "Packaged food section is the largest but has the worst discovery experience."
+    "categories": [
+      "groceries"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "neutral",
+    "themes": [
+      "product_quality",
+      "pricing"
+    ]
   },
   {
+    "id": "GOOG-EFE56C93",
     "source": "Google Play Store",
-    "date": "2026-06-20",
+    "date": "2026-07-21",
     "platform": "android",
-    "category": "dairy",
+    "user": "Rahul Singh Rathore",
+    "location": "India",
+    "text": "very bad service zomato is 1000X better than Swiggy",
+    "intent": "suggestion",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "app_experience",
+      "customer_service"
+    ]
+  },
+  {
+    "id": "GOOG-A1554B29",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Devendernagar sctp",
+    "location": "India",
+    "text": "nice experience",
+    "intent": "praise",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "positive",
+    "themes": [
+      "app_experience"
+    ]
+  },
+  {
+    "id": "GOOG-FECFBA63",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "MAGOS DCRUCE",
+    "location": "India",
+    "text": "expected elight level",
     "intent": "observation",
-    "text": "Dairy purchases should unlock breakfast or recipe-based product suggestions."
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "neutral",
+    "themes": [
+      "app_experience"
+    ]
   },
   {
+    "id": "GOOG-5B38EA17",
     "source": "Google Play Store",
-    "date": "2026-02-02",
+    "date": "2026-07-21",
     "platform": "android",
-    "category": "snacks",
-    "intent": "question",
-    "text": "I buy chips weekly but never see nuts, dried fruit, or healthy snack alternatives."
-  },
-  {
-    "source": "Google Play Store",
-    "date": "2026-05-13",
-    "platform": "android",
-    "category": "baby_products",
-    "intent": "praise",
-    "text": "Baby section needs a curated new parent essentials bundle."
-  },
-  {
-    "source": "Community Forum",
-    "date": "2026-06-28",
-    "platform": "forum",
-    "category": "dairy",
-    "intent": "suggestion",
-    "text": "I buy curd daily but never see raita or probiotic drinks suggested."
-  },
-  {
-    "source": "Twitter/X",
-    "date": "2026-05-27",
-    "platform": "twitter",
-    "category": "personal_care",
-    "intent": "praise",
-    "text": "The app knows I buy household items. Why not suggest personal care bundles?"
-  },
-  {
-    "source": "Google Play Store",
-    "date": "2026-05-25",
-    "platform": "android",
-    "category": "snacks",
-    "intent": "question",
-    "text": "I am bored of the same biscuits. Show me something from a new brand."
-  },
-  {
-    "source": "Google Play Store",
-    "date": "2026-05-28",
-    "platform": "android",
-    "category": "household",
-    "intent": "suggestion",
-    "text": "Household essentials are on autopilot. I want to discover better products."
-  },
-  {
-    "source": "Community Forum",
-    "date": "2026-01-25",
-    "platform": "forum",
-    "category": "cleaning",
+    "user": "The Kings",
+    "location": "India",
+    "text": "totally waste app",
     "intent": "complaint",
-    "text": "I buy laundry detergent but never see stain removers or fabric softeners."
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "app_experience"
+    ]
   },
   {
-    "source": "Apple App Store",
-    "date": "2026-05-25",
-    "platform": "ios",
-    "category": "beverages",
-    "intent": "suggestion",
-    "text": "The drink section needs better discovery. I had to search manually for coconut water."
-  },
-  {
-    "source": "Community Forum",
-    "date": "2026-05-27",
-    "platform": "forum",
-    "category": "personal_care",
-    "intent": "praise",
-    "text": "Why doesnt the app suggest personal care during checkout for relevant buyers?"
-  },
-  {
-    "source": "Apple App Store",
-    "date": "2026-02-13",
-    "platform": "ios",
-    "category": "snacks",
-    "intent": "praise",
-    "text": "Great snack selection but zero discovery. I only find new things by accident."
-  },
-  {
+    "id": "GOOG-6F3388FD",
     "source": "Google Play Store",
-    "date": "2026-02-03",
+    "date": "2026-07-21",
     "platform": "android",
-    "category": "beverages",
+    "user": "Ashish Sharma",
+    "location": "India",
+    "text": "Pathetic delivery service. Keep waiting for 40-50 mins. The delivery guy will pick up multiple other orders and it's upto his will if your delivery is first or last. Zomato is miles ahead. Uninstalled due to poor experience. Edit after 5 years:- Still pathetic, super messed up interface and impossible to sort offers/ feature synchronization is completely lacking. Software team seems sleeping.",
+    "intent": "suggestion",
+    "categories": [
+      "general",
+      "groceries"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "delivery_quality",
+      "app_experience"
+    ]
+  },
+  {
+    "id": "GOOG-5FA892C6",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Shreeman Amudha",
+    "location": "India",
+    "text": "Good superb",
+    "intent": "praise",
+    "categories": [
+      "general"
+    ],
+    "rating": 4,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "positive",
+    "themes": [
+      "app_experience"
+    ]
+  },
+  {
+    "id": "GOOG-5ABE76F5",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Shammi Dhillon",
+    "location": "India",
+    "text": "Good service",
+    "intent": "praise",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "positive",
+    "themes": [
+      "customer_service"
+    ]
+  },
+  {
+    "id": "GOOG-CA85EE1D",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "AK Mishra",
+    "location": "India",
+    "text": "They delivered wrong order and didn't initiated refund.",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "refund_issues",
+      "delivery_quality"
+    ]
+  },
+  {
+    "id": "GOOG-9832EE25",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Subhendu Acharya",
+    "location": "India",
+    "text": "It's a big help specially in this inclement weather, may be in some cases you may be paying little higher but that is okay. I often think of the delivery men who do take a lot of trouble and risk biking in bad inclement or hot summer. They are the people who do the work. Small delays should not be questioned.",
+    "intent": "suggestion",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "positive",
+    "themes": [
+      "delivery_quality",
+      "app_experience"
+    ]
+  },
+  {
+    "id": "GOOG-E60906A6",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Vanasri Vignesh B",
+    "location": "India",
+    "text": "no UPI payment option",
     "intent": "observation",
-    "text": "Beverage section is the most repetitive category on the app. Needs fixing."
+    "categories": [
+      "general"
+    ],
+    "rating": 4,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "neutral",
+    "themes": [
+      "app_experience"
+    ]
   },
   {
-    "source": "Twitter/X",
-    "date": "2026-06-10",
-    "platform": "twitter",
-    "category": "groceries",
-    "intent": "question",
-    "text": "I keep ordering the same vegetables every week. There are so many other items on the app I never see."
-  },
-  {
-    "source": "Twitter/X",
-    "date": "2026-05-27",
-    "platform": "twitter",
-    "category": "baby_products",
-    "intent": "observation",
-    "text": "Baby care discovery is the biggest gap in this app's recommendation engine."
-  },
-  {
+    "id": "GOOG-32659AA8",
     "source": "Google Play Store",
-    "date": "2026-04-16",
+    "date": "2026-07-21",
     "platform": "android",
-    "category": "snacks",
+    "user": "Rohit Awasthi",
+    "location": "India",
+    "text": "Very bad...uninstall the apps",
     "intent": "complaint",
-    "text": "Would love to try exotic snacks but the app only shows mainstream options."
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "app_experience"
+    ]
   },
   {
-    "source": "Twitter/X",
-    "date": "2026-01-20",
-    "platform": "twitter",
-    "category": "dairy",
-    "intent": "complaint",
-    "text": "I buy paneer but never see cream, sour cream, or other dairy alternatives."
-  },
-  {
-    "source": "Reddit",
-    "date": "2026-01-23",
-    "platform": "reddit",
-    "category": "groceries",
-    "intent": "suggestion",
-    "text": "Love the grocery section but there is no way to discover organic snacks or imported items easily."
-  },
-  {
-    "source": "Reddit",
-    "date": "2026-01-06",
-    "platform": "reddit",
-    "category": "dairy",
-    "intent": "question",
-    "text": "Dairy purchases should trigger recommendations for breakfast items or healthy snacks."
-  },
-  {
-    "source": "Community Forum",
-    "date": "2026-02-17",
-    "platform": "forum",
-    "category": "snacks",
-    "intent": "suggestion",
-    "text": "The snack aisle on this app needs a complete overhaul in terms of discovery."
-  },
-  {
-    "source": "Apple App Store",
-    "date": "2026-06-15",
-    "platform": "ios",
-    "category": "household",
-    "intent": "observation",
-    "text": "Household section needs a refresh. Same products recommended every time."
-  },
-  {
-    "source": "Twitter/X",
-    "date": "2026-01-07",
-    "platform": "twitter",
-    "category": "snacks",
-    "intent": "observation",
-    "text": "Why doesnt the app have a snack of the week feature? That would help me try new things."
-  },
-  {
-    "source": "Reddit",
-    "date": "2026-03-20",
-    "platform": "reddit",
-    "category": "dairy",
-    "intent": "suggestion",
-    "text": "Would love to discover artisanal cheese or greek yogurt but the app doesnt show them."
-  },
-  {
+    "id": "GOOG-B62C737A",
     "source": "Google Play Store",
-    "date": "2026-02-13",
+    "date": "2026-07-21",
     "platform": "android",
-    "category": "packaged_food",
-    "intent": "suggestion",
-    "text": "Packaged food section is huge but discovery is terrible. Everything looks the same."
-  },
-  {
-    "source": "Reddit",
-    "date": "2026-04-09",
-    "platform": "reddit",
-    "category": "baby_products",
-    "intent": "complaint",
-    "text": "Baby product discovery is critical for new parents. The app fails here."
-  },
-  {
-    "source": "Twitter/X",
-    "date": "2026-03-11",
-    "platform": "twitter",
-    "category": "personal_care",
-    "intent": "question",
-    "text": "I would buy more personal care items if the app showed them to me."
-  },
-  {
-    "source": "Google Play Store",
-    "date": "2026-04-29",
-    "platform": "android",
-    "category": "household",
-    "intent": "question",
-    "text": "Household section feels stale. Show me eco-friendly alternatives or new brands."
-  },
-  {
-    "source": "Community Forum",
-    "date": "2026-04-01",
-    "platform": "forum",
-    "category": "pet_supplies",
-    "intent": "complaint",
-    "text": "Pet section is an afterthought on this app. Needs proper discovery features."
-  },
-  {
-    "source": "Google Play Store",
-    "date": "2026-04-26",
-    "platform": "android",
-    "category": "packaged_food",
-    "intent": "question",
-    "text": "Why does the app recommend the same pasta sauce? Show me Thai curry paste or hummus."
-  },
-  {
-    "source": "Google Play Store",
-    "date": "2026-04-22",
-    "platform": "android",
-    "category": "packaged_food",
+    "user": "Abhishek singh",
+    "location": "India",
+    "text": "best option",
     "intent": "praise",
-    "text": "Would love a try new foods section that rotates weekly featured products."
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "positive",
+    "themes": [
+      "app_experience"
+    ]
   },
   {
-    "source": "Twitter/X",
-    "date": "2026-03-25",
-    "platform": "twitter",
-    "category": "packaged_food",
-    "intent": "question",
-    "text": "Packaged food recommendations are boring. Show me gourmet or artisanal options."
-  },
-  {
-    "source": "Community Forum",
-    "date": "2026-05-31",
-    "platform": "forum",
-    "category": "snacks",
-    "intent": "question",
-    "text": "Snack buyers are stuck in a rut. The app needs better cross-category suggestions."
-  },
-  {
+    "id": "GOOG-441787DA",
     "source": "Google Play Store",
-    "date": "2026-06-22",
+    "date": "2026-07-21",
     "platform": "android",
-    "category": "groceries",
+    "user": "Alisha",
+    "location": "India",
+    "text": "sometimes it takes longer time after giving time duration and it also pause the arriving time of the driver it's very wrong Swiggy.",
     "intent": "complaint",
-    "text": "Groceries are my main use case but I never get personalized suggestions for new items."
+    "categories": [
+      "general"
+    ],
+    "rating": 3,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "delivery_quality",
+      "app_experience"
+    ]
   },
   {
-    "source": "Reddit",
-    "date": "2026-04-20",
-    "platform": "reddit",
-    "category": "beverages",
+    "id": "GOOG-BE19AAA8",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "RAHUL R",
+    "location": "India",
+    "text": "I'm alone livin in a pg, I have sluttering issue. I could not even imagine my life without this app . congratulations swiggy for creating a beautiful network . absolutely love it \u2b50\ufe0f\u2b50\ufe0f\u2b50\ufe0f\u2b50\ufe0f\u2b50\ufe0f",
+    "intent": "praise",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "positive",
+    "themes": [
+      "app_experience",
+      "customer_service"
+    ]
+  },
+  {
+    "id": "GOOG-56982C0A",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Manamma Kudikala",
+    "location": "India",
+    "text": "excellent service",
+    "intent": "praise",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "positive",
+    "themes": [
+      "delivery_quality",
+      "customer_service"
+    ]
+  },
+  {
+    "id": "GOOG-C8245943",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "manavalan mano",
+    "location": "India",
+    "text": "The service are super and giving the food in the correct time. I love swiggy.",
+    "intent": "praise",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "positive",
+    "themes": [
+      "delivery_quality",
+      "app_experience"
+    ]
+  },
+  {
+    "id": "GOOG-28115F66",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "ketan gopale",
+    "location": "India",
+    "text": "poor service from swiggy",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "delivery_quality",
+      "customer_service"
+    ]
+  },
+  {
+    "id": "GOOG-8007C744",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Tajamul",
+    "location": "India",
+    "text": "humi jaan chi ma zanaan",
     "intent": "observation",
-    "text": "Beverage section is dominated by colas. Where are the artisanal options?"
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "neutral",
+    "themes": [
+      "general"
+    ]
   },
   {
-    "source": "Apple App Store",
-    "date": "2026-04-11",
-    "platform": "ios",
-    "category": "cleaning",
-    "intent": "complaint",
-    "text": "Would love to see subscription options for regular cleaning supply deliveries."
-  },
-  {
-    "source": "Apple App Store",
-    "date": "2026-04-13",
-    "platform": "ios",
-    "category": "pet_supplies",
-    "intent": "complaint",
-    "text": "The app should suggest pet products based on the pet type if the user specifies."
-  },
-  {
-    "source": "Twitter/X",
-    "date": "2026-02-15",
-    "platform": "twitter",
-    "category": "pet_supplies",
-    "intent": "praise",
-    "text": "Why doesn't the app have a pet parent section with curated recommendations?"
-  },
-  {
-    "source": "Reddit",
-    "date": "2026-05-04",
-    "platform": "reddit",
-    "category": "pet_supplies",
-    "intent": "suggestion",
-    "text": "I buy pet treats but never see health supplements or toys. Frustrating."
-  },
-  {
-    "source": "Reddit",
-    "date": "2026-06-14",
-    "platform": "reddit",
-    "category": "snacks",
-    "intent": "praise",
-    "text": "Snack recommendations are stale. I see the same five brands every time."
-  },
-  {
+    "id": "GOOG-E5505704",
     "source": "Google Play Store",
-    "date": "2026-02-01",
+    "date": "2026-07-21",
     "platform": "android",
-    "category": "baby_products",
+    "user": "Arun pratap Singh",
+    "location": "India",
+    "text": "worst app I have ever seen",
     "intent": "complaint",
-    "text": "The app should recommend baby products alongside dairy and food purchases."
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "app_experience",
+      "customer_service"
+    ]
   },
   {
+    "id": "GOOG-71CBB4C0",
     "source": "Google Play Store",
-    "date": "2026-05-17",
+    "date": "2026-07-21",
     "platform": "android",
-    "category": "snacks",
-    "intent": "suggestion",
-    "text": "Snack section is huge but poorly organized. Discovery is nearly impossible."
-  },
-  {
-    "source": "Reddit",
-    "date": "2026-01-28",
-    "platform": "reddit",
-    "category": "baby_products",
-    "intent": "complaint",
-    "text": "Parenting is exhausting. The app should make discovering baby products easier."
-  },
-  {
-    "source": "Twitter/X",
-    "date": "2026-01-22",
-    "platform": "twitter",
-    "category": "personal_care",
-    "intent": "question",
-    "text": "Personal care should be surfaced to users based on their purchase patterns."
-  },
-  {
-    "source": "Twitter/X",
-    "date": "2026-06-10",
-    "platform": "twitter",
-    "category": "beverages",
-    "intent": "question",
-    "text": "Same Coke and Pepsi every time. I want to see cold pressed juices or kombucha."
-  },
-  {
-    "source": "Google Play Store",
-    "date": "2026-03-01",
-    "platform": "android",
-    "category": "baby_products",
-    "intent": "complaint",
-    "text": "I buy diapers weekly but never see baby shampoo or lotion suggested."
-  },
-  {
-    "source": "Twitter/X",
-    "date": "2026-02-05",
-    "platform": "twitter",
-    "category": "cleaning",
-    "intent": "suggestion",
-    "text": "The app should suggest cleaning bundles based on the room or task."
-  },
-  {
-    "source": "Apple App Store",
-    "date": "2026-04-02",
-    "platform": "ios",
-    "category": "cleaning",
-    "intent": "question",
-    "text": "Cleaning products need cross-selling. I buy mops but never see replacement heads."
-  },
-  {
-    "source": "Apple App Store",
-    "date": "2026-04-13",
-    "platform": "ios",
-    "category": "packaged_food",
-    "intent": "suggestion",
-    "text": "Why doesn't the app suggest international packaged foods to adventurous eaters?"
-  },
-  {
-    "source": "Apple App Store",
-    "date": "2026-03-28",
-    "platform": "ios",
-    "category": "household",
-    "intent": "complaint",
-    "text": "Why does the app never suggest upgraded versions of what I buy?"
-  },
-  {
-    "source": "Google Play Store",
-    "date": "2026-03-22",
-    "platform": "android",
-    "category": "personal_care",
-    "intent": "question",
-    "text": "Would love to discover new personal care brands but the app keeps me in my bubble."
-  },
-  {
-    "source": "Community Forum",
-    "date": "2026-03-19",
-    "platform": "forum",
-    "category": "beverages",
-    "intent": "suggestion",
-    "text": "I wish the app would suggest beverages that pair with my grocery items."
-  },
-  {
-    "source": "Apple App Store",
-    "date": "2026-04-01",
-    "platform": "ios",
-    "category": "personal_care",
-    "intent": "complaint",
-    "text": "I buy soap but never see face wash or moisturizer alternatives."
-  },
-  {
-    "source": "Google Play Store",
-    "date": "2026-01-10",
-    "platform": "android",
-    "category": "pet_supplies",
-    "intent": "question",
-    "text": "I buy premium pet food but never see matching premium toys or beds."
-  },
-  {
-    "source": "Community Forum",
-    "date": "2026-04-07",
-    "platform": "forum",
-    "category": "personal_care",
-    "intent": "complaint",
-    "text": "Found a great shampoo by accident. The app should surface personal care items to grocery buyers."
-  },
-  {
-    "source": "Reddit",
-    "date": "2026-03-20",
-    "platform": "reddit",
-    "category": "pet_supplies",
-    "intent": "question",
-    "text": "Pet supply recommendations are random. They should be based on purchase history."
-  },
-  {
-    "source": "Twitter/X",
-    "date": "2026-03-31",
-    "platform": "twitter",
-    "category": "packaged_food",
+    "user": "Chaithra Shree C",
+    "location": "India",
+    "text": "too costly",
     "intent": "observation",
-    "text": "Packaged food recommendations are stuck in a loop. Same brands, same products."
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "neutral",
+    "themes": [
+      "pricing"
+    ]
   },
   {
-    "source": "Community Forum",
-    "date": "2026-03-03",
-    "platform": "forum",
-    "category": "personal_care",
+    "id": "GOOG-9E9D8762",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Sandyanh Sandya",
+    "location": "India",
+    "text": "these is for coupon code is helpful me so!!",
     "intent": "observation",
-    "text": "Personal care discovery is broken. I only find things through manual search."
+    "categories": [
+      "general"
+    ],
+    "rating": 4,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "positive",
+    "themes": [
+      "customer_service",
+      "app_experience"
+    ]
   },
   {
-    "source": "Apple App Store",
-    "date": "2026-02-04",
-    "platform": "ios",
-    "category": "household",
+    "id": "GOOG-5E5EA420",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "\u0ba4\u0bae\u0bbf\u0bb4\u0bcd",
+    "location": "India",
+    "text": "appreciate to delivery person calm and polite spoken to identify our location Thankyou",
+    "intent": "praise",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "positive",
+    "themes": [
+      "delivery_quality",
+      "customer_service"
+    ]
+  },
+  {
+    "id": "GOOG-5D067E9B",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Jitendra Singh",
+    "location": "India",
+    "text": "site crash",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "neutral",
+    "themes": [
+      "app_experience"
+    ]
+  },
+  {
+    "id": "GOOG-352F880E",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "shanmukha haranath",
+    "location": "India",
+    "text": "worst delivery service, delivery partner will be assigned 2-3 orders, by the time he delivers 2 orders, 3rd delivery food will be cold/spilled/torn and soft. Customer service supports this saying it's a system allocated process. it's not a rare case scenario, faced the same issue 1 in every 3 orders. Swiggy should not accept orders when they don't have enough delivery partner",
+    "intent": "suggestion",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "delivery_quality",
+      "customer_service"
+    ]
+  },
+  {
+    "id": "GOOG-376CB7D2",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Kavitha Rajesh",
+    "location": "India",
+    "text": "very happy while ordering on SWIGGY \u2728\u2728\ud83d\udc4f\ud83c\udffb\ud83d\udc4f\ud83c\udffb",
+    "intent": "praise",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "positive",
+    "themes": [
+      "app_experience",
+      "customer_service"
+    ]
+  },
+  {
+    "id": "GOOG-C61C1D4E",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Jannat Suddiquie",
+    "location": "India",
+    "text": "very good service other delivery partner",
+    "intent": "praise",
+    "categories": [
+      "general"
+    ],
+    "rating": 3,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "positive",
+    "themes": [
+      "delivery_quality",
+      "customer_service"
+    ]
+  },
+  {
+    "id": "GOOG-D05948B3",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Mathew Joyet",
+    "location": "India",
+    "text": "this swiggy is the most super and the fastest one. The delivery boys are very interesting and keeping a comment pose sound.",
+    "intent": "praise",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "positive",
+    "themes": [
+      "delivery_quality",
+      "app_experience"
+    ]
+  },
+  {
+    "id": "GOOG-348291A5",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Yash Vadher",
+    "location": "India",
+    "text": "land application hai naa koi offer naa koi voucher. C App world's worst application",
+    "intent": "complaint",
+    "categories": [
+      "general",
+      "packaged_food",
+      "delivery"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "app_experience",
+      "delivery_quality"
+    ]
+  },
+  {
+    "id": "GOOG-726D2A52",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "ram s",
+    "location": "India",
+    "text": "it's show as raning even when it's not raining and the timer it shows is erroneous as real time passes 1 hr also it show as if delivery is within time",
+    "intent": "observation",
+    "categories": [
+      "general",
+      "delivery"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "neutral",
+    "themes": [
+      "delivery_quality",
+      "app_experience"
+    ]
+  },
+  {
+    "id": "GOOG-D9A34D95",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "SYED REHAN ALI",
+    "location": "India",
+    "text": "so late delivery",
+    "intent": "complaint",
+    "categories": [
+      "general",
+      "delivery"
+    ],
+    "rating": 4,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "delivery_quality"
+    ]
+  },
+  {
+    "id": "GOOG-390CE853",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "pratik Mane",
+    "location": "India",
+    "text": "mene order Kiya tha order he nahi aaya phele paise paid kiye 1 st order he nahi aaya 1 hour se jyada ho gaya refund ka option nahi aa rahi or swiggy ka coustomer number bhe nahi lag rahi pure mobile ka sabse ghatiya aap hai ayyy dowland mat karo zomato idls better Swiggy ke aukat nahi hee",
+    "intent": "complaint",
+    "categories": [
+      "general",
+      "delivery",
+      "packaged_food"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "delivery_quality",
+      "customer_service",
+      "refund_issues"
+    ]
+  },
+  {
+    "id": "GOOG-293DA9A0",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Sazad Alam",
+    "location": "India",
+    "text": "good food delivery service",
+    "intent": "praise",
+    "categories": [
+      "general",
+      "delivery",
+      "packaged_food"
+    ],
+    "rating": 4,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "positive",
+    "themes": [
+      "delivery_quality"
+    ]
+  },
+  {
+    "id": "GOOG-2C5B2BE9",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Sonu Goyal",
+    "location": "India",
+    "text": "good job \ud83d\udc4d",
+    "intent": "praise",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "positive",
+    "themes": [
+      "app_experience"
+    ]
+  },
+  {
+    "id": "GOOG-6C2531E6",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "JINAL MISTRY",
+    "location": "India",
+    "text": "bo j kharab aap che refund and customer service or customer sathe problem ne resolve karva ma aa company ne koi ras nathi aa loko na executive aapne lier atle k customer ne j khota batave che aapna paisa khay jaay che n delivery ma pn extra charge aapva chhata delivery late j aave che n mara sathe Swiggy no aa anubhav 5 6 var thay gyo che. band Swiggy and save your money",
+    "intent": "complaint",
+    "categories": [
+      "general",
+      "delivery",
+      "packaged_food"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "delivery_quality",
+      "customer_service",
+      "refund_issues"
+    ]
+  },
+  {
+    "id": "GOOG-E89E4DB7",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Aanya bhandari",
+    "location": "India",
+    "text": "\u092c\u0939\u0941\u0924 \u0905\u091a\u094d\u091b\u093e \u0906\u0938\u093e\u0928\u0940 \u0938\u0947 \u0915\u092e \u0938\u092e\u092f \u092e\u0947 \u092e\u0928 \u092a\u0938\u0902\u0926 food \u0918\u0930 \u092e\u0947 \u0921\u093f\u0932\u0947\u0935\u0930\u0940 \u0915\u0930\u0935\u093e \u0938\u0915\u0924\u0947 \u0939\u0948 \ud83d\udc4d",
+    "intent": "praise",
+    "categories": [
+      "general",
+      "delivery",
+      "packaged_food"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "positive",
+    "themes": [
+      "delivery_quality",
+      "food_quality"
+    ]
+  },
+  {
+    "id": "GOOG-0455B2CE",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Aryan",
+    "location": "India",
+    "text": "there is scheme rs.1 on anyone item which is activated after buying over rs.99 but when I click on it then it's add on my cart but unfortunately again it's uncart, I facing this problem since I downloaded it, if you're not gonna fix, I will give bad reviews and tell people to don't use it anyway...I am just frustrated because of your fake scheme if you're not gonna give the item in 1rs, then just remove it already!!!",
+    "intent": "complaint",
+    "categories": [
+      "general",
+      "packaged_food",
+      "delivery"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "pricing",
+      "app_experience"
+    ]
+  },
+  {
+    "id": "GOOG-5C0531B6",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Amarjeet Singh",
+    "location": "India",
+    "text": "good services",
+    "intent": "praise",
+    "categories": [
+      "general",
+      "delivery"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "positive",
+    "themes": [
+      "delivery_quality"
+    ]
+  },
+  {
+    "id": "GOOG-5F726035",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Madhuri Jaiswal",
+    "location": "India",
+    "text": "so delicious pizza",
+    "intent": "praise",
+    "categories": [
+      "general",
+      "packaged_food"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "positive",
+    "themes": [
+      "food_quality"
+    ]
+  },
+  {
+    "id": "GOOG-BE92E9BE",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Abhishek Shaw",
+    "location": "India",
+    "text": "it's good \ud83d\ude0a",
+    "intent": "praise",
+    "categories": [
+      "general"
+    ],
+    "rating": 3,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "positive",
+    "themes": [
+      "app_experience"
+    ]
+  },
+  {
+    "id": "GOOG-9EF3F6DF",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Swetha S",
+    "location": "India",
+    "text": "Amazing app\ud83e\udd70",
+    "intent": "praise",
+    "categories": [
+      "general"
+    ],
+    "rating": 4,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "positive",
+    "themes": [
+      "app_experience"
+    ]
+  },
+  {
+    "id": "GOOG-778CD8CB",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "AK Maurya",
+    "location": "India",
+    "text": "why instamart not available...",
     "intent": "question",
-    "text": "I buy trash bags but never see recycling bins or eco alternatives."
+    "categories": [
+      "general",
+      "delivery"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "neutral",
+    "themes": [
+      "app_experience",
+      "delivery_quality"
+    ]
   },
   {
-    "source": "Community Forum",
-    "date": "2026-06-05",
-    "platform": "forum",
-    "category": "beverages",
-    "intent": "praise",
-    "text": "Beverage discovery is broken. I only see what I have already purchased."
+    "id": "GOOG-E6603248",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Cookies Durg",
+    "location": "India",
+    "text": "99 RUPPES PRODUCT IS NOT WORT IT FOR MY STOMACH",
+    "intent": "complaint",
+    "categories": [
+      "general",
+      "packaged_food"
+    ],
+    "rating": 3,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "food_quality",
+      "pricing"
+    ]
   },
   {
-    "source": "Twitter/X",
-    "date": "2026-01-13",
-    "platform": "twitter",
-    "category": "beverages",
+    "id": "GOOG-DD554CDD",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Raghava Sai",
+    "location": "India",
+    "text": "can't explain my expression",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "neutral",
+    "themes": [
+      "general"
+    ]
+  },
+  {
+    "id": "GOOG-62307ED8",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "anushaa rastogi",
+    "location": "India",
+    "text": "This is actually the worst app in terms of customer experience. Zomato experience is far better than this as atleast customer support actually helps but here you will only be irritated with no resolution. Delivery is always delayed.",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "delivery_quality",
+      "customer_service"
+    ]
+  },
+  {
+    "id": "GOOG-7FDC4CC7",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Jayaram Gopalswamy",
+    "location": "India",
+    "text": "good luck good charsm",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "neutral",
+    "themes": [
+      "general"
+    ]
+  },
+  {
+    "id": "GOOG-2CD168C2",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Pritam Parida",
+    "location": "India",
+    "text": "bahut slow he",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "app_experience"
+    ]
+  },
+  {
+    "id": "GOOG-A17CA04C",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Dar Neha",
+    "location": "India",
+    "text": "very good app",
     "intent": "praise",
-    "text": "Would love if the app showed me beverages from other categories like health drinks."
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "positive",
+    "themes": [
+      "app_experience"
+    ]
+  },
+  {
+    "id": "GOOG-3DAB2932",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "RAHUL RAGHUNATH SANSARE",
+    "location": "India",
+    "text": "Fast Order Place.",
+    "intent": "praise",
+    "categories": [
+      "general"
+    ],
+    "rating": 4,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "positive",
+    "themes": [
+      "delivery_quality"
+    ]
+  },
+  {
+    "id": "GOOG-9A943203",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "venkata chalapathi",
+    "location": "India",
+    "text": "going good keep it up",
+    "intent": "praise",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "positive",
+    "themes": [
+      "app_experience"
+    ]
+  },
+  {
+    "id": "GOOG-D1BC4A0C",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Money save Cab",
+    "location": "India",
+    "text": "My 1st order today",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "neutral",
+    "themes": [
+      "general"
+    ]
+  },
+  {
+    "id": "GOOG-4E69BB62",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Vijay Sharma",
+    "location": "India",
+    "text": "good service completely and timing perfect \ud83d\udc4d",
+    "intent": "praise",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "positive",
+    "themes": [
+      "delivery_quality",
+      "customer_service"
+    ]
+  },
+  {
+    "id": "GOOG-7A14CAA5",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Nadiya Abdullah",
+    "location": "India",
+    "text": "last time the order was not delivered to me your delivery agent didn't deliver the item despite payment",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "delivery_quality"
+    ]
+  },
+  {
+    "id": "GOOG-F7478F99",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Karthik Karthik",
+    "location": "India",
+    "text": "I m not Suggest to this App.. Very Late Delivery,. thattoooo delivery Agents Are Not Responding Calls",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "delivery_quality",
+      "customer_service"
+    ]
+  },
+  {
+    "id": "GOOG-6471912B",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Tinku Gurjar",
+    "location": "India",
+    "text": "very good app \ud83d\udc4d thank you",
+    "intent": "praise",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "positive",
+    "themes": [
+      "app_experience"
+    ]
+  },
+  {
+    "id": "GOOG-28507A0B",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Vanita Mandala",
+    "location": "India",
+    "text": "Worst app, 1 star rating is also more for this app. Customer support is also very poor. There is no option to enter address if i moved to another location. It is only showing GPS location which is not taking correct address. I wonder how it is showing 4star rating, here every one gave 1star.had one more bad experience.While cancelling they are mentioned everything but not about the cancellation fee. they charged 100% money which is ridiculous.worst service ever.and the support agent is also rude",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "customer_service",
+      "app_experience",
+      "refund_issues"
+    ]
+  },
+  {
+    "id": "GOOG-04295E06",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "AbhishekPrerna",
+    "location": "India",
+    "text": "worst worst experience",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "general"
+    ]
+  },
+  {
+    "id": "GOOG-9290E3F5",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Hemant Kharote",
+    "location": "India",
+    "text": "No one should install this app; the service is absolutely terrible. I had a horrible experience while traveling by train\u2014the food was packed in a completely improper manner. I reported this to their customer service, but they did absolutely nothing about it. You are better off ordering from Zomato; they provide much better service.",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "delivery_quality",
+      "customer_service",
+      "app_experience"
+    ]
+  },
+  {
+    "id": "GOOG-8858F929",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Ram Singh0291",
+    "location": "India",
+    "text": "this very uesful app for oldage people",
+    "intent": "praise",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "positive",
+    "themes": [
+      "app_experience"
+    ]
+  },
+  {
+    "id": "GOOG-DCB4137E",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Praseedha W.R",
+    "location": "India",
+    "text": "A 20 mins delivery took 1 hour to deliver.No response when i called the delivery agent and no call was received back.really too slow .Very worst delivery ever.Will i have to leave all my work and wait to satisfy my hunger keeping looking on the phone continuously.... but hands tight i spoke with a customer's support agent i asked for compensation but she never gave and i asked for supervisor. She said she will arrange a call back no call back was arranged nor no compensation received. worst app",
+    "intent": "complaint",
+    "categories": [
+      "general",
+      "food"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "delivery_quality",
+      "customer_service",
+      "refund_issues"
+    ]
+  },
+  {
+    "id": "GOOG-669FC219",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Priya",
+    "location": "India",
+    "text": "I have ordered food many times, the service was good but when I ordered now the delivery boy would not give me any argument. I ordered it and the hotel management refused to refund me.\ud83d\ude14\ud83d\ude14",
+    "intent": "complaint",
+    "categories": [
+      "general",
+      "food"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "delivery_quality",
+      "refund_issues"
+    ]
+  },
+  {
+    "id": "GOOG-C0A267C5",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Rahul Patil",
+    "location": "India",
+    "text": "I ordered two items yesterday, but the delivery address was incorrect. I tried to update the address in the app; while the option to change it exists, it doesn't actually allow the change to go through. When I called customer care, they apologized and said the address couldn't be changed, suggesting I cancel the order if I didn't want it. However, they stated that cancellation would incur charges equal to the full amount, meaning I wouldn't get any refund. 1. The cancellation policy is flawed. 2",
+    "intent": "suggestion",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "neutral",
+    "themes": [
+      "app_experience",
+      "cancellation_policy"
+    ]
+  },
+  {
+    "id": "GOOG-54186EBB",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Abdul Hafeez",
+    "location": "India",
+    "text": "Delivery time taking too much not fare",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "delivery_quality"
+    ]
+  },
+  {
+    "id": "GOOG-E275C4CE",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Rocky N",
+    "location": "India",
+    "text": "want more discount",
+    "intent": "suggestion",
+    "categories": [
+      "general"
+    ],
+    "rating": 4,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "neutral",
+    "themes": [
+      "pricing"
+    ]
+  },
+  {
+    "id": "GOOG-F868EA56",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Nurmohamad Ansari",
+    "location": "India",
+    "text": "muche pasand aaya",
+    "intent": "praise",
+    "categories": [
+      "general"
+    ],
+    "rating": 4,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "positive",
+    "themes": [
+      "app_experience"
+    ]
+  },
+  {
+    "id": "GOOG-E89DAA70",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "srikanth padamati",
+    "location": "India",
+    "text": "too much prices",
+    "intent": "complaint",
+    "categories": [
+      "groceries"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "pricing"
+    ]
+  },
+  {
+    "id": "GOOG-4F3B295F",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Unique Status",
+    "location": "India",
+    "text": "swiggy not order yet in this area",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 4,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "neutral",
+    "themes": [
+      "app_experience"
+    ]
+  },
+  {
+    "id": "GOOG-8CF6002C",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "NITU MESHRAM",
+    "location": "India",
+    "text": "bad experience not picking up call by delivery boy and mentioned food delivered",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "delivery_quality",
+      "customer_service"
+    ]
+  },
+  {
+    "id": "GOOG-A5B2EFA0",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "aisha singh",
+    "location": "India",
+    "text": "bhut acha h delivery order Time par hota h",
+    "intent": "praise",
+    "categories": [
+      "general"
+    ],
+    "rating": 4,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "positive",
+    "themes": [
+      "delivery_quality"
+    ]
+  },
+  {
+    "id": "GOOG-B8653EF5",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Anusiya Anusi",
+    "location": "India",
+    "text": "wrong map location",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "app_experience"
+    ]
+  },
+  {
+    "id": "GOOG-460EFD2A",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Deepa Lakshmi",
+    "location": "India",
+    "text": "It is a shocking app forcing the customer to place the order immediately when you are trying to pay or stuck with payment app. consequently it declares the order delivered before it is delivered. May it be a bug in the app or tactics of restaurant & app or done by the delivery partner played incase of any issue but not good for this business. loosing the trust. uninstalling..",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "app_experience",
+      "delivery_quality"
+    ]
+  },
+  {
+    "id": "GOOG-740F5763",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Maltoliya Paresh Bhai",
+    "location": "India",
+    "text": "thanks and good \ud83d\udc4d",
+    "intent": "praise",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "positive",
+    "themes": [
+      "app_experience"
+    ]
+  },
+  {
+    "id": "GOOG-8BD6F681",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Heck Oh Yeah!- Blog for money lovers",
+    "location": "India",
+    "text": "this app is fraud. and always charge me more than what I have in the cartm they charged me twice for the same item. when I tried to cancel they charge me 100% cancellation fee for my order",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "app_experience",
+      "refund_issues",
+      "pricing"
+    ]
+  },
+  {
+    "id": "GOOG-AE664362",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Swastika Banik",
+    "location": "India",
+    "text": "Valid offers are SCAM nothing works",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "delivery_quality",
+      "refund_issues"
+    ]
+  },
+  {
+    "id": "GOOG-841190A8",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "vigneshwari Vigensh",
+    "location": "India",
+    "text": "very nice \ud83d\udc4d\ud83d\udc4d",
+    "intent": "praise",
+    "categories": [
+      "general"
+    ],
+    "rating": 3,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "positive",
+    "themes": [
+      "app_experience"
+    ]
+  },
+  {
+    "id": "GOOG-99ADCF95",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Sharry Khan",
+    "location": "India",
+    "text": "nice offer \u2764\ufe0f",
+    "intent": "praise",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "positive",
+    "themes": [
+      "app_experience"
+    ]
+  },
+  {
+    "id": "GOOG-B407C288",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Lakshya",
+    "location": "India",
+    "text": "worst customer support, I have received generic responses without help.",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "customer_service"
+    ]
+  },
+  {
+    "id": "GOOG-1CA8BDC8",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Md Fareed",
+    "location": "India",
+    "text": "late delivery",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 2,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "delivery_quality"
+    ]
+  },
+  {
+    "id": "GOOG-5A083C87",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Deepti Saklani",
+    "location": "India",
+    "text": "Let's see my first time",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 4,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "neutral",
+    "themes": [
+      "app_experience"
+    ]
+  },
+  {
+    "id": "GOOG-9C8F29A3",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Bala Murugan",
+    "location": "India",
+    "text": "very good\ud83d\udc4d\ud83d\udc4d",
+    "intent": "praise",
+    "categories": [
+      "general"
+    ],
+    "rating": 4,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "positive",
+    "themes": [
+      "app_experience"
+    ]
+  },
+  {
+    "id": "GOOG-C118F10A",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "TWO DEVILS",
+    "location": "India",
+    "text": "cash on delivery kyu band ki hai online bhi click nai ho pa Raha pay pe???",
+    "intent": "question",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "neutral",
+    "themes": [
+      "payment_issues"
+    ]
+  },
+  {
+    "id": "GOOG-5DAE35A9",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "kamalkishore sharma",
+    "location": "India",
+    "text": "good fooding",
+    "intent": "praise",
+    "categories": [
+      "packaged_food"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "positive",
+    "themes": [
+      "product_quality"
+    ]
+  },
+  {
+    "id": "GOOG-3D6480BD",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Shalini S",
+    "location": "India",
+    "text": "I like Swiggy",
+    "intent": "praise",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "positive",
+    "themes": [
+      "app_experience"
+    ]
+  },
+  {
+    "id": "GOOG-C86D2559",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Shubam Gill",
+    "location": "India",
+    "text": "soo good app\u2764\ufe0f",
+    "intent": "praise",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "positive",
+    "themes": [
+      "app_experience"
+    ]
+  },
+  {
+    "id": "GOOG-2D1E1210",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Rohit Halder",
+    "location": "India",
+    "text": "worst Customer service unsupportive delivery person's doesn't pickup calls",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "customer_service",
+      "delivery_quality"
+    ]
+  },
+  {
+    "id": "GOOG-78637902",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Aafreen Alam",
+    "location": "India",
+    "text": "exceptional delays in the delivery of food, never ordering from this app again.",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "delivery_quality"
+    ]
+  },
+  {
+    "id": "GOOG-87A3A646",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "S.Yamuna Princy M.Savariraja",
+    "location": "India",
+    "text": "nothing to tell everything is good \ud83d\udc4d",
+    "intent": "praise",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "positive",
+    "themes": [
+      "app_experience"
+    ]
+  },
+  {
+    "id": "GOOG-D10A5987",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Rajeshwari B",
+    "location": "India",
+    "text": "I have received the wrong product and I have sent Swiggy the pictures and it is clearly written that it is a different flavour, but unfortunately Swiggy is not able to see the picture. I ordered roasted almond ice cream but i received mixed berries. And still Swiggy cannot see it from the pictures that I shared.",
+    "intent": "complaint",
+    "categories": [
+      "dairy",
+      "packaged_food"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "product_quality",
+      "customer_service"
+    ]
+  },
+  {
+    "id": "GOOG-7B62B605",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Shaik Aitck ahamed",
+    "location": "India",
+    "text": "ok I think good I try now",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "neutral",
+    "themes": [
+      "app_experience"
+    ]
+  },
+  {
+    "id": "GOOG-9B192FA4",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Poonam Varma",
+    "location": "India",
+    "text": "best Of okay \ud83d\udc4d",
+    "intent": "praise",
+    "categories": [
+      "general"
+    ],
+    "rating": 4,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "positive",
+    "themes": [
+      "app_experience"
+    ]
+  },
+  {
+    "id": "GOOG-47CA9706",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "tharun hrx",
+    "location": "India",
+    "text": "what kind of worst customer service forcefully giving \"ok got it\" choice instead of escalation or compensation, not even 1 star deserved for continuous poor quality service.",
+    "intent": "complaint",
+    "categories": [
+      "beverages"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "customer_service",
+      "product_quality"
+    ]
+  },
+  {
+    "id": "GOOG-C4447B82",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Lulu Chowdary",
+    "location": "India",
+    "text": "jxbxfnfhf fjfhrbrr furhr fur rfurr fi rducd dud rudhs six days didn't did did did djd djd rdud djd djdbkdsie wlabw oasnevdskna aljse rude eowpqoqbq wwiwbqkwjw wiwbwlwnw wiwbwlwnw wwowvwnwow wow wow wow wow dreid djzhdf dod dod ddoebr dienslwb eske sowne wkwnwonq woa qqonwdofnfv gcjnxiiqbej ebeiene eineeokwhwekhd dudbedbd djehejejrh reirnwojw ewiebe wine eis kshsbx dis dis finally I aja ina j Wis Anna so a na waisbs saw what subway bs aihs said sis she didn't jsjs DJs sis susbd dxjd Sona kah",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "neutral",
+    "themes": []
+  },
+  {
+    "id": "GOOG-77122285",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "A Google user",
+    "location": "India",
+    "text": "off late the service has lost its efficiency and accountability.... even when the service was at fault, they didn't refund. While prompting for swiggy one membership, they promised the moon & later treats the same members unfairly..... it said to see this downfall..... but I would suggest everyone to try other alternatives....",
+    "intent": "suggestion",
+    "categories": [
+      "snacks",
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "delivery_quality",
+      "customer_service",
+      "pricing"
+    ]
+  },
+  {
+    "id": "GOOG-79176D81",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "anant shukla",
+    "location": "India",
+    "text": "poor thinker company",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "customer_service"
+    ]
+  },
+  {
+    "id": "GOOG-5E677F1E",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Yukta Punya Sonowal",
+    "location": "India",
+    "text": "We can't cancel an order, customer service doesn't work, there's no helpline number. I had to make the full payment to the delivery guy separately via call as he couldn't reach the location (due to floods) making it an inconvenience for the both of us, there is no option for cancellation at all. Thank you for providing the most useless service.",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in",
+    "sentiment": "negative",
+    "themes": [
+      "delivery_quality",
+      "customer_service",
+      "refund_issues"
+    ]
   }
 ]

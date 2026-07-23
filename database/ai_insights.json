@@ -1,151 +1,340 @@
 {
-  "title": "Swiggy Instamart Discovery Engine — AI Insights",
-  "total_reviews_analyzed": 148,
-  "source": "AI-generated analysis via Groq (llama-3.3-70b-versatile)",
   "themes": [
     {
-      "name": "Repetitive Cart Experience",
+      "name": "App Experience",
       "frequency": "High",
-      "mentions": 45,
-      "categories": ["groceries", "snacks", "beverages"],
-      "evidence": [
-        {"quote": "I keep ordering the same vegetables every week. There are so many other items on the app I never see.", "source": "Apple App Store", "category": "groceries"},
-        {"quote": "Same Coke and Pepsi every time. I want to see cold pressed juices or kombucha.", "source": "Reddit", "category": "beverages"},
-        {"quote": "I always end up buying the same chips and biscuits. The recommendation engine is stuck.", "source": "Apple App Store", "category": "snacks"},
-        {"quote": "Grocery repeat orders are convenient but I feel stuck in a loop with no discovery.", "source": "Google Play Store", "category": "groceries"},
-        {"quote": "I buy the same rice brand for months. Show me alternatives please.", "source": "Google Play Store", "category": "groceries"}
+      "mentions": 55,
+      "sentiment": {
+        "positive": 12,
+        "neutral": 2,
+        "negative": 41
+      },
+      "blockers": [
+        "Issue reported 55 times across 1 sources"
       ],
-      "sentiment": {"positive": 5, "neutral": 12, "negative": 28},
-      "blockers": ["No discovery features in the app", "Reorder button dominates the UI", "No 'Try Something New' surface"],
-      "triggers": ["Cross-category recommendations", "Weekly rotating product spotlights", "Personalized discovery feed"]
+      "triggers": [
+        "Improved quality control",
+        "Better customer support"
+      ],
+      "evidence": [
+        {
+          "text": "very very good app nice work and food low price but best ,good",
+          "source": "Google Play Store",
+          "category": "groceries"
+        },
+        {
+          "text": "I Don't Like it......i Order at 9:25 at night....my Delivery in 30 min but i Wait for 2 Hours.....NO DELIVERY TO ME🙂😠I AM VERY DISAPPOINTED..... THANKS GOD I DON'T PAY ONLINE 🥲I CHOOSE CASH ON DELIVER",
+          "source": "Google Play Store",
+          "category": "groceries"
+        },
+        {
+          "text": "bad app, late delivery and not worth the money",
+          "source": "Google Play Store",
+          "category": "groceries"
+        }
+      ]
     },
     {
-      "name": "Cross-Category Blind Spots",
+      "name": "Delivery Issues",
       "frequency": "High",
-      "mentions": 53,
-      "categories": ["pet_supplies", "personal_care", "baby_products", "cleaning"],
-      "evidence": [
-        {"quote": "Pet supplies are completely invisible unless you search. No cross-category discovery.", "source": "Reddit", "category": "pet_supplies"},
-        {"quote": "I never browse personal care because the app never suggests it during grocery checkout.", "source": "Google Play Store", "category": "personal_care"},
-        {"quote": "Why doesn't the app suggest baby products to users who buy milk and cereals?", "source": "Community Forum", "category": "baby_products"},
-        {"quote": "I buy floor cleaner but never see window cleaners or kitchen sprays suggested.", "source": "Twitter/X", "category": "cleaning"},
-        {"quote": "As a pet owner, I want the app to suggest treats and toys alongside my grocery order.", "source": "Apple App Store", "category": "pet_supplies"}
+      "mentions": 54,
+      "sentiment": {
+        "positive": 9,
+        "neutral": 5,
+        "negative": 40
+      },
+      "blockers": [
+        "Issue reported 54 times across 1 sources"
       ],
-      "sentiment": {"positive": 3, "neutral": 15, "negative": 35},
-      "blockers": ["No cross-sell logic between categories", "Category silos in the app UI", "No checkout-time suggestions for adjacent categories"],
-      "triggers": ["Checkout-time cross-category suggestions", "Category bundles based on purchase patterns", "New parent / pet owner onboarding flows"]
+      "triggers": [
+        "Improved quality control",
+        "Better customer support"
+      ],
+      "evidence": [
+        {
+          "text": "I Don't Like it......i Order at 9:25 at night....my Delivery in 30 min but i Wait for 2 Hours.....NO DELIVERY TO ME🙂😠I AM VERY DISAPPOINTED..... THANKS GOD I DON'T PAY ONLINE 🥲I CHOOSE CASH ON DELIVER",
+          "source": "Google Play Store",
+          "category": "groceries"
+        },
+        {
+          "text": "bad app, late delivery and not worth the money",
+          "source": "Google Play Store",
+          "category": "groceries"
+        },
+        {
+          "text": "posting a review for the second time. the delivery is no longer on time as promised and agent repsonds like a bot ..sorry mam for the delay ..complete useless repeating same script.. plz train your te",
+          "source": "Google Play Store",
+          "category": "beverages"
+        }
+      ]
     },
     {
-      "name": "Discovery Feature Gap",
+      "name": "Customer Service",
       "frequency": "High",
-      "mentions": 42,
-      "categories": ["groceries", "snacks", "beverages", "household"],
-      "evidence": [
-        {"quote": "The app keeps pushing me back to my usual cart. I want to try something new.", "source": "Apple App Store", "category": "groceries"},
-        {"quote": "Snacks section is repetitive. Where are the healthy alternatives or new brands?", "source": "Twitter/X", "category": "snacks"},
-        {"quote": "The reorder button is too prominent. I want to explore, not just repeat.", "source": "Reddit", "category": "groceries"},
-        {"quote": "Household essentials are on autopilot. I want to discover better products.", "source": "Community Forum", "category": "household"},
-        {"quote": "Would love to see new cleaning products but the app never suggests them.", "source": "Google Play Store", "category": "household"}
+      "mentions": 32,
+      "sentiment": {
+        "positive": 1,
+        "neutral": 2,
+        "negative": 29
+      },
+      "blockers": [
+        "Issue reported 32 times across 1 sources"
       ],
-      "sentiment": {"positive": 4, "neutral": 14, "negative": 24},
-      "blockers": ["Reorder button dominates the UI", "No browsing or exploration surfaces", "Zero motivation to look beyond usual items"],
-      "triggers": ["Weekly discovery feed with curated products", "New arrivals section", "'Try Something New' incentive program"]
+      "triggers": [
+        "Improved quality control",
+        "Better customer support"
+      ],
+      "evidence": [
+        {
+          "text": "I had a terrible experience buying from Instamart. I paid for my order but never received it. I emailed them, but I didn't receive a refund or an order.",
+          "source": "Google Play Store",
+          "category": "groceries"
+        },
+        {
+          "text": "pathetic people.I ordered food on 20th July 2026 for 800+ from Prasad food divine and within few minutes I had to cancel it due to some reason.I called the resturant and informed to. not process the o",
+          "source": "Google Play Store",
+          "category": "groceries"
+        },
+        {
+          "text": "very bad customer services worst food delivery app I love to give it 0 star for customer service and there no need to pay for swiggy one its no use because you never get your food on time",
+          "source": "Google Play Store",
+          "category": "general"
+        }
+      ]
     },
     {
-      "name": "Habit-Driven Shopping Lock-In",
+      "name": "Refund Problems",
+      "frequency": "High",
+      "mentions": 14,
+      "sentiment": {
+        "positive": 1,
+        "neutral": 1,
+        "negative": 12
+      },
+      "blockers": [
+        "Issue reported 14 times across 1 sources"
+      ],
+      "triggers": [
+        "Improved quality control",
+        "Better customer support"
+      ],
+      "evidence": [
+        {
+          "text": "I had a terrible experience buying from Instamart. I paid for my order but never received it. I emailed them, but I didn't receive a refund or an order.",
+          "source": "Google Play Store",
+          "category": "groceries"
+        },
+        {
+          "text": "I was told to apply for swiggy orange credit card and limit was also approved but after kyc they just declined my application which impacted my cibil score , just don't apply for orange credit of hdfc",
+          "source": "Google Play Store",
+          "category": "general"
+        },
+        {
+          "text": "swingy se mane order kiya tha to unhone mujhe tukda tukda or addha addha pis bheja hai or mai isko refund kar raha hu",
+          "source": "Google Play Store",
+          "category": "packaged_food"
+        }
+      ]
+    },
+    {
+      "name": "Pricing Issues",
+      "frequency": "High",
+      "mentions": 13,
+      "sentiment": {
+        "positive": 2,
+        "neutral": 2,
+        "negative": 9
+      },
+      "blockers": [
+        "Issue reported 13 times across 1 sources"
+      ],
+      "triggers": [
+        "Improved quality control",
+        "Better customer support"
+      ],
+      "evidence": [
+        {
+          "text": "very very good app nice work and food low price but best ,good",
+          "source": "Google Play Store",
+          "category": "groceries"
+        },
+        {
+          "text": "pathetic people.I ordered food on 20th July 2026 for 800+ from Prasad food divine and within few minutes I had to cancel it due to some reason.I called the resturant and informed to. not process the o",
+          "source": "Google Play Store",
+          "category": "groceries"
+        },
+        {
+          "text": "Thankfull to have a channel to order online without any hassle and even in such times of epidemic. Thanks swiggy... Loving it as always.. just it's getting a bit expensive day by day.. my experiences ",
+          "source": "Google Play Store",
+          "category": "general"
+        }
+      ]
+    },
+    {
+      "name": "Product Quality",
       "frequency": "Medium",
-      "mentions": 28,
-      "categories": ["groceries", "dairy", "packaged_food"],
-      "evidence": [
-        {"quote": "My grocery list is identical every week because the app never shows alternatives.", "source": "Reddit", "category": "groceries"},
-        {"quote": "Dairy is my most bought category but I never see cheese alternatives or yogurt varieties.", "source": "Apple App Store", "category": "dairy"},
-        {"quote": "Packaged food is repetitive. Same noodles and pasta every time.", "source": "Twitter/X", "category": "packaged_food"},
-        {"quote": "The grocery reorder feature is a trap. It keeps me from exploring new products.", "source": "Google Play Store", "category": "groceries"}
+      "mentions": 5,
+      "sentiment": {
+        "positive": 0,
+        "neutral": 0,
+        "negative": 5
+      },
+      "blockers": [
+        "Issue reported 5 times across 1 sources"
       ],
-      "sentiment": {"positive": 6, "neutral": 10, "negative": 12},
-      "blockers": ["Habit reinforcement through reorder UX", "Lack of novelty incentives", "No first-order discounts on new categories"],
-      "triggers": ["First-order discounts on new categories", "Personalized discovery feed", "Seasonal product spotlights"]
+      "triggers": [
+        "Improved quality control",
+        "Better customer support"
+      ],
+      "evidence": [
+        {
+          "text": "WORST APP. had the worst experience,I ordered a waffle and a drink from belgian waffle co.through Swiggy and received a damaged,crushed,drenched in water packet which the delivery guy handed me and ra",
+          "source": "Google Play Store",
+          "category": "beverages"
+        },
+        {
+          "text": "Honestly, better apps are there - Eat club, Eat Sure. Most orders are delivered late or not delivered. There is no standard maintained but rates are high. I actually think they should pivot their stra",
+          "source": "Google Play Store",
+          "category": "general"
+        },
+        {
+          "text": "don't order and suffer from this fraud app. if u order some items from this app and they may deliver the damaged product even it was found it with presence of delivery person. they won't refund or rep",
+          "source": "Google Play Store",
+          "category": "general"
+        }
+      ]
     },
     {
-      "name": "Information Barrier to Trial",
-      "frequency": "Medium",
-      "mentions": 22,
-      "categories": ["snacks", "beverages", "personal_care", "dairy"],
-      "evidence": [
-        {"quote": "I want to try Korean snacks but the app only shows domestic brands.", "source": "Reddit", "category": "snacks"},
-        {"quote": "Would love to try matcha or oat milk but the app never suggests them.", "source": "Twitter/X", "category": "beverages"},
-        {"quote": "Personal care products are hard to find. The app needs better cross-selling.", "source": "Community Forum", "category": "personal_care"},
-        {"quote": "Dairy purchases should trigger recommendations for breakfast items or healthy snacks.", "source": "Apple App Store", "category": "dairy"}
+      "name": "Wrong Orders",
+      "frequency": "Low",
+      "mentions": 4,
+      "sentiment": {
+        "positive": 0,
+        "neutral": 1,
+        "negative": 3
+      },
+      "blockers": [
+        "Issue reported 4 times across 1 sources"
       ],
-      "sentiment": {"positive": 2, "neutral": 8, "negative": 12},
-      "blockers": ["No product education or category descriptions", "No comparison tools", "No guided exploration prompts"],
-      "triggers": ["Product comparison tools", "Category explainer content", "Recipe-based product suggestions"]
+      "triggers": [
+        "Improved quality control",
+        "Better customer support"
+      ],
+      "evidence": [
+        {
+          "text": "A bunch of fraudsters. Delivering wrong items, overcharging and thinking of the customer as a joke. Extremely difficult to make returns (specially on instamart). The support staff is incompetent in an",
+          "source": "Google Play Store",
+          "category": "general"
+        },
+        {
+          "text": "terrible customer care. order from burger king was wrong and no resolution provided by Swiggy for complaint Request no 29243415 and 29243413. if your order is not complete or incorrect, dont make paym",
+          "source": "Google Play Store",
+          "category": "general"
+        },
+        {
+          "text": "They delivered wrong order and didn't initiated refund.",
+          "source": "Google Play Store",
+          "category": "general"
+        }
+      ]
     }
   ],
   "insights": [
     {
-      "title": "Cart Loop Trap",
-      "observation": "45 reviews (30% of all data) mention being stuck in repetitive purchase patterns across groceries, snacks, and beverages. Users explicitly feel the app reinforces their existing habits rather than expanding them.",
-      "user_need": "Users want to discover new products beyond their usual cart but lack the tools and motivation to break out of their routine.",
-      "root_cause": "The app prioritizes reorder functionality over discovery, creating a feedback loop that reinforces habit and suppresses exploration.",
-      "opportunity": "A Try Next Basket feature can break the loop by surfacing adjacent categories at checkout with personalized rationale.",
-      "implication": "MVP must focus on cross-category discovery with clear value propositions for why a user should try something new."
+      "title": "Primary Concern: App Experience",
+      "observation": "App Experience is the most mentioned theme with 55 mentions across 3 sentiment categories.",
+      "user_need": "Users need resolution for this recurring issue to maintain trust in the platform.",
+      "root_cause": "The high frequency of app experience reports suggests systemic issues in the current process.",
+      "opportunity": "Addressing this systematically could significantly improve user satisfaction and reduce churn.",
+      "implication": "This should be prioritized in the product roadmap as it directly impacts user retention."
     },
     {
-      "title": "Hidden Categories Problem",
-      "observation": "53 reviews across pet supplies, personal care, baby products, and cleaning indicate users are unaware of entire product categories available on the platform. These categories have the highest gap severity.",
-      "user_need": "Users need visibility into categories they have never browsed but would find relevant based on their purchase patterns and life stage.",
-      "root_cause": "No cross-sell logic exists between category silos. The app treats each category as an isolated shopping experience.",
-      "opportunity": "Smart category suggestions based on user-to-category affinity mapping can unlock significant new revenue streams.",
-      "implication": "Backend must implement purchase pattern analysis to detect adjacent category opportunities for each user segment."
+      "title": "Secondary Concern: Delivery Issues",
+      "observation": "Delivery Issues appears 54 times, indicating it's a significant pain point.",
+      "user_need": "Users expect reliable resolution for these issues.",
+      "root_cause": "Process gaps in delivery issues handling.",
+      "opportunity": "Streamlining this area could differentiate from competitors.",
+      "implication": "Invest in automation or better processes for this area."
     },
     {
-      "title": "Discovery UX Failure",
-      "observation": "42 reviews explicitly call out the lack of discovery features. Users describe the experience as being stuck in a loop with no way to explore new products intentionally.",
-      "user_need": "Users want a dedicated space to explore new products without disrupting their efficient repeat-purchase flow.",
-      "root_cause": "The UI is optimized entirely for repeat purchases with no browsing, exploration, or novelty surfaces.",
-      "opportunity": "A weekly discovery feed or curated themed bundles can drive category expansion while maintaining shopping efficiency.",
-      "implication": "Frontend needs a new discovery component that complements the existing cart flow without adding friction."
+      "title": "Negative Sentiment Dominance",
+      "observation": "Negative reviews (51.7%) significantly outweigh positive (31.4%).",
+      "user_need": "Users are frustrated and need tangible improvements.",
+      "root_cause": "Multiple unresolved issues across delivery, quality, and support.",
+      "opportunity": "Turning negative experiences into positive ones through proactive outreach.",
+      "implication": "Urgent intervention needed to prevent further reputation damage."
     }
   ],
   "sentiment": {
-    "positive": {"count": 34, "percentage": 23},
-    "neutral": {"count": 48, "percentage": 32},
-    "negative": {"count": 66, "percentage": 45}
+    "positive": {
+      "count": 54,
+      "percentage": 31.4
+    },
+    "neutral": {
+      "count": 29,
+      "percentage": 16.9
+    },
+    "negative": {
+      "count": 89,
+      "percentage": 51.7
+    }
   },
   "categories": [
-    {"name": "groceries", "mentions": 18, "gap_severity": "High", "business_impact": "High"},
-    {"name": "cleaning", "mentions": 18, "gap_severity": "Medium", "business_impact": "Medium"},
-    {"name": "personal_care", "mentions": 17, "gap_severity": "High", "business_impact": "High"},
-    {"name": "household", "mentions": 17, "gap_severity": "Medium", "business_impact": "Medium"},
-    {"name": "packaged_food", "mentions": 16, "gap_severity": "Low", "business_impact": "Medium"},
-    {"name": "beverages", "mentions": 14, "gap_severity": "High", "business_impact": "Medium"},
-    {"name": "pet_supplies", "mentions": 13, "gap_severity": "High", "business_impact": "Medium"},
-    {"name": "baby_products", "mentions": 13, "gap_severity": "High", "business_impact": "High"},
-    {"name": "snacks", "mentions": 11, "gap_severity": "Medium", "business_impact": "High"},
-    {"name": "dairy", "mentions": 11, "gap_severity": "Medium", "business_impact": "Low"}
-  ],
-  "mock_research_data": [
     {
-      "respondent_id": "RES-001",
-      "summary": "Highly engaged user who orders groceries weekly but feels completely stuck in repetitive patterns. Explicitly mentions the app only showing past purchases and never surfacing new categories. Discovered pet food only through a friend's recommendation, not the app.",
-      "matched_themes": ["Repetitive Cart Experience", "Cross-Category Blind Spots", "Discovery Feature Gap"],
-      "quality_score": 88,
-      "recommendation": "Strongly validates the cart loop trap and hidden categories problem. Cross-category discovery at checkout should be the MVP priority."
+      "name": "general",
+      "mentions": 151,
+      "gap_severity": "Medium",
+      "business_impact": "High"
     },
     {
-      "respondent_id": "RES-002",
-      "summary": "New pet owner who discovered pet food through manual search after a neighbor mentioned it. The app never surfaced pet products despite 6 months of weekly grocery orders. Frustrated by the lack of relevant suggestions.",
-      "matched_themes": ["Cross-Category Blind Spots", "Habit-Driven Shopping"],
-      "quality_score": 82,
-      "recommendation": "Validates that life-stage triggers (new pet, new baby) are completely missed by the current app. Onboarding flow for new life events could drive category expansion."
+      "name": "packaged_food",
+      "mentions": 26,
+      "gap_severity": "High",
+      "business_impact": "High"
     },
     {
-      "respondent_id": "RES-003",
-      "summary": "Power user who buys from 6+ categories but found them all through accidental browsing over 2 years. Wants a dedicated exploration feature and is willing to try new categories if given proper context and incentives.",
-      "matched_themes": ["Discovery Feature Gap", "Information Barrier to Trial"],
-      "quality_score": 75,
-      "recommendation": "Discovery UX is critical. Users want exploration without friction. A weekly curated feed with product education could convert browsers into multi-category buyers."
+      "name": "groceries",
+      "mentions": 14,
+      "gap_severity": "High",
+      "business_impact": "Medium"
+    },
+    {
+      "name": "delivery",
+      "mentions": 10,
+      "gap_severity": "Medium",
+      "business_impact": "Low"
+    },
+    {
+      "name": "food",
+      "mentions": 7,
+      "gap_severity": "High",
+      "business_impact": "Low"
+    },
+    {
+      "name": "beverages",
+      "mentions": 3,
+      "gap_severity": "High",
+      "business_impact": "Low"
+    },
+    {
+      "name": "electronics",
+      "mentions": 2,
+      "gap_severity": "High",
+      "business_impact": "Low"
+    },
+    {
+      "name": "dairy",
+      "mentions": 1,
+      "gap_severity": "High",
+      "business_impact": "Low"
+    },
+    {
+      "name": "snacks",
+      "mentions": 1,
+      "gap_severity": "High",
+      "business_impact": "Low"
     }
-  ]
+  ],
+  "generated_at": "2026-07-23T11:37:45.602618",
+  "total_reviews": 172
 }

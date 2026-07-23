@@ -1,460 +1,4131 @@
 [
   {
-    "id": "REV-001",
-    "source": "ConsumerComplaints.in",
-    "date": "2026-02-11",
-    "platform": "web",
-    "user": "Kiranoza21",
-    "location": "Mumbai, Maharashtra",
-    "text": "Instamart delivered expired product - SMOOR Signature Filled Pistachio & Kunafa Bar expired on 21 Jan 2026, received on 10 Feb 2026. Despite email and proof, they refused refund or replacement.",
-    "intent": "complaint",
-    "categories": [
-      "packaged_food",
-      "snacks"
-    ],
-    "rating": 1,
-    "url": "https://consumercomplaints.in/bycompany/swiggy-instamart-a614346.html"
-  },
-  {
-    "id": "REV-002",
-    "source": "ConsumerComplaints.in",
-    "date": "2025-10-25",
-    "platform": "web",
-    "user": "rkelchuri",
-    "location": "Hyderabad, Telangana",
-    "text": "100% penalty charged for order cancellation. Unfair trade practice under Consumer Protection Act 2019. Unknown item added to order without consent.",
-    "intent": "complaint",
-    "categories": [
-      "groceries"
-    ],
-    "rating": 1,
-    "url": "https://consumercomplaints.in/bycompany/swiggy-instamart-a614346.html"
-  },
-  {
-    "id": "REV-003",
-    "source": "ConsumerComplaints.in",
-    "date": "2025-09-30",
-    "platform": "web",
-    "user": "ashok.mariyala",
-    "location": "Hyderabad, Andhra Pradesh",
-    "text": "Ordered 2 packs of Mamypoko Pants Size L, received 1 pack L and 1 pack XL. Delivery agent and store manager acknowledged the issue but told to raise complaint separately.",
-    "intent": "complaint",
-    "categories": [
-      "baby_products"
-    ],
-    "rating": 1,
-    "url": "https://consumercomplaints.in/bycompany/swiggy-instamart-a614346.html"
-  },
-  {
-    "id": "REV-004",
-    "source": "ConsumerComplaints.in",
-    "date": "2025-07-07",
-    "platform": "web",
-    "user": "Inshal Ahmed",
-    "location": "India",
-    "text": "Ordered GNC Creatine Monohydrate twice, received fake product both times. Verified authenticity code on guardian.in/verify - showed invalid. Swiggy gave coupon first time instead of refund.",
-    "intent": "complaint",
-    "categories": [
-      "personal_care"
-    ],
-    "rating": 1,
-    "url": "https://consumercomplaints.in/bycompany/swiggy-instamart-a614346.html"
-  },
-  {
-    "id": "REV-005",
-    "source": "ConsumerComplaints.in",
-    "date": "2025-05-20",
-    "platform": "web",
-    "user": "abhinav2309_",
-    "location": "Vadodara, Gujarat",
-    "text": "Returned faulty earphones but no refund or coupon received. Product quality issues with electronics on Instamart.",
-    "intent": "complaint",
-    "categories": [
-      "general"
-    ],
-    "rating": 1,
-    "url": "https://consumercomplaints.in/bycompany/swiggy-instamart-a614346.html"
-  },
-  {
-    "id": "REV-006",
-    "source": "Reddit",
-    "date": "2025-11-19",
-    "platform": "reddit",
-    "user": "PsyHil89",
-    "location": "India",
-    "text": "Swiggy Instamart delivered underweight vegetables. Paid Rs 89 for cauliflower (400-600g) but received only 145g. Capsicum 170g instead of 250g. Support offered only 50% refund of Rs 88.",
-    "intent": "complaint",
-    "categories": [
-      "groceries"
-    ],
-    "rating": 1,
-    "url": "https://food.ndtv.com/news/customer-alleges-swiggy-instamart-delivered-underweight-vegetables-reddit-reacts-7053678"
-  },
-  {
-    "id": "REV-007",
-    "source": "Reddit",
-    "date": "2025-11-19",
-    "platform": "reddit",
-    "user": "reddit_user_1",
-    "location": "India",
-    "text": "I have a digital scale. Got underweight products. Same story, gave me a 50% refund. How widespread is this practice? I wouldn't even think to weigh it but my son was playing with the scale.",
-    "intent": "observation",
-    "categories": [
-      "groceries"
-    ],
-    "rating": 2,
-    "url": "https://food.ndtv.com/news/customer-alleges-swiggy-instamart-delivered-underweight-vegetables-reddit-reacts-7053678"
-  },
-  {
-    "id": "REV-008",
-    "source": "Reddit",
-    "date": "2025-11-19",
-    "platform": "reddit",
-    "user": "reddit_user_2",
-    "location": "India",
-    "text": "For the last two years, we have ordered vegetables online every day from quick commerce apps. I think I have to calculate how much money these apps looted from us.",
-    "intent": "complaint",
-    "categories": [
-      "groceries"
-    ],
-    "rating": 1,
-    "url": "https://food.ndtv.com/news/customer-alleges-swiggy-instamart-delivered-underweight-vegetables-reddit-reacts-7053678"
-  },
-  {
-    "id": "REV-009",
-    "source": "Reddit",
-    "date": "2025-11-19",
-    "platform": "reddit",
-    "user": "reddit_user_3",
-    "location": "India",
-    "text": "At least my local vendor gives me 20-50gm more every time and charges a fixed rate for items such as cauliflower and cabbage, irrespective of their size.",
-    "intent": "observation",
-    "categories": [
-      "groceries"
-    ],
-    "rating": 3,
-    "url": "https://food.ndtv.com/news/customer-alleges-swiggy-instamart-delivered-underweight-vegetables-reddit-reacts-7053678"
-  },
-  {
-    "id": "REV-010",
-    "source": "Reddit r/LegalAdviceIndia",
-    "date": "2025-02-10",
-    "platform": "reddit",
-    "user": "legal_advice_user",
-    "location": "India",
-    "text": "Consistently defrauded by Swiggy Instamart of substandard and underweight produce. Their refusal to remedy this after paying full premium prices. Will a consumer courts complaint help?",
-    "intent": "complaint",
-    "categories": [
-      "groceries"
-    ],
-    "rating": 1,
-    "url": "https://www.reddit.com/r/LegalAdviceIndia/comments/1awbzu9/"
-  },
-  {
-    "id": "REV-011",
-    "source": "Reddit r/swiggy",
-    "date": "2025-04-15",
-    "platform": "reddit",
-    "user": "swiggy_frustrated",
-    "location": "India",
-    "text": "Swiggy Instamart has the worst customer service. Ordered product worth 1.6k, it doesn't work. Tried returning within 4-day window. They kept telling to wait 6 hours or mail and wait 24-48 hours. After 3 days got email saying they can't return it. No reason given.",
-    "intent": "complaint",
-    "categories": [
-      "general"
-    ],
-    "rating": 1,
-    "url": "https://www.reddit.com/r/swiggy/comments/1k49kia/"
-  },
-  {
-    "id": "REV-012",
-    "source": "Apple App Store",
-    "date": "2025-11-27",
-    "platform": "ios",
-    "user": "Anchal1234567",
-    "location": "India",
-    "text": "Used to be good but now they just want to scam people! Almost 90% of the time, your order will either have missing or wrong items. Delivery is always delayed and they show wrong expected delivery time to fool customers.",
-    "intent": "complaint",
-    "categories": [
-      "groceries",
-      "snacks"
-    ],
-    "rating": 1,
-    "url": "https://apps.apple.com/au/app/swiggy-food-instamart-dineout/id989540920"
-  },
-  {
-    "id": "REV-013",
-    "source": "Apple App Store",
-    "date": "2024-08-26",
-    "platform": "ios",
-    "user": "Dheeraj.007",
-    "location": "India",
-    "text": "Delivery boy spilled half the food while on the way. Customer support didn't compensate fully, only provided discount coupon. 4 months later, still facing unnecessary cancellation charges from their system error.",
-    "intent": "complaint",
-    "categories": [
-      "groceries"
-    ],
-    "rating": 1,
-    "url": "https://apps.apple.com/in/app/swiggy-food-instamart-dineout/id989540920"
-  },
-  {
-    "id": "REV-014",
-    "source": "Apple App Store",
-    "date": "2025-12-13",
-    "platform": "ios",
-    "user": "Mindegy5",
-    "location": "International",
-    "text": "Worst app for westerners. Counterintuitive app design. Chat is in the most obscure part of the app. Driver contacts you, you miss call, order gets cancelled. No refund, only BS voucher with expiration date.",
-    "intent": "complaint",
-    "categories": [
-      "general"
-    ],
-    "rating": 1,
-    "url": "https://apps.apple.com/us/app/swiggy-food-instamart-dineout/id989540920"
-  },
-  {
-    "id": "REV-015",
-    "source": "Apple App Store",
-    "date": "2025-04-03",
-    "platform": "ios",
-    "user": "Huntingvision",
-    "location": "India",
-    "text": "Service is getting worse day by day. Delivery time not updated. Order doesn't get picked up, gets canceled after 45 minutes. Customer service keeps telling it's about to arrive. Don't pay ahead because they don't refund.",
-    "intent": "complaint",
-    "categories": [
-      "general"
-    ],
-    "rating": 1,
-    "url": "https://apps.apple.com/us/app/swiggy-food-instamart-dineout/id989540920"
-  },
-  {
-    "id": "REV-016",
+    "id": "TRUS-0A609CFA",
     "source": "Trustpilot",
-    "date": "2026-07-04",
+    "date": "2026-07-23",
     "platform": "web",
-    "user": "trustpilot_reviewer",
+    "user": "Trustpilot User",
     "location": "India",
-    "text": "AI summary of 380 reviews: Most reviewers were let down. Dissatisfied with customer service - described as pathetic, unhelpful, unresponsive. Problems with orders: missing items, incorrect deliveries, rotten products. Refund process denied or partial amounts.",
-    "intent": "observation",
-    "categories": [
-      "groceries",
-      "personal_care"
-    ],
-    "rating": 1,
-    "url": "https://www.trustpilot.com/review/swiggy.com"
-  },
-  {
-    "id": "REV-017",
-    "source": "FSSAI Report",
-    "date": "2026-07-11",
-    "platform": "news",
-    "user": "FSSAI",
-    "location": "New Delhi",
-    "text": "Food Safety and Standards Authority of India issued 9 notices to Swiggy Instamart. Complaints include expired products, contaminated eggs and milk, damaged packaged food, incorrect FSSAI license numbers, and inadequate grievance redressal.",
-    "intent": "complaint",
-    "categories": [
-      "groceries",
-      "dairy",
-      "packaged_food"
-    ],
-    "rating": 1,
-    "url": "https://www.thehindubusinessline.com/companies/food-standards-authority-issues-9-notices-to-swiggy-instamart-over-consumer-complaints/article71209786.ece"
-  },
-  {
-    "id": "REV-018",
-    "source": "Indian Food Times",
-    "date": "2025-03-16",
-    "platform": "news",
-    "user": "Team IFT",
-    "location": "India",
-    "text": "Quick commerce platforms accused of dark patterns and price manipulation. Hidden fees, device-based price discrimination, and manipulative user interfaces. CCPA expanded probe to include quick commerce platforms.",
+    "text": "Swiggy is rated \"Bad\" with 1.1 / 5 on Trustpilot - Trustpilot. <a href=\"https://news.google.com/rss/articles/CBMiX0FVX3lxTE4yZ3NKak0zd19faW4tdHhQSG5sajFic3VCZ1hVS29MbzhQY1FnZ2pQSWFTSjd2MmgyMDJ1ZENMREtudS1fa0xPeDBiMFBkWWxFR2NtVDhObnlLbUxRdHhZ?oc=5\" target=\"_blank\">Swiggy is rated \"Bad\" with 1.1 / 5 on Trustpilot</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Trustpilot</font>",
     "intent": "complaint",
     "categories": [
       "general"
     ],
     "rating": 2,
-    "url": "https://indianfoodtimes.com/quick-commerce-under-fire-zepto-blinkit-and-swiggy-instamart-accused-of-dark-patterns-and-price-manipulation"
+    "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE4yZ3NKak0zd19faW4tdHhQSG5sajFic3VCZ1hVS29MbzhQY1FnZ2pQSWFTSjd2MmgyMDJ1ZENMREtudS1fa0xPeDBiMFBkWWxFR2NtVDhObnlLbUxRdHhZ?oc=5"
   },
   {
-    "id": "REV-019",
-    "source": "ConsumerComplaints.in",
-    "date": "2026-04-09",
+    "id": "TRUS-E6EECA5F",
+    "source": "Trustpilot",
+    "date": "2026-07-23",
     "platform": "web",
-    "user": "kalindi2010",
-    "location": "Pune, Maharashtra",
-    "text": "Received expired Rentio brand toor dal from Instamart. Raised concern previously with no adequate response. Want refund or replacement of expired product.",
+    "user": "Trustpilot User",
+    "location": "India",
+    "text": "Zomato is rated \"Bad\" with 1.2 / 5 on Trustpilot - Trustpilot. <a href=\"https://news.google.com/rss/articles/CBMiZEFVX3lxTE9sbldpa19MbjNwamQ1Y2xDUmxZdzZQZjRYWUNmc2tfaFJOTUF0OHlmeGU1bEowSEdJRkxKa1ByeTdRUS1XSHR4Zzg2Z0FjQ3VLNGRCMUIxTjUzNGFOUFU4VHkyRlg?oc=5\" target=\"_blank\">Zomato is rated \"Bad\" with 1.2 / 5 on Trustpilot</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Trustpilot</font>",
     "intent": "complaint",
     "categories": [
-      "groceries",
-      "packaged_food"
+      "general"
+    ],
+    "rating": 2,
+    "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE9sbldpa19MbjNwamQ1Y2xDUmxZdzZQZjRYWUNmc2tfaFJOTUF0OHlmeGU1bEowSEdJRkxKa1ByeTdRUS1XSHR4Zzg2Z0FjQ3VLNGRCMUIxTjUzNGFOUFU4VHkyRlg?oc=5"
+  },
+  {
+    "id": "TRUS-BE068E12",
+    "source": "Trustpilot",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "Trustpilot User",
+    "location": "India",
+    "text": "National Securities Depository Reviews | Read Customer Service Reviews of nsdl.co.in - Trustpilot. <a href=\"https://news.google.com/rss/articles/CBMiV0FVX3lxTE9CNnBxSk5JRTk5RzlDZTZGUnNNMzhIaTA3YWlUZlJ2ZFd5UmotQXJpLUJkRmdlZ1lZVDJmTG1QUVhGYjBUTHI5eHN6T2lQeGVFdU9aVkNBQQ?oc=5\" target=\"_blank\">National Securities Depository Reviews | Read Customer Service Reviews of nsdl.co.in</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Trustpilot</font>",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 2,
+    "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9CNnBxSk5JRTk5RzlDZTZGUnNNMzhIaTA3YWlUZlJ2ZFd5UmotQXJpLUJkRmdlZ1lZVDJmTG1QUVhGYjBUTHI5eHN6T2lQeGVFdU9aVkNBQQ?oc=5"
+  },
+  {
+    "id": "TRUS-2B10372A",
+    "source": "Trustpilot",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "Trustpilot User",
+    "location": "India",
+    "text": "Jhankar is rated \"Poor\" with 2.2 / 5 on Trustpilot - Trustpilot. <a href=\"https://news.google.com/rss/articles/CBMiXEFVX3lxTFA2M1RwSnZTUUpERERJaFRzYk9hbHBCODY0RWpORkRQX3lxcW9nbkxPY3dhd01HY3N4RVVEaDNETWZGN0QwQ1ZQdDhCR2RZUjZQYWFjUGZhbms3ZTRZ?oc=5\" target=\"_blank\">Jhankar is rated \"Poor\" with 2.2 / 5 on Trustpilot</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Trustpilot</font>",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 2,
+    "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFA2M1RwSnZTUUpERERJaFRzYk9hbHBCODY0RWpORkRQX3lxcW9nbkxPY3dhd01HY3N4RVVEaDNETWZGN0QwQ1ZQdDhCR2RZUjZQYWFjUGZhbms3ZTRZ?oc=5"
+  },
+  {
+    "id": "TRUS-55246CED",
+    "source": "Trustpilot",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "Trustpilot User",
+    "location": "India",
+    "text": "zeptonow.com is rated \"Average\" with 2.9 / 5 on Trustpilot - Trustpilot. <a href=\"https://news.google.com/rss/articles/CBMiX0FVX3lxTE9ObnZCV2swZ3NVbDJzRFZkY2YwbkloTGlEaXJtZlcyZlk1aW1JZ1BJTlFzMGdFOGktZW5jNGc0dGwxUGZXcTdxRkVzaF9MU3pMX0xUS016TlpvV2R3LVVr?oc=5\" target=\"_blank\">zeptonow.com is rated \"Average\" with 2.9 / 5 on Trustpilot</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Trustpilot</font>",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 2,
+    "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9ObnZCV2swZ3NVbDJzRFZkY2YwbkloTGlEaXJtZlcyZlk1aW1JZ1BJTlFzMGdFOGktZW5jNGc0dGwxUGZXcTdxRkVzaF9MU3pMX0xUS016TlpvV2R3LVVr?oc=5"
+  },
+  {
+    "id": "TRUS-DE4ACC16",
+    "source": "Trustpilot",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "Trustpilot User",
+    "location": "India",
+    "text": "Zomato is rated \"Poor\" with 2.5 / 5 on Trustpilot - Trustpilot. <a href=\"https://news.google.com/rss/articles/CBMiVkFVX3lxTFBwZkpvSzBJUDBVM0xWcVlpS013Q3lPRkxQRG0wcnNSVE5hcENYWWhwR3FfTVlNNTJzYkRxVUNuZHE2TzZ3MGJtRHJtXzFsUFpXSUlxOVN3?oc=5\" target=\"_blank\">Zomato is rated \"Poor\" with 2.5 / 5 on Trustpilot</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Trustpilot</font>",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 2,
+    "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBwZkpvSzBJUDBVM0xWcVlpS013Q3lPRkxQRG0wcnNSVE5hcENYWWhwR3FfTVlNNTJzYkRxVUNuZHE2TzZ3MGJtRHJtXzFsUFpXSUlxOVN3?oc=5"
+  },
+  {
+    "id": "TRUS-552004DD",
+    "source": "Trustpilot",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "Trustpilot User",
+    "location": "India",
+    "text": "Zomato is rated \"Poor\" with 1.8 / 5 on Trustpilot - Trustpilot. <a href=\"https://news.google.com/rss/articles/CBMiVkFVX3lxTE5IdkM4MTNzLW95UmZTbFgxV3QweVlFXy1pcTZnWFRIMDV0eEpNZ0xESkVZUndNcWtuYkJQWVJGaVNiLUNoOUZhX2Z1WGQyZUM3NjRqVjVR?oc=5\" target=\"_blank\">Zomato is rated \"Poor\" with 1.8 / 5 on Trustpilot</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Trustpilot</font>",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 2,
+    "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5IdkM4MTNzLW95UmZTbFgxV3QweVlFXy1pcTZnWFRIMDV0eEpNZ0xESkVZUndNcWtuYkJQWVJGaVNiLUNoOUZhX2Z1WGQyZUM3NjRqVjVR?oc=5"
+  },
+  {
+    "id": "TRUS-A35AC12D",
+    "source": "Trustpilot",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "Trustpilot User",
+    "location": "India",
+    "text": "hellotempayy.com is rated \"Average\" with 3.6 / 5 on Trustpilot - Trustpilot. <a href=\"https://news.google.com/rss/articles/CBMiX0FVX3lxTE5lV29HQ1ZmMXEtanlZakIwNmNUcEZmSXU0dmttVXpFUWZ3ckVHREVRd28yVk9sR2R4d1B0RXNURUlBSmVKVjZlUW9KRXgzUnlUSDhFU1VwQ1FycFI0NkVR?oc=5\" target=\"_blank\">hellotempayy.com is rated \"Average\" with 3.6 / 5 on Trustpilot</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Trustpilot</font>",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 2,
+    "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5lV29HQ1ZmMXEtanlZakIwNmNUcEZmSXU0dmttVXpFUWZ3ckVHREVRd28yVk9sR2R4d1B0RXNURUlBSmVKVjZlUW9KRXgzUnlUSDhFU1VwQ1FycFI0NkVR?oc=5"
+  },
+  {
+    "id": "TRUS-B8288AD5",
+    "source": "Trustpilot",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "Trustpilot User",
+    "location": "India",
+    "text": "bigbasket is rated \"Bad\" with 1.2 - Trustpilot. <a href=\"https://news.google.com/rss/articles/CBMiZEFVX3lxTE5mVHhJc09HcjUwT3BJVWJpbFBoWWxVMVJKd2JHUG5yS1JUUE8zNVE4NmpyZ0VoT0ZCLU5saU1Nb1dvVzRzWWs0SHIzaHJFUlBua2dDdndlWUJXT3drUWpSZkpvc2E?oc=5\" target=\"_blank\">bigbasket is rated \"Bad\" with 1.2</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Trustpilot</font>",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 2,
+    "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE5mVHhJc09HcjUwT3BJVWJpbFBoWWxVMVJKd2JHUG5yS1JUUE8zNVE4NmpyZ0VoT0ZCLU5saU1Nb1dvVzRzWWs0SHIzaHJFUlBua2dDdndlWUJXT3drUWpSZkpvc2E?oc=5"
+  },
+  {
+    "id": "TRUS-1B46F1B6",
+    "source": "Trustpilot",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "Trustpilot User",
+    "location": "India",
+    "text": "India Post is rated \"Poor\" with 2.2 / 5 on Trustpilot - Trustpilot. <a href=\"https://news.google.com/rss/articles/CBMiY0FVX3lxTE91bnprVkpETmtMd0lSQUJDU0pYN2VEVHI2RzJCczZKMXdiU3hvRUpEVTFGT1k3ZHRtNVRkd1Ezc1lyOGt2b2V1QVVxcGhwajF1WUpLcUVXczEtU1B0VmxoUDlWZw?oc=5\" target=\"_blank\">India Post is rated \"Poor\" with 2.2 / 5 on Trustpilot</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Trustpilot</font>",
+    "intent": "complaint",
+    "categories": [
+      "pet_supplies"
+    ],
+    "rating": 2,
+    "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE91bnprVkpETmtMd0lSQUJDU0pYN2VEVHI2RzJCczZKMXdiU3hvRUpEVTFGT1k3ZHRtNVRkd1Ezc1lyOGt2b2V1QVVxcGhwajF1WUpLcUVXczEtU1B0VmxoUDlWZw?oc=5"
+  },
+  {
+    "id": "TRUS-8788EE8C",
+    "source": "Trustpilot",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "Trustpilot User",
+    "location": "India",
+    "text": "AmazonFresh is rated \"Bad\" with 1.5 / 5 on Trustpilot - Trustpilot. <a href=\"https://news.google.com/rss/articles/CBMiXkFVX3lxTE1lQ2ZlWDBic3VpOVdYMVNUZ0dxdEtKR0I2SmExaFpoalN3R241LWRSVHNwWlc1eFVvLXhRYW5GSnp5YUdEU3pOakVKLXJJZkZ6aW5jT1BIZy1paGRPa0E?oc=5\" target=\"_blank\">AmazonFresh is rated \"Bad\" with 1.5 / 5 on Trustpilot</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Trustpilot</font>",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 2,
+    "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1lQ2ZlWDBic3VpOVdYMVNUZ0dxdEtKR0I2SmExaFpoalN3R241LWRSVHNwWlc1eFVvLXhRYW5GSnp5YUdEU3pOakVKLXJJZkZ6aW5jT1BIZy1paGRPa0E?oc=5"
+  },
+  {
+    "id": "TRUS-88C83237",
+    "source": "Trustpilot",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "Trustpilot User",
+    "location": "India",
+    "text": "Blinkit is rated \"Bad\" with 1.5 / 5 on Trustpilot - Trustpilot. <a href=\"https://news.google.com/rss/articles/CBMiVkFVX3lxTE56UzVGSkZFQkhxczJpb1pCNkJrbGZmcEFhTzNaOXFvWGcxNjBqZ09OSHMxekFaVlB3NkMwX2hMSk03a1BJdHk1XzZOTm1jNEtjdHF6ZjFR?oc=5\" target=\"_blank\">Blinkit is rated \"Bad\" with 1.5 / 5 on Trustpilot</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Trustpilot</font>",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 2,
+    "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE56UzVGSkZFQkhxczJpb1pCNkJrbGZmcEFhTzNaOXFvWGcxNjBqZ09OSHMxekFaVlB3NkMwX2hMSk03a1BJdHk1XzZOTm1jNEtjdHF6ZjFR?oc=5"
+  },
+  {
+    "id": "TRUS-21DCABF9",
+    "source": "Trustpilot",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "Trustpilot User",
+    "location": "India",
+    "text": "Brandborn is rated \"Excellent\" with 4.6 / 5 on Trustpilot - Trustpilot. <a href=\"https://news.google.com/rss/articles/CBMiY0FVX3lxTE4zdUZtdHItamZfbmIxUG55YXNtNnRoRFRJcGlDR0JtSjd4MFh5WlRLdTRyRDRIYTNBQXJVRlI2Z3ZVbWdmZzhJVDFrdHIyTjk0MV95ay1oTWd5UlROamJYclVyVQ?oc=5\" target=\"_blank\">Brandborn is rated \"Excellent\" with 4.6 / 5 on Trustpilot</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Trustpilot</font>",
+    "intent": "praise",
+    "categories": [
+      "general"
+    ],
+    "rating": 2,
+    "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE4zdUZtdHItamZfbmIxUG55YXNtNnRoRFRJcGlDR0JtSjd4MFh5WlRLdTRyRDRIYTNBQXJVRlI2Z3ZVbWdmZzhJVDFrdHIyTjk0MV95ay1oTWd5UlROamJYclVyVQ?oc=5"
+  },
+  {
+    "id": "TRUS-086D4B05",
+    "source": "Trustpilot",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "Trustpilot User",
+    "location": "India",
+    "text": "Ferns N Petals (FNP) Reviews | Read Customer Service Reviews of fnp.com | 4 of 229 - Trustpilot. <a href=\"https://news.google.com/rss/articles/CBMiW0FVX3lxTE52SVhWT0FGYWJHQlpZUmJHcjlwbXY2TWxqUExycWNmQkNUaXNWSWlFbjVRYmx5RnRXRWtJMzZyTW9uQXZJV1QxWjkzejE3Q2VMdU5ydDNzeWFyamM?oc=5\" target=\"_blank\">Ferns N Petals (FNP) Reviews | Read Customer Service Reviews of fnp.com | 4 of 229</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Trustpilot</font>",
+    "intent": "observation",
+    "categories": [
+      "pet_supplies"
+    ],
+    "rating": 2,
+    "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE52SVhWT0FGYWJHQlpZUmJHcjlwbXY2TWxqUExycWNmQkNUaXNWSWlFbjVRYmx5RnRXRWtJMzZyTW9uQXZJV1QxWjkzejE3Q2VMdU5ydDNzeWFyamM?oc=5"
+  },
+  {
+    "id": "TRUS-5F2CEA95",
+    "source": "Trustpilot",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "Trustpilot User",
+    "location": "India",
+    "text": "jiomart.com is rated \"Bad\" with 1.1 - Trustpilot. <a href=\"https://news.google.com/rss/articles/CBMiYEFVX3lxTE41NWVoLUd0ZmtQV2E2SVYxalo2OV9ETVdXSUtEX2E5aHpFOTNRM2JTd294cVlzS1RpRnhtV0JTYkdKQThDTlZlWWdtbW9vRlZuZlVyZ0kxSm1tcHZXdlhGUw?oc=5\" target=\"_blank\">jiomart.com is rated \"Bad\" with 1.1</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Trustpilot</font>",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 2,
+    "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE41NWVoLUd0ZmtQV2E2SVYxalo2OV9ETVdXSUtEX2E5aHpFOTNRM2JTd294cVlzS1RpRnhtV0JTYkdKQThDTlZlWWdtbW9vRlZuZlVyZ0kxSm1tcHZXdlhGUw?oc=5"
+  },
+  {
+    "id": "TRUS-9C62AF58",
+    "source": "Trustpilot",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "Trustpilot User",
+    "location": "India",
+    "text": "DTDC Global Express Pte Reviews | Read Customer Service Reviews of www.dtdc.com - Trustpilot. <a href=\"https://news.google.com/rss/articles/CBMiWEFVX3lxTE5hbEcwcHN3eE5XbHFoSVhiRWFxSjZUc1FhYnJWU2pVbG9nOHBlYzk1YVdJSkZQelFtR2pHYmlIeXA0VUJfeTdTYmhETHFJeHhZRmYzSjVMUWk?oc=5\" target=\"_blank\">DTDC Global Express Pte Reviews | Read Customer Service Reviews of www.dtdc.com</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Trustpilot</font>",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 2,
+    "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5hbEcwcHN3eE5XbHFoSVhiRWFxSjZUc1FhYnJWU2pVbG9nOHBlYzk1YVdJSkZQelFtR2pHYmlIeXA0VUJfeTdTYmhETHFJeHhZRmYzSjVMUWk?oc=5"
+  },
+  {
+    "id": "TRUS-3CA53193",
+    "source": "Trustpilot",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "Trustpilot User",
+    "location": "India",
+    "text": "Medlife International Pvt. Ltd. is rated \"Bad\" with 1.4 / 5 on Trustpilot - Trustpilot. <a href=\"https://news.google.com/rss/articles/CBMiWEFVX3lxTFBPVi1xSGZrWWc5SzRSb2EzenM2bkIwUGxMc2VJZ0UtRnNpNktORERjcHptU0VuODQyRkZKTW1OQ3dMRzRlSFg5bzMzeGFXVzFoMnFaX2dYLTI?oc=5\" target=\"_blank\">Medlife International Pvt. Ltd. is rated \"Bad\" with 1.4 / 5 on Trustpilot</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Trustpilot</font>",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 2,
+    "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBPVi1xSGZrWWc5SzRSb2EzenM2bkIwUGxMc2VJZ0UtRnNpNktORERjcHptU0VuODQyRkZKTW1OQ3dMRzRlSFg5bzMzeGFXVzFoMnFaX2dYLTI?oc=5"
+  },
+  {
+    "id": "TRUS-156C5F0B",
+    "source": "Trustpilot",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "Trustpilot User",
+    "location": "India",
+    "text": "Miracuves Solutions Pvt. Ltd. - Trustpilot. <a href=\"https://news.google.com/rss/articles/CBMiW0FVX3lxTE9kZzREbks4WWdCZlZuREdzT3JTZURxbXhvQTJ2ZE9xMnk3dS1fcnNjeGRMVEJ2emp4M2s3aHo4WUhhUkkwOHoyUFpWUHhOX0FGX3A1SUVyQXZMTlU?oc=5\" target=\"_blank\">Miracuves Solutions Pvt. Ltd.</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Trustpilot</font>",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 2,
+    "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9kZzREbks4WWdCZlZuREdzT3JTZURxbXhvQTJ2ZE9xMnk3dS1fcnNjeGRMVEJ2emp4M2s3aHo4WUhhUkkwOHoyUFpWUHhOX0FGX3A1SUVyQXZMTlU?oc=5"
+  },
+  {
+    "id": "GOOG-830C9685",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Tajinder Kaur",
+    "location": "India",
+    "text": "very very good app nice work and food low price but best ,good",
+    "intent": "praise",
+    "categories": [
+      "groceries"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-93A78F72",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "preeni Preeni",
+    "location": "India",
+    "text": "vari nice \ud83e\ude77\ud83e\ude77",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-521A5354",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "mohd juned",
+    "location": "India",
+    "text": "I had a terrible experience buying from Instamart. I paid for my order but never received it. I emailed them, but I didn't receive a refund or an order.",
+    "intent": "complaint",
+    "categories": [
+      "general"
     ],
     "rating": 1,
-    "url": "https://consumercomplaints.in/bycompany/instamart-a621096.html"
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
   },
   {
-    "id": "REV-020",
-    "source": "ConsumerComplaints.in",
-    "date": "2022-07-07",
-    "platform": "web",
-    "user": "Samanju",
-    "location": "Gurugram, Haryana",
-    "text": "Received carton of cocoa almond milk puffed and spoiled. Need immediate refund for spoiled product.",
+    "id": "GOOG-39A14390",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Priya Tripathi",
+    "location": "India",
+    "text": "idiot orders must be in front.",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-7FE8CF1E",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Piyush Raj",
+    "location": "India",
+    "text": "Best app for food",
+    "intent": "praise",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-3C6E309A",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "amarpali aggarwal",
+    "location": "India",
+    "text": "the screen isn't working. no matter where I tap. tried deleting and reinstalling it but it still is stuck.",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-C9BF70FD",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Nitya Naik",
+    "location": "India",
+    "text": "excellent \ud83d\udc4c",
+    "intent": "praise",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-400CAC0D",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Mehak Kumari",
+    "location": "India",
+    "text": "I Don't Like it......i Order at 9:25 at night....my Delivery in 30 min but i Wait for 2 Hours.....NO DELIVERY TO ME\ud83d\ude42\ud83d\ude20I AM VERY DISAPPOINTED..... THANKS GOD I DON'T PAY ONLINE \ud83e\udd72I CHOOSE CASH ON DELIVERY.....\ud83d\ude42MY MONEY IS SAVE FROM WASHING",
+    "intent": "praise",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-66DBEB51",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Harshith Banuri",
+    "location": "India",
+    "text": "bad app, late delivery and not worth the money",
     "intent": "complaint",
     "categories": [
-      "dairy",
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-88847919",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Sneha Sofy",
+    "location": "India",
+    "text": "posting a review for the second time. the delivery is no longer on time as promised and agent repsonds like a bot ..sorry mam for the delay ..complete useless repeating same script.. plz train your team to show some empathy if customer is frustrated",
+    "intent": "complaint",
+    "categories": [
       "beverages"
     ],
     "rating": 1,
-    "url": "https://consumercomplaints.in/bycompany/instamart-a621096.html"
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
   },
   {
-    "id": "REV-021",
-    "source": "ConsumerComplaints.in",
-    "date": "2022-06-10",
-    "platform": "web",
-    "user": "Pooji_23",
-    "location": "Bengaluru, Karnataka",
-    "text": "Received 1.5kg rotten chicken from Instamart. Rotten smell emanating from pack. After many emails, they refunded only Rs 100 out of Rs 440. Had to bury rotten meat to prevent strays from eating it.",
-    "intent": "complaint",
+    "id": "GOOG-16AA8ACC",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "dragon king",
+    "location": "India",
+    "text": "not able to use the app after downloading",
+    "intent": "observation",
     "categories": [
-      "groceries"
+      "general"
     ],
     "rating": 1,
-    "url": "https://consumercomplaints.in/bycompany/instamart-a621096.html"
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
   },
   {
-    "id": "REV-022",
-    "source": "ConsumerComplaints.in",
-    "date": "2022-04-03",
-    "platform": "web",
-    "user": "Prachi Shukla_1059",
+    "id": "GOOG-427763BE",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "mahesh iyer",
     "location": "India",
-    "text": "Payment of Rs 121 deducted via Google Pay but no order placed. No message of order placed, no tracking in the app.",
+    "text": "pathetic people.I ordered food on 20th July 2026 for 800+ from Prasad food divine and within few minutes I had to cancel it due to some reason.I called the resturant and informed to. not process the order and also tried to find option to cancel it in the app but couldn't find .After some search I got to know that I have to call the Swiggy customer care and that there is no support in the app which was crazy.Customer care lady told me that she will charge 100% of the order as penalty.This is stup",
+    "intent": "suggestion",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-DF63A25A",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Satya Bhai",
+    "location": "India",
+    "text": "i support you \ud83d\ude0d",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-BC592AE9",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Tejashwani Singh",
+    "location": "India",
+    "text": "very slow delivery",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-BD6ACCB0",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "raj avi",
+    "location": "India",
+    "text": "company me offer diya tha buy 1 get 1 free but 1 he aaya hai kya farzi wada kar rakha hai aaj tk company ka koi rply nahi hai",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-FB727D7A",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Tripura Vallabhaneni",
+    "location": "India",
+    "text": "waste of my service also not good",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-21BB33AD",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Sirisha madani",
+    "location": "India",
+    "text": "quality food",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-C7C19BFD",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Sai Krishna",
+    "location": "India",
+    "text": "A very bad experience I ordered food from a restaurant but in the parcel one biriyani is missing spoke to customer care and their response is pathetic . Please avoid Swiggy",
     "intent": "complaint",
     "categories": [
       "general"
     ],
     "rating": 1,
-    "url": "https://consumercomplaints.in/bycompany/instamart-a621096.html"
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
   },
   {
-    "id": "REV-023",
-    "source": "ConsumerComplaints Court",
-    "date": "2025-11-08",
-    "platform": "web",
-    "user": "Shweta Hosur",
+    "id": "GOOG-59F46378",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Alangat krishna kutti GOPI",
     "location": "India",
-    "text": "Ordered Ankle Belt through Instamart app. Item received was incorrect size/specification, pack was unsealed. Improper handling of return request and unresponsive customer support.",
+    "text": "so good fast delivery i love Swiggy",
+    "intent": "praise",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-F1CBFF50",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "ambikesh kumar",
+    "location": "India",
+    "text": "please delhi jantar mantar pr protest kar rhe logo ko deliver kar dijiye thank you",
+    "intent": "praise",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-17C3825D",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Jesus Cares Media",
+    "location": "India",
+    "text": "swiggy is a best app for food delivery it gives us food at time and it is very fast everything is very good in it. I'm impressed i regularly order food from swiggy and I really enjoy it with my friends and family... I give you 5star rating for it.\u2b50\u2b50\u2b50\u2b50\u2b50",
+    "intent": "praise",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-3E67D49A",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Jaya Raj",
+    "location": "India",
+    "text": "service unavailable at jantar mantar",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-46530434",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "sumeet singh",
+    "location": "India",
+    "text": "I was told to apply for swiggy orange credit card and limit was also approved but after kyc they just declined my application which impacted my cibil score , just don't apply for orange credit of hdfc bank",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-3AD74043",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Muneer Munni",
+    "location": "India",
+    "text": "High rate of GST more than what government puts in all outlets in this app",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-6A9FE6FA",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Shubham Bhagat",
+    "location": "India",
+    "text": "very bad customer services worst food delivery app I love to give it 0 star for customer service and there no need to pay for swiggy one its no use because you never get your food on time",
     "intent": "complaint",
     "categories": [
       "general"
     ],
     "rating": 1,
-    "url": "https://consumercomplaintscourt.com/improper-handling-of-return-request-and-unresponsive-customer-support/"
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
   },
   {
-    "id": "REV-024",
-    "source": "ConsumerComplaints Court",
-    "date": "2025-07-27",
-    "platform": "web",
-    "user": "delivery_issue_user",
+    "id": "GOOG-5F08182E",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Ajay Bharti",
     "location": "India",
-    "text": "Delivery issue for order. India Gate Rice ordered but different product delivered instead. Repeated delivery issues and lack of resolution from support team.",
+    "text": "cik cik \ud83e\udd2c\ud83e\udd2c\ud83e\udd2c\ud83e\udd2c\ud83e\udd2c\ud83e\udd2c",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-503768E0",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Aakash Solanki",
+    "location": "India",
+    "text": "swingy se mane order kiya tha to unhone mujhe tukda tukda or addha addha pis bheja hai or mai isko refund kar raha hu",
+    "intent": "suggestion",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-4CC42294",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Kaivalya Kashid",
+    "location": "India",
+    "text": "worst costumer support",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-B0F431BC",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Saima Irfan",
+    "location": "India",
+    "text": "WORST APP. had the worst experience,I ordered a waffle and a drink from belgian waffle co.through Swiggy and received a damaged,crushed,drenched in water packet which the delivery guy handed me and ran. it was a packaging issue the drink was sent by the stupid waffle co guys in paper cup,by the time it reached the cup's base got torn and I received an empty cup and all the drink was absorbed by the waffle.i was delivered a trash and I kept writing to them with videos and pics,got no resolution.",
+    "intent": "complaint",
+    "categories": [
+      "beverages"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-E8F7E727",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Pratik Joshi",
+    "location": "India",
+    "text": "no customer support. if there is any. its a worst customer support. eats peoples money. 2026 july they are even more worst now. this app deserves negative rating but anyways i will miss being in this platform.",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-F11A84AB",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Loverboy Loverboy",
+    "location": "India",
+    "text": "Dear Swiggy Customer Support, I am writing to express my extreme disappointment regarding my recent order. I placed my order at 9:41 AM, and as of 1:18 PM, it had still not been delivered. During this time, I contacted your customer support multiple times. I interacted with your chatbot, which was extremely slow, and it took nearly 40 minutes just to receive responses. I also spoke with three different customer support executives, but no one provided a proper resolution. Instead, I was repeat",
+    "intent": "observation",
+    "categories": [
+      "beverages"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-AFDE7BBF",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Adeeb syyed",
+    "location": "India",
+    "text": "good service",
+    "intent": "praise",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-69612012",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "barun ray",
+    "location": "India",
+    "text": "very nice \ud83d\udc4d",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-F8F463CC",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "yousuf Ali Khan",
+    "location": "India",
+    "text": "I order mandi entire order uncooked and I'm report swiggy not responding I want my money back",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-3E7F5241",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Sunil Singh Bohra",
+    "location": "India",
+    "text": "cash on delivery verry best.",
+    "intent": "praise",
+    "categories": [
+      "general"
+    ],
+    "rating": 3,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-346A36EA",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Soul Creations",
+    "location": "India",
+    "text": "ban ke lodo aadi raat ko ma kyo cudvate ho aapni",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-4E1591FC",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Gurshan Singh",
+    "location": "India",
+    "text": "to fast service",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-DDE6A0BC",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "priya P",
+    "location": "India",
+    "text": "Thankfull to have a channel to order online without any hassle and even in such times of epidemic. Thanks swiggy... Loving it as always.. just it's getting a bit expensive day by day.. my experiences stay the same, all good but swiggy is increasingly getting expensive, just not affordable anymore.",
+    "intent": "praise",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-D2C0CE28",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Loganathan Chandran",
+    "location": "India",
+    "text": "best scaming app I ever seen i don't want to give a 1 star rating they scam coustomer oders during night time better not install this app",
+    "intent": "praise",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-4A96CE2E",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Atindra Rai",
+    "location": "India",
+    "text": "improve delivery timing",
+    "intent": "suggestion",
+    "categories": [
+      "general"
+    ],
+    "rating": 4,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-465897F8",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Saima Chouhan",
+    "location": "India",
+    "text": "the app per aap jo cheez mangwai wo bilkul mbi meri paas nahi aayi or costumer service per call Kiya tho unhone bola ki 6 Howers baad mile aayga hmm ko jo cheez urgent chahiye thi wo is aap ne diya nahi or paise bhi nahi diye I don't like this app",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-79AF4FA9",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Ashok kampati",
+    "location": "India",
+    "text": "Worst app and service. Not recommended",
+    "intent": "suggestion",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-21C2BDD0",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Shaik Jaffer",
+    "location": "India",
+    "text": "Disgusting and frustrated service, Don't use Swiggy at all, It's my humble request. Fraud delivery guys and fraud support service. For one of the order I have cancelled and they have charged me the w order amount in my next order and the same issue if we as customer face the issue they won't give any compensation. There is an incident with an order today, I have waited for 2 hours and the ord isn' delivered yet and the deli person is not responding at all and customer service is totally worst.",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-42571811",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Sai Finance",
+    "location": "India",
+    "text": "worest app due to bad response I am uninstall it and make prompt that not to use customer care is also worest",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-891E1C98",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Advocate Padaliya",
+    "location": "India",
+    "text": "service is good",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-D2670F65",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Raghav Kumar",
+    "location": "India",
+    "text": "back to 1 star. worst customer care",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-635C4BC4",
+    "source": "Google Play Store",
+    "date": "2026-07-22",
+    "platform": "android",
+    "user": "Aditya Kamath",
+    "location": "India",
+    "text": "Swiggy customer service has deteriorated. The app accepts orders and doesn't deliver..This has happened for the third time..",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-2B849500",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Kurma King",
+    "location": "India",
+    "text": "good morning",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-6CE1229B",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Tharun",
+    "location": "India",
+    "text": "quick response",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 4,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-F0100344",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Arvind",
+    "location": "India",
+    "text": "poor , very bad experience , sometimes delivery service is very bad , uninstalled the app , refund policy is confusing if delivery person is responsible for cancellation then also refund is refused by Swiggy service . misbehaviors by delivery person is passed on to customer .",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-91196736",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Manish",
+    "location": "India",
+    "text": "verry nice food court ok",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-A4F90102",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Satvinder Singh",
+    "location": "India",
+    "text": "I m not received my Paytm UPI cashback \ud83d\ude21\ud83d\ude21",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-D6B03D2B",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Satya ranjan Barik",
+    "location": "India",
+    "text": "very bad service and delivery person has no responsibility to delivery in time \ud83d\ude15",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-EE0671C9",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Pankaj Arora",
+    "location": "India",
+    "text": "too many charges",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-F6206C92",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Tushar Bokde",
+    "location": "India",
+    "text": "Very disappointing experience. I ordered Chicken Chilly from Prathamesh Rolls, but the delivery status kept showing \"10 minutes away\" for over 30 minutes. Due to the unnecessary delay, I cancelled the order, yet Swiggy charged the full \u20b9159 as a cancellation fee. It's unfair to make customers pay the entire amount when the delay is on the platform's side. Swiggy should have a fair cancellation policy for delayed orders.",
+    "intent": "suggestion",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-17A6FB8B",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "abdul mannan",
+    "location": "India",
+    "text": "Worst experience. No option to download invoice. Pathetic customer support. After receiving advice from the developer order details shared via email, however still no invoice was received. As I mentioned earlier pathetic service.",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-FED81542",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Rohan Mhaske",
+    "location": "India",
+    "text": "\u0921\u093f\u0932\u093f\u0935\u094d\u0939\u0930\u0940 \u092c\u0949\u092f \u0926\u093e\u0930\u0942 \u092a\u093f\u090a\u0928 \u0926\u093e\u0930\u093e\u0924 \u092f\u0947\u0924\u093e\u0924 \u0935 \u0927\u092e\u0915\u0940 \u0938\u094d\u0935\u0930\u0942\u092a\u093e\u0924 \u092c\u094b\u0932\u0924 \u0930\u093e\u0939\u0924\u093e\u0924 \u0921\u093f\u0932\u093f\u0935\u094d\u0939\u0930\u0940 \u092c\u0949\u092f \u0915\u093e\u0939\u0940 \u091a\u093e\u0902\u0917\u0932\u0947 \u0928\u093e\u0939\u0940\u0924 \u0938\u0930\u094d\u0935\u093f\u0938 \u0905\u0924\u093f\u0936\u092f \u0916\u0930\u093e\u092c",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-6C798DEE",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Selva Mubhash",
+    "location": "India",
+    "text": "Worst experience. They made me wait for 2 hours and still let me go to sleep with hunger.",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-21C0DCE0",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Sudhanthira Mani",
+    "location": "India",
+    "text": "Worst service ever. they taking too long to deliver the food which is hardly 3kms distance. This is happening for multiple time . no improvements after so many complaints.",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-12C8C8B2",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "DEEP SHIKHA EKKA",
+    "location": "India",
+    "text": "this app is pathetic, and their customer care doesn't know how to talk",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-775A3C84",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Alok Yadav",
+    "location": "India",
+    "text": "delivery worst no value for your time",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-B1DDCFDE",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "prashanth kumar.R",
+    "location": "India",
+    "text": "worst app to order food. order food they will make you wait and cancel by yourself. cheating app",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-AD4642D1",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Shivanshu20 awasthi",
+    "location": "India",
+    "text": "variety is good",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-829AD261",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "sourav kumar",
+    "location": "India",
+    "text": "Honestly, better apps are there - Eat club, Eat Sure. Most orders are delivered late or not delivered. There is no standard maintained but rates are high. I actually think they should pivot their strategy. I don't want 10 mins delivery I want better service, food and the right representation. All timings are fake and have no relevance. Other apps are not better but I would say someone needs to think on these lines.",
+    "intent": "suggestion",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-3734A0D7",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Tanmay Vasishtha",
+    "location": "India",
+    "text": "A bunch of fraudsters. Delivering wrong items, overcharging and thinking of the customer as a joke. Extremely difficult to make returns (specially on instamart). The support staff is incompetent in any situation..",
+    "intent": "complaint",
+    "categories": [
+      "pet_supplies"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-294D8EE6",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "mayuri shrungare",
+    "location": "India",
+    "text": "good quality",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-B1D2574D",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Puchpa Thakur",
+    "location": "India",
+    "text": "good service \ud83d\udc4d",
+    "intent": "praise",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-B69528F0",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "vignesh vignes",
+    "location": "India",
+    "text": "very good service",
+    "intent": "praise",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-22EB5034",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Akshay Kumar",
+    "location": "India",
+    "text": "30 mintue ke bad mera order cancel kar diya mera 30 mintue waste kisi hai bad service",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-1660CB4B",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Shreeyasi Patra",
+    "location": "India",
+    "text": "veryyy latee delivery",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-0657B1D1",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Fun with Ashik",
+    "location": "India",
+    "text": "I accidentally placed a \u20b9249 food order on Swiggy and requested cancellation immediately. However, customer support did not respond properly. When the delivery partner arrived, I refused the order and asked him to cancel it, but he told me to contact customer care. Later, customer support informed me that I would have to pay a cancellation penalty on my next order. I don't understand why I should be charged when I canceled the order immediately. This was a very disappointing experience.",
+    "intent": "suggestion",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-084F116C",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "rajendra raju",
+    "location": "India",
+    "text": "worst service",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-7CD4F7ED",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Savaliya Satish",
+    "location": "India",
+    "text": "third class service and third class material",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-5B7CF2EC",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Mohamed Shoeb",
+    "location": "India",
+    "text": "terrible customer care. order from burger king was wrong and no resolution provided by Swiggy for complaint Request no 29243415 and 29243413. if your order is not complete or incorrect, dont make payment to delivery guy, because they will never process your refund nor can you speak to a human customer care over the phone and thei chatbot and chat representatives are lousy and robotic. 0 stars. thank you Swiggy for cheating a genuine customer, thank god my bill was only 327 rupees. lesson learnt",
+    "intent": "complaint",
+    "categories": [
+      "electronics"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-D61D1F83",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "neelam sharma",
+    "location": "India",
+    "text": "it clearly shows that the items are available but after I place an order it calls and says that it is not available for 3 straight orders very disappointed",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-2C281D07",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Sahil Pal",
+    "location": "India",
+    "text": "Looters! They just want more money even after charging hefty platform fee and gst. 10 min order takes 1 hour very often. I would say to not download this app and avoid boiling your blood on every single order. F#%@olls Swiggy!",
     "intent": "complaint",
     "categories": [
       "groceries"
     ],
     "rating": 1,
-    "url": "https://consumercomplaintscourt.com/delivery-issue-for-order-no-212249643755212-instamart-swiggy/"
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
   },
   {
-    "id": "REV-025",
-    "source": "Digital in Asia",
-    "date": "2026-06-24",
-    "platform": "news",
-    "user": "Industry Analyst",
+    "id": "GOOG-C3D6B441",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "POOVARASAN jeyakumar",
     "location": "India",
-    "text": "Quick commerce pushing beyond groceries - electronics, beauty, fashion growing faster than grocery. Blinkit ~45-50% share, Instamart ~20-25%, Zepto ~20-25%. GMV reached Rs 11,000 crore in Jan 2026 alone.",
+    "text": "don't order and suffer from this fraud app. if u order some items from this app and they may deliver the damaged product even it was found it with presence of delivery person. they won't refund or replace the product. finally we have to bear the loss for their mistakes, irrespective of the value of the product. Dont waste ur money and time even after multiple times/mode of communication to customer support you won't get your money back.",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-6E7DECC9",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Meena Negi",
+    "location": "India",
+    "text": "not satisfy because in photo the food quantity is very high when we receive the our order its quantity is very low and prices are very high according to other",
+    "intent": "observation",
+    "categories": [
+      "groceries"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-EFE56C93",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Rahul Singh Rathore",
+    "location": "India",
+    "text": "very bad service zomato is 1000X better than Swiggy",
+    "intent": "suggestion",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-A1554B29",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Devendernagar sctp",
+    "location": "India",
+    "text": "nice experience",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-FECFBA63",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "MAGOS DCRUCE",
+    "location": "India",
+    "text": "expected elight level",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-5B38EA17",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "The Kings",
+    "location": "India",
+    "text": "totally waste app",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-6F3388FD",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Ashish Sharma",
+    "location": "India",
+    "text": "Pathetic delivery service. Keep waiting for 40-50 mins. The delivery guy will pick up multiple other orders and it's upto his will if your delivery is first or last. Zomato is miles ahead. Uninstalled due to poor experience. Edit after 5 years:- Still pathetic, super messed up interface and impossible to sort offers/ feature synchronization is completely lacking. Software team seems sleeping.",
+    "intent": "suggestion",
+    "categories": [
+      "beverages"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-5FA892C6",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Shreeman Amudha",
+    "location": "India",
+    "text": "Good superb",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 4,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-5ABE76F5",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Shammi Dhillon",
+    "location": "India",
+    "text": "Good service",
+    "intent": "praise",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-CA85EE1D",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "AK Mishra",
+    "location": "India",
+    "text": "They delivered wrong order and didn't initiated refund.",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-9832EE25",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Subhendu Acharya",
+    "location": "India",
+    "text": "It's a big help specially in this inclement weather, may be in some cases you may be paying little higher but that is okay. I often think of the delivery men who do take a lot of trouble and risk biking in bad inclement or hot summer. They are the people who do the work. Small delays should not be questioned.",
+    "intent": "suggestion",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-E60906A6",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Vanasri Vignesh B",
+    "location": "India",
+    "text": "no UPI payment option",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 4,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-32659AA8",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Rohit Awasthi",
+    "location": "India",
+    "text": "Very bad...uninstall the apps",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-B62C737A",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Abhishek singh",
+    "location": "India",
+    "text": "best option",
+    "intent": "praise",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-441787DA",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Alisha",
+    "location": "India",
+    "text": "sometimes it takes longer time after giving time duration and it also pause the arriving time of the driver it's very wrong Swiggy.",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 3,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-BE19AAA8",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "RAHUL R",
+    "location": "India",
+    "text": "I'm alone livin in a pg, I have sluttering issue. I could not even imagine my life without this app . congratulations swiggy for creating a beautiful network . absolutely love it \u2b50\ufe0f\u2b50\ufe0f\u2b50\ufe0f\u2b50\ufe0f\u2b50\ufe0f",
+    "intent": "praise",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-56982C0A",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Manamma Kudikala",
+    "location": "India",
+    "text": "excellent service",
+    "intent": "praise",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-C8245943",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "manavalan mano",
+    "location": "India",
+    "text": "The service are super and giving the food in the correct time. I love swiggy.",
+    "intent": "praise",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-28115F66",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "ketan gopale",
+    "location": "India",
+    "text": "poor service from swiggy",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-8007C744",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Tajamul",
+    "location": "India",
+    "text": "humi jaan chi ma zanaan",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-E5505704",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Arun pratap Singh",
+    "location": "India",
+    "text": "worst app I have ever seen",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-71CBB4C0",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Chaithra Shree C",
+    "location": "India",
+    "text": "too costly",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-9E9D8762",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Sandyanh Sandya",
+    "location": "India",
+    "text": "these is for coupon code is helpful me so!!",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 4,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-5E5EA420",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "\u0ba4\u0bae\u0bbf\u0bb4\u0bcd",
+    "location": "India",
+    "text": "appreciate to delivery person calm and polite spoken to identify our location Thankyou",
+    "intent": "praise",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-5D067E9B",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Jitendra Singh",
+    "location": "India",
+    "text": "site crash",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-352F880E",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "shanmukha haranath",
+    "location": "India",
+    "text": "worst delivery service, delivery partner will be assigned 2-3 orders, by the time he delivers 2 orders, 3rd delivery food will be cold/spilled/torn and soft. Customer service supports this saying it's a system allocated process. it's not a rare case scenario, faced the same issue 1 in every 3 orders. Swiggy should not accept orders when they don't have enough delivery partner",
+    "intent": "suggestion",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-376CB7D2",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Kavitha Rajesh",
+    "location": "India",
+    "text": "very happy while ordering on SWIGGY \u2728\u2728\ud83d\udc4f\ud83c\udffb\ud83d\udc4f\ud83c\udffb",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-C61C1D4E",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Jannat Suddiquie",
+    "location": "India",
+    "text": "very good service other delivery partner",
+    "intent": "praise",
+    "categories": [
+      "general"
+    ],
+    "rating": 3,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-D05948B3",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Mathew Joyet",
+    "location": "India",
+    "text": "this swiggy is the most super and the fastest one. The delivery boys are very interesting and keeping a comment pose sound.",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-348291A5",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Yash Vadher",
+    "location": "India",
+    "text": "land application hai naa koi offer naa koi voucher. C App world's worst application",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-726D2A52",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "ram s",
+    "location": "India",
+    "text": "it's show as raning even when it's not raining and the timer it shows is erroneous as real time passes 1 hr also it show as if delivery is within time",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-D9A34D95",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "SYED REHAN ALI",
+    "location": "India",
+    "text": "so late delivery",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 4,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-390CE853",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "pratik Mane",
+    "location": "India",
+    "text": "mene order Kiya tha order he nahi aaya phele paise paid kiye 1 st order he nahi aaya 1 hour se jyada ho gaya refund ka option nahi aa rahi or swiggy ka coustomer number bhe nahi lag rahi pure mobile ka sabse ghatiya aap hai ayyy dowland mat karo zomato idls better Swiggy ke aukat nahi hee",
+    "intent": "suggestion",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-293DA9A0",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Sazad Alam",
+    "location": "India",
+    "text": "good food delivery service",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 4,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-2C5B2BE9",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Sonu Goyal",
+    "location": "India",
+    "text": "good job \ud83d\udc4d",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-6C2531E6",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "JINAL MISTRY",
+    "location": "India",
+    "text": "bo j kharab aap che refund and customer service or customer sathe problem ne resolve karva ma aa company ne koi ras nathi aa loko na executive aapne lier atle k customer ne j khota batave che aapna paisa khay jaay che n delivery ma pn extra charge aapva chhata delivery late j aave che n mara sathe Swiggy no aa anubhav 5 6 var thay gyo che. band Swiggy and save your money",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-E89E4DB7",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Aanya bhandari",
+    "location": "India",
+    "text": "\u092c\u0939\u0941\u0924 \u0905\u091a\u094d\u091b\u093e \u0906\u0938\u093e\u0928\u0940 \u0938\u0947 \u0915\u092e \u0938\u092e\u092f \u092e\u0947 \u092e\u0928 \u092a\u0938\u0902\u0926 food \u0918\u0930 \u092e\u0947 \u0921\u093f\u0932\u0947\u0935\u0930\u0940 \u0915\u0930\u0935\u093e \u0938\u0915\u0924\u0947 \u0939\u0948 \ud83d\udc4d",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-0455B2CE",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Aryan",
+    "location": "India",
+    "text": "there is scheme rs.1 on anyone item which is activated after buying over rs.99 but when I click on it then it's add on my cart but unfortunately again it's uncart, I facing this problem since I downloaded it, if you're not gonna fix, I will give bad reviews and tell people to don't use it anyway...I am just frustrated because of your fake scheme if you're not gonna give the item in 1rs, then just remove it already!!!",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-5C0531B6",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Amarjeet Singh",
+    "location": "India",
+    "text": "good services",
+    "intent": "praise",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-5F726035",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Madhuri Jaiswal",
+    "location": "India",
+    "text": "so delicious pizza",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-BE92E9BE",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Abhishek Shaw",
+    "location": "India",
+    "text": "it's good \ud83d\ude0a",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 3,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-9EF3F6DF",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Swetha S",
+    "location": "India",
+    "text": "Amazing app\ud83e\udd70",
+    "intent": "praise",
+    "categories": [
+      "general"
+    ],
+    "rating": 4,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-778CD8CB",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "AK Maurya",
+    "location": "India",
+    "text": "why instamart not available...",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-E6603248",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Cookies Durg",
+    "location": "India",
+    "text": "99 RUPPES PRODUCT IS NOT WORT IT FOR MY STOMACH",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 3,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-DD554CDD",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Raghava Sai",
+    "location": "India",
+    "text": "can't explain my expression",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-62307ED8",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "anushaa rastogi",
+    "location": "India",
+    "text": "This is actually the worst app in terms of customer experience. Zomato experience is far better than this as atleast customer support actually helps but here you will only be irritated with no resolution. Delivery is always delayed.",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-7FDC4CC7",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Jayaram Gopalswamy",
+    "location": "India",
+    "text": "good luck good charsm",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-2CD168C2",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Pritam Parida",
+    "location": "India",
+    "text": "bahut slow he",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-A17CA04C",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Dar Neha",
+    "location": "India",
+    "text": "very good app",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-3DAB2932",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "RAHUL RAGHUNATH SANSARE",
+    "location": "India",
+    "text": "Fast Order Place.",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 4,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-9A943203",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "venkata chalapathi",
+    "location": "India",
+    "text": "going good keep it up",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-D1BC4A0C",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Money save Cab",
+    "location": "India",
+    "text": "My 1st order today",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-4E69BB62",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Vijay Sharma",
+    "location": "India",
+    "text": "good service completely and timing perfect \ud83d\udc4d",
+    "intent": "praise",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-7A14CAA5",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Nadiya Abdullah",
+    "location": "India",
+    "text": "last time the order was not delivered to me your delivery agent didn't deliver the item despite payment",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-F7478F99",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Karthik Karthik",
+    "location": "India",
+    "text": "I m not Suggest to this App.. Very Late Delivery,. thattoooo delivery Agents Are Not Responding Calls",
+    "intent": "suggestion",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-6471912B",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Tinku Gurjar",
+    "location": "India",
+    "text": "very good app \ud83d\udc4d thank you",
+    "intent": "praise",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-28507A0B",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Vanita Mandala",
+    "location": "India",
+    "text": "Worst app, 1 star rating is also more for this app. Customer support is also very poor. There is no option to enter address if i moved to another location. It is only showing GPS location which is not taking correct address. I wonder how it is showing 4star rating, here every one gave 1star.had one more bad experience.While cancelling they are mentioned everything but not about the cancellation fee. they charged 100% money which is ridiculous.worst service ever.and the support agent is also rude",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-04295E06",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "AbhishekPrerna",
+    "location": "India",
+    "text": "worst worst experience",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-9290E3F5",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Hemant Kharote",
+    "location": "India",
+    "text": "No one should install this app; the service is absolutely terrible. I had a horrible experience while traveling by train\u2014the food was packed in a completely improper manner. I reported this to their customer service, but they did absolutely nothing about it. You are better off ordering from Zomato; they provide much better service.",
+    "intent": "suggestion",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-8858F929",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Ram Singh0291",
+    "location": "India",
+    "text": "this very uesful app for oldage people",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-DCB4137E",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Praseedha W.R",
+    "location": "India",
+    "text": "A 20 mins delivery took 1 hour to deliver.No response when i called the delivery agent and no call was received back.really too slow .Very worst delivery ever.Will i have to leave all my work and wait to satisfy my hunger keeping looking on the phone continuously.... but hands tight i spoke with a customer's support agent i asked for compensation but she never gave and i asked for supervisor. She said she will arrange a call back no call back was arranged nor no compensation received. worst app",
+    "intent": "complaint",
+    "categories": [
+      "electronics"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-669FC219",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Priya",
+    "location": "India",
+    "text": "I have ordered food many times, the service was good but when I ordered now the delivery boy would not give me any argument. I ordered it and the hotel management refused to refund me.\ud83d\ude14\ud83d\ude14",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-C0A267C5",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Rahul Patil",
+    "location": "India",
+    "text": "I ordered two items yesterday, but the delivery address was incorrect. I tried to update the address in the app; while the option to change it exists, it doesn't actually allow the change to go through. When I called customer care, they apologized and said the address couldn't be changed, suggesting I cancel the order if I didn't want it. However, they stated that cancellation would incur charges equal to the full amount, meaning I wouldn't get any refund. 1. The cancellation policy is flawed. 2",
+    "intent": "suggestion",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-54186EBB",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Abdul Hafeez",
+    "location": "India",
+    "text": "Delivery time taking too much not fare",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-E275C4CE",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Rocky N",
+    "location": "India",
+    "text": "want more discount",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 4,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-F868EA56",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Nurmohamad Ansari",
+    "location": "India",
+    "text": "muche pasand aaya",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 4,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-E89DAA70",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "srikanth padamati",
+    "location": "India",
+    "text": "too much prices",
+    "intent": "observation",
+    "categories": [
+      "groceries"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-4F3B295F",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Unique Status",
+    "location": "India",
+    "text": "swiggy not order yet in this area",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 4,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-8CF6002C",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "NITU MESHRAM",
+    "location": "India",
+    "text": "bad experience not picking up call by delivery boy and mentioned food delivered",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-A5B2EFA0",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "aisha singh",
+    "location": "India",
+    "text": "bhut acha h delivery order Time par hota h",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 4,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-B8653EF5",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Anusiya Anusi",
+    "location": "India",
+    "text": "wrong map location",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-460EFD2A",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Deepa Lakshmi",
+    "location": "India",
+    "text": "It is a shocking app forcing the customer to place the order immediately when you are trying to pay or stuck with payment app. consequently it declares the order delivered before it is delivered. May it be a bug in the app or tactics of restaurant & app or done by the delivery partner played incase of any issue but not good for this business. loosing the trust. uninstalling..",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-740F5763",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Maltoliya Paresh Bhai",
+    "location": "India",
+    "text": "thanks and good \ud83d\udc4d",
+    "intent": "praise",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-8BD6F681",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Heck Oh Yeah!- Blog for money lovers",
+    "location": "India",
+    "text": "this app is fraud. and always charge me more than what I have in the cartm they charged me twice for the same item. when I tried to cancel they charge me 100% cancellation fee for my order",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-AE664362",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Swastika Banik",
+    "location": "India",
+    "text": "Valid offers are SCAM nothing works",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-841190A8",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "vigneshwari Vigensh",
+    "location": "India",
+    "text": "very nice \ud83d\udc4d\ud83d\udc4d",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 3,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-99ADCF95",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Sharry Khan",
+    "location": "India",
+    "text": "nice offer \u2764\ufe0f",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-B407C288",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Lakshya",
+    "location": "India",
+    "text": "worst customer support, I have received generic responses without help.",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-1CA8BDC8",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Md Fareed",
+    "location": "India",
+    "text": "late delivery",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 2,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-5A083C87",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Deepti Saklani",
+    "location": "India",
+    "text": "Let's see my first time",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 4,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-9C8F29A3",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Bala Murugan",
+    "location": "India",
+    "text": "very good\ud83d\udc4d\ud83d\udc4d",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 4,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-C118F10A",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "TWO DEVILS",
+    "location": "India",
+    "text": "cash on delivery kyu band ki hai online bhi click nai ho pa Raha pay pe???",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-5DAE35A9",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "kamalkishore sharma",
+    "location": "India",
+    "text": "good fooding",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-3D6480BD",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Shalini S",
+    "location": "India",
+    "text": "I like Swiggy",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-C86D2559",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Shubam Gill",
+    "location": "India",
+    "text": "soo good app\u2764\ufe0f",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-2D1E1210",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Rohit Halder",
+    "location": "India",
+    "text": "worst Customer service unsupportive delivery person's doesn't pickup calls",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-78637902",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Aafreen Alam",
+    "location": "India",
+    "text": "exceptional delays in the delivery of food, never ordering from this app again.",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-87A3A646",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "S.Yamuna Princy M.Savariraja",
+    "location": "India",
+    "text": "nothing to tell everything is good \ud83d\udc4d",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-D10A5987",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Rajeshwari B",
+    "location": "India",
+    "text": "I have received the wrong product and I have sent Swiggy the pictures and it is clearly written that it is a different flavour, but unfortunately Swiggy is not able to see the picture. I ordered roasted almond ice cream but i received mixed berries. And still Swiggy cannot see it from the pictures that I shared.",
+    "intent": "complaint",
+    "categories": [
+      "personal_care",
+      "dairy"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-7B62B605",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Shaik Aitck ahamed",
+    "location": "India",
+    "text": "ok I think good I try now",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-9B192FA4",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Poonam Varma",
+    "location": "India",
+    "text": "best Of okay \ud83d\udc4d",
+    "intent": "praise",
+    "categories": [
+      "general"
+    ],
+    "rating": 4,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-47CA9706",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "tharun hrx",
+    "location": "India",
+    "text": "what kind of worst customer service forcefully giving \"ok got it\" choice instead of escalation or compensation, not even 1 star deserved for continuous poor quality service.",
+    "intent": "complaint",
+    "categories": [
+      "beverages"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-C4447B82",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Lulu Chowdary",
+    "location": "India",
+    "text": "jxbxfnfhf fjfhrbrr furhr fur rfurr fi rducd dud rudhs six days didn't did did did djd djd rdud djd djdbkdsie wlabw oasnevdskna aljse rude eowpqoqbq wwiwbqkwjw wiwbwlwnw wiwbwlwnw wwowvwnwow wow wow wow wow dreid djzhdf dod dod ddoebr dienslwb eske sowne wkwnwonq woa qqonwdofnfv gcjnxiiqbej ebeiene eineeokwhwekhd dudbedbd djehejejrh reirnwojw ewiebe wine eis kshsbx dis dis finally I aja ina j Wis Anna so a na waisbs saw what subway bs aihs said sis she didn't jsjs DJs sis susbd dxjd Sona kah",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 5,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-77122285",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "A Google user",
+    "location": "India",
+    "text": "off late the service has lost its efficiency and accountability.... even when the service was at fault, they didn't refund. While prompting for swiggy one membership, they promised the moon & later treats the same members unfairly..... it said to see this downfall..... but I would suggest everyone to try other alternatives....",
+    "intent": "suggestion",
+    "categories": [
+      "snacks"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-79176D81",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "anant shukla",
+    "location": "India",
+    "text": "poor thinker company",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "GOOG-5E677F1E",
+    "source": "Google Play Store",
+    "date": "2026-07-21",
+    "platform": "android",
+    "user": "Yukta Punya Sonowal",
+    "location": "India",
+    "text": "We can't cancel an order, customer service doesn't work, there's no helpline number. I had to make the full payment to the delivery guy separately via call as he couldn't reach the location (due to floods) making it an inconvenience for the both of us, there is no option for cancellation at all. Thank you for providing the most useless service.",
+    "intent": "praise",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://play.google.com/store/apps/details?id=in.swiggy.android&hl=en&gl=in"
+  },
+  {
+    "id": "CONS-454C1184",
+    "source": "ConsumerComplaints.in",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "anonymous",
+    "location": "India",
+    "text": "Complaint against Instamart for delivering expired product and denied to exchange or refund",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaints.in/swiggy-instamart-complaint-against-instamart-for-delivering-expired-product-and-denied-to-exchange-or-refund-c3539342"
+  },
+  {
+    "id": "CONS-ED867C18",
+    "source": "ConsumerComplaints.in",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "anonymous",
+    "location": "India",
+    "text": "Complaint Regarding Unfair Trade Practice 100% Penalty Charged for Order Cancellation by Swiggy Instamart",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaints.in/swiggy-instamart-complaint-regarding-unfair-trade-practice-100-penalty-charged-for-order-cancellation-by-swiggy-instamart-c3536147"
+  },
+  {
+    "id": "CONS-E07C23C1",
+    "source": "ConsumerComplaints.in",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "anonymous",
+    "location": "India",
+    "text": "Complaint Against Swiggy Instamart Incorrect Product Delivered, Denied Return/Replacement",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaints.in/swiggy-instamart-complaint-against-swiggy-instamart-incorrect-product-delivered-denied-returnreplacement-c3535238"
+  },
+  {
+    "id": "CONS-852609C0",
+    "source": "ConsumerComplaints.in",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "anonymous",
+    "location": "India",
+    "text": "Received fake GNC Creatine twice from Swiggy Instamart, refund denied",
+    "intent": "complaint",
+    "categories": [
+      "personal_care"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaints.in/swiggy-instamart-received-fake-gnc-creatine-twice-from-swiggy-instamart-refund-denied-c3531494"
+  },
+  {
+    "id": "CONS-88900F14",
+    "source": "ConsumerComplaints.in",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "anonymous",
+    "location": "India",
+    "text": "Swiggy Instamart Fake BOGO Ice Cream Offer Paid But Didnt Receive Free Items",
+    "intent": "complaint",
+    "categories": [
+      "personal_care",
+      "dairy"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaints.in/swiggy-instamart-swiggy-instamart-fake-bogo-ice-cream-offer-paid-but-didnt-receive-free-items-c3531470"
+  },
+  {
+    "id": "CONS-D68339C0",
+    "source": "ConsumerComplaints.in",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "anonymous",
+    "location": "India",
+    "text": "received only one pillow instead of pack of two frido ultimate car neck rest pillow - order issue",
+    "intent": "observation",
+    "categories": [
+      "beverages"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaints.in/swiggy-instamart-received-only-one-pillow-instead-of-pack-of-two-frido-ultimate-car-neck-rest-pillow-order-issue-c3530000"
+  },
+  {
+    "id": "CONS-E589A6E9",
+    "source": "ConsumerComplaints.in",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "anonymous",
+    "location": "India",
+    "text": "Faulty product & no refund/coupon",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaints.in/swiggy-instamart-faulty-product-no-refundcoupon-c3529093"
+  },
+  {
+    "id": "CONS-271A5F2C",
+    "source": "ConsumerComplaints.in",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "anonymous",
+    "location": "India",
+    "text": "Damaged goods delivered and no resolution offered",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaints.in/swiggy-instamart-damaged-goods-delivered-and-no-resolution-offered-c3513125"
+  },
+  {
+    "id": "CONS-918C9268",
+    "source": "ConsumerComplaints.in",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "anonymous",
+    "location": "India",
+    "text": "Packing leafy vegetables",
+    "intent": "observation",
+    "categories": [
+      "groceries"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaints.in/swiggy-instamart-packing-leafy-vegetables-c3505998"
+  },
+  {
+    "id": "CONS-1B3B28D2",
+    "source": "ConsumerComplaints.in",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "anonymous",
+    "location": "India",
+    "text": "My payment was deducted but the order was not processed",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaints.in/swiggy-instamart-my-payment-was-deducted-but-the-order-was-not-processed-c3355132"
+  },
+  {
+    "id": "CONS-26B16E85",
+    "source": "ConsumerComplaints.in",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "anonymous",
+    "location": "India",
+    "text": "I ordered milk ,jaise hi maine package open Kiya ussme se fatta hua milk nikla",
     "intent": "observation",
     "categories": [
       "groceries",
-      "personal_care"
+      "beverages",
+      "dairy"
     ],
-    "rating": 3,
-    "url": "https://digitalinasia.com/india-quick-commerce-blinkit-zepto-instamart/"
+    "rating": 1,
+    "url": "https://consumercomplaints.in/swiggy-instamart-i-ordered-milk-jaise-hi-maine-package-open-kiya-ussme-se-fatta-hua-milk-nikla-c3240809"
   },
   {
-    "id": "REV-026",
-    "source": "Rest of World",
-    "date": "2024-11-12",
-    "platform": "news",
-    "user": "Ananya Bhattacharya",
-    "location": "Mumbai, India",
-    "text": "Quick commerce estimated to put more than 25% of India's neighborhood kirana stores out of business by 2030. 200,000 kirana stores closed in past year. It's not possible to deliver within 10 minutes, free of cost.",
+    "id": "CONS-401ECB33",
+    "source": "ConsumerComplaints.in",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "anonymous",
+    "location": "India",
+    "text": "Item missing / not delivered Order # 1129846811839",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaints.in/swiggy-instamart-item-missing-not-delivered-order-1129846811839-c3159028"
+  },
+  {
+    "id": "CONS-63F89954",
+    "source": "ConsumerComplaints.in",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "anonymous",
+    "location": "India",
+    "text": "The pre paid order was not delivered yet received a successfully delivered message",
     "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaints.in/swiggy-instamart-the-pre-paid-order-was-not-delivered-yet-received-a-successfully-delivered-message-c3151553"
+  },
+  {
+    "id": "CONS-EF1F0FB1",
+    "source": "ConsumerComplaints.in",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "anonymous",
+    "location": "India",
+    "text": "Not receive the Invoice",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaints.in/comment-guidelines.html"
+  },
+  {
+    "id": "CONS-80156A39",
+    "source": "ConsumerComplaints.in",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "anonymous",
+    "location": "India",
+    "text": "I have not received any coupon code for my return Item",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaints.in/comment-guidelines.html"
+  },
+  {
+    "id": "CONS-5553960A",
+    "source": "ConsumerComplaints.in",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "anonymous",
+    "location": "India",
+    "text": "Refuse to resolve issue of supplied wireless mouse supplied with a dead battery",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaints.in/comment-guidelines.html"
+  },
+  {
+    "id": "CONS-53DD51AC",
+    "source": "ConsumerComplaints.in",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "anonymous",
+    "location": "India",
+    "text": "Rude and arrogant behaviour of delivery partner",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaints.in/comment-guidelines.html"
+  },
+  {
+    "id": "CONS-4B60D6C5",
+    "source": "ConsumerComplaints.in",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "anonymous",
+    "location": "India",
+    "text": "Epigamia greek yogurt (blueberry) mrp 60",
+    "intent": "observation",
+    "categories": [
+      "dairy"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaints.in/comment-guidelines.html"
+  },
+  {
+    "id": "CONS-E7AD9C8B",
+    "source": "ConsumerComplaints.in",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "anonymous",
+    "location": "India",
+    "text": "Bad quality products sent and poor response from agents",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaints.in/comment-guidelines.html"
+  },
+  {
+    "id": "CONS-BC503683",
+    "source": "ConsumerComplaints.in",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "anonymous",
+    "location": "India",
+    "text": "Missing items and Expired milk recieved",
+    "intent": "complaint",
+    "categories": [
+      "beverages",
+      "dairy"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaints.in/comment-guidelines.html"
+  },
+  {
+    "id": "CONS-C14F1EC4",
+    "source": "ConsumerComplaints.in",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "anonymous",
+    "location": "India",
+    "text": "Missing items and Expired milk",
+    "intent": "complaint",
+    "categories": [
+      "beverages",
+      "dairy"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaints.in/comment-guidelines.html"
+  },
+  {
+    "id": "CONS-5B116B79",
+    "source": "ConsumerComplaints.in",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "anonymous",
+    "location": "India",
+    "text": "I'm complaining about fortune chakki fresh atta 10kg",
+    "intent": "observation",
+    "categories": [
+      "groceries"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaints.in/comment-guidelines.html"
+  },
+  {
+    "id": "CONS-181F6E73",
+    "source": "ConsumerComplaints.in",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "anonymous",
+    "location": "India",
+    "text": "Denied Refund for Missing product",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaints.in/comment-guidelines.html"
+  },
+  {
+    "id": "CONS-234D4F16",
+    "source": "ConsumerComplaints.in",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "anonymous",
+    "location": "India",
+    "text": "Wrong order received against my Order no. 158926537125635 amounting to Rs. 570",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaints.in/comment-guidelines.html"
+  },
+  {
+    "id": "CONS-AAA7EAA3",
+    "source": "ConsumerComplaints.in",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "anonymous",
+    "location": "India",
+    "text": "Order no. 158926537125635 which is amounting to Rs. 570",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaints.in#"
+  },
+  {
+    "id": "CONS-023A151C",
+    "source": "ConsumerComplaints.in",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "anonymous",
+    "location": "India",
+    "text": "Delivered Expired food items",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaints.in/comment-guidelines.html"
+  },
+  {
+    "id": "CONS-EF8FE31D",
+    "source": "ConsumerComplaints.in",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "anonymous",
+    "location": "India",
+    "text": "Product and offers and the customer care agent harsh",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaints.in/instamart-product-and-offers-and-the-customer-care-agent-harsh-c3542638"
+  },
+  {
+    "id": "CONS-3A1B3F85",
+    "source": "ConsumerComplaints.in",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "anonymous",
+    "location": "India",
+    "text": "Rentio brand toor daal expired product",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaints.in/instamart-rentio-brand-toor-daal-expired-product-c3540702"
+  },
+  {
+    "id": "CONS-36B9DB82",
+    "source": "ConsumerComplaints.in",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "anonymous",
+    "location": "India",
+    "text": "Instamart order #182400857389704. / Compaint request no given by swiggy support team 22491754",
+    "intent": "observation",
+    "categories": [
+      "beverages"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaints.in/instamart-instamart-order-182400857389704-compaint-request-no-given-by-swiggy-support-team-22491754-c3515871"
+  },
+  {
+    "id": "CONS-5FD5A888",
+    "source": "ConsumerComplaints.in",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "anonymous",
+    "location": "India",
+    "text": "Carton of cocoa almond milk puffed and spoiled",
+    "intent": "observation",
+    "categories": [
+      "groceries",
+      "beverages",
+      "dairy"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaints.in#"
+  },
+  {
+    "id": "CONS-EE067257",
+    "source": "ConsumerComplaints.in",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "anonymous",
+    "location": "India",
+    "text": "Payment was deducted but no order was placed",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaints.in/comment-guidelines.html"
+  },
+  {
+    "id": "CONS-8793CD38",
+    "source": "ConsumerComplaints.in",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "anonymous",
+    "location": "India",
+    "text": "ResolvedMy name is Harish Raam(IR ID: IM256884).On 25 May, my friend introduced me to a business opportunity. However, he did not disclose the company name, the nature of the business, the refund policy, or the type of work involved. Based on the information he provided, I transferred \u20b939, 000 on May 27, and I sent an additional \u20b95, 000 on June 5.Without my knowledge or consent, he used his own...QNET IndiaJul 21, 2026",
+    "intent": "suggestion",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaints.in/qnet-india-upline-purchase-made-his-email-without-my-knowledge-and-misguided-c3543463"
+  },
+  {
+    "id": "CONS-CAAD7E98",
+    "source": "ConsumerComplaints.in",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "anonymous",
+    "location": "India",
+    "text": "ResolvedHi Sir/madam, I purchased this item on June 18/2026 however, they have not yet provided any information regarding the actual nature of the transaction. I have paid a total of \u20b92, 77, 400, (2920 usd )the entire amount of which was obtained through a bank loan. Currently, there is no response from their side. As I am facing a serious medical emergency, I earnestly request you to help me get a refund.i am not interested kind of this business...IgniteJul 19, 2026",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaints.in/ignite-can-i-get-refund-my-payment-please-refund-request-for-suresh-s-aia0645635-001-c3543428"
+  },
+  {
+    "id": "CONS-5FBC152F",
+    "source": "ConsumerComplaints.in",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "anonymous",
+    "location": "India",
+    "text": "ResolvedI placed an order for Niramagal Kitchen Cleaner on Flipkart.Order ID: OD[protected]Order Date: 23 June 2026Cancellation Date: 2 July 2026The order remained in \"Order Confirmed\" status for several days without being shipped. Due to the delay, I cancelled the order on 2 July 2026.Although the order was cancelled, I have still not received my refund. I have contacted Flipkart...FlipkartJul 18, 2026",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaints.in/flipkart-complaint-regarding-non-receipt-of-refund-for-cancelled-flipkart-order-c3543388"
+  },
+  {
+    "id": "CONS-B44A253B",
+    "source": "ConsumerComplaints.in",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "anonymous",
+    "location": "India",
+    "text": "Resolved\u0baa\u0bbe\u0b9f\u0bcd\u0b9f\u0bbf\u0bb2\u0bc1\u0b95\u0bcd\u0b95\u0bc1 10 \u0bb0\u0bc1\u0baa\u0bbe\u0baf\u0bcd still in chennai Mogappair TASMAC, SHOP NO: 9044\u0baa\u0bc1\u0ba4\u0bbf\u0baf \u0b85\u0bb0\u0b9a\u0bc1 \u0bb5\u0ba8\u0bcd\u0ba4\u0bbe\u0bb2\u0bc1\u0bae\u0bcd \u0bae\u0b95\u0bcd\u0b95\u0bb3\u0bcd \u0b87\u0ba9\u0bcd\u0ba9\u0bc1\u0bae\u0bcd \u0bae\u0bcb\u0b9a\u0b9f\u0bbf\u0b95\u0bcd\u0b95\u0bc1 \u0b86\u0bb3\u0bbe\u0b95\u0bbf\u0bb1\u0bbe\u0bb0\u0bcd\u0b95\u0bb3\u0bcdMRP price - 180/pcPurchased - 190/pc x 3 pc = 570Cheated - 30 rs...10Jul 16, 2026",
+    "intent": "complaint",
+    "categories": [
+      "groceries"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaints.in/10-10-still-in-chennai-mogappair-tasmac-shop-no-9044-c3543356"
+  },
+  {
+    "id": "CONS-6CBA2DCE",
+    "source": "ConsumerComplaints.in",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "anonymous",
+    "location": "India",
+    "text": "ResolvedI am writing to formally lodge a complaint regarding an unresolved return request for Order #[protected]Foldable coffee table). Despite initiating the return on June 7, 2026, the product has not been picked up after 1.5 months of continuous rescheduling by your logistics partners.Furthermore, my Meesho account has been blocked under the notice \"User Verification Failed.\" I believe this is an automated error directly...MeeshoJul 16, 2026",
+    "intent": "complaint",
+    "categories": [
+      "beverages"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaints.in/meesho-urgent-complaint-regarding-non-pickup-and-refund-delay-for-returned-product-request-for-order-id-292680509565682432-c3543338"
+  },
+  {
+    "id": "CONS-23F196AB",
+    "source": "ConsumerComplaints.in",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "anonymous",
+    "location": "India",
+    "text": "ResolvedI am extremely disappointed with the service provided by LG Electronics India regarding my LG Water Purifier, which is covered under a valid Annual Maintenance Contract (AMC).Customer Name: SNEHA RAMC No: AMC[protected]_01Order No:[protected]Invoice No: INVMAD2516666Escalation No: VCA[protected]Reference No: RNP[protected]Service Centre: ICON SOLUTION (IN[protected]S)br...LG Electronics India Pvt. Ltd.Jul 15, 2026",
+    "intent": "complaint",
+    "categories": [
+      "beverages",
+      "electronics"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaints.in/lg-electronics-india-pvt-ltd-lg-water-purifier-amc-service-not-provided-despite-multiple-follow-ups-and-escalations-c3543326"
+  },
+  {
+    "id": "CONS-360F6A90",
+    "source": "ConsumerComplaints.in",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "anonymous",
+    "location": "India",
+    "text": "ResolvedMy parcel from Theni has not reached me at Pondicherry and when I checked the tracking it says it is delivered. I have not received it. When I call up the local branch office, they simply said it is delivered and signed and received by someone else. I strongly condemn this as the person who deliveres must take care to give it to the right address.AWB Number - [protected]I want my parcel back at the earliest....Franch Express CourierJul 12, 2026",
+    "intent": "suggestion",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaints.in/franch-express-courier-parcel-delivered-to-the-wrong-address-c3543259"
+  },
+  {
+    "id": "CONS-72958654",
+    "source": "ConsumerComplaints.in",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "anonymous",
+    "location": "India",
+    "text": "ResolvedMaine puma basket ball shoes emi pr kareeb 9000 me order kiya. Or pink color hone ke karan return kiya. Amazon ne wo accept kiya or step by step use accept krte hue last me destination par pahuncha. Par mera refund nahi diya. Ab wo refund nahi de rhe na baat kr rhe bol rhe ki hmne jo bheja uske badle dusra item mila hai isliye ab koi madad nahi kr skte. Mera item bhi rakh liya or refund bhi nahi de rhe. Isse to agar galat tha ya same nahi...AmazonJul 10, 2026",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaints.in/amazon-product-i-returned-that-amazon-accept-and-kept-but-no-refund-and-no-item-issued-to-me-c3543220"
+  },
+  {
+    "id": "CONS-3C5D264D",
+    "source": "ConsumerComplaints.in",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "anonymous",
+    "location": "India",
+    "text": "ResolvedDear Dr. Lal PathLabs Team,I would like to register a formal complaint regarding the delay in receiving our blood test report and the unsatisfactory response from your customer care team.The blood sample was collected on Sunday, and we were informed that the test report would be available within 2 days.However, more than 3 days have now passed, and we have neither received the report nor any update regarding...Dr. Lal Path LabsJul 8, 2026",
+    "intent": "complaint",
+    "categories": [
+      "beverages"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaints.in/dr-lal-path-labs-delay-in-blood-test-report-and-poor-customer-service-c3543190"
+  },
+  {
+    "id": "CONS-14DDC20F",
+    "source": "ConsumerComplaints.in",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "anonymous",
+    "location": "India",
+    "text": "ResolvedI am writing to report an issue regarding my water tax payment. I completed the payment online yesterday morning, July 2, 2026. While the amount was debited from my account and the payment was confirmed by my bank, the tax portal has not yet updated my status.The portal still shows the amount as payable, and the last transaction date reflects a payment from last year.Please find my payment and assessment details...Tamilnadu - Pudukkottai Municipality (tnurbanepay)Jul 6, 2026",
+    "intent": "observation",
+    "categories": [
+      "beverages"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaints.in/tamilnadu-pudukkottai-municipality-tnurbanepay-pudukkottai-water-tax-payment-issue-c3543141"
+  },
+  {
+    "id": "CONS-BCCEE983",
+    "source": "ConsumerComplaints.in",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "anonymous",
+    "location": "India",
+    "text": "ResolvedRespected Sir/Madam,I am writing to bring to your attention the delay in the dispatch of my vehicle's physical Registration Certificate Card.My vehicle (Activa) was previously registered in Uttar Pradesh (Kanpur UP78 HU 7640) and I applied for a new registration in Punjab at RTO Jalandhar (PB90). All documentation and formalities were completed on 12th February 2024.While the new registration number [PB902160]...RTO IndiaJul 2, 2026",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaints.in/rto-india-not-receiving-physical-rc-yet-c3543059"
+  },
+  {
+    "id": "CONS-4CC66C02",
+    "source": "ConsumerComplaints.in",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "anonymous",
+    "location": "India",
+    "text": "ResolvedI placed order #S011260610202731098001 with Savana for 6 items and made full payment in advance. However, upon delivery, I received only 2 items\u2014a black A-line dress and a black T-shirt\u2014while 4 items were missing, despite the order being marked as fully delivered on 19 June.I immediately raised a complaint from the following day and have been continuously following up since then. During my initial conversation with customer...Savana.comJul 1, 2026",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaints.in/savana-com-missing-products-delivered-c3543029"
+  },
+  {
+    "id": "CONS-918AE136",
+    "source": "ConsumerComplaints.in",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "anonymous",
+    "location": "India",
+    "text": "ResolvedKindly update the refund status and total amount you will be processing for refund.Reason: Refurbished Refrigerator is delivered.I have been doing follow-up on this issue since 19th May 2026....Whirlpool IndiaJul 1, 2026",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaints.in/whirlpool-india-refund-status-complaint-number-gha19052663260-dated-19-may2026-c3543025"
+  },
+  {
+    "id": "CONS-7DBAFEBD",
+    "source": "ConsumerComplaints.in",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "anonymous",
+    "location": "India",
+    "text": "ResolvedFlipkart, Motorola, jeeves not providing any service after sales for defective product i purchased on 28 may 2026 but flipkart and Motorola daily said wait 24 hours but no technician visit yet no replacement or refund OD[protected]I complained on 23 june but no response flipkart is asking job sheet but no technician visit yet how can i give job sheet its totally fraud and fraud by Motorola and flipkart...FlipkartJun 30, 2026",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaints.in/flipkart-motorola-air-conditioner-defective-c3543016"
+  },
+  {
+    "id": "CONS-50DC42A0",
+    "source": "ConsumerComplaints.in",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "anonymous",
+    "location": "India",
+    "text": "ResolvedHi Team,Order ID: # 1334590 [protected]Today(30/06/2026) i got call from fake myntra customer care person she told me about the product which i ordered in myntra and confirmed my Delivery address with pin code. She asked me to repay the money to continue my order. she told me that your order is on hold due to server down.she shared one scanner to pay the money which i paid for myntra order. she asked me...Myntra.comJun 30, 2026",
+    "intent": "suggestion",
+    "categories": [
+      "beverages"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaints.in/myntra-com-fake-myntra-customer-care-called-me-with-exact-myntra-order-details-which-i-ordered-c3543013"
+  },
+  {
+    "id": "CONS-3728C71C",
+    "source": "ConsumerComplaints.in",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "anonymous",
+    "location": "India",
+    "text": "ResolvedNamaste,This is to inform you of the current ongoing RBI-CRRCI (Complaint Resolution, Redressal & Compensation Initiative). If you have been cheated by any bank or agent, unwarranted debits, no reversal of wrong transfers, mistreated and paid money for any transactions without any feasible result and your grievances were not attended to, we advised that you send your complaint to us by clicking the below link: \ud83d\udc47br...Kumara Pvt LimitedJun 30, 2026",
+    "intent": "complaint",
+    "categories": [
+      "snacks"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaints.in/kumara-pvt-limited-they-settled-my-grievance-c3543008"
+  },
+  {
+    "id": "CONS-2B9524BF",
+    "source": "ConsumerComplaints.in",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "anonymous",
+    "location": "India",
+    "text": "ResolvedMY AC MODEL NUMBER - AC- LLOYD AC 2T 5* ( GLS24I5FWGEV/2024 ( ISEER-5.06* ) MARUTI ELECTRONICS - INVOICE DATE = 15/07-2025. INVOICE NUMBER = 2025-26/1094.My AC has been making a lot of noise and failing to cool the room for the past month; the compressor, in particular, is extremely noisy. I have lodged complaints four or five times, but the AC has not yet been fixed. It is simply not working. I humbly request that you resolve this...LloydJun 29, 2026",
+    "intent": "suggestion",
+    "categories": [
+      "electronics"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaints.in/lloyd-ac-not-working-and-volume-is-very-high-the-compressor-is-extremely-noisy-c3542992"
+  },
+  {
+    "id": "CONS-580DC7B5",
+    "source": "ConsumerComplaints.in",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "anonymous",
+    "location": "India",
+    "text": "ResolvedMy vehicle won't start. It's under warranty. There's no response from the company. I went to the Kottayam service center at least five times. They say they'll file a consumer court complaint. The service center in Kottayam has no responsibility...Ola EletricJun 29, 2026",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaints.in/ola-eletric-ola-x1-plus-vechile-complint-warranty-period-c3542990"
+  },
+  {
+    "id": "CONS-C72FAA7F",
+    "source": "ConsumerComplaints.in",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "anonymous",
+    "location": "India",
+    "text": "ResolvedReliance Digital Retail LimitedUGF FF CP 4/3Ratan Khand Sharda Nagar YojanaLucknowPlace of supply state code - 09 UPSupply state GSTN number - 09AABCR1718E1ZNItem name - Orient Knight 70 (Cooler)HSN - 1EAAmount - 10790Del date and time - 27/06/2026 10 pmThe above mentioned item was bought home yesterday and the manufactured piece of cooler...Reliance DigitalJun 27, 2026",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaints.in/reliance-digital-complaint-against-the-sale-of-manufacturing-defect-piece-of-cooler-appliance-c3542960"
+  },
+  {
+    "id": "CONS-2B46B683",
+    "source": "ConsumerComplaints.in",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "anonymous",
+    "location": "India",
+    "text": "ResolvedI wish to bring to your notice that I submitted an application for a Character Certificate through the Maharashtra Police Clearance Services (PCS) portal.On 26 June 2026, I made an online payment of \u20b9159 through Google Pay (UPI). The payment was successfully debited from my bank account, and I also received confirmation from Google Pay. However, on logging into the PCS portal, my application continues to display the payment status...Police Clearance ServiceJun 26, 2026",
+    "intent": "suggestion",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaints.in/police-clearance-service-complaint-regarding-payment-deducted-but-application-showing-unpaid-c3542951"
+  },
+  {
+    "id": "CONS-81E3012A",
+    "source": "Consumer Complaints Court",
+    "date": "2025-11-08",
+    "platform": "web",
+    "user": "anonymous",
+    "location": "India",
+    "text": "Menu. Facts of the Case: I am a regular customer of Swiggy Instamart. On 5NOV2025, I ordered Ankle Belt through the Instamart app Order ID: [#221315756749425]. Upon delivery, I found that the item received was of incorrect size/specification, which was not as per my order and the pack was unsealed. I immediately initiated a return request [\u2026] Hi, I have ordered 3 items worth Rs. 850 . Have emailed you more than 3 times but to no avail. Resolve the issue and refund my money. Order details are as below: 1 Krispy Kreme \u2013 159 rs 1 Eat Better Company \u2013 Assorted Dry Fruit Laddoos \u2013 355 rs 1 Whole Truth 71% [\u2026] I am writing to formally raise a complaint regarding repeated delivery issues and lack of resolution from your support team. Firstly, I had ordered India Gate Rice, but a different product was delivered instead. Despite multiple attempts to initiate a return, I was repeatedly directed to contact instamartsupport@swiggy.in, where I have yet to receive any [\u2026] I had ordered Boat airdopes 91 prime and it did not meet my expectations Not returning electronic product which did not meet my expectations was last modified: May 22nd, 2025 by Consumer Court I ordered amul ice cream from swiggy instamart And amul ice is damaged and After opening the box its smelling like riot food and now they not showing your history order and not picking the phone call also. And they are not giving refund AMUL ICE CREAM DAMAGED AND FUNGUS was last modified: May 22nd, [\u2026] @SwiggyCares @SwiggyInstamart I am deeply disturbed by the threatening and abusive language used by your consumer service representatives during a recent call. This behavior is completely unacceptable and has caused me significant distress. I demand a prompt and thorough investigation into this matter.\u201d@SwiggyCares @SwiggyInstamart the consumer service executives threthened me and used abusive language over [\u2026] On 28/11/24 ,I have ordered milk, dahi and nippo battery, all is ok, but DAHI is having Use By date of 25/11/24 It is totally fraud.A reputed delivery aggregater like swiggy is doing that its unbelievable INSTAMART DELIVERED EXPIRED DAHI was last modified: November 29th, 2024 by Consumer Court On 3rd June I received 2 emails of Bills from Swiggy instamart of Amount Rs.49131/= and Rs.29762/=.I was surprised to see the bills the orders for WHICH WAS NOT ORDERED.BY ME. But Swiggy debited the amount of bills from my Axis Bank Credit card saved in their App Since 3rd june itself I am regularly [\u2026] I have ordered today morning(9th August 2024 \u2013 6:26AM) with Swiggy instamart for 1 Amul lite milk fat bread spread(100 rupees) and 2 iD fresh idli & dosa batter(110 rupees). Out of 2 idli batter, i received 1 which has expired on 12 June 2024 and other is due for today which is 9 August [\u2026] Today, I received an order from InstaMart regarding a quality issue with expired items named Balaji snacks that had their validity last on June 24th of this year. But I\u2019m here. The issue cannot be sorted out by customer care support. For seeking help, we wouldn\u2019t accept such a negligible response from Swiggy. Be cautious [\u2026]",
+    "intent": "complaint",
+    "categories": [
+      "groceries",
+      "snacks",
+      "beverages",
+      "personal_care",
+      "dairy",
+      "electronics"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaintscourt.com/tag/swiggy-instamart/"
+  },
+  {
+    "id": "CONS-B7424445",
+    "source": "Consumer Complaints Court",
+    "date": "2026-03-26",
+    "platform": "web",
+    "user": "anonymous",
+    "location": "India",
+    "text": "Menu. This is with regards to the poor food quality concern raise by me many times via chat, email but still swiggy is persistent in maintaining poor customer support and food quality both. I have been trying to reach out to them via email as that is the only option left for customer to do, their [\u2026] I ordered chicken fried wings , large fries and hot sauce in Swiggy from fly chicken restaurant order number 232825255014526. I received my order 30 minutes late The chicken i received is rotten i called the Swiggy support team no proper response and messaged through chat no proper response Received rotten food was last modified: [\u2026] The delivery boy called me and I told him that you are at a wrong location and I ordered the lightning charging cable from Swiggy instamart when the delivery boy came to deliver the product he was at wrong location I told him to return back but instead he marked the order as delivered and [\u2026] I ordered food from swiggy on 23rd November 2025, the ordered items were not available so the order was cancelled by swiggy. The show on their app that they refunded my amount to my upi source. I received no refund and i have checked with my bank twice. No amount from swiggy was credited to [\u2026] i m food orderd in Swiggy app but the food was worest I said the Swiggy agent. The money will not received the credit card Withdrawal sucess but money not received was last modified: November 8th, 2025 by Consumer Court Hi, I am writing to raise a complaint regarding a defective product I received through Swiggy Instamart. On [28-09-2025], I ordered a Zebronics Audio Jack from Instamart. Upon testing the product, I found that the sound quality is extremely poor and not usable, which indicates a substandard quality. I immediately tried to raise the issue [\u2026] I ordered food from Swiggy on 27 around 1:30, the food delivered around 3:13. The food was stale, smelled and tasted bad, if we (6 peoples) have eaten it we would have gotten food poisoning. It was my birthday celebration, I collected money just to be able to spend a little on my birthday. We [\u2026] I have a complaint about order ID 214385214078584. I gave this order around 1 pm on August 17th 2025. And I recieved the order at 2.30pm. Almost 1 and half hours delay for an order from a hotel that is just 2.5kms away and should have been delivered within 20 to 30 mins. Also the [\u2026] I am filing this complaint against Swiggy due to repeated service failure in two separate food orders, which caused me significant inconvenience and physical distress. Order ID: 211151016684236 Date: 11 July 2025 Time: 3:34 AM Amount: \u20b9608 (refunded) Issue: Delivery agent allegedly consumed food, leading to cancellation and delay. Order ID: 211668670670157 Date: 17 July [\u2026] They started ads wiy and now shared an fake screenshot of whatapp that concent was given and also we earned nothing from ads like they show WhatsApp screenshot as concent they violate their own terms and conditions and it acts 2000 yes Swiggy is scam they started ads without consent was last modified: July 14th, [\u2026]",
+    "intent": "complaint",
+    "categories": [
+      "beverages",
+      "electronics"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaintscourt.com/tag/swiggy/"
+  },
+  {
+    "id": "CONS-E20C3D97",
+    "source": "Consumer Complaints Court",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "anonymous",
+    "location": "India",
+    "text": "Menu. On 28/11/24 ,I have ordered milk, dahi and nippo battery, all is ok, but DAHI is having Use By date of 25/11/24It is totally fraud.A reputed delivery aggregater like swiggy is doing that its unbelievable Your email address will not be published.Required fields are marked* Comment* Name* Email* Website Save my name, email, and website in this browser for the next time I comment. Notify me of follow-up comments by email.",
+    "intent": "suggestion",
+    "categories": [
+      "beverages",
+      "dairy"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaintscourt.com/instamart-delivered-expired-dahi/#respond"
+  },
+  {
+    "id": "CONS-25A6D3DF",
+    "source": "Consumer Complaints Court",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "anonymous",
+    "location": "India",
+    "text": "Menu. I m ordering the food order through swiggy app Veg biryani curd and kheer From Eating point mohali the provided food is so cheap non hygienic food presentation harmful for my health the food is to much oily \u2026I want cancel the license of restaurant and company and one lakh rupees Your email address will not be published.Required fields are marked* Comment* Name* Email* Website Save my name, email, and website in this browser for the next time I comment. Notify me of follow-up comments by email.",
+    "intent": "suggestion",
+    "categories": [
+      "groceries",
+      "dairy"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaintscourt.com/swiggy-complaint-bad-quality-of-food/"
+  },
+  {
+    "id": "CONS-D24C05AB",
+    "source": "Consumer Complaints Court",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "anonymous",
+    "location": "India",
+    "text": "Menu. I ordered mutton Biryani from a restaurant through swiggy. However it didn\u2019t appear to be containing mutton pieces and moreover the pieces were stale and cold inside a hot biryani. I complained to the swiggy customer care but they refused to provide me the refund or reorder. Also they said there\u2019s no point in claiming any refund as they do not have such provisions, the most they can do is to complain the restaurant about the food quality. I asked them to let me talk to a senior executive but he refused saying they were busy. Your email address will not be published.Required fields are marked* Comment* Name* Email* Website Save my name, email, and website in this browser for the next time I comment. Notify me of follow-up comments by email.",
+    "intent": "suggestion",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaintscourt.com/swiggy-complaint-bad-quality-food-and-poor-customer-care-response/#respond"
+  },
+  {
+    "id": "CONS-BBE4EDCE",
+    "source": "Consumer Complaints Court",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "anonymous",
+    "location": "India",
+    "text": "Menu. This been 3-4 times that I\u2019m receiving brunt food from the swiggy and when I complaint about it they are denying for the compensation Your email address will not be published.Required fields are marked* Comment* Name* Email* Website Save my name, email, and website in this browser for the next time I comment. Notify me of follow-up comments by email.",
+    "intent": "suggestion",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaintscourt.com/swiggy-complaint-receiving-burnt-food-every-time/#respond"
+  },
+  {
+    "id": "CONS-8F464040",
+    "source": "Consumer Complaints Court",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "anonymous",
+    "location": "India",
+    "text": "Menu. I have ordered a meal at 7.50 pm , they haven\u2019t given any reply upto 9.40 pm and they called at that time and said order got cancelled..sorry to inform..at that point of time no food available outside\u2026it\u2019s completely immoral I feel\u2026I had proofs of his voice and chat. Your email address will not be published.Required fields are marked* Comment* Name* Email* Website Save my name, email, and website in this browser for the next time I comment. Notify me of follow-up comments by email.",
+    "intent": "suggestion",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaintscourt.com/swiggy-complaint-my-order-cancelled-after-1hr-40-mins-waiting-at-late-night/#respond"
+  },
+  {
+    "id": "CONS-B5DC9E6F",
+    "source": "Consumer Complaints Court",
+    "date": "2026-07-23",
+    "platform": "web",
+    "user": "anonymous",
+    "location": "India",
+    "text": "Menu. The complaint is about swiggy. I orederd pizza from dominions through swiggy. After 40 minutes when nobody came to deliver pizza, I called swiggy. They told its domino\u2019s mistake. Both domino\u2019s and swiggy are blaming each other. It\u2019s swiggy\u2019s responsibility to handle this. But they are just telling customer should call restaurant. I want my money back and please charge some heavy penalties for this.. Your email address will not be published.Required fields are marked* Comment* Name* Email* Website Save my name, email, and website in this browser for the next time I comment. Notify me of follow-up comments by email.",
+    "intent": "suggestion",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaintscourt.com/swiggy-complaint-regarding-not-delivering-food-n-blaming-restaurant/#respond"
+  },
+  {
+    "id": "CONS-5956F8AA",
+    "source": "Consumer Complaints Court",
+    "date": "2025-08-10",
+    "platform": "web",
+    "user": "anonymous",
+    "location": "India",
+    "text": "Menu. Bhagwat Ramrao Gawali, resident of Flat No. 609, Sixth Floor, Vishwakarma Vasant Plaza, near Hotel Rasika Kolhapur, Jadhavwadi, Kolhapur, Maharashtra \u2013 PIN [Your PIN] \u2013 hereby file this complaint against Swiggy Limited for gross negligence and breach of service, which has caused me serious health issues. I am a diagnosed diabetic (sugar) patient and depend [\u2026]",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 1,
+    "url": "https://consumercomplaintscourt.com/tag/swiggy-limited/"
+  },
+  {
+    "id": "FSSA-D4B6598A",
+    "source": "FSSAI Report",
+    "date": "2026-07-23",
+    "platform": "news",
+    "user": "The Hindu Business Line",
+    "location": "New Delhi",
+    "text": "Food standards authority issues 9 notices to Swiggy Instamart over consumer complaints",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 2,
+    "url": "https://www.thehindubusinessline.com/companies/food-standards-authority-issues-9-notices-to-swiggy-instamart-over-consumer-complaints/article71209786.ece"
+  },
+  {
+    "id": "FSSA-97AC3A56",
+    "source": "FSSAI Report",
+    "date": "2026-07-23",
+    "platform": "news",
+    "user": "Economic Times",
+    "location": "India",
+    "text": "FSSAI issues notices to Swiggy Instamart for allegedly delivering spoiled, expired food products - The Hindu. <a href=\"https://news.google.com/rss/articles/CBMi7wFBVV95cUxNV1hDSGxFdUw1MkQ1YVJkcnV1aUFUOElVMlNoNHIxSXhuQlhESjhfM3hkekdSY3VfSTBOZVJrSklDSEJlSlBzWWdlZm5Bc0hFRmlHN09YdE54X2lITFNrS1B2eHFLcmFVZnQxS3QyaGFKbHNvXzZqSklISXpqS185aEwyc3BUemlmQklUVkRxd2R3SERKN0NrVDdCZ0VKUjYtTG9tNnNod2lFVFZxY0ZMRTB0THhpRkVwU0tyX1c2cTN6NTRCaHktM3ViRTdmNXNxaWlkcWdUOGlLZlQ2SEhBU0VIY3NkejlKSmFtNXM2Z9IB9gFBVV95cUxPTXQ2M0ttYk1icG9qWDZHd1BHRnZBRmVaWmtvYWNTbDNzS0RNRndMNzgwV3BRZkNhZmc0Y0pxS3BraGhNSDhrNVZGWGhpSVI0RU4wWnBQRDU2NXFJT1A4ZVNJeFpkZnFpWHpkVlAwQlZLcjNTdXpSZzYybTRpcFczaVBKQTFpemNYWGF0ZjR5LTlpYXNCNG9MNnFETFBrRUN2X29lUDVPR0hIc1VNVFpFNUhHdHE5MDRYalBsSWc1eE9RNjVCWXc4XzQ1UGJvblJZSlZuLWo3Mm9iM3JJbE1wUy1EdUVtSkVoVlBKR2NJbDNkVnAyanc?oc=5\" target=\"_blank\">FSSAI issues notices to Swiggy Instamart for allegedly delivering spoiled, expired food products</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">The Hindu</font>",
+    "intent": "complaint",
     "categories": [
       "groceries"
     ],
     "rating": 2,
-    "url": "https://restofworld.org/2024/india-rapid-delivery-zepto-blinkit"
+    "url": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxNV1hDSGxFdUw1MkQ1YVJkcnV1aUFUOElVMlNoNHIxSXhuQlhESjhfM3hkekdSY3VfSTBOZVJrSklDSEJlSlBzWWdlZm5Bc0hFRmlHN09YdE54X2lITFNrS1B2eHFLcmFVZnQxS3QyaGFKbHNvXzZqSklISXpqS185aEwyc3BUemlmQklUVkRxd2R3SERKN0NrVDdCZ0VKUjYtTG9tNnNod2lFVFZxY0ZMRTB0THhpRkVwU0tyX1c2cTN6NTRCaHktM3ViRTdmNXNxaWlkcWdUOGlLZlQ2SEhBU0VIY3NkejlKSmFtNXM2Z9IB9gFBVV95cUxPTXQ2M0ttYk1icG9qWDZHd1BHRnZBRmVaWmtvYWNTbDNzS0RNRndMNzgwV3BRZkNhZmc0Y0pxS3BraGhNSDhrNVZGWGhpSVI0RU4wWnBQRDU2NXFJT1A4ZVNJeFpkZnFpWHpkVlAwQlZLcjNTdXpSZzYybTRpcFczaVBKQTFpemNYWGF0ZjR5LTlpYXNCNG9MNnFETFBrRUN2X29lUDVPR0hIc1VNVFpFNUhHdHE5MDRYalBsSWc1eE9RNjVCWXc4XzQ1UGJvblJZSlZuLWo3Mm9iM3JJbE1wUy1EdUVtSkVoVlBKR2NJbDNkVnAyanc?oc=5"
   },
   {
-    "id": "REV-027",
-    "source": "Confetti Design",
-    "date": "2026-06-22",
+    "id": "FSSA-4A042974",
+    "source": "FSSAI Report",
+    "date": "2026-07-23",
     "platform": "news",
-    "user": "Industry Guide",
+    "user": "Economic Times",
     "location": "India",
-    "text": "Instamart holds 23-25% market share across 1,000+ dark stores in 120+ cities. Widest geographic footprint. 29% of new Instamart shoppers discover grocery products through Swiggy food orders.",
+    "text": "Swiggy shares fall over 1% as FSSAI cracks down on Instamart, issues 9 notices following consumer... - Moneycontrol.com. <a href=\"https://news.google.com/rss/articles/CBMigAJBVV95cUxQNFpFT2JnWF9BTVhlS1Y5aVlSOE9ZMzZ3Um80Z3d5c3pDREd0NS1xV1phMHRKVksxd2c3TmFwMWhGM0Z1Vk9fVnhFSmZ2dFRPQjIzM2lneV95UUZyVmJVdHlXaExoTnNTN3YyVVB5dHhvZEVjaGJfUU5GcUF1OVEzbjJhZ0JYWXFCRzkwYjVMV3JybVAwWkZmNFRkekZYaXVUNHV1T1dTSGItTjVfbFZIVVdaWjg5T1lSbDdwbFpoVjZwLTl2Y2N5SkhNalpGQ1JqdnlSYmpzaXlwVXRwWHBfcXQ1dnRCanFNLXpSb2Z0VlRQd1BVNWEtVkhvWXFUaXFT0gGGAkFVX3lxTE5YMmNSTUJFRmFDRFAxbjhjbE1zWUI2RGtCcWpyVmhfT3pLZXJadHRqaV9xRTlHTnBMZmplS0Y3N1lNWGFybTVTdzdIM0EwLWNwTUlUdm4xQ1B5QXRCUERHX2NzZkcwUXVuakVhcHhSUHJxNzNtWlZ1Tjk3YnM2TGx4V0JpNWk5T2QwZ3Y5N0ZrTnFaQTlJVHVNdFBUM3NZTjJ5VVJCQmhfckN0bm1uaEZ6NGhnYkhjbDl5M09Cb0RpdHk2b0xSckxaNHVSUmxXd1JQcF84QVZoQy1SS1hfU1Q1ZFM5Y2NDSUM3MVVrVkNsYnJuRUFLbHBUOTRCR3p6eWZtckNSakE?oc=5\" target=\"_blank\">Swiggy shares fall over 1% as FSSAI cracks down on Instamart, issues 9 notices following consumer...</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Moneycontrol.com</font>",
     "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 2,
+    "url": "https://news.google.com/rss/articles/CBMigAJBVV95cUxQNFpFT2JnWF9BTVhlS1Y5aVlSOE9ZMzZ3Um80Z3d5c3pDREd0NS1xV1phMHRKVksxd2c3TmFwMWhGM0Z1Vk9fVnhFSmZ2dFRPQjIzM2lneV95UUZyVmJVdHlXaExoTnNTN3YyVVB5dHhvZEVjaGJfUU5GcUF1OVEzbjJhZ0JYWXFCRzkwYjVMV3JybVAwWkZmNFRkekZYaXVUNHV1T1dTSGItTjVfbFZIVVdaWjg5T1lSbDdwbFpoVjZwLTl2Y2N5SkhNalpGQ1JqdnlSYmpzaXlwVXRwWHBfcXQ1dnRCanFNLXpSb2Z0VlRQd1BVNWEtVkhvWXFUaXFT0gGGAkFVX3lxTE5YMmNSTUJFRmFDRFAxbjhjbE1zWUI2RGtCcWpyVmhfT3pLZXJadHRqaV9xRTlHTnBMZmplS0Y3N1lNWGFybTVTdzdIM0EwLWNwTUlUdm4xQ1B5QXRCUERHX2NzZkcwUXVuakVhcHhSUHJxNzNtWlZ1Tjk3YnM2TGx4V0JpNWk5T2QwZ3Y5N0ZrTnFaQTlJVHVNdFBUM3NZTjJ5VVJCQmhfckN0bm1uaEZ6NGhnYkhjbDl5M09Cb0RpdHk2b0xSckxaNHVSUmxXd1JQcF84QVZoQy1SS1hfU1Q1ZFM5Y2NDSUM3MVVrVkNsYnJuRUFLbHBUOTRCR3p6eWZtckNSakE?oc=5"
+  },
+  {
+    "id": "FSSA-B2B86AF5",
+    "source": "FSSAI Report",
+    "date": "2026-07-23",
+    "platform": "news",
+    "user": "Economic Times",
+    "location": "India",
+    "text": "FSSAI issues notices to Swiggy Instamart over alleged food safety violations - News On AIR. <a href=\"https://news.google.com/rss/articles/CBMipAFBVV95cUxPNHhYS2t4bGxIMTNWY3NnZkZEZjdZNFVWRzdxc2lyclloVHp1d0g4NTJtaElsXzNIZVBaZFhPTjFXUFdHRDJfZ19xTUttUDZkSHFod1hXS0tLOWdSODRzaHNCVWpoeHFLM1k0LU9nSnBacER2YmwwQVIzTlhxNnRqanJUa2YyaFM4VnVWS1M2ZmpBa0hFYnBnVFRwZDM0ZUJtSDRVNg?oc=5\" target=\"_blank\">FSSAI issues notices to Swiggy Instamart over alleged food safety violations</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">News On AIR</font>",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 2,
+    "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPNHhYS2t4bGxIMTNWY3NnZkZEZjdZNFVWRzdxc2lyclloVHp1d0g4NTJtaElsXzNIZVBaZFhPTjFXUFdHRDJfZ19xTUttUDZkSHFod1hXS0tLOWdSODRzaHNCVWpoeHFLM1k0LU9nSnBacER2YmwwQVIzTlhxNnRqanJUa2YyaFM4VnVWS1M2ZmpBa0hFYnBnVFRwZDM0ZUJtSDRVNg?oc=5"
+  },
+  {
+    "id": "FSSA-F5533C59",
+    "source": "FSSAI Report",
+    "date": "2026-07-23",
+    "platform": "news",
+    "user": "Economic Times",
+    "location": "India",
+    "text": "Rotten eggs, spoiled parathas: Swiggy gets 9 notices from FSSAI - The Times of India. <a href=\"https://news.google.com/rss/articles/CBMiyAFBVV95cUxNSTJNdFdDTHB4akk2bG5RNHd6ajhwcGZwcUo1YTRpakN4NDhsQjdNZE5yUjctazhZY2hJU3UxMC1LdHFibUpDSGpGQnpHYkk2Zm1WRXFYclpVTTByQ0NYeVhMNzByaDlSYXRwRkhpUXAtMjBsWng5RW9yYXoxenZEODdvSFZXTHFEOHN4QkpPbVFfZk1yMzVWSmprODd0dE1nSFlJSEkzQUlMM1pXR0tFV2VFZmpPOThxUDN6ZWNFWGtpUmJUbWtjY9IBzgFBVV95cUxOejB3RHFleUJIY3lKbG9teWpyZHhvZkpXc05zN1UwaEVJVkhBb2Q0cWhJaG9tOEp3RlBQNHFLcDZjSHVOSGdwd2drYjlSMFEtNjY3Z09ibjFLUm1mQ20wSGhiMjhKQ004dG1nRlZlQ2tlS0dsR0dCY3JiTTZBV29odS0wSzdHX0xScWJzanhtb1g1cDl6cGpYalpObnRsSml1b0dhMG4yNFQ2TzRvc2JCUjAwT21qVUlBS3RMQjRWb0pPR3pNY0RsaUhaVFFKZw?oc=5\" target=\"_blank\">Rotten eggs, spoiled parathas: Swiggy gets 9 notices from FSSAI</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">The Times of India</font>",
+    "intent": "complaint",
     "categories": [
       "groceries"
     ],
-    "rating": 3,
-    "url": "https://confetti.design/blog/how-to-start-selling-on-quick-commerce-india"
+    "rating": 2,
+    "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNSTJNdFdDTHB4akk2bG5RNHd6ajhwcGZwcUo1YTRpakN4NDhsQjdNZE5yUjctazhZY2hJU3UxMC1LdHFibUpDSGpGQnpHYkk2Zm1WRXFYclpVTTByQ0NYeVhMNzByaDlSYXRwRkhpUXAtMjBsWng5RW9yYXoxenZEODdvSFZXTHFEOHN4QkpPbVFfZk1yMzVWSmprODd0dE1nSFlJSEkzQUlMM1pXR0tFV2VFZmpPOThxUDN6ZWNFWGtpUmJUbWtjY9IBzgFBVV95cUxOejB3RHFleUJIY3lKbG9teWpyZHhvZkpXc05zN1UwaEVJVkhBb2Q0cWhJaG9tOEp3RlBQNHFLcDZjSHVOSGdwd2drYjlSMFEtNjY3Z09ibjFLUm1mQ20wSGhiMjhKQ004dG1nRlZlQ2tlS0dsR0dCY3JiTTZBV29odS0wSzdHX0xScWJzanhtb1g1cDl6cGpYalpObnRsSml1b0dhMG4yNFQ2TzRvc2JCUjAwT21qVUlBS3RMQjRWb0pPR3pNY0RsaUhaVFFKZw?oc=5"
   },
   {
-    "id": "REV-028",
+    "id": "FSSA-8C64A22B",
+    "source": "FSSAI Report",
+    "date": "2026-07-23",
+    "platform": "news",
+    "user": "Economic Times",
+    "location": "India",
+    "text": "Why FSSAI served 9 notices to Swiggy Instamart: Expired whey protein, rotten eggs, spoiled food - The Indian Express. <a href=\"https://news.google.com/rss/articles/CBMivgFBVV95cUxPdHNCSGJBSGJmbmtPU3k3dWFzbUUybkc1c0dzVXRTQ2pSa0I4bWhEdFVtUEVoWGYzZTRPeEJHOXEtTkRzcmNnOEw5emZQLXF0aVk0cDRLbXRXenFJNk1PcVZHaWVDNElZOXBYOWlZbnM3RE8wcllzSFluNnl6enN4YjZKYTlrcWRYUVZ5aEpDbXZLd1loNjQwX2dPLVpfYnByMHpYTzItSDhwZURSV3pmRnlVckk2ODBLZ1FRakxR?oc=5\" target=\"_blank\">Why FSSAI served 9 notices to Swiggy Instamart: Expired whey protein, rotten eggs, spoiled food</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">The Indian Express</font>",
+    "intent": "complaint",
+    "categories": [
+      "groceries"
+    ],
+    "rating": 2,
+    "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPdHNCSGJBSGJmbmtPU3k3dWFzbUUybkc1c0dzVXRTQ2pSa0I4bWhEdFVtUEVoWGYzZTRPeEJHOXEtTkRzcmNnOEw5emZQLXF0aVk0cDRLbXRXenFJNk1PcVZHaWVDNElZOXBYOWlZbnM3RE8wcllzSFluNnl6enN4YjZKYTlrcWRYUVZ5aEpDbXZLd1loNjQwX2dPLVpfYnByMHpYTzItSDhwZURSV3pmRnlVckk2ODBLZ1FRakxR?oc=5"
+  },
+  {
+    "id": "FSSA-21B41058",
+    "source": "FSSAI Report",
+    "date": "2026-07-23",
+    "platform": "news",
+    "user": "NDTV",
+    "location": "India",
+    "text": "FSSAI issues 9 notices to e-commerce app for alleged food safety violations - The Times of India. <a href=\"https://news.google.com/rss/articles/CBMi2wFBVV95cUxOa1JEZi1JZXQtRUJpLTV6VndjUkJraEJLX3YzVDQ3bzdTZ1FYYmJHYTZIb3prTzhDUXVEMkgtSl9MVGtRcHk0VzN3SEF0Y1F0SzBEdVRNMXVBczNJRzIyYmVuNVgtT09hVWp5Z09tM0pzQWZvbmJsT25nU3NsbXVXVERTckluSFJkSEhacTV5NXhOQWdVcDEyalJTT3FUNjJvSDgzZVV4cWRHOFJQd1cxVHk3UXdST2FnVWhxRzlReEFwdjZsYzRXdGxTU2pBVU5JUzJ5S2tOU2hIbUnSAeABQVVfeXFMTWQzSnN3RnZDN3R0UjczWlFrckZvYVhIbXFtcXR1RFlpOGN6UHBTVHVaU0g1VlQ3UWhfeXBQS1c3MW9ZMmI4SjZROHVQR3JyNGswWGFJZDV2T0RENnNfeTVVWUx0QU1ma0VQaEFDQkRhUHFGQWZrQkhlczJfQTlic1Y3SzN6QVpQYmItVHA3aHc4LWp2U0JTZGhQeWdQMTJFWXZpRnc4eVpqdEhucnZHb2VtdDN6UXJPUkNRalZMTERPZHc4eWduNlJlZzlLWndKTWlqUkQwN2tVcFVNdlVFQUQ?oc=5\" target=\"_blank\">FSSAI issues 9 notices to e-commerce app for alleged food safety violations</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">The Times of India</font>",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 2,
+    "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOa1JEZi1JZXQtRUJpLTV6VndjUkJraEJLX3YzVDQ3bzdTZ1FYYmJHYTZIb3prTzhDUXVEMkgtSl9MVGtRcHk0VzN3SEF0Y1F0SzBEdVRNMXVBczNJRzIyYmVuNVgtT09hVWp5Z09tM0pzQWZvbmJsT25nU3NsbXVXVERTckluSFJkSEhacTV5NXhOQWdVcDEyalJTT3FUNjJvSDgzZVV4cWRHOFJQd1cxVHk3UXdST2FnVWhxRzlReEFwdjZsYzRXdGxTU2pBVU5JUzJ5S2tOU2hIbUnSAeABQVVfeXFMTWQzSnN3RnZDN3R0UjczWlFrckZvYVhIbXFtcXR1RFlpOGN6UHBTVHVaU0g1VlQ3UWhfeXBQS1c3MW9ZMmI4SjZROHVQR3JyNGswWGFJZDV2T0RENnNfeTVVWUx0QU1ma0VQaEFDQkRhUHFGQWZrQkhlczJfQTlic1Y3SzN6QVpQYmItVHA3aHc4LWp2U0JTZGhQeWdQMTJFWXZpRnc4eVpqdEhucnZHb2VtdDN6UXJPUkNRalZMTERPZHc4eWduNlJlZzlLWndKTWlqUkQwN2tVcFVNdlVFQUQ?oc=5"
+  },
+  {
+    "id": "FSSA-322A1947",
+    "source": "FSSAI Report",
+    "date": "2026-07-23",
+    "platform": "news",
+    "user": "NDTV",
+    "location": "India",
+    "text": "Swiggy Instamart receives 9 notices from food regulator over quality complaints - India Today. <a href=\"https://news.google.com/rss/articles/CBMizwFBVV95cUxQVElEcy1lQ0RtVUhHb2lTVndFNHJCZ2UwdTA5dUZ3NHdGTzQ2Q2xKQWxPaDZqenhON1IyQkxlVjFvbXRVT2hMOTQ2MWExTXl1dUFMcU90bjg4MlA2bGdFVGs4WjBpMy1OUWpvcU9LR3JkaS1ucFUzVjVqc2M0VzZaS2dDNmxLWXBRakNLVkhfbEZMTHVoRlRBXzl6YWhPNjl0N1BLSGVtd1FTWURpOHZoSGZSRmpjZnd4RkRQakhLRmt0U3dGdFp6UndCcjVhNmfSAdQBQVVfeXFMTzdnZFB5N1Ftbk5icXNYRWJiaDZlckRfTEh0S3ZPdnQxT3ZoQkc4eVhHRDRMNXllVGtjRjFuQWwxRlJtMThEcTlTc1pVS2Y3R1pxRnZlQVFoQ2tuYnlCek5nTU5vOWhVbW1nd1piSWhOUGNuTTgxZlBnUEZXODZoX1Bxb1V6bGZPSDRnTWFVS0tPZHdNYXpXeVZBVWhLSkJlWjhEU0Ffdlg1RzlDSjlOY3lHZllIZEZWcXhuUHlTQ1dsSzllT0JJUVpFSWhucXE3c3hBVjA?oc=5\" target=\"_blank\">Swiggy Instamart receives 9 notices from food regulator over quality complaints</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">India Today</font>",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 2,
+    "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQVElEcy1lQ0RtVUhHb2lTVndFNHJCZ2UwdTA5dUZ3NHdGTzQ2Q2xKQWxPaDZqenhON1IyQkxlVjFvbXRVT2hMOTQ2MWExTXl1dUFMcU90bjg4MlA2bGdFVGs4WjBpMy1OUWpvcU9LR3JkaS1ucFUzVjVqc2M0VzZaS2dDNmxLWXBRakNLVkhfbEZMTHVoRlRBXzl6YWhPNjl0N1BLSGVtd1FTWURpOHZoSGZSRmpjZnd4RkRQakhLRmt0U3dGdFp6UndCcjVhNmfSAdQBQVVfeXFMTzdnZFB5N1Ftbk5icXNYRWJiaDZlckRfTEh0S3ZPdnQxT3ZoQkc4eVhHRDRMNXllVGtjRjFuQWwxRlJtMThEcTlTc1pVS2Y3R1pxRnZlQVFoQ2tuYnlCek5nTU5vOWhVbW1nd1piSWhOUGNuTTgxZlBnUEZXODZoX1Bxb1V6bGZPSDRnTWFVS0tPZHdNYXpXeVZBVWhLSkJlWjhEU0Ffdlg1RzlDSjlOY3lHZllIZEZWcXhuUHlTQ1dsSzllT0JJUVpFSWhucXE3c3hBVjA?oc=5"
+  },
+  {
+    "id": "FSSA-A7CEAE35",
+    "source": "FSSAI Report",
+    "date": "2026-07-23",
+    "platform": "news",
+    "user": "NDTV",
+    "location": "India",
+    "text": "Swiggy Instamart gets 9 FSSAI notices over alleged food safety violations - ThePrint. <a href=\"https://news.google.com/rss/articles/CBMirAFBVV95cUxQNGJtSDZkYjNJbG5adml3cE9mUlMxTzF5V29ucW9lbkJ0LTFGckpianZYUm1iRUxhTmFVeThHNS05VHJvMmQ5Z1ZYUE5mUEctWmw1U01FVzJod0tpbnNiWDV1OGV3QkU4Nm1QdWdfblVDRlFpWlVScWI1TE5mWm5jd2NUSy1XblYtdmZMcjFsWnNibjVJdjRqLWVZR2dNMTFuMUFyLTIxM3c2S29I0gGyAUFVX3lxTFA0SkpaMzVGNW96c2g5TGFZTHVDWUc0Yl9ZRUNmdWNUSmNTLUM3LWZfYlZIVW0zRk02T2w0cG80eTdDdnpnZHEtQnNkeXN6TGtYMEdZLXFXQUNJc25ZcGVfclI2b3BtanZveXhIN0toYzRLWnN1eVFTbDJDbzhHYTNCd1R5X0RkY0hMd2JVM2VHTm0xUC00alh6NnZGbkxkQ1VpaFhZaUVONkNPWV8tLVlabmc?oc=5\" target=\"_blank\">Swiggy Instamart gets 9 FSSAI notices over alleged food safety violations</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">ThePrint</font>",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 2,
+    "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQNGJtSDZkYjNJbG5adml3cE9mUlMxTzF5V29ucW9lbkJ0LTFGckpianZYUm1iRUxhTmFVeThHNS05VHJvMmQ5Z1ZYUE5mUEctWmw1U01FVzJod0tpbnNiWDV1OGV3QkU4Nm1QdWdfblVDRlFpWlVScWI1TE5mWm5jd2NUSy1XblYtdmZMcjFsWnNibjVJdjRqLWVZR2dNMTFuMUFyLTIxM3c2S29I0gGyAUFVX3lxTFA0SkpaMzVGNW96c2g5TGFZTHVDWUc0Yl9ZRUNmdWNUSmNTLUM3LWZfYlZIVW0zRk02T2w0cG80eTdDdnpnZHEtQnNkeXN6TGtYMEdZLXFXQUNJc25ZcGVfclI2b3BtanZveXhIN0toYzRLWnN1eVFTbDJDbzhHYTNCd1R5X0RkY0hMd2JVM2VHTm0xUC00alh6NnZGbkxkQ1VpaFhZaUVONkNPWV8tLVlabmc?oc=5"
+  },
+  {
+    "id": "FSSA-E47C506E",
+    "source": "FSSAI Report",
+    "date": "2026-07-23",
+    "platform": "news",
+    "user": "Times of India",
+    "location": "India",
+    "text": "Swiggy Instamart gets food regulator's notice for selling expired whey protein, rotten eggs | India News - Hindustan Times. <a href=\"https://news.google.com/rss/articles/CBMi-AFBVV95cUxPUnFwTTVXdGtSMF9FSGRUMlB5ZkNSek1MZFgwTnJlclRKam1BMnhhMzlJXzAtVUYzQ3hpVG5kVXlvOVRDMDJyVlpjc1VGZXp1dWRGUVRGU3VrV0YwUWF4VWdkMXlvZDJlNHNSYU1xVkE3T1lLaG8yUk9lNm0yQl80SDBldV8xSkxXNVpOMjRKSkdDN1M5YXBhd1B5Y0h4THVaOG55SEkxblg4TE5IbmdMQnRUWVFHQ2NwN2daVm9Rclh6WVU5cHJ1RDB4X1dWQmZ3QW5zaU5RMXdGQXpjU0U5dWlRUXlSdnFMTVNnbEJaTVZzWUF6YTl5X9IB_gFBVV95cUxQRGtFSHpXM25sYWlvU0txWTNnSXRPck9yWi05eTRMRXZ0dlBxZVhnRldTcEU2ajlmR0NVY2pOMFFxNnIxa3RxMDNEemtxX0dvQUs4NnYxelUwU3dHaHB4QVUwTVhEUFhFQVB3NUc1c2NyMXFuLUFKZmdkNHZ6Mm52R1JXaTNyWmdCMjkyZUtfYzQ2RHIxU1cxeEMyMWp1NVQxTmZZWGtZcFdmOV9TalcxU1Nmd1R2SzFLVHlZZDczaDZDMGRtOG9IVXN5S3JmTE9qTnl0ZnFldmJ5SEZyQmJ4VDNvVkpJMkNfUk4wUVdPTWx6WmFnSlFrcHBTX3RNUQ?oc=5\" target=\"_blank\">Swiggy Instamart gets food regulator's notice for selling expired whey protein, rotten eggs | India News</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Hindustan Times</font>",
+    "intent": "complaint",
+    "categories": [
+      "general"
+    ],
+    "rating": 2,
+    "url": "https://news.google.com/rss/articles/CBMi-AFBVV95cUxPUnFwTTVXdGtSMF9FSGRUMlB5ZkNSek1MZFgwTnJlclRKam1BMnhhMzlJXzAtVUYzQ3hpVG5kVXlvOVRDMDJyVlpjc1VGZXp1dWRGUVRGU3VrV0YwUWF4VWdkMXlvZDJlNHNSYU1xVkE3T1lLaG8yUk9lNm0yQl80SDBldV8xSkxXNVpOMjRKSkdDN1M5YXBhd1B5Y0h4THVaOG55SEkxblg4TE5IbmdMQnRUWVFHQ2NwN2daVm9Rclh6WVU5cHJ1RDB4X1dWQmZ3QW5zaU5RMXdGQXpjU0U5dWlRUXlSdnFMTVNnbEJaTVZzWUF6YTl5X9IB_gFBVV95cUxQRGtFSHpXM25sYWlvU0txWTNnSXRPck9yWi05eTRMRXZ0dlBxZVhnRldTcEU2ajlmR0NVY2pOMFFxNnIxa3RxMDNEemtxX0dvQUs4NnYxelUwU3dHaHB4QVUwTVhEUFhFQVB3NUc1c2NyMXFuLUFKZmdkNHZ6Mm52R1JXaTNyWmdCMjkyZUtfYzQ2RHIxU1cxeEMyMWp1NVQxTmZZWGtZcFdmOV9TalcxU1Nmd1R2SzFLVHlZZDczaDZDMGRtOG9IVXN5S3JmTE9qTnl0ZnFldmJ5SEZyQmJ4VDNvVkpJMkNfUk4wUVdPTWx6WmFnSlFrcHBTX3RNUQ?oc=5"
+  },
+  {
+    "id": "BBC-FD9F8C6E",
     "source": "BBC",
-    "date": "2026-01-30",
+    "date": "2026-07-23",
     "platform": "news",
     "user": "BBC Reporter",
     "location": "India",
-    "text": "Unlike traditional retailers, platforms such as Blinkit, Swiggy Instamart and Zepto don't deliver from large supermarkets or distant warehouses. Dark store model enabling 10-minute delivery.",
+    "text": "Blinkit, Swiggy, Instamart, Zepto: Inside India's ultra-fast grocery deliveries - BBC. <a href=\"https://news.google.com/rss/articles/CBMiWkFVX3lxTE5lUU14UlpOVTBUNHlyWEIxZGcwVUZadzlnSjRDbFlSbF84SEpRZUo4T0MyamJEVXJuRlNaYmJzNTBjWjdGeE5ubEdiUVVJM25JYmJqQWxoRUNMZw?oc=5\" target=\"_blank\">Blinkit, Swiggy, Instamart, Zepto: Inside India's ultra-fast grocery deliveries</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">BBC</font>",
     "intent": "observation",
     "categories": [
       "groceries"
     ],
     "rating": 3,
-    "url": "https://www.bbc.com/news/articles/cvgx7ykl12go"
+    "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5lUU14UlpOVTBUNHlyWEIxZGcwVUZadzlnSjRDbFlSbF84SEpRZUo4T0MyamJEVXJuRlNaYmJzNTBjWjdGeE5ubEdiUVVJM25JYmJqQWxoRUNMZw?oc=5"
   },
   {
-    "id": "REV-029",
-    "source": "Apple App Store",
-    "date": "2025-06-15",
-    "platform": "ios",
-    "user": "ios_reviewer_1",
+    "id": "BBC-417616A7",
+    "source": "BBC",
+    "date": "2026-07-23",
+    "platform": "news",
+    "user": "BBC Reporter",
     "location": "India",
-    "text": "Customer support not helpful at all. Delivery agent talks rudely. No customer care number. Regular customer care members talk like robots, trained to say 'we are sorry but we can't do anything' after stealing your money.",
+    "text": "India's thriving online delivery platforms face a year of reckoning - BBC. <a href=\"https://news.google.com/rss/articles/CBMiWkFVX3lxTE5uOHRZX2NEc3BLR3dYSEhUNDk4aDFDVHZ0eVRGbXdRb3lzNm9JMzFTUDcza0YteU9velJIYm1HWTBGcHhSQjlibGZwMl9Ed1NXLTBEcWxhWWNaUQ?oc=5\" target=\"_blank\">India's thriving online delivery platforms face a year of reckoning</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">BBC</font>",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 3,
+    "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5uOHRZX2NEc3BLR3dYSEhUNDk4aDFDVHZ0eVRGbXdRb3lzNm9JMzFTUDcza0YteU9velJIYm1HWTBGcHhSQjlibGZwMl9Ed1NXLTBEcWxhWWNaUQ?oc=5"
+  },
+  {
+    "id": "BBC-7148FA0B",
+    "source": "BBC",
+    "date": "2026-07-23",
+    "platform": "news",
+    "user": "BBC Reporter",
+    "location": "India",
+    "text": "Swiggy, Zepto: Are 10-minute online deliveries killing the Indian corner shop? - BBC. <a href=\"https://news.google.com/rss/articles/CBMiWkFVX3lxTE9GMDFjVm1QQ2RxZmFQd1Q0bVN3dEZ1bW0tb1A2ekZma0FMV0NsSHhITFVaUGxHSFNwc0lhZFk0am5FZFlieVFLTWd4X1ZFbDlrYWt3dmZhT1liQQ?oc=5\" target=\"_blank\">Swiggy, Zepto: Are 10-minute online deliveries killing the Indian corner shop?</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">BBC</font>",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 3,
+    "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9GMDFjVm1QQ2RxZmFQd1Q0bVN3dEZ1bW0tb1A2ekZma0FMV0NsSHhITFVaUGxHSFNwc0lhZFk0am5FZFlieVFLTWd4X1ZFbDlrYWt3dmZhT1liQQ?oc=5"
+  },
+  {
+    "id": "BBC-35F0A797",
+    "source": "BBC",
+    "date": "2026-07-23",
+    "platform": "news",
+    "user": "BBC Reporter",
+    "location": "India",
+    "text": "IPL: Umran Malik is the new fast-bowling star in Indian cricket - BBC. <a href=\"https://news.google.com/rss/articles/CBMiX0FVX3lxTE5RSVc5a0hBdmRURm5la1BSVDRBcnk2bDF4QXZSLTZObUlrWVJKY1FHYzNYcW9CcmdMT2MzOFREVW1ibms1blN4WEduV3RNRlJPeTdBdjlJamxiN1h0Nlpr?oc=5\" target=\"_blank\">IPL: Umran Malik is the new fast-bowling star in Indian cricket</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">BBC</font>",
+    "intent": "observation",
+    "categories": [
+      "pet_supplies"
+    ],
+    "rating": 3,
+    "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5RSVc5a0hBdmRURm5la1BSVDRBcnk2bDF4QXZSLTZObUlrWVJKY1FHYzNYcW9CcmdMT2MzOFREVW1ibms1blN4WEduV3RNRlJPeTdBdjlJamxiN1h0Nlpr?oc=5"
+  },
+  {
+    "id": "BBC-8C38DE5D",
+    "source": "BBC",
+    "date": "2026-07-23",
+    "platform": "news",
+    "user": "BBC Reporter",
+    "location": "India",
+    "text": "BlinkIt, Swiggy: India pushes companies to remove 10-min delivery deadlines - BBC. <a href=\"https://news.google.com/rss/articles/CBMiWkFVX3lxTFB0NUZvY2tobGJ4SUdMR2EwVGpOZzJBSWZrUU40d3N0aURnYVM0TlJIOE1FbER0ZmFmLWkzNktTRWdRbmRhVkFXZEJTSFpQM2NKS3hEekdUNTFKUQ?oc=5\" target=\"_blank\">BlinkIt, Swiggy: India pushes companies to remove 10-min delivery deadlines</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">BBC</font>",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 3,
+    "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFB0NUZvY2tobGJ4SUdMR2EwVGpOZzJBSWZrUU40d3N0aURnYVM0TlJIOE1FbER0ZmFmLWkzNktTRWdRbmRhVkFXZEJTSFpQM2NKS3hEekdUNTFKUQ?oc=5"
+  },
+  {
+    "id": "BBC-261F41C4",
+    "source": "BBC",
+    "date": "2026-07-23",
+    "platform": "news",
+    "user": "BBC Reporter",
+    "location": "India",
+    "text": "Business Daily | India\u2019s '10-minute' delivery craze - BBC. <a href=\"https://news.google.com/rss/articles/CBMiUEFVX3lxTE5aRlNScTgyVk5DbEhNMmt3QnNLbm04QThvMkdKVWE4WlNucnhTdEFKMTgwMjdPd2lHQ1dqaG9CNDBGU2dvRE9teXB0NXR3VVYy?oc=5\" target=\"_blank\">Business Daily | India\u2019s '10-minute' delivery craze</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">BBC</font>",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 3,
+    "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5aRlNScTgyVk5DbEhNMmt3QnNLbm04QThvMkdKVWE4WlNucnhTdEFKMTgwMjdPd2lHQ1dqaG9CNDBGU2dvRE9teXB0NXR3VVYy?oc=5"
+  },
+  {
+    "id": "BBC-9C514BEA",
+    "source": "BBC",
+    "date": "2026-07-23",
+    "platform": "news",
+    "user": "BBC Reporter",
+    "location": "India",
+    "text": "Squishy dumplings seized over health risk - BBC. <a href=\"https://news.google.com/rss/articles/CBMiWkFVX3lxTE0zbmdTZnVQTXp4YmtWMmp3VDQ4c2VsUmE1WUpPNG9lLW53dFZ5SnJUR2Qtc01uRGh3RDdCRThkaDVwc0JMTkJJUVQ5SXZyNk1vbm00dUVRLThNZw?oc=5\" target=\"_blank\">Squishy dumplings seized over health risk</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">BBC</font>",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 3,
+    "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE0zbmdTZnVQTXp4YmtWMmp3VDQ4c2VsUmE1WUpPNG9lLW53dFZ5SnJUR2Qtc01uRGh3RDdCRThkaDVwc0JMTkJJUVQ5SXZyNk1vbm00dUVRLThNZw?oc=5"
+  },
+  {
+    "id": "BBC-CD8B4EC0",
+    "source": "BBC",
+    "date": "2026-07-23",
+    "platform": "news",
+    "user": "BBC Reporter",
+    "location": "India",
+    "text": "Indian billionaire Mukesh Ambani plans bid for UK retailer Boots - BBC. <a href=\"https://news.google.com/rss/articles/CBMiVEFVX3lxTE1EeVNmdTQ1WWptQVRtYS04LThrU0piZnZzbWpoYVVrR3NxRE1yZWJQS3diN2luRFV6ZVFjcHI4Qk1JSjZsNVdXUFZsQWdLRElQeDh1bw?oc=5\" target=\"_blank\">Indian billionaire Mukesh Ambani plans bid for UK retailer Boots</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">BBC</font>",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 3,
+    "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE1EeVNmdTQ1WWptQVRtYS04LThrU0piZnZzbWpoYVVrR3NxRE1yZWJQS3diN2luRFV6ZVFjcHI4Qk1JSjZsNVdXUFZsQWdLRElQeDh1bw?oc=5"
+  },
+  {
+    "id": "INDI-0FBE84BB",
+    "source": "Indian Food Times",
+    "date": "2026-07-23",
+    "platform": "news",
+    "user": "Indian Food Times",
+    "location": "India",
+    "text": "Food Tech - Indian Food Times. <a href=\"https://news.google.com/rss/articles/CBMiWkFVX3lxTFBrM2ViUF9saXc1T0RrZVhEVTV1NnU0LUpuejJ1V29JSXg0anVOcUh4STFlTVJEbzV1V0NZN0hQdzdadFMyb1JtYzdlS2xrQ3dKaU1XRzJYNUdIdw?oc=5\" target=\"_blank\">Food Tech</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Indian Food Times</font>",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 3,
+    "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBrM2ViUF9saXc1T0RrZVhEVTV1NnU0LUpuejJ1V29JSXg0anVOcUh4STFlTVJEbzV1V0NZN0hQdzdadFMyb1JtYzdlS2xrQ3dKaU1XRzJYNUdIdw?oc=5"
+  },
+  {
+    "id": "INDI-962B2EB9",
+    "source": "Indian Food Times",
+    "date": "2026-07-23",
+    "platform": "news",
+    "user": "Indian Food Times",
+    "location": "India",
+    "text": "Hocco Ice Cream Bags \u20b9115 Cr Funding at \u20b92,000 Cr Valuation, Eyes Aggressive Expansion - Indian Food Times. <a href=\"https://news.google.com/rss/articles/CBMirwFBVV95cUxOR1diX3Jyb0VGZDBVcGpOTllLejZWVjNjU0JuY3h3SmsyT3cxV3FQcFRoa2pjTXB2YkFQVUZhQXhYNjlyX2w1QlN3M2hpeXJjR0twNzQ1dDA0azFSai1fTU5wVjR5cTBYcXZJS3p3TXQyb3hBcmp5MElxT3V5R1VWTVpGakV2NTRuQUJZSU9rdXIzb1JDMjZsVFo3aG54MHFyeGZjeVBiWWZzYVhEQ3l3?oc=5\" target=\"_blank\">Hocco Ice Cream Bags \u20b9115 Cr Funding at \u20b92,000 Cr Valuation, Eyes Aggressive Expansion</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Indian Food Times</font>",
+    "intent": "observation",
+    "categories": [
+      "personal_care",
+      "dairy"
+    ],
+    "rating": 3,
+    "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOR1diX3Jyb0VGZDBVcGpOTllLejZWVjNjU0JuY3h3SmsyT3cxV3FQcFRoa2pjTXB2YkFQVUZhQXhYNjlyX2w1QlN3M2hpeXJjR0twNzQ1dDA0azFSai1fTU5wVjR5cTBYcXZJS3p3TXQyb3hBcmp5MElxT3V5R1VWTVpGakV2NTRuQUJZSU9rdXIzb1JDMjZsVFo3aG54MHFyeGZjeVBiWWZzYVhEQ3l3?oc=5"
+  },
+  {
+    "id": "INDI-4BDD9849",
+    "source": "Indian Food Times",
+    "date": "2026-07-23",
+    "platform": "news",
+    "user": "Indian Food Times",
+    "location": "India",
+    "text": "Jagdish Farshan Launches India\u2019s First Avocado Oil Sev Range with New On-the-Go Snack Packs - Indian Food Times. <a href=\"https://news.google.com/rss/articles/CBMiugFBVV95cUxQSnRBMFFVdTlvQVE3NkxHNGF3LVNKbzh2QlNlTDJLRE9WUVh5R2Z4cmZXczJ2MTZoamlaT20yM2NWaEZKNnBxM1BDYURubXhxZlZSSHowSnlNVU44V3BIMW56RC1UYm9KTl9VM0JGZGRKb2oyS25iSXNWSlpjZlplUDRpMU9BQzh1WTBQVVdWTjd4VGR6ZFFzMk13TzJlY3h3N3UtMmtwRVU3WTNYQTJfWllrSnVjaUw1VXc?oc=5\" target=\"_blank\">Jagdish Farshan Launches India\u2019s First Avocado Oil Sev Range with New On-the-Go Snack Packs</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Indian Food Times</font>",
+    "intent": "observation",
+    "categories": [
+      "groceries",
+      "snacks"
+    ],
+    "rating": 3,
+    "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQSnRBMFFVdTlvQVE3NkxHNGF3LVNKbzh2QlNlTDJLRE9WUVh5R2Z4cmZXczJ2MTZoamlaT20yM2NWaEZKNnBxM1BDYURubXhxZlZSSHowSnlNVU44V3BIMW56RC1UYm9KTl9VM0JGZGRKb2oyS25iSXNWSlpjZlplUDRpMU9BQzh1WTBQVVdWTjd4VGR6ZFFzMk13TzJlY3h3N3UtMmtwRVU3WTNYQTJfWllrSnVjaUw1VXc?oc=5"
+  },
+  {
+    "id": "INDI-619E780F",
+    "source": "Indian Food Times",
+    "date": "2026-07-23",
+    "platform": "news",
+    "user": "Indian Food Times",
+    "location": "India",
+    "text": "Chhota Bheem Cafes to Open in Hyderabad, Nationwide Rollout of 300 Outlets Planned - Indian Food Times. <a href=\"https://news.google.com/rss/articles/CBMirgFBVV95cUxPRlNQWG4tMm1WcTJreU9TYl9pUDJGTEVoVDkyb2cxQ20tdFhlRWhlSWZ4b0IxYmg4RV9Ud1N0NXRhdDdFd1lMdmNpaXhLWDVSUVZfXzF3QUdsS0dxQ0s3R1k4Nm1nOF9mVlEteTVPMVVNQVUtT2MxdnF2d29YMWlVaFBsUXJlNkVQMV8yX1ozdVRCbUprSTd1WEZ1cU9oTnJfT2RaNnFHSjM4Uy1SZVE?oc=5\" target=\"_blank\">Chhota Bheem Cafes to Open in Hyderabad, Nationwide Rollout of 300 Outlets Planned</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Indian Food Times</font>",
     "intent": "complaint",
     "categories": [
       "general"
     ],
-    "rating": 1,
-    "url": "https://apps.apple.com/in/app/swiggy-food-instamart-dineout/id989540920"
+    "rating": 3,
+    "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPRlNQWG4tMm1WcTJreU9TYl9pUDJGTEVoVDkyb2cxQ20tdFhlRWhlSWZ4b0IxYmg4RV9Ud1N0NXRhdDdFd1lMdmNpaXhLWDVSUVZfXzF3QUdsS0dxQ0s3R1k4Nm1nOF9mVlEteTVPMVVNQVUtT2MxdnF2d29YMWlVaFBsUXJlNkVQMV8yX1ozdVRCbUprSTd1WEZ1cU9oTnJfT2RaNnFHSjM4Uy1SZVE?oc=5"
   },
   {
-    "id": "REV-030",
-    "source": "Apple App Store",
-    "date": "2025-09-22",
-    "platform": "ios",
-    "user": "ios_reviewer_2",
+    "id": "INDI-42ACF06E",
+    "source": "Indian Food Times",
+    "date": "2026-07-23",
+    "platform": "news",
+    "user": "Indian Food Times",
     "location": "India",
-    "text": "I don't care for refund anymore but moving to competitor. In contrast Zomato the call center agent calls back the minute we report an issue and acts on behalf of the customer. Swiggy call center is just a sounding board.",
-    "intent": "complaint",
+    "text": "Indian Food Times | Food News, Trends & Industry Insights - Indian Food Times. <a href=\"https://news.google.com/rss/articles/CBMiQkFVX3lxTE50MjRfcnhaV3IxRE9NNWlmblNuSktPTjUxTzBPcm1GVVRuaDVmd0R5a1ozNW5lWmpSTVFPSzFHSF9vUQ?oc=5\" target=\"_blank\">Indian Food Times | Food News, Trends & Industry Insights</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Indian Food Times</font>",
+    "intent": "observation",
     "categories": [
       "general"
     ],
-    "rating": 1,
-    "url": "https://apps.apple.com/in/app/swiggy-food-instamart-dineout/id989540920"
+    "rating": 3,
+    "url": "https://news.google.com/rss/articles/CBMiQkFVX3lxTE50MjRfcnhaV3IxRE9NNWlmblNuSktPTjUxTzBPcm1GVVRuaDVmd0R5a1ozNW5lWmpSTVFPSzFHSF9vUQ?oc=5"
+  },
+  {
+    "id": "INDI-66686DEB",
+    "source": "Indian Food Times",
+    "date": "2026-07-23",
+    "platform": "news",
+    "user": "Indian Food Times",
+    "location": "India",
+    "text": "Food News, Trends & Industry Insights - Indian Food Times. <a href=\"https://news.google.com/rss/articles/CBMiSkFVX3lxTE9vQnVkQWhUQVN3anRYQk5vWDlHYkdEaHhiSEZETEp5aTY2UTZON2FfRlFhYjhRaXVWbHZHQWI5bmtPRjJTRWJ2d25B?oc=5\" target=\"_blank\">Food News, Trends & Industry Insights</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Indian Food Times</font>",
+    "intent": "observation",
+    "categories": [
+      "general"
+    ],
+    "rating": 3,
+    "url": "https://news.google.com/rss/articles/CBMiSkFVX3lxTE9vQnVkQWhUQVN3anRYQk5vWDlHYkdEaHhiSEZETEp5aTY2UTZON2FfRlFhYjhRaXVWbHZHQWI5bmtPRjJTRWJ2d25B?oc=5"
   }
 ]

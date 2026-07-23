@@ -902,110 +902,49 @@ const ChartBuilder = {
 const DrillDownMatrix = {
   initialized: false,
   _expanded: new Set(),
+  TREE: [],
 
-  // Static category tree (curated from AI insights research)
-  TREE: [
-    { id:'groceries',    name:'Groceries',    icon:'🥦', mentions:234, gap_severity:'High',   business_impact:'High',   trend:12,
-      children: [
-        { id:'fresh-produce', name:'Fresh Produce', mentions:89, gap_severity:'High',   business_impact:'High',
-          leaves: [
-            { type:'quote',   text:'I keep ordering the same vegetables every week. There are so many other items on the app I never see.',   source:'Apple App Store', sentiment:'negative' },
-            { type:'quote',   text:'Received underweight cauliflower (145g vs 400–600g expected). Support offered only 50% refund.', source:'Reddit', sentiment:'negative' },
-            { type:'blocker', text:'No discovery features in fresh produce — reorder is the only prominent CTA', severity:'High' },
-            { type:'blocker', text:'No seasonal produce highlights or "New Arrivals" shelf in the category', severity:'Medium' },
-          ]},
-        { id:'dairy-eggs', name:'Dairy & Eggs', mentions:67, gap_severity:'Medium', business_impact:'High',
-          leaves: [
-            { type:'quote',   text:'Dairy is my most bought category but I never see cheese alternatives or yogurt varieties suggested.', source:'Apple App Store', sentiment:'negative' },
-            { type:'blocker', text:'No dairy-alternative discovery surface (oat milk, almond milk completely hidden)', severity:'High' },
-          ]},
-        { id:'staples',    name:'Staples & Grains', mentions:45, gap_severity:'Low',   business_impact:'Medium',
-          leaves: [
-            { type:'quote',   text:'Received expired Rentio brand toor dal from Instamart. No adequate response after many emails.', source:'ConsumerComplaints.in', sentiment:'negative' },
-            { type:'blocker', text:'Expired product deliveries in packaged staples is a compliance and trust failure', severity:'Critical' },
-          ]},
-      ]},
-    { id:'snacks',       name:'Snacks',       icon:'🍿', mentions:156, gap_severity:'Medium', business_impact:'High',   trend:8,
-      children: [
-        { id:'chips',      name:'Chips & Crisps',  mentions:67, gap_severity:'Medium', business_impact:'High',
-          leaves: [
-            { type:'quote',   text:'I always end up buying the same chips and biscuits. The recommendation engine is completely stuck.', source:'Apple App Store', sentiment:'negative' },
-            { type:'blocker', text:'No "Trending Now" or "New This Week" snack surface anywhere in the experience', severity:'Medium' },
-          ]},
-        { id:'healthy-s',  name:'Healthy Snacks', mentions:45, gap_severity:'High',   business_impact:'High',
-          leaves: [
-            { type:'quote',   text:'I want to try Korean snacks but the app only shows domestic mass-market brands at the top.', source:'Reddit', sentiment:'negative' },
-            { type:'blocker', text:'Healthy alternatives are not surfaced near unhealthy equivalents in the snack journey', severity:'High' },
-          ]},
-      ]},
-    { id:'beverages',    name:'Beverages',    icon:'🥤', mentions:134, gap_severity:'High',   business_impact:'Medium', trend:18,
-      children: [
-        { id:'juices',     name:'Juices & Drinks', mentions:55, gap_severity:'High',   business_impact:'Medium',
-          leaves: [
-            { type:'quote',   text:'Same Coke and Pepsi every time. I want to see cold pressed juices or kombucha.', source:'Reddit', sentiment:'negative' },
-            { type:'blocker', text:'Carbonated drinks dominate juice and drink search results — healthier options buried', severity:'High' },
-          ]},
-        { id:'tea-coffee', name:'Tea & Coffee',    mentions:43, gap_severity:'Medium', business_impact:'Medium',
-          leaves: [
-            { type:'quote',   text:'Blue Tokai and Third Wave Coffee are on the app but found only after very specific text search.', source:'Reddit', sentiment:'neutral' },
-            { type:'blocker', text:'Specialty coffee and artisan tea brands completely hidden from any discovery surface', severity:'High' },
-          ]},
-      ]},
-    { id:'personal_care', name:'Personal Care', icon:'💆', mentions:121, gap_severity:'High', business_impact:'High', trend:22,
-      children: [
-        { id:'skincare',   name:'Skincare',    mentions:48, gap_severity:'High',   business_impact:'High',
-          leaves: [
-            { type:'quote',   text:'Ordered GNC Creatine twice — received counterfeit product both times. Auth code invalid on guardian.in.', source:'ConsumerComplaints.in', sentiment:'negative' },
-            { type:'blocker', text:'Counterfeit product risk in personal care is a critical trust and legal issue', severity:'Critical' },
-          ]},
-        { id:'haircare',   name:'Hair Care',   mentions:38, gap_severity:'High',   business_impact:'Medium',
-          leaves: [
-            { type:'quote',   text:'I buy shampoo from a pharmacy because I didn\'t know Instamart stocked premium hair products.', source:'Reddit', sentiment:'neutral' },
-            { type:'blocker', text:'Hair care category is completely invisible without active search intent', severity:'High' },
-          ]},
-      ]},
-    { id:'baby_products', name:'Baby Products', icon:'🍼', mentions:98, gap_severity:'High', business_impact:'High', trend:15,
-      children: [
-        { id:'baby-food',  name:'Baby Food',   mentions:42, gap_severity:'High',   business_impact:'High',
-          leaves: [
-            { type:'quote',   text:'I\'m a new mother and had to Google baby food brands. Instamart has them but never surfaced them!', source:'Reddit', sentiment:'negative' },
-            { type:'blocker', text:'No life-stage detection mechanism to trigger new parent product discovery journey', severity:'Critical' },
-          ]},
-        { id:'diapers',    name:'Diapers & Wipes', mentions:35, gap_severity:'High', business_impact:'High',
-          leaves: [
-            { type:'quote',   text:'Ordered 2 packs Mamypoko Size L — received 1 pack L and 1 pack XL. Told to raise separate complaint.', source:'ConsumerComplaints.in', sentiment:'negative' },
-            { type:'blocker', text:'No subscription or auto-replenishment model for essential diaper products', severity:'High' },
-          ]},
-      ]},
-    { id:'pet_supplies',  name:'Pet Supplies',  icon:'🐾', mentions:87, gap_severity:'High', business_impact:'Medium', trend:30,
-      children: [
-        { id:'pet-food',   name:'Pet Food',    mentions:45, gap_severity:'High',   business_impact:'Medium',
-          leaves: [
-            { type:'quote',   text:'Pet supplies are completely invisible unless you search. Zero cross-category discovery from grocery.', source:'Reddit', sentiment:'negative' },
-            { type:'blocker', text:'Pet category completely missing from all cross-sell and discovery surfaces', severity:'Critical' },
-          ]},
-      ]},
-    { id:'household',     name:'Household',     icon:'🏠', mentions:112, gap_severity:'Medium', business_impact:'Medium', trend:5,
-      children: [
-        { id:'cleaning-s', name:'Cleaning Supplies', mentions:55, gap_severity:'Medium', business_impact:'Medium',
-          leaves: [
-            { type:'quote',   text:'I buy floor cleaner but never see window cleaners or kitchen sprays suggested alongside it.', source:'Twitter/X', sentiment:'negative' },
-            { type:'blocker', text:'No eco or premium alternative suggestions in the cleaning category', severity:'Medium' },
-          ]},
-      ]},
-    { id:'packaged_food', name:'Packaged Food', icon:'🥫', mentions:89, gap_severity:'Low', business_impact:'Medium', trend:-3,
-      children: [
-        { id:'rte',        name:'Ready-to-Eat', mentions:30, gap_severity:'Medium', business_impact:'High',
-          leaves: [
-            { type:'quote',   text:'FSSAI issued 9 notices to Swiggy Instamart — expired products, contaminated eggs and milk found.', source:'FSSAI Report', sentiment:'negative' },
-            { type:'blocker', text:'Compliance risk with expired RTE products is a critical business and brand trust failure', severity:'Critical' },
-          ]},
-      ]},
-  ],
-
-  init() {
+  async init() {
     this.initialized = true;
+    try {
+      const data = await API.get('/api/matrix');
+      if (data && data.categories && data.categories.length) {
+        this.TREE = data.categories.map(cat => ({
+          id: cat.id,
+          name: cat.name,
+          icon: this._getIcon(cat.id),
+          mentions: cat.mentions,
+          gap_severity: cat.gap_severity,
+          business_impact: cat.business_impact,
+          neg_pct: cat.neg_pct || 0,
+          trend: 0,
+          sentiment: cat.sentiment || { positive: 0, neutral: 0, negative: 0 },
+          children: (cat.quotes || []).map((q, i) => ({
+            id: `${cat.id}-quote-${i}`,
+            name: `Evidence ${i + 1}`,
+            mentions: 1,
+            gap_severity: 'Low',
+            business_impact: 'Low',
+            neg_pct: 0,
+            leaves: [
+              { type: 'quote', text: q.text, source: q.source, sentiment: q.sentiment },
+            ],
+          })),
+        }));
+      }
+    } catch (e) {
+      console.warn('Matrix API failed, using empty tree:', e);
+    }
     this._render();
+  },
+
+  _getIcon(id) {
+    const icons = {
+      groceries: '🥦', snacks: '🍿', beverages: '🥤', personal_care: '💆',
+      baby_products: '🍼', pet_supplies: '🐾', household: '🏠', packaged_food: '🥫',
+      dairy: '🥛', cleaning: '🧹', electronics: '📱', general: '📦',
+    };
+    return icons[id] || '📦';
   },
 
   _score(gap, impact, trend) {
@@ -1014,7 +953,11 @@ const DrillDownMatrix = {
   },
   _psClass(s) { return s>=80?'ps-critical':s>=60?'ps-high':s>=40?'ps-medium':'ps-low'; },
   _trend(t)   { return t>0?`<span class="trend-pill trend-up">▲ +${t}%</span>`:t<0?`<span class="trend-pill trend-down">▼ ${t}%</span>`:`<span class="trend-pill trend-flat">→ Flat</span>`; },
-  _gap(g)     { const M={High:'badge-high',Medium:'badge-medium',Low:'badge-low',Critical:'badge-critical'}; return `<span class="badge ${M[g]||'badge-low'}">${g}</span>`; },
+  _gap(g, pct) {
+    const M={High:'badge-high',Medium:'badge-medium',Low:'badge-low',Critical:'badge-critical'};
+    const pctStr = (pct !== undefined && pct !== null) ? ` <span style="font-weight:400;font-size:10px;opacity:0.7">${pct}% neg</span>` : '';
+    return `<span class="badge ${M[g]||'badge-low'}">${g}${pctStr}</span>`;
+  },
 
   _render() {
     const tbody = document.getElementById('matrixBody'); if (!tbody) return;
@@ -1031,7 +974,7 @@ const DrillDownMatrix = {
         <div><div class="matrix-label-main">${cat.name}</div><div class="matrix-label-meta">${(cat.children||[]).length} sub-categories</div></div>
       </div></td>
       <td style="text-align:right;font-weight:700;color:var(--accent)">${cat.mentions.toLocaleString('en-IN')}</td>
-      <td>${this._gap(cat.gap_severity)}</td><td>${this._gap(cat.business_impact)}</td>
+      <td>${this._gap(cat.gap_severity, cat.neg_pct)}</td><td>${this._gap(cat.business_impact)}</td>
       <td>${this._trend(cat.trend)}</td>
       <td style="text-align:center"><div class="priority-score ${this._psClass(ps)}">${ps}</div></td>
     </tr>`;

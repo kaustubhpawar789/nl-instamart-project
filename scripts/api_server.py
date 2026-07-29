@@ -116,6 +116,8 @@ class APIHandler(SimpleHTTPRequestHandler):
             self._post_search()
         elif path == "/api/db/clear":
             self._post_db_clear()
+        elif path == "/api/recommend":
+            self._post_recommend()
         else:
             self.send_error(404)
 
@@ -575,6 +577,149 @@ class APIHandler(SimpleHTTPRequestHandler):
             "categories": [],
         })
         self._json({"ok": True, "message": "All data cleared — PostgreSQL tables and dashboard data reset"})
+
+    # ── POST /api/recommend ───────────────────────────────────────────────
+
+    def _post_recommend(self):
+        body = self._parse_body()
+        user_id = body.get("user_id")
+        cart_items = body.get("cart_items", [])
+
+        if not isinstance(user_id, int):
+            self._json({"error": "user_id is required and must be an integer"}, 400)
+            return
+        if not isinstance(cart_items, list) or not cart_items:
+            self._json({"error": "cart_items must be a non-empty array of {product_id, quantity}"}, 400)
+            return
+
+        product_ids = [item.get("product_id") for item in cart_items if isinstance(item, dict)]
+        if not product_ids:
+            self._json({"error": "Each cart item must have a product_id"}, 400)
+            return
+
+        try:
+            from scripts.auto_cleanup import get_connection
+            conn = get_connection()
+            cur = conn.cursor()
+
+            # 1. Fetch cart item details (products + categories)
+            cur.execute("""
+                SELECT p.id, p.name, p.price, p.sku, c.id AS category_id, c.name AS category_name
+                FROM products p
+                JOIN categories c ON c.id = p.category_id
+                WHERE p.id = ANY(%s)
+            """, (product_ids,))
+            cart_rows = cur.fetchall()
+            if not cart_rows:
+                self._json({"error": "No valid products found for the given product_ids"}, 400)
+                return
+
+            cart_categories = list({r[5] for r in cart_rows})
+            cart_detail = [
+                {"product_id": r[0], "name": r[1], "price": float(r[2]), "sku": r[3],
+                 "category_id": r[4], "category_name": r[5]}
+                for r in cart_rows
+            ]
+
+            # 2. Fetch user's purchase history (feedback table as proxy)
+            cur.execute("""
+                SELECT DISTINCT c.name AS category_name
+                FROM feedback f
+                JOIN products p ON p.id = f.product_id
+                JOIN categories c ON c.id = p.category_id
+                WHERE f.user_id = %s
+                ORDER BY c.name
+            """, (user_id,))
+            history_categories = [r[0] for r in cur.fetchall()]
+
+            cur.close()
+            conn.close()
+
+            # 3. Build Ollama prompt
+            from scripts.ollama_client import get_client
+            client = get_client()
+            if not client.is_available():
+                self._json({"error": "Ollama is not running"}, 503)
+                return
+
+            system_prompt = (
+                "You are a recommendation engine for Swiggy Instamart, an Indian quick-commerce platform.\n"
+                "Given a user's cart categories and purchase history, pick ONE adjacent category "
+                "that complements their current selection and makes a natural next basket.\n\n"
+                "Available categories: Groceries, Snacks, Beverages, Dairy, Personal Care, "
+                "Household, Baby Products, Pet Supplies, Packaged Food, Bakery, "
+                "Fruits & Vegetables, Cleaning.\n\n"
+                "Return ONLY a JSON object with exactly two keys:\n"
+                '- "adjacent_category": the category name as a string\n'
+                '- "rationale": a short persuasive sentence explaining why this category '
+                "complements their cart (e.g. \"Since you're buying snacks, why not add "
+                "some beverages to go with them?\").\n\n"
+                "No other text, no markdown, no code fences."
+            )
+
+            history_str = ", ".join(history_categories) if history_categories else "None (new user)"
+            user_prompt = (
+                f"Cart categories: {', '.join(cart_categories)}\n"
+                f"Purchase history categories: {history_str}"
+            )
+
+            response_text = client.chat(
+                messages=[
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": user_prompt},
+                ],
+                temperature=0.3,
+                max_tokens=300,
+            )
+
+            # 4. Parse Ollama JSON response
+            import re as _re
+            text = response_text.strip()
+            if text.startswith("```"):
+                text = text.split("\n", 1)[1].rsplit("```", 1)[0].strip()
+            ai_data = json.loads(text)
+            adjacent = ai_data.get("adjacent_category")
+            rationale = ai_data.get("rationale", "")
+
+            if not adjacent:
+                self._json({"error": "Ollama did not return a valid adjacent_category"}, 502)
+                return
+
+            # 5. Fetch products from the adjacent category
+            conn2 = get_connection()
+            cur2 = conn2.cursor()
+            cur2.execute("""
+                SELECT p.id, p.name, p.price, p.sku, p.description, p.image_url
+                FROM products p
+                JOIN categories c ON c.id = p.category_id
+                WHERE c.name = %s AND p.is_active = TRUE
+                ORDER BY p.stock_quantity DESC
+                LIMIT 4
+            """, (adjacent,))
+            rec_rows = cur2.fetchall()
+            cur2.close()
+            conn2.close()
+
+            rec_products = [
+                {"id": r[0], "name": r[1], "price": float(r[2]), "sku": r[3],
+                 "description": r[4], "image_url": r[5]}
+                for r in rec_rows
+            ]
+
+            self._json({
+                "user_id": user_id,
+                "cart_items": cart_detail,
+                "recommendation": {
+                    "adjacent_category": adjacent,
+                    "rationale": rationale,
+                    "products": rec_products,
+                },
+            })
+
+        except json.JSONDecodeError:
+            self._json({"error": "Ollama returned invalid JSON"}, 502)
+        except Exception as e:
+            self._json({"error": str(e)}, 502)
 
     # ── POST /api/survey/submit ───────────────────────────────────────────
 

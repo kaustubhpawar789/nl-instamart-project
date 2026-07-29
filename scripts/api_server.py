@@ -23,6 +23,7 @@ sys.path.insert(0, ROOT)
 DATABASE = os.path.join(ROOT, "database")
 
 from scripts.ollama_client import get_client, OLLAMA_BASE_URL, OLLAMA_MODEL
+from scripts import auto_cleanup
 
 _ollama_client = None
 
@@ -64,6 +65,8 @@ class APIHandler(SimpleHTTPRequestHandler):
         self.end_headers()
 
     def do_GET(self):
+        auto_cleanup.set_last_request_time()
+
         parsed = urlparse(self.path)
         path = parsed.path
         params = parse_qs(parsed.query)
@@ -98,6 +101,8 @@ class APIHandler(SimpleHTTPRequestHandler):
             self.send_header("Pragma", "no-cache")
 
     def do_POST(self):
+        auto_cleanup.set_last_request_time()
+
         parsed = urlparse(self.path)
         path = parsed.path
 
@@ -109,10 +114,14 @@ class APIHandler(SimpleHTTPRequestHandler):
             self._post_survey_submit()
         elif path == "/api/search":
             self._post_search()
+        elif path == "/api/db/clear":
+            self._post_db_clear()
         else:
             self.send_error(404)
 
     def do_DELETE(self):
+        auto_cleanup.set_last_request_time()
+
         parsed = urlparse(self.path)
         path = parsed.path
 
@@ -417,56 +426,102 @@ class APIHandler(SimpleHTTPRequestHandler):
             try:
                 import sys as _sys
                 _sys.path.insert(0, ROOT)
-                from scripts.scrapers.apple_store_scraper import AppleStoreScraper
-                from scripts.scrapers.base_scraper import BaseScraper
 
+                from scripts.scrapers import ALL_SCRAPERS
                 live_path = os.path.join(DATABASE, "live_scraped_data.json")
-                live = _read_json(live_path, [])
-                if not isinstance(live, list):
-                    live = []
-                existing_ids = {r.get("id") for r in live}
-                existing_texts = {r.get("text", "")[:80] for r in live}
+                existing = _read_json(live_path, [])
+                if not isinstance(existing, list):
+                    existing = []
+                existing_ids = {r.get("id") for r in existing} if existing else set()
 
-                apple_scraper = AppleStoreScraper()
-                print("[API Scrape] Scraping Apple App Store...")
-                apple_reviews = apple_scraper.scrape()
-                new_apple = 0
-                for r in apple_reviews:
-                    text_key = r["text"][:80]
-                    if r["id"] not in existing_ids and text_key not in existing_texts:
-                        r["sentiment"] = "neutral"
-                        r["themes"] = []
-                        live.append(r)
-                        existing_ids.add(r["id"])
-                        existing_texts.add(text_key)
-                        new_apple += 1
-                print(f"[API Scrape] Apple App Store: {new_apple} new reviews")
+                from concurrent.futures import ThreadPoolExecutor, TimeoutError as FutureTimeout
 
-                try:
-                    from scripts.scrapers.google_play_scraper import GooglePlayScraper
-                    gp_scraper = GooglePlayScraper()
-                    print("[API Scrape] Scraping Google Play Store...")
-                    gp_reviews = gp_scraper.scrape()
-                    new_gp = 0
-                    for r in gp_reviews:
-                        text_key = r["text"][:80]
-                        if r["id"] not in existing_ids and text_key not in existing_texts:
-                            r["sentiment"] = "neutral"
-                            r["themes"] = []
-                            live.append(r)
-                            existing_ids.add(r["id"])
-                            existing_texts.add(text_key)
-                            new_gp += 1
-                    print(f"[API Scrape] Google Play Store: {new_gp} new reviews")
-                except ImportError:
-                    print("[API Scrape] Google Play scraper not available, skipping")
+                all_new = []
+                for name, scraper_cls in ALL_SCRAPERS.items():
+                    try:
+                        print(f"[API Scrape] Scraping {name}...", flush=True)
+                        scraper = scraper_cls()
+                        with ThreadPoolExecutor(max_workers=1) as pool:
+                            fut = pool.submit(scraper.scrape)
+                            reviews = fut.result(timeout=30)
+                        print(f"[API Scrape]   {name}: {len(reviews)} reviews", flush=True)
+                        all_new.extend(reviews)
+                    except FutureTimeout:
+                        print(f"[API Scrape]   {name}: timed out after 30s", flush=True)
+                    except Exception as e:
+                        print(f"[API Scrape]   {name}: skipped ({e})", flush=True)
 
-                _write_json(live_path, live)
-                added = new_apple
-                try:
-                    added += new_gp
-                except Exception:
-                    pass
+                # Deduplicate by ID and text
+                seen_ids = set(existing_ids)
+                seen_texts = set()
+                fresh = []
+                for r in all_new:
+                    tid = r.get("id", "")
+                    tkey = (r.get("text") or "")[:100]
+                    if tid not in seen_ids and tkey not in seen_texts:
+                        r.setdefault("sentiment", "neutral")
+                        r.setdefault("themes", [])
+                        fresh.append(r)
+                        seen_ids.add(tid)
+                        seen_texts.add(tkey)
+
+                print(f"[API Scrape] After dedup: {len(fresh)} new reviews")
+
+                if not fresh:
+                    print("[API Scrape] No new reviews found — skipping pipeline")
+                    added = 0
+                else:
+                    # Merge into live_scraped_data.json
+                    merged = existing + fresh
+                    _write_json(live_path, merged)
+                    added = len(fresh)
+                    print(f"[API Scrape] Saved {len(merged)} total reviews to live_scraped_data.json")
+
+                    # Sync cleaned_feedback.json
+                    try:
+                        cleaned_path = os.path.join(DATABASE, "cleaned_feedback.json")
+                        cfb = _read_json(cleaned_path, [])
+                        if not isinstance(cfb, list) or not cfb:
+                            _write_json(cleaned_path, merged)
+                        else:
+                            cfb_ids = {r.get("id") for r in cfb}
+                            to_add = [r for r in fresh if r["id"] not in cfb_ids]
+                            if to_add:
+                                cfb.extend(to_add)
+                                _write_json(cleaned_path, cfb)
+                        print(f"[API Scrape] Synced to cleaned_feedback.json")
+                    except Exception as e:
+                        print(f"[API Scrape] cleaned_feedback.json sync skipped: {e}")
+
+                    # Bulk insert into PostgreSQL reviews table
+                    try:
+                        from psycopg2.extras import execute_values
+                        from scripts.auto_cleanup import get_connection
+                        conn = get_connection(autocommit=True)
+                        cur = conn.cursor()
+                        cur.execute("SELECT id FROM reviews")
+                        db_ids = {r[0] for r in cur.fetchall()}
+                        new_rows = [r for r in fresh if r["id"] not in db_ids]
+                        if new_rows:
+                            rows = [(
+                                r["id"], r.get("source", ""), r.get("date"), r.get("platform"),
+                                r.get("user", "anonymous"), r.get("location", "India"),
+                                r.get("text", ""), r.get("intent", "observation"),
+                                r.get("categories", ["general"]), r.get("rating"),
+                                r.get("url", ""),
+                            ) for r in new_rows]
+                            execute_values(
+                                cur,
+                                "INSERT INTO reviews (id, source, date, platform, user_name, location, "
+                                "text, intent, categories, rating, url) VALUES %s "
+                                "ON CONFLICT (id) DO NOTHING",
+                                rows,
+                            )
+                            print(f"[API Scrape] Inserted {len(new_rows)} reviews into PostgreSQL")
+                        cur.close()
+                        conn.close()
+                    except Exception as e:
+                        print(f"[API Scrape] PostgreSQL insert skipped: {e}")
 
                 try:
                     from scripts.generate_insights import generate_insights
@@ -476,6 +531,8 @@ class APIHandler(SimpleHTTPRequestHandler):
                     print(f"[API Scrape] Insights generation skipped: {e}")
 
             except Exception as e:
+                import traceback
+                traceback.print_exc()
                 print(f"[API Scrape] Error: {e}")
                 status["error"] = str(e)
 
@@ -489,6 +546,35 @@ class APIHandler(SimpleHTTPRequestHandler):
 
         threading.Thread(target=run, daemon=True).start()
         self._json({"ok": True})
+
+    # ── POST /api/db/clear ────────────────────────────────────────────────
+
+    def _post_db_clear(self):
+        ok = auto_cleanup.truncate_dynamic_tables()
+        if not ok:
+            self._json({"error": "Truncation already in progress or failed"}, 409)
+            return
+
+        # Reset JSON data files so the dashboard reflects the cleared state
+        db = DATABASE
+        _write_json(os.path.join(db, "live_scraped_data.json"), [])
+        _write_json(os.path.join(db, "cleaned_feedback.json"), [])
+        _write_json(os.path.join(db, "survey_responses.json"), [])
+        _write_json(os.path.join(db, "scrape_status.json"), {
+            "running": False, "added": 0, "started_at": None,
+            "finished_at": _now_iso(), "error": None,
+        })
+        _write_json(os.path.join(db, "ai_insights.json"), {
+            "themes": [],
+            "insights": [],
+            "sentiment": {
+                "positive": {"count": 0, "percentage": 0},
+                "neutral":  {"count": 0, "percentage": 0},
+                "negative": {"count": 0, "percentage": 0},
+            },
+            "categories": [],
+        })
+        self._json({"ok": True, "message": "All data cleared — PostgreSQL tables and dashboard data reset"})
 
     # ── POST /api/survey/submit ───────────────────────────────────────────
 
@@ -653,6 +739,9 @@ class APIHandler(SimpleHTTPRequestHandler):
 
         try:
             context = self._build_search_context(query)
+            if context["total"] == 0:
+                self._json({"answer": "The database is currently empty — there are no reviews to analyze yet. Try scraping some data first.", "query": query, "sources": []})
+                return
             answer = self._call_ollama_search(client, query, context)
             self._json({"answer": answer, "query": query, "sources": context["source_list"]})
         except Exception as e:
@@ -665,6 +754,8 @@ class APIHandler(SimpleHTTPRequestHandler):
 
     def _build_search_context(self, query):
         cleaned = _read_json(os.path.join(DATABASE, "cleaned_feedback.json"), [])
+        if not isinstance(cleaned, list) or not cleaned:
+            cleaned = _read_json(os.path.join(DATABASE, "live_scraped_data.json"), [])
         if not isinstance(cleaned, list):
             cleaned = []
         insights = _read_json(os.path.join(DATABASE, "ai_insights.json"), {})
@@ -770,7 +861,7 @@ class APIHandler(SimpleHTTPRequestHandler):
             sections.append(f"- [{sentiment}] ({source}, {cats}, rating={rating}, themes=[{themes_str}]): {text}")
 
         context_text = "\n".join(sections)
-        return {"context": context_text, "source_list": sorted(source_set)}
+        return {"context": context_text, "source_list": sorted(source_set), "total": total}
 
     def _get_ollama_client(self):
         global _ollama_client
@@ -781,9 +872,12 @@ class APIHandler(SimpleHTTPRequestHandler):
     def _call_ollama_search(self, client, query, context):
         system_prompt = (
             "You're chatting with a colleague about Swiggy Instamart user reviews. "
-            "You've read through them. Answer like a human.\n\n"
+            "Answer like a human.\n\n"
             "Pick one or two concrete things from the data that answer the question — "
             "a specific number, a real quote, a clear pattern. Mention them naturally.\n\n"
+            "If the data contains nothing relevant to the question, say so directly "
+            "(e.g. 'None of the reviews mention that'). Do NOT make up connections "
+            "or force unrelated reviews into an answer.\n\n"
             "Never start with 'Based on the data', 'According to the data', "
             "'The data suggests', 'It seems that', or 'The data shows'. "
             "Just say what you noticed. 3-6 sentences. No lists. No sign-offs."
@@ -814,6 +908,7 @@ class APIHandler(SimpleHTTPRequestHandler):
 def main():
     port = int(sys.argv[1]) if len(sys.argv) > 1 else 8080
     os.chdir(ROOT)
+    auto_cleanup.start_cleanup_monitor()
     server = ThreadedHTTPServer(("0.0.0.0", port), APIHandler)
     print(f"Server running at http://localhost:{port}")
     print(f"Dashboard: http://localhost:{port}/ui/index.html")

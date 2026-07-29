@@ -35,6 +35,7 @@
     <div class="header-status">
       <span class="pulse-dot" id="dbDot" title="PostgreSQL"></span>
       <span class="status-label">Live DB · <span id="lastUpdated">–</span></span>
+      <button class="btn-clear-db" id="clearDbBtn" onclick="DBClear.confirm()" title="Clear all dynamic data">Clear DB</button>
     </div>
   </header>
 
@@ -640,6 +641,50 @@
       </button>
     </div>
   </div>
+
+  <!-- ═══ DB CLEAR CONFIRMATION MODAL ══════════════════════════════════════ -->
+  <div class="modal-overlay" id="clearDbOverlay" onclick="DBClear.cancel()" hidden></div>
+  <div class="modal modal-small" id="clearDbModal" hidden role="dialog" aria-modal="true" aria-label="Clear Database">
+    <div class="modal-header">
+      <h2 class="modal-title">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+        Clear Database
+      </h2>
+      <button class="modal-close" onclick="DBClear.cancel()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p style="margin:0 0 12px;color:var(--text-secondary);line-height:1.6">
+        This will permanently delete all dynamic data:
+      </p>
+      <ul style="margin:0 0 16px;padding-left:18px;color:var(--text-muted);font-size:13px;line-height:1.8">
+        <li>Users</li>
+        <li>Products</li>
+        <li>Recommendations</li>
+        <li>Feedback</li>
+        <li>Tickets</li>
+        <li>Test Data</li>
+        <li>Workflow Outputs</li>
+      </ul>
+      <p style="margin:0 0 4px;color:var(--positive);font-size:13px;font-weight:500">
+        ✓ Table schemas, indexes, and core tables (categories, reviews, themes) will be preserved.
+      </p>
+      <p style="color:var(--negative);font-size:13px;font-weight:500">
+        ✗ This action cannot be undone.
+      </p>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-ghost" onclick="DBClear.cancel()">Cancel</button>
+      <button class="btn-danger" id="clearDbConfirmBtn" onclick="DBClear.execute()">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/></svg>
+        Clear Data
+      </button>
+    </div>
+  </div>
+
+  <!-- ═══ GLOBAL TOAST ════════════════════════════════════════════════════ -->
+  <div class="toast" id="globalToast" role="alert" aria-live="polite"></div>
 
   <!-- ═══ GLOBAL TOOLTIP ═══════════════════════════════════════════════════ -->
   <div class="tooltip" id="globalTooltip" role="tooltip" aria-hidden="true"></div>

@@ -1375,8 +1375,85 @@ const AISearch = {
 };
 
 /* ════════════════════════════════════════════════════════════════════════════
+   TOAST  —  Notification system
+   ════════════════════════════════════════════════════════════════════════════ */
+const Toast = {
+  _timer: null,
+
+  show(message, type = 'success') {
+    const el = document.getElementById('globalToast');
+    if (!el) return;
+    clearTimeout(this._timer);
+    el.textContent = message;
+    el.className = 'toast visible';
+    el.classList.add(`toast-${type}`);
+    this._timer = setTimeout(() => {
+      el.classList.remove('visible');
+    }, 4000);
+  },
+
+  hide() {
+    const el = document.getElementById('globalToast');
+    if (el) el.classList.remove('visible');
+    clearTimeout(this._timer);
+  },
+};
+
+/* ════════════════════════════════════════════════════════════════════════════
+   DB CLEAR  —  Manual database cleanup
+   ════════════════════════════════════════════════════════════════════════════ */
+const DBClear = {
+  confirm() {
+    document.getElementById('clearDbModal').hidden   = false;
+    document.getElementById('clearDbOverlay').hidden = false;
+    document.getElementById('clearDbConfirmBtn').disabled = false;
+    document.getElementById('clearDbConfirmBtn').textContent = 'Clear Data';
+  },
+
+  cancel() {
+    document.getElementById('clearDbModal').hidden   = true;
+    document.getElementById('clearDbOverlay').hidden = true;
+  },
+
+  async execute() {
+    const btn = document.getElementById('clearDbConfirmBtn');
+    btn.disabled = true;
+    btn.textContent = 'Clearing...';
+
+    const res = await API.post('/api/db/clear');
+
+    if (res.error) {
+      Toast.show(`Clear failed: ${res.error}`, 'error');
+      btn.disabled = false;
+      btn.textContent = 'Clear Data';
+      return;
+    }
+
+    Toast.show('Database cleared successfully — all dynamic data removed, schemas intact.', 'success');
+    this.cancel();
+
+    // Refresh all data panels
+    try {
+      const kpis = await API.get('/api/kpis');
+      KPIStrip.render(kpis);
+      State.kpis = kpis;
+    } catch (_) { /* best-effort */ }
+
+    try { LiveData._load(); } catch (_) { /* best-effort */ }
+    try {
+      if (Charts.initialized) {
+        const insights = await API.get('/api/insights');
+        State.insights = insights;
+        Charts.init(insights);
+      }
+    } catch (_) { /* best-effort */ }
+  },
+};
+
+/* ════════════════════════════════════════════════════════════════════════════
    BOOT
    ════════════════════════════════════════════════════════════════════════════ */
+
 async function init() {
   Tooltip.init();
   TabManager.init();

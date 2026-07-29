@@ -16,6 +16,8 @@ def generate_insights():
     live_path = os.path.join(DATABASE, "cleaned_feedback.json")
     if not os.path.exists(live_path):
         live_path = os.path.join(DATABASE, "live_scraped_data.json")
+    elif os.path.getsize(live_path) < 10:
+        live_path = os.path.join(DATABASE, "live_scraped_data.json")
     insights_path = os.path.join(DATABASE, "ai_insights.json")
 
     if not os.path.exists(live_path):

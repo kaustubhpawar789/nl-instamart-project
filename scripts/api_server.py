@@ -54,6 +54,56 @@ def _now_iso():
     return datetime.now(timezone.utc).isoformat()
 
 
+def _extract_brand(name):
+    """Return the first word of a product name as a brand hint (lowercased)."""
+    words = name.split()
+    return words[0].lower() if words else ""
+
+
+def filter_cart_duplicates(rec_products, cart_items, category_name=None):
+    """
+    Remove any recommended product whose ID appears in the user's cart.
+    If all products are filtered out, re-query the same category excluding
+    cart product IDs. Returns the filtered (or re-queried) product list.
+    """
+    cart_ids = set()
+    for item in cart_items:
+        if isinstance(item, dict):
+            pid = item.get("product_id")
+            if pid is not None:
+                cart_ids.add(pid)
+
+    filtered = [p for p in rec_products if p["id"] not in cart_ids]
+    if filtered or not cart_ids:
+        return filtered
+
+    # All were duplicates — re-query excluding cart items
+    if not category_name:
+        return []
+
+    from scripts.auto_cleanup import get_connection
+    conn = get_connection()
+    cur = conn.cursor()
+    placeholders = ",".join("%s" for _ in cart_ids)
+    cur.execute(f"""
+        SELECT p.id, p.name, p.price, p.sku, p.description, p.image_url
+        FROM products p
+        JOIN categories c ON c.id = p.category_id
+        WHERE c.name = %s AND p.is_active = TRUE
+          AND p.id NOT IN ({placeholders})
+        ORDER BY stock_quantity DESC
+        LIMIT 4
+    """, [category_name] + list(cart_ids))
+    rows = cur.fetchall()
+    cur.close()
+    conn.close()
+    return [
+        {"id": r[0], "name": r[1], "price": float(r[2]), "sku": r[3],
+         "description": r[4], "image_url": r[5]}
+        for r in rows
+    ]
+
+
 class APIHandler(SimpleHTTPRequestHandler):
     # ── Routing ────────────────────────────────────────────────────────────
 
@@ -81,6 +131,9 @@ class APIHandler(SimpleHTTPRequestHandler):
             "/api/scrape/status":    self._get_scrape_status,
             "/api/survey/responses": self._get_survey_responses,
             "/api/matrix":           self._get_matrix,
+            "/api/products":         self._get_products,
+            "/api/cart":             self._get_cart,
+            "/api/users":            self._get_users,
         }
 
         handler = routes.get(path)
@@ -118,6 +171,12 @@ class APIHandler(SimpleHTTPRequestHandler):
             self._post_db_clear()
         elif path == "/api/recommend":
             self._post_recommend()
+        elif path == "/api/per-product-recommend":
+            self._post_per_product_recommend()
+        elif path == "/api/feedback":
+            self._post_feedback()
+        elif path == "/api/cart":
+            self._post_cart()
         else:
             self.send_error(404)
 
@@ -127,7 +186,9 @@ class APIHandler(SimpleHTTPRequestHandler):
         parsed = urlparse(self.path)
         path = parsed.path
 
-        if path.startswith("/api/charts/configs/"):
+        if path == "/api/cart":
+            self._delete_cart(parsed)
+        elif path.startswith("/api/charts/configs/"):
             try:
                 chart_id = int(path.split("/")[-1])
             except (ValueError, IndexError):
@@ -221,6 +282,43 @@ class APIHandler(SimpleHTTPRequestHandler):
             "avg_rating":        avg_rating,
             "last_updated":      last_updated,
         })
+
+    # ── GET /api/products ────────────────────────────────────────────────
+
+    def _get_products(self, params):
+        try:
+            from scripts.auto_cleanup import get_connection
+            conn = get_connection()
+            cur = conn.cursor()
+            # Debug
+            cur.execute("SELECT COUNT(*) FROM products")
+            total_debug = cur.fetchone()
+            import sys; print(f"[DEBUG] Total products in DB: {total_debug}", file=sys.stderr)
+            cur.execute("SELECT COUNT(*) FROM categories")
+            cat_debug = cur.fetchone()
+            print(f"[DEBUG] Total categories in DB: {cat_debug}", file=sys.stderr)
+            cur.execute("""
+                SELECT p.id, p.name, p.price, p.sku, p.description, p.image_url,
+                       c.id AS category_id, c.name AS category_name
+                FROM products p
+                JOIN categories c ON c.id = p.category_id
+                WHERE p.is_active = TRUE
+                ORDER BY c.name, p.name
+            """)
+            rows = cur.fetchall()
+            print(f"[DEBUG] Products query returned {len(rows)} rows", file=sys.stderr)
+            cur.close()
+            conn.close()
+            products = [
+                {"id": r[0], "name": r[1], "price": float(r[2]), "sku": r[3],
+                 "description": r[4], "image_url": r[5],
+                 "category_id": r[6], "category_name": r[7]}
+                for r in rows
+            ]
+            self._json({"products": products, "total": len(products)})
+        except Exception as e:
+            import sys; print(f"[DEBUG] _get_products error: {e}", file=sys.stderr)
+            self._json({"error": str(e)}, 500)
 
     # ── GET /api/records ──────────────────────────────────────────────────
 
@@ -599,12 +697,14 @@ class APIHandler(SimpleHTTPRequestHandler):
 
         try:
             from scripts.auto_cleanup import get_connection
+            from scripts.ollama_client import get_client
+
             conn = get_connection()
             cur = conn.cursor()
 
-            # 1. Fetch cart item details (products + categories)
+            # Fetch all cart products with categories
             cur.execute("""
-                SELECT p.id, p.name, p.price, p.sku, c.id AS category_id, c.name AS category_name
+                SELECT p.id, p.name, p.price, p.sku, c.name AS category_name
                 FROM products p
                 JOIN categories c ON c.id = p.category_id
                 WHERE p.id = ANY(%s)
@@ -614,101 +714,262 @@ class APIHandler(SimpleHTTPRequestHandler):
                 self._json({"error": "No valid products found for the given product_ids"}, 400)
                 return
 
-            cart_categories = list({r[5] for r in cart_rows})
-            cart_detail = [
-                {"product_id": r[0], "name": r[1], "price": float(r[2]), "sku": r[3],
-                 "category_id": r[4], "category_name": r[5]}
-                for r in cart_rows
-            ]
+            COMPLEMENTARY_MAP = {
+                "Household":            ["Cleaning", "Personal Care", "Groceries"],
+                "Cleaning":             ["Household", "Personal Care", "Groceries"],
+                "Personal Care":        ["Household", "Cleaning", "Groceries"],
+                "Baby Products":        ["Personal Care", "Dairy", "Groceries"],
+                "Pet Supplies":         ["Packaged Food", "Groceries"],
+                "Snacks":               ["Beverages", "Bakery", "Groceries"],
+                "Beverages":            ["Snacks", "Bakery", "Dairy", "Groceries"],
+                "Groceries":            ["Packaged Food", "Dairy", "Snacks", "Beverages", "Fruits & Vegetables"],
+                "Fruits & Vegetables":  ["Dairy", "Beverages", "Snacks", "Bakery", "Groceries"],
+                "Dairy":                ["Bakery", "Beverages", "Fruits & Vegetables", "Groceries"],
+                "Bakery":               ["Dairy", "Beverages", "Snacks", "Groceries"],
+                "Packaged Food":        ["Beverages", "Snacks", "Groceries"],
+            }
 
-            # 2. Fetch user's purchase history (feedback table as proxy)
-            cur.execute("""
-                SELECT DISTINCT c.name AS category_name
-                FROM feedback f
-                JOIN products p ON p.id = f.product_id
-                JOIN categories c ON c.id = p.category_id
-                WHERE f.user_id = %s
-                ORDER BY c.name
-            """, (user_id,))
-            history_categories = [r[0] for r in cur.fetchall()]
+            all_cart_ids = set(product_ids)
+            recommendations = []
+            ollama_pairs = []
+
+            # 1-1: For each cart product, pick one adjacent product
+            for row in cart_rows:
+                pid, pname, pprice, psku, pcat = row
+                adj_opts = COMPLEMENTARY_MAP.get(pcat, [])
+                flash = None
+                adjacent = None
+
+                # Try each adjacent category until one passes all guardrails
+                for adj_cat in adj_opts:
+                    cur.execute("""
+                        SELECT p.id, p.name, p.price, p.sku, p.description, p.image_url
+                        FROM products p
+                        JOIN categories c ON c.id = p.category_id
+                        WHERE c.name = %s AND p.is_active = TRUE
+                          AND p.id != %s
+                        ORDER BY RANDOM()
+                        LIMIT 3
+                    """, (adj_cat, pid))
+                    candidates = cur.fetchall()
+                    for cand in candidates:
+                        cflash = {"id": cand[0], "name": cand[1],
+                                  "price": float(cand[2]), "sku": cand[3],
+                                  "description": cand[4], "image_url": cand[5]}
+                        # Guardrail 1: skip if flash product ID is in the cart
+                        if cflash["id"] in all_cart_ids:
+                            continue
+                        # Guardrail 2: skip if flash product shares brand (first word)
+                        cart_brand = _extract_brand(pname)
+                        flash_brand = _extract_brand(cflash["name"])
+                        if cart_brand and flash_brand and cart_brand == flash_brand:
+                            continue
+                        flash = cflash
+                        adjacent = adj_cat
+                        break
+                    if flash:
+                        break
+
+                if not flash:
+                    continue
+
+                recommendations.append({
+                    "cart_product": {"id": pid, "name": pname,
+                                     "price": float(pprice), "category_name": pcat},
+                    "flash_recommendation": flash,
+                    "adjacent_category": adjacent,
+                    "rationale": "",
+                })
+                ollama_pairs.append({
+                    "cart_name": pname,
+                    "flash_name": flash["name"],
+                    "adjacent": adjacent,
+                })
 
             cur.close()
             conn.close()
 
-            # 3. Build Ollama prompt
-            from scripts.ollama_client import get_client
-            client = get_client()
-            if not client.is_available():
-                self._json({"error": "Ollama is not running"}, 503)
+            if not recommendations:
+                self._json({"error": "Could not generate any flash recommendations"}, 502)
                 return
 
-            system_prompt = (
-                "You are a recommendation engine for Swiggy Instamart, an Indian quick-commerce platform.\n"
-                "Given a user's cart categories and purchase history, pick ONE adjacent category "
-                "that complements their current selection and makes a natural next basket.\n\n"
-                "Available categories: Groceries, Snacks, Beverages, Dairy, Personal Care, "
-                "Household, Baby Products, Pet Supplies, Packaged Food, Bakery, "
-                "Fruits & Vegetables, Cleaning.\n\n"
-                "Return ONLY a JSON object with exactly two keys:\n"
-                '- "adjacent_category": the category name as a string\n'
-                '- "rationale": a short persuasive sentence explaining why this category '
-                "complements their cart (e.g. \"Since you're buying snacks, why not add "
-                "some beverages to go with them?\").\n\n"
-                "No other text, no markdown, no code fences."
-            )
+            # Call Ollama once for all rationales
+            try:
+                client = get_client()
+                if client.is_available():
+                    pairs_text = "\n".join(
+                        f'{i+1}. Cart item: "{p["cart_name"]}" → '
+                        f'Companion: "{p["flash_name"]}" ({p["adjacent"]})'
+                        for i, p in enumerate(ollama_pairs)
+                    )
+                    prompt = (
+                        "You are a cross-sell pairings engine. You will receive a list of cart items, "
+                        "each already matched with a recommended companion product.\n\n"
+                        "For EACH pair, write ONE short rationale sentence (max 15 words) explaining "
+                        "why the companion fits the cart item. Be specific — name both products.\n\n"
+                        "ABSOLUTE RULE: The companion product is always correct. Do not suggest "
+                        "a different product. Only write the rationale.\n\n"
+                        f"Pairs:\n{pairs_text}\n\n"
+                        "Return ONLY a JSON array — no other text:\n"
+                        '[\n'
+                        '  {"cart_item": "...", "flash_recommendation": "...", '
+                        '"rationale": "..."},\n'
+                        '  ...\n'
+                        ']'
+                    )
+                    response = client.chat(
+                        messages=[{"role": "user", "content": prompt}],
+                        temperature=0.1, max_tokens=500,
+                    )
 
-            history_str = ", ".join(history_categories) if history_categories else "None (new user)"
-            user_prompt = (
-                f"Cart categories: {', '.join(cart_categories)}\n"
-                f"Purchase history categories: {history_str}"
-            )
+                    import re as _re
+                    text = response.strip()
+                    m = _re.search(r"\[.*\]", text, _re.DOTALL)
+                    if m:
+                        text = m.group(0)
+                    text = text.replace("'", '"')
+                    text = _re.sub(r",\s*}", "}", text)
+                    text = _re.sub(r",\s*]", "]", text)
+                    ai_data = json.loads(text)
+                    if isinstance(ai_data, list):
+                        # Map rationales back by matching cart_product name
+                        for entry in ai_data:
+                            cname = entry.get("cart_item", "")
+                            rtext = entry.get("rationale", "")
+                            for rec in recommendations:
+                                if rec["cart_product"]["name"] == cname and rtext:
+                                    rec["rationale"] = rtext
+                                    break
+            except Exception:
+                pass
 
-            response_text = client.chat(
-                messages=[
-                    {"role": "system", "content": system_prompt},
-                    {"role": "user", "content": user_prompt},
-                ],
-                temperature=0.3,
-                max_tokens=300,
-            )
+            # Fallback rationales for any missing
+            for rec in recommendations:
+                if not rec["rationale"]:
+                    rec["rationale"] = (
+                        f"Pair {rec['cart_product']['name']} with "
+                        f"{rec['flash_recommendation']['name']}."
+                    )
 
-            # 4. Parse Ollama JSON response
-            import re as _re
-            text = response_text.strip()
-            if text.startswith("```"):
-                text = text.split("\n", 1)[1].rsplit("```", 1)[0].strip()
-            ai_data = json.loads(text)
-            adjacent = ai_data.get("adjacent_category")
-            rationale = ai_data.get("rationale", "")
+            self._json({
+                "user_id": user_id,
+                "recommendations": recommendations,
+            })
 
-            if not adjacent:
-                self._json({"error": "Ollama did not return a valid adjacent_category"}, 502)
+        except Exception as e:
+            self._json({"error": str(e)}, 502)
+
+    # ── POST /api/per-product-recommend ──────────────────────────────────
+
+    def _post_per_product_recommend(self):
+        body = self._parse_body()
+        user_id = body.get("user_id")
+        cart_item = body.get("cart_item", {})
+        product_id = cart_item.get("product_id")
+        quantity = cart_item.get("quantity", 1)
+
+        if not isinstance(user_id, int):
+            self._json({"error": "user_id is required and must be an integer"}, 400)
+            return
+        if not isinstance(product_id, int):
+            self._json({"error": "cart_item.product_id is required"}, 400)
+            return
+
+        try:
+            from scripts.auto_cleanup import get_connection
+            conn = get_connection()
+            cur = conn.cursor()
+
+            cur.execute("""
+                SELECT p.id, p.name, p.price, p.sku, c.name AS category_name
+                FROM products p
+                JOIN categories c ON c.id = p.category_id
+                WHERE p.id = %s AND p.is_active = TRUE
+            """, (product_id,))
+            row = cur.fetchone()
+            if not row:
+                self._json({"error": "Product not found"}, 404)
                 return
 
-            # 5. Fetch products from the adjacent category
-            conn2 = get_connection()
-            cur2 = conn2.cursor()
-            cur2.execute("""
+            prod_id, prod_name, prod_price, prod_sku, prod_cat = row
+
+            PPC_MAP = {
+                "Household":            ["Cleaning", "Personal Care", "Groceries"],
+                "Cleaning":             ["Household", "Personal Care", "Groceries"],
+                "Personal Care":        ["Household", "Cleaning", "Groceries"],
+                "Baby Products":        ["Personal Care", "Dairy", "Groceries"],
+                "Pet Supplies":         ["Packaged Food", "Groceries"],
+                "Snacks":               ["Beverages", "Bakery", "Groceries"],
+                "Beverages":            ["Snacks", "Bakery", "Dairy", "Groceries"],
+                "Groceries":            ["Dairy", "Snacks", "Beverages", "Fruits & Vegetables"],
+                "Fruits & Vegetables":  ["Dairy", "Beverages", "Snacks", "Bakery", "Groceries"],
+                "Dairy":                ["Bakery", "Beverages", "Fruits & Vegetables", "Groceries"],
+                "Bakery":               ["Dairy", "Beverages", "Snacks", "Groceries"],
+                "Packaged Food":        ["Beverages", "Snacks", "Groceries"],
+            }
+
+            adj_opts = PPC_MAP.get(prod_cat, [])
+            if not adj_opts:
+                self._json({"error": f"No adjacent category for {prod_cat}"}, 502)
+                return
+            adjacent = adj_opts[0]
+
+            # Fetch 1 product from adjacent category, excluding any in cart
+            cur.execute("""
                 SELECT p.id, p.name, p.price, p.sku, p.description, p.image_url
                 FROM products p
                 JOIN categories c ON c.id = p.category_id
                 WHERE c.name = %s AND p.is_active = TRUE
-                ORDER BY p.stock_quantity DESC
-                LIMIT 4
-            """, (adjacent,))
-            rec_rows = cur2.fetchall()
-            cur2.close()
-            conn2.close()
+                  AND p.id != %s
+                ORDER BY RANDOM()
+                LIMIT 1
+            """, (adjacent, product_id))
+            rec_row = cur.fetchone()
 
-            rec_products = [
-                {"id": r[0], "name": r[1], "price": float(r[2]), "sku": r[3],
-                 "description": r[4], "image_url": r[5]}
-                for r in rec_rows
-            ]
+            rec_products = []
+            rec_name = ""
+            if rec_row:
+                rec_products = [{
+                    "id": rec_row[0], "name": rec_row[1],
+                    "price": float(rec_row[2]), "sku": rec_row[3],
+                    "description": rec_row[4], "image_url": rec_row[5],
+                }]
+                rec_name = rec_row[1]
+
+            # Ollama-powered per-product rationale
+            rationale = f"Since you added {prod_name}, try {rec_name}."
+            if rec_name:
+                try:
+                    from scripts.ollama_client import get_client
+                    client = get_client()
+                    if client.is_available():
+                        prompt = (
+                            f"The user just added '{prod_name}' ({prod_cat}) to their "
+                            f"cart. Recommend '{rec_name}' ({adjacent}) as a perfect "
+                            f"companion. Write ONE short sentence (max 15 words) "
+                            f"explaining why '{rec_name}' pairs well with "
+                            f"'{prod_name}'. Be specific and natural. Example: "
+                            f"'Parle-G biscuits are best enjoyed with a hot cup "
+                            f"of Brooke Bond Red Label Tea.'"
+                        )
+                        response = client.chat(
+                            messages=[{"role": "user", "content": prompt}],
+                            temperature=0.3, max_tokens=80,
+                        )
+                        text = response.strip().strip('"').strip("'")
+                        if text and len(text) > 8:
+                            rationale = text
+                except Exception:
+                    pass
+
+            cur.close()
+            conn.close()
 
             self._json({
-                "user_id": user_id,
-                "cart_items": cart_detail,
+                "cart_product": {
+                    "id": prod_id, "name": prod_name,
+                    "price": float(prod_price), "category_name": prod_cat,
+                },
                 "recommendation": {
                     "adjacent_category": adjacent,
                     "rationale": rationale,
@@ -716,10 +977,180 @@ class APIHandler(SimpleHTTPRequestHandler):
                 },
             })
 
-        except json.JSONDecodeError:
-            self._json({"error": "Ollama returned invalid JSON"}, 502)
         except Exception as e:
             self._json({"error": str(e)}, 502)
+
+    # ── POST /api/feedback ───────────────────────────────────────────────
+
+    def _post_feedback(self):
+        body = self._parse_body()
+        user_id = body.get("user_id")
+        product_id = body.get("product_id")
+        action = body.get("action")
+
+        if not isinstance(user_id, int):
+            self._json({"error": "user_id is required and must be an integer"}, 400)
+            return
+        if not isinstance(product_id, int):
+            self._json({"error": "product_id is required and must be an integer"}, 400)
+            return
+        if action not in ("add_to_cart", "not_interested"):
+            self._json({"error": "action must be 'add_to_cart' or 'not_interested'"}, 400)
+            return
+
+        try:
+            from scripts.auto_cleanup import get_connection
+            rating = 5 if action == "add_to_cart" else 1
+            conn = get_connection()
+            cur = conn.cursor()
+            cur.execute("""
+                INSERT INTO feedback (user_id, product_id, rating, comment, feedback_type)
+                VALUES (%s, %s, %s, %s, %s)
+            """, (user_id, product_id, rating, f"recommendation:{action}", "product"))
+            conn.commit()
+            cur.close()
+            conn.close()
+            self._json({"ok": True, "action": action})
+        except Exception as e:
+            self._json({"error": str(e)}, 500)
+
+    # ── GET /api/users ────────────────────────────────────────────────────
+
+    def _get_users(self, params):
+        """Return all users (id + name) for the user-selector dropdown."""
+        try:
+            from scripts.auto_cleanup import get_connection
+            conn = get_connection()
+            cur = conn.cursor()
+            cur.execute("SELECT id, name FROM users ORDER BY id")
+            rows = cur.fetchall()
+            cur.close()
+            conn.close()
+            users = [{"id": r[0], "name": r[1]} for r in rows]
+            self._json({"users": users, "total": len(users)})
+        except Exception as e:
+            self._json({"error": str(e)}, 500)
+
+    # ── GET /api/cart ─────────────────────────────────────────────────────
+
+    def _get_cart(self, params):
+        """Return all cart items for a given user, JOINed with product details."""
+        user_id = params.get("user_id")
+        try:
+            user_id = int(user_id)
+        except (TypeError, ValueError):
+            self._json({"error": "user_id query parameter is required and must be an integer"}, 400)
+            return
+
+        try:
+            from scripts.auto_cleanup import get_connection
+            conn = get_connection()
+            cur = conn.cursor()
+            cur.execute("""
+                SELECT c.product_id, p.name, p.price, p.sku,
+                       c.quantity, cat.name AS category_name, p.image_url
+                FROM user_carts c
+                JOIN products p ON p.id = c.product_id
+                JOIN categories cat ON cat.id = p.category_id
+                WHERE c.user_id = %s
+                ORDER BY c.created_at
+            """, (user_id,))
+            rows = cur.fetchall()
+            cur.close()
+            conn.close()
+            items = [
+                {"product_id": r[0], "name": r[1], "price": float(r[2]),
+                 "sku": r[3], "quantity": r[4], "category_name": r[5], "image_url": r[6]}
+                for r in rows
+            ]
+            self._json({"user_id": user_id, "items": items, "total": len(items)})
+        except Exception as e:
+            self._json({"error": str(e)}, 500)
+
+    # ── POST /api/cart ────────────────────────────────────────────────────
+
+    def _post_cart(self):
+        """Upsert a product into the user's cart. Body: {user_id, product_id, quantity}."""
+        body = self._parse_body()
+        user_id = body.get("user_id")
+        product_id = body.get("product_id")
+        quantity = body.get("quantity", 1)
+
+        if not isinstance(user_id, int):
+            self._json({"error": "user_id is required and must be an integer"}, 400)
+            return
+        if not isinstance(product_id, int):
+            self._json({"error": "product_id is required and must be an integer"}, 400)
+            return
+        if not isinstance(quantity, int) or quantity < 0:
+            self._json({"error": "quantity must be a non-negative integer"}, 400)
+            return
+
+        try:
+            from scripts.auto_cleanup import get_connection
+            conn = get_connection()
+            cur = conn.cursor()
+
+            if quantity == 0:
+                cur.execute("DELETE FROM user_carts WHERE user_id = %s AND product_id = %s",
+                            (user_id, product_id))
+            else:
+                cur.execute("""
+                    INSERT INTO user_carts (user_id, product_id, quantity)
+                    VALUES (%s, %s, %s)
+                    ON CONFLICT (user_id, product_id)
+                    DO UPDATE SET quantity = EXCLUDED.quantity, updated_at = NOW()
+                """, (user_id, product_id, quantity))
+
+            conn.commit()
+            cur.close()
+            conn.close()
+            self._json({"ok": True, "user_id": user_id, "product_id": product_id, "quantity": quantity if quantity else 0})
+        except Exception as e:
+            self._json({"error": str(e)}, 500)
+
+    # ── DELETE /api/cart ──────────────────────────────────────────────────
+
+    def _delete_cart(self, parsed):
+        """Delete cart item(s). Params: user_id=X (&product_id=Y or &all=true)."""
+        from urllib.parse import parse_qs
+        params = parse_qs(parsed.query)
+        try:
+            user_id = int(params.get("user_id", [None])[0])
+        except (TypeError, ValueError):
+            self._json({"error": "user_id query parameter is required and must be an integer"}, 400)
+            return
+
+        product_id = params.get("product_id")
+        all_flag = params.get("all")
+
+        try:
+            from scripts.auto_cleanup import get_connection
+            conn = get_connection()
+            cur = conn.cursor()
+
+            if all_flag and all_flag[0].lower() in ("true", "1"):
+                cur.execute("DELETE FROM user_carts WHERE user_id = %s", (user_id,))
+                deleted = cur.rowcount
+            elif product_id:
+                try:
+                    pid = int(product_id[0])
+                except (ValueError, TypeError):
+                    self._json({"error": "product_id must be an integer"}, 400)
+                    return
+                cur.execute("DELETE FROM user_carts WHERE user_id = %s AND product_id = %s",
+                            (user_id, pid))
+                deleted = cur.rowcount
+            else:
+                self._json({"error": "Provide product_id=X or all=true query parameter"}, 400)
+                return
+
+            conn.commit()
+            cur.close()
+            conn.close()
+            self._json({"ok": True, "deleted": deleted})
+        except Exception as e:
+            self._json({"error": str(e)}, 500)
 
     # ── POST /api/survey/submit ───────────────────────────────────────────
 
@@ -1068,7 +1499,9 @@ def main():
     print(f"  POST /api/charts/configs   - Save chart config")
     print(f"  POST /api/scrape           - Start scrape job")
     print(f"  POST /api/survey/submit    - Submit survey response")
+    print(f"  GET  /api/products          - All active products with categories")
     print(f"  POST /api/search           - AI natural language search")
+    print(f"  POST /api/feedback         - Log recommendation feedback (add_to_cart / not_interested)")
     print(f"  DEL  /api/charts/configs/<id> - Delete chart config")
     server.serve_forever()
 

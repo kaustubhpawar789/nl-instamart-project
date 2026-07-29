@@ -171,7 +171,21 @@ CREATE TABLE IF NOT EXISTS test_data (
 CREATE INDEX IF NOT EXISTS idx_test_data_type ON test_data(test_type);
 CREATE INDEX IF NOT EXISTS idx_test_data_status ON test_data(status);
 
--- 8. WORKFLOW_OUTPUTS
+-- 8. USER_CARTS (per-user cart persistence)
+CREATE TABLE IF NOT EXISTS user_carts (
+    id          SERIAL PRIMARY KEY,
+    user_id     INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    product_id  INTEGER NOT NULL REFERENCES products(id) ON DELETE CASCADE,
+    quantity    INTEGER NOT NULL DEFAULT 1 CHECK (quantity > 0),
+    created_at  TIMESTAMPTZ DEFAULT NOW(),
+    updated_at  TIMESTAMPTZ DEFAULT NOW(),
+    UNIQUE(user_id, product_id)
+);
+
+CREATE INDEX IF NOT EXISTS idx_user_carts_user ON user_carts(user_id);
+CREATE INDEX IF NOT EXISTS idx_user_carts_product ON user_carts(product_id);
+
+-- 9. WORKFLOW_OUTPUTS
 CREATE TABLE IF NOT EXISTS workflow_outputs (
     id              SERIAL PRIMARY KEY,
     workflow_name   TEXT NOT NULL,
@@ -228,6 +242,7 @@ def main():
     phase2_tables = [
         "users", "products", "categories", "recommendations",
         "feedback", "tickets", "test_data", "workflow_outputs",
+        "user_carts",
     ]
     phase1_tables = [
         "reviews", "themes", "theme_evidence", "theme_blockers",

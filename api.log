@@ -15,5 +15,7 @@ API endpoints:
   POST /api/charts/configs   - Save chart config
   POST /api/scrape           - Start scrape job
   POST /api/survey/submit    - Submit survey response
+  GET  /api/products          - All active products with categories
   POST /api/search           - AI natural language search
+  POST /api/feedback         - Log recommendation feedback (add_to_cart / not_interested)
   DEL  /api/charts/configs/<id> - Delete chart config

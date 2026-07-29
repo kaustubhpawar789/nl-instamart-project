@@ -42,6 +42,7 @@ DYNAMIC_TABLES = [
     "insights",
     "sentiment",
     "research_data",
+    "user_carts",
 ]
 
 PRESERVED_TABLES = [

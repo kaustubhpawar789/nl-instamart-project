@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Instamart — Grocery delivery in 10 minutes. AI-powered Try Next Basket recommendations.">
+  <title>Instamart — Online Grocery Store | Try Next Basket</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="shop.css">
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════════════════════════════════
+       NAVBAR
+       ══════════════════════════════════════════════════════════════════════ -->
+  <header id="appHeader" role="banner">
+    <div class="nav-inner">
+
+      <!-- Brand -->
+      <a class="nav-brand" href="#" aria-label="Instamart home">
+        <div class="brand-logo" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 0 1-8 0"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name-insta">insta</span><span class="brand-name-mart">mart</span>
+        </div>
+      </a>
+
+      <!-- Location -->
+      <button class="nav-location" id="navLocation" aria-label="Set delivery location">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <div class="location-text">
+          <span class="location-label">Add your location</span>
+          <span class="location-sub">To see items in your area ∨</span>
+        </div>
+      </button>
+
+      <!-- Search -->
+      <div class="nav-search" role="search">
+        <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input
+          id="searchInput"
+          type="search"
+          class="search-input"
+          placeholder="Search for &quot;Rice&quot;"
+          aria-label="Search products"
+          autocomplete="off"
+        >
+      </div>
+
+      <!-- Nav Right -->
+      <div class="nav-right">
+        <!-- User selector (demo) -->
+        <div class="user-selector">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <select id="userSelect" aria-label="Select demo user"></select>
+        </div>
+
+        <!-- Cart button -->
+        <button id="cartBtn" class="nav-cart-btn" onclick="Shop.openCart()" aria-label="Open cart">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          <span class="cart-btn-text">My Cart</span>
+          <span class="cart-count-badge" id="cartBadge" aria-live="polite">0</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ══════════════════════════════════════════════════════════════════════
+       MAIN BODY
+       ══════════════════════════════════════════════════════════════════════ -->
+  <main id="shopMain" role="main">
+    <div class="page-container">
+
+      <!-- Hero Banners -->
+      <section class="hero-section" aria-label="Promotional banners">
+        <div class="hero-grid">
+
+          <div class="banner-card banner-teal">
+            <div class="banner-content">
+              <div class="banner-tag">FRESH PICKS</div>
+              <h2 class="banner-title">Mango<br><strong>Mania 🥭</strong></h2>
+              <p class="banner-sub">Treat yourself to mangoes from across India</p>
+              <button class="banner-cta">SHOP NOW</button>
+            </div>
+            <div class="banner-art banner-art-teal" aria-hidden="true">🥭</div>
+          </div>
+
+          <div class="banner-card banner-blue">
+            <div class="banner-content">
+              <div class="banner-tag">AI POWERED</div>
+              <h2 class="banner-title">Ice Cream<br><strong>Store 🍦</strong></h2>
+              <p class="banner-sub">From classics to gourmet, pick your favourite delight</p>
+              <button class="banner-cta banner-cta-pink">SHOP NOW</button>
+            </div>
+            <div class="banner-art banner-art-blue" aria-hidden="true">🍨</div>
+          </div>
+
+          <div class="banner-card banner-dark">
+            <div class="banner-content">
+              <div class="banner-tag">NEW ARRIVAL</div>
+              <h2 class="banner-title">Fresh Fruits<br><strong>& Veggies 🍎</strong></h2>
+              <p class="banner-sub">Handpicked from the season's best</p>
+              <button class="banner-cta">SHOP NOW</button>
+            </div>
+            <div class="banner-art banner-art-dark" aria-hidden="true">🍇</div>
+          </div>
+
+        </div>
+        <!-- Carousel dots -->
+        <div class="carousel-dots" aria-hidden="true">
+          <span class="dot"></span>
+          <span class="dot dot-active">2/5</span>
+          <span class="dot"></span>
+        </div>
+      </section>
+
+      <!-- Wide AI Teaser Banner -->
+      <section class="wide-banner" aria-label="Try Next Basket feature">
+        <div class="wide-banner-inner">
+          <div class="wide-banner-text">
+            <p class="wide-banner-kicker">✨ AI-Powered Grocery</p>
+            <h2 class="wide-banner-headline">Discover your<br><strong>Next Basket</strong> instantly</h2>
+            <p class="wide-banner-body">Add items to your cart and our AI will recommend what you're probably about to need next.</p>
+          </div>
+          <div class="wide-banner-cta-wrap">
+            <div class="wide-banner-icon" aria-hidden="true">🤖</div>
+            <button class="wide-banner-btn" onclick="Shop.openCart()">Try it →</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Category Shelves (rendered by JS) -->
+      <div id="categoryShelvesWrap">
+        <!-- Loading skeleton -->
+        <div id="shelvesLoader" class="shelves-loader" aria-label="Loading products">
+          <div class="skeleton-heading"></div>
+          <div class="skeleton-row">
+            <div class="skeleton-tile"></div>
+            <div class="skeleton-tile"></div>
+            <div class="skeleton-tile"></div>
+            <div class="skeleton-tile"></div>
+            <div class="skeleton-tile"></div>
+          </div>
+          <div class="skeleton-heading"></div>
+          <div class="skeleton-row">
+            <div class="skeleton-tile"></div>
+            <div class="skeleton-tile"></div>
+            <div class="skeleton-tile"></div>
+            <div class="skeleton-tile"></div>
+            <div class="skeleton-tile"></div>
+          </div>
+        </div>
+        <div id="categoryShelves"></div>
+      </div>
+
+    </div><!-- /page-container -->
+  </main>
+
+  <!-- ══════════════════════════════════════════════════════════════════════
+       FOOTER
+       ══════════════════════════════════════════════════════════════════════ -->
+  <footer id="appFooter" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <!-- Brand col -->
+        <div class="footer-brand-col">
+          <div class="footer-logo">
+            <div class="footer-logo-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            </div>
+            <span class="footer-logo-text">Swiggy</span>
+          </div>
+          <p class="footer-copy">© 2026 Bundl<br>Technologies Pvt. Ltd</p>
+        </div>
+
+        <!-- Link cols -->
+        <div class="footer-link-col">
+          <h3 class="footer-col-heading">Categories</h3>
+          <ul class="footer-links">
+            <li><a href="#">Fresh Vegetables</a></li>
+            <li><a href="#">Fresh Fruits</a></li>
+            <li><a href="#">Dairy, Bread and Eggs</a></li>
+            <li><a href="#">Meat and Seafood</a></li>
+            <li><a href="#">Atta, Rice and Dal</a></li>
+            <li><a href="#">Masalas</a></li>
+            <li><a href="#">Oils and Ghee</a></li>
+            <li><a href="#">Cereals and Breakfast</a></li>
+          </ul>
+          <button class="footer-expand-btn">35 Categories ∨</button>
+        </div>
+
+        <div class="footer-link-col">
+          <h3 class="footer-col-heading">We deliver to</h3>
+          <ul class="footer-links">
+            <li><a href="#">Bangalore</a></li>
+            <li><a href="#">Delhi</a></li>
+            <li><a href="#">Jaipur</a></li>
+            <li><a href="#">Kochi</a></li>
+            <li><a href="#">Mumbai</a></li>
+            <li><a href="#">Noida</a></li>
+            <li><a href="#">Pune</a></li>
+            <li><a href="#">Vadodara</a></li>
+          </ul>
+          <button class="footer-expand-btn">27 Cities ∨</button>
+        </div>
+
+        <div class="footer-link-col">
+          <h3 class="footer-col-heading">Company</h3>
+          <ul class="footer-links">
+            <li><a href="#">Instamart</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Team</a></li>
+            <li><a href="#">Swiggy One</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-link-col">
+          <h3 class="footer-col-heading">Legal</h3>
+          <ul class="footer-links">
+            <li><a href="#">Terms &amp; Conditions</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+          <h3 class="footer-col-heading" style="margin-top:24px;">Contact us</h3>
+          <ul class="footer-links">
+            <li><a href="#">Help &amp; Support</a></li>
+            <li><a href="#">Partner with us</a></li>
+            <li><a href="#">Ride with us</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Footer bottom -->
+      <div class="footer-bottom">
+        <span class="footer-bottom-copy">© 2026 Swiggy</span>
+        <div class="footer-socials" aria-label="Social links">
+          <a href="#" aria-label="Facebook" class="social-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="#" aria-label="Pinterest" class="social-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+          </a>
+          <a href="#" aria-label="Instagram" class="social-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" aria-label="Twitter" class="social-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══════════════════════════════════════════════════════════════════════
+       CART OVERLAY
+       ══════════════════════════════════════════════════════════════════════ -->
+  <div id="cartOverlay" class="cart-overlay" onclick="Shop.closeCart()" aria-hidden="true"></div>
+
+  <!-- ══════════════════════════════════════════════════════════════════════
+       CART SIDEBAR
+       ══════════════════════════════════════════════════════════════════════ -->
+  <aside id="cartSidebar" class="cart-sidebar" aria-label="Shopping cart" role="complementary">
+
+    <!-- Cart Header -->
+    <div class="cart-header">
+      <h2 class="cart-title">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        Your Cart
+      </h2>
+      <button class="cart-close-btn" id="cartCloseBtn" onclick="Shop.closeCart()" aria-label="Close cart">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+
+    <!-- Cart Scrollable Body -->
+    <div class="cart-body" id="cartBody">
+
+      <!-- Empty state -->
+      <div id="cartEmpty" class="cart-empty">
+        <div class="cart-empty-icon" aria-hidden="true">
+          <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" opacity="0.25"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        </div>
+        <p class="cart-empty-title">Your cart is empty</p>
+        <p class="cart-empty-sub">Add groceries from the shelves below</p>
+      </div>
+
+      <!-- Cart Items List -->
+      <div id="cartItems" class="cart-items"></div>
+
+    </div><!-- /cart-body -->
+
+    <!-- Cart Footer (subtotal + checkout) -->
+    <div id="cartFooter" class="cart-footer" hidden>
+      <div class="cart-subtotal-row">
+        <span class="cart-subtotal-label">Subtotal</span>
+        <span class="cart-subtotal-value" id="cartTotal">₹0</span>
+      </div>
+      <button class="btn-checkout" id="btnCheckout" aria-label="Proceed to checkout">
+        Proceed to Checkout
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+
+  </aside>
+
+  <!-- Toast -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="shop.js"></script>
+</body>
+</html>

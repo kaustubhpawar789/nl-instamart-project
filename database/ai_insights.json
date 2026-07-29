@@ -1,19 +1,356 @@
 {
-  "themes": [],
-  "insights": [],
+  "themes": [
+    {
+      "name": "Delivery Issues",
+      "frequency": "High",
+      "mentions": 247,
+      "sentiment": {
+        "positive": 0,
+        "neutral": 247,
+        "negative": 0
+      },
+      "blockers": [
+        "Issue reported 247 times across 4 sources"
+      ],
+      "triggers": [
+        "Improved quality control",
+        "Better customer support"
+      ],
+      "evidence": [
+        {
+          "text": "Stupid cancellation fess. It says that coupan and discount is added and then adds stupid 130 rupees cancellation fees ….zomato is way much better than this stupid app",
+          "source": "Apple App Store",
+          "category": "general"
+        },
+        {
+          "text": "Very disappointing experience on instamart. I had placed an order on instamart and waited for 30 mins. After 30 mins the rider was showing as reached location but did not pick the call and customer ca",
+          "source": "Apple App Store",
+          "category": "beverages"
+        },
+        {
+          "text": "Call issue. I want talk to the delivery boy .call not going",
+          "source": "Apple App Store",
+          "category": "general"
+        }
+      ]
+    },
+    {
+      "name": "App Experience",
+      "frequency": "High",
+      "mentions": 209,
+      "sentiment": {
+        "positive": 0,
+        "neutral": 209,
+        "negative": 0
+      },
+      "blockers": [
+        "Issue reported 209 times across 5 sources"
+      ],
+      "triggers": [
+        "Improved quality control",
+        "Better customer support"
+      ],
+      "evidence": [
+        {
+          "text": "Stupid cancellation fess. It says that coupan and discount is added and then adds stupid 130 rupees cancellation fees ….zomato is way much better than this stupid app",
+          "source": "Apple App Store",
+          "category": "general"
+        },
+        {
+          "text": "Very disappointing experience on instamart. I had placed an order on instamart and waited for 30 mins. After 30 mins the rider was showing as reached location but did not pick the call and customer ca",
+          "source": "Apple App Store",
+          "category": "beverages"
+        },
+        {
+          "text": "Very Disappointing Experience-Orders Keep Getting Cancelled After Hours of Waiting. I have ordered through Swiggy multiple times, and unfortunately, I have had the same bad experience again and again.",
+          "source": "Apple App Store",
+          "category": "beverages"
+        }
+      ]
+    },
+    {
+      "name": "Customer Service",
+      "frequency": "High",
+      "mentions": 140,
+      "sentiment": {
+        "positive": 0,
+        "neutral": 140,
+        "negative": 0
+      },
+      "blockers": [
+        "Issue reported 140 times across 4 sources"
+      ],
+      "triggers": [
+        "Improved quality control",
+        "Better customer support"
+      ],
+      "evidence": [
+        {
+          "text": "DTDC Global Express Pte Reviews | Read Customer Service Reviews of www.dtdc.com - Trustpilot. <a href=\"https://news.google.com/rss/articles/CBMiWkFVX3lxTE84djdobDM0R3VlNXNheWNaZnJTb3hzb2psYjlkMS1SOExC",
+          "source": "Trustpilot",
+          "category": "general"
+        },
+        {
+          "text": "Ferns N Petals (FNP) Reviews | Read Customer Service Reviews of fnp.com | 4 of 229 - Trustpilot. <a href=\"https://news.google.com/rss/articles/CBMiW0FVX3lxTE1DQzZGTFZLZ2dyYnFKYTNROVMyRGo4aW5jYzhjT3dfV",
+          "source": "Trustpilot",
+          "category": "pet_supplies"
+        },
+        {
+          "text": "Poor Service, Useless Customer Service. Nobody in the help chat when asked to escalate. Very poor service no need to order through this aap. Very poor service!!",
+          "source": "Apple App Store",
+          "category": "general"
+        }
+      ]
+    },
+    {
+      "name": "Refund Problems",
+      "frequency": "High",
+      "mentions": 64,
+      "sentiment": {
+        "positive": 0,
+        "neutral": 64,
+        "negative": 0
+      },
+      "blockers": [
+        "Issue reported 64 times across 3 sources"
+      ],
+      "triggers": [
+        "Improved quality control",
+        "Better customer support"
+      ],
+      "evidence": [
+        {
+          "text": "Very Disappointing Experience-Orders Keep Getting Cancelled After Hours of Waiting. I have ordered through Swiggy multiple times, and unfortunately, I have had the same bad experience again and again.",
+          "source": "Apple App Store",
+          "category": "beverages"
+        },
+        {
+          "text": "Scammed with an Incomplete Order – Worst Customer Service. I had a terrible experience with Swiggy. They scammed me by delivering an incomplete order, with missing items that I had already paid for. A",
+          "source": "Apple App Store",
+          "category": "beverages"
+        },
+        {
+          "text": "Worst delivery all. They wont deliver your food , they wont refund your money, they will not respond properly on help..thn they will charge extra cancellation money from you even if they dont deliver ",
+          "source": "Apple App Store",
+          "category": "general"
+        }
+      ]
+    },
+    {
+      "name": "Pricing Issues",
+      "frequency": "High",
+      "mentions": 51,
+      "sentiment": {
+        "positive": 0,
+        "neutral": 51,
+        "negative": 0
+      },
+      "blockers": [
+        "Issue reported 51 times across 3 sources"
+      ],
+      "triggers": [
+        "Improved quality control",
+        "Better customer support"
+      ],
+      "evidence": [
+        {
+          "text": "Worst delivery all. They wont deliver your food , they wont refund your money, they will not respond properly on help..thn they will charge extra cancellation money from you even if they dont deliver ",
+          "source": "Apple App Store",
+          "category": "general"
+        },
+        {
+          "text": "Deceptive customer support and cancellation scam. Absolute trash customer service. An agent explicitly agreed to waive the penalty fee after I explained my valid reasons, but exactly one minute later,",
+          "source": "Apple App Store",
+          "category": "beverages"
+        },
+        {
+          "text": "No customer support. Worst app no customer service only over priced food",
+          "source": "Apple App Store",
+          "category": "groceries"
+        }
+      ]
+    },
+    {
+      "name": "Product Quality",
+      "frequency": "High",
+      "mentions": 37,
+      "sentiment": {
+        "positive": 0,
+        "neutral": 37,
+        "negative": 0
+      },
+      "blockers": [
+        "Issue reported 37 times across 4 sources"
+      ],
+      "triggers": [
+        "Improved quality control",
+        "Better customer support"
+      ],
+      "evidence": [
+        {
+          "text": "Serving broken products and even broken services.. Wont even bother to take accountability.",
+          "source": "Apple App Store",
+          "category": "general"
+        },
+        {
+          "text": "Feels not safe to use. No easy access of support option,Mostly Bad behaviour of instamart Delivery agents and fake discounts.feels not safe to use",
+          "source": "Apple App Store",
+          "category": "general"
+        },
+        {
+          "text": "Frauds sending expired products. Sending expired products and not even aknowledging and chating just auto closing chats. Worst service. Deleting this app.",
+          "source": "Apple App Store",
+          "category": "general"
+        }
+      ]
+    },
+    {
+      "name": "Wrong Orders",
+      "frequency": "Medium",
+      "mentions": 5,
+      "sentiment": {
+        "positive": 0,
+        "neutral": 5,
+        "negative": 0
+      },
+      "blockers": [
+        "Issue reported 5 times across 3 sources"
+      ],
+      "triggers": [
+        "Improved quality control",
+        "Better customer support"
+      ],
+      "evidence": [
+        {
+          "text": "Pathetic service. Very poor experience with Swiggy overall. The biggest problem is how they handle customer complaints. Whenever there is an issue with an Instamart product or a food order, Swiggy see",
+          "source": "Apple App Store",
+          "category": "beverages"
+        },
+        {
+          "text": "Pathetic service provider App. They did not have control over anything, the delivery partner pick 3-4 order at one time and reach at you in 1.5 hr to 2 hr and the food gets cold, plus restaurants send",
+          "source": "Apple App Store",
+          "category": "general"
+        },
+        {
+          "text": "Customer support seems to be deteriorating recently. The customer support bot is absolutely useless and does not address the issue. Took me forever to get to the CS team. They don't even let you drop ",
+          "source": "Google Play Store",
+          "category": "beverages"
+        }
+      ]
+    },
+    {
+      "name": "Underweight Products",
+      "frequency": "Low",
+      "mentions": 1,
+      "sentiment": {
+        "positive": 0,
+        "neutral": 1,
+        "negative": 0
+      },
+      "blockers": [
+        "Issue reported 1 times across 1 sources"
+      ],
+      "triggers": [
+        "Improved quality control",
+        "Better customer support"
+      ],
+      "evidence": [
+        {
+          "text": "They are scamming with fake descriptions, I have proof.. I ordered pudding from itc, it came in a sealed box, but the weight mentioned was 240 gms and i got 200 gms, thats illegal.",
+          "source": "Apple App Store",
+          "category": "general"
+        }
+      ]
+    }
+  ],
+  "insights": [
+    {
+      "title": "Primary Concern: Delivery Issues",
+      "observation": "Delivery Issues is the most mentioned theme with 247 mentions across 3 sentiment categories.",
+      "user_need": "Users need resolution for this recurring issue to maintain trust in the platform.",
+      "root_cause": "The high frequency of delivery issues reports suggests systemic issues in the current process.",
+      "opportunity": "Addressing this systematically could significantly improve user satisfaction and reduce churn.",
+      "implication": "This should be prioritized in the product roadmap as it directly impacts user retention."
+    },
+    {
+      "title": "Secondary Concern: App Experience",
+      "observation": "App Experience appears 209 times, indicating it's a significant pain point.",
+      "user_need": "Users expect reliable resolution for these issues.",
+      "root_cause": "Process gaps in app experience handling.",
+      "opportunity": "Streamlining this area could differentiate from competitors.",
+      "implication": "Invest in automation or better processes for this area."
+    }
+  ],
   "sentiment": {
     "positive": {
       "count": 0,
-      "percentage": 0
+      "percentage": 0.0
     },
     "neutral": {
-      "count": 0,
-      "percentage": 0
+      "count": 695,
+      "percentage": 100.0
     },
     "negative": {
       "count": 0,
-      "percentage": 0
+      "percentage": 0.0
     }
   },
-  "categories": []
+  "categories": [
+    {
+      "name": "general",
+      "mentions": 590,
+      "gap_severity": "Low",
+      "business_impact": "High"
+    },
+    {
+      "name": "beverages",
+      "mentions": 46,
+      "gap_severity": "Low",
+      "business_impact": "High"
+    },
+    {
+      "name": "groceries",
+      "mentions": 44,
+      "gap_severity": "Low",
+      "business_impact": "High"
+    },
+    {
+      "name": "dairy",
+      "mentions": 11,
+      "gap_severity": "Low",
+      "business_impact": "Medium"
+    },
+    {
+      "name": "pet_supplies",
+      "mentions": 5,
+      "gap_severity": "Low",
+      "business_impact": "Low"
+    },
+    {
+      "name": "electronics",
+      "mentions": 5,
+      "gap_severity": "Low",
+      "business_impact": "Low"
+    },
+    {
+      "name": "packaged_food",
+      "mentions": 5,
+      "gap_severity": "Low",
+      "business_impact": "Low"
+    },
+    {
+      "name": "snacks",
+      "mentions": 5,
+      "gap_severity": "Low",
+      "business_impact": "Low"
+    },
+    {
+      "name": "personal_care",
+      "mentions": 4,
+      "gap_severity": "Low",
+      "business_impact": "Low"
+    }
+  ],
+  "generated_at": "2026-07-29T18:24:21.828839",
+  "total_reviews": 695
 }

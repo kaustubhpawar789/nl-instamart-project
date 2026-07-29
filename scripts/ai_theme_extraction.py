@@ -5,13 +5,13 @@ from dotenv import load_dotenv
 import requests
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, ROOT)
 load_dotenv(os.path.join(ROOT, ".env"))
 
-GROQ_API_KEY = os.getenv("GROQ_API_KEY")
-GROQ_ENDPOINT = "https://api.groq.com/openai/v1/chat/completions"
+from scripts.ollama_client import get_client
+
 DATA_FILE = os.path.join(ROOT, "database", "cleaned_feedback.json")
 OUTPUT_FILE = os.path.join(ROOT, "docs", "ai_insights.md")
-MODEL = "llama-3.3-70b-versatile"
 
 
 SYSTEM_PROMPT = """You are a senior product research analyst specializing in quick-commerce consumer behavior.
@@ -91,79 +91,62 @@ def chunk_data(reviews, chunk_size=50):
         yield reviews[i:i + chunk_size]
 
 
-def call_groq(data_chunk, retry=5):
+def call_ollama(client, data_chunk, retry=5):
     import time
-    headers = {
-        "Authorization": f"Bearer {GROQ_API_KEY}",
-        "Content-Type": "application/json",
-    }
-    payload = {
-        "model": MODEL,
-        "messages": [
-            {"role": "system", "content": SYSTEM_PROMPT},
-            {"role": "user", "content": f"Analyze these {len(data_chunk)} user reviews:\n\n{json.dumps(data_chunk, indent=2)}"},
-        ],
-        "temperature": 0.3,
-        "max_tokens": 4096,
-    }
+    messages = [
+        {"role": "system", "content": SYSTEM_PROMPT},
+        {"role": "user", "content": f"Analyze these {len(data_chunk)} user reviews:\n\n{json.dumps(data_chunk, indent=2)}"},
+    ]
     for attempt in range(retry):
-        resp = requests.post(GROQ_ENDPOINT, headers=headers, json=payload, timeout=60)
-        if resp.status_code == 200:
-            return resp.json()["choices"][0]["message"]["content"]
-        if resp.status_code == 429:
-            wait = 10 * (attempt + 1)
-            print(f"  Rate limited, waiting {wait}s...")
-            time.sleep(wait)
-            continue
-        print(f"Groq API error {resp.status_code}: {resp.text}", file=sys.stderr)
-        return None
-    print("Groq API: max retries exceeded", file=sys.stderr)
+        try:
+            return client.chat(messages, temperature=0.3, max_tokens=4096, timeout=60)
+        except Exception as e:
+            if "429" in str(e) or "rate" in str(e).lower():
+                wait = 10 * (attempt + 1)
+                print(f"  Rate limited, waiting {wait}s...")
+                time.sleep(wait)
+                continue
+            print(f"Ollama API error: {e}", file=sys.stderr)
+            return None
+    print("Ollama API: max retries exceeded", file=sys.stderr)
     return None
 
 
-def build_final_prompt(chunk_analyses, total_count):
+def build_final_prompt(client, chunk_analyses, total_count):
     import time
     combined = "\n\n---\n\n".join(
         f"### Batch {i+1} Analysis ({len(a)} chars)\n{a}"
         for i, a in enumerate(chunk_analyses) if a
     )
-    headers = {
-        "Authorization": f"Bearer {GROQ_API_KEY}",
-        "Content-Type": "application/json",
-    }
-    payload = {
-        "model": MODEL,
-        "messages": [
-            {"role": "system", "content": SYSTEM_PROMPT},
-            {"role": "user", "content": (
-                f"You have received batch analyses of {total_count} total reviews. "
-                "Below are the per-batch results. Now produce a SINGLE unified analysis "
-                "that merges themes across batches, deduplicates quotes, recalculates "
-                "frequencies, and produces the final structured output in the exact format "
-                "specified in the system prompt.\n\n" + combined
-            )},
-        ],
-        "temperature": 0.2,
-        "max_tokens": 4096,
-    }
+    messages = [
+        {"role": "system", "content": SYSTEM_PROMPT},
+        {"role": "user", "content": (
+            f"You have received batch analyses of {total_count} total reviews. "
+            "Below are the per-batch results. Now produce a SINGLE unified analysis "
+            "that merges themes across batches, deduplicates quotes, recalculates "
+            "frequencies, and produces the final structured output in the exact format "
+            "specified in the system prompt.\n\n" + combined
+        )},
+    ]
     for attempt in range(5):
-        resp = requests.post(GROQ_ENDPOINT, headers=headers, json=payload, timeout=60)
-        if resp.status_code == 200:
-            return resp.json()["choices"][0]["message"]["content"]
-        if resp.status_code == 429:
-            wait = 15 * (attempt + 1)
-            print(f"  Consolidation rate limited, waiting {wait}s...")
-            time.sleep(wait)
-            continue
-        print(f"Groq consolidation error {resp.status_code}: {resp.text}", file=sys.stderr)
-        return None
-    print("Groq consolidation: max retries exceeded", file=sys.stderr)
+        try:
+            return client.chat(messages, temperature=0.2, max_tokens=4096, timeout=60)
+        except Exception as e:
+            if "429" in str(e) or "rate" in str(e).lower():
+                wait = 15 * (attempt + 1)
+                print(f"  Consolidation rate limited, waiting {wait}s...")
+                time.sleep(wait)
+                continue
+            print(f"Ollama consolidation error: {e}", file=sys.stderr)
+            return None
+    print("Ollama consolidation: max retries exceeded", file=sys.stderr)
     return None
 
 
 def main():
-    if not GROQ_API_KEY:
-        raise SystemExit("GROQ_API_KEY not set in .env")
+    client = get_client()
+    if not client.is_available():
+        raise SystemExit("Ollama is not running. Start it with: ollama serve")
 
     reviews = load_data()
     print(f"Loaded {len(reviews)} reviews")
@@ -176,7 +159,7 @@ def main():
             print("  Waiting 15s between batches to avoid rate limits...")
             time.sleep(15)
         print(f"Processing batch {i+1}/{len(chunks)} ({len(chunk)} reviews)...")
-        result = call_groq(chunk)
+        result = call_ollama(client, chunk)
         if result:
             chunk_analyses.append(result)
             print(f"  Batch {i+1} complete ({len(result)} chars)")
@@ -187,7 +170,7 @@ def main():
         raise SystemExit("All batches failed. No analysis produced.")
 
     print("Consolidating across batches...")
-    final_analysis = build_final_prompt(chunk_analyses, len(reviews))
+    final_analysis = build_final_prompt(client, chunk_analyses, len(reviews))
 
     if not final_analysis:
         raise SystemExit("Consolidation failed.")
@@ -195,7 +178,7 @@ def main():
     header = (
         "# Swiggy Instamart Discovery Engine — AI Insights\n\n"
         f"**Total Reviews Analyzed:** {len(reviews)}\n\n"
-        f"**Source:** AI-generated analysis via Groq ({MODEL})\n\n"
+        f"**Source:** AI-generated analysis via Ollama ({client.model})\n\n"
         "---\n\n"
     )
     with open(OUTPUT_FILE, "w") as f:

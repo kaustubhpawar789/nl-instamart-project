@@ -19,41 +19,34 @@ MOCK_SURVEY = {
     "discovery_story": "Once I searched for dog food manually because my neighbor mentioned it. The app never suggested it even though I buy groceries every week."
 }
 
-MOCK_GROQ_RESPONSE = {
-    "choices": [{
-        "message": {
-            "content": json.dumps({
-                "summary": "This respondent orders frequently but feels stuck in repetitive patterns. They explicitly mention the app showing only past purchases and failing to surface new categories. They discovered a product only through manual search prompted by a social cue.",
-                "matched_themes": [
-                    "Repetitive Cart Experience",
-                    "Cross-Category Blind Spots",
-                    "Discovery Feature Gap",
-                    "Habit-Driven Shopping"
-                ],
-                "contradicted_themes": [],
-                "quality_score": 85,
-                "score_rationale": "Strong personal evidence supporting multiple AI-discovered themes with specific examples.",
-                "recommendation": "Prioritize cross-category bundles in the Try Next Basket MVP to break repetitive cart patterns."
-            })
-        }
-    }]
-}
+MOCK_OLLAMA_RESPONSE = json.dumps({
+    "summary": "This respondent orders frequently but feels stuck in repetitive patterns. They explicitly mention the app showing only past purchases and failing to surface new categories. They discovered a product only through manual search prompted by a social cue.",
+    "matched_themes": [
+        "Repetitive Cart Experience",
+        "Cross-Category Blind Spots",
+        "Discovery Feature Gap",
+        "Habit-Driven Shopping"
+    ],
+    "contradicted_themes": [],
+    "quality_score": 85,
+    "score_rationale": "Strong personal evidence supporting multiple AI-discovered themes with specific examples.",
+    "recommendation": "Prioritize cross-category bundles in the Try Next Basket MVP to break repetitive cart patterns."
+})
 
 
 class TestOPS004Workflow(unittest.TestCase):
-    @patch("scripts.research_processor.requests.post")
-    def test_process_survey_returns_valid_structure(self, mock_post):
-        mock_resp = MagicMock()
-        mock_resp.status_code = 200
-        mock_resp.json.return_value = MOCK_GROQ_RESPONSE
-        mock_resp.text = ""
-        mock_post.return_value = mock_resp
+    @patch("scripts.ollama_client.get_client")
+    def test_process_survey_returns_valid_structure(self, mock_get_client):
+        mock_client = MagicMock()
+        mock_client.is_available.return_value = True
+        mock_client.chat.return_value = MOCK_OLLAMA_RESPONSE
+        mock_get_client.return_value = mock_client
 
         import importlib
         import scripts.research_processor as module
         importlib.reload(module)
 
-        result = module.process_survey(MOCK_SURVEY, api_key="test-key")
+        result = module.process_survey(MOCK_SURVEY)
 
         self.assertIsInstance(result, dict)
         self.assertIn("summary", result)
@@ -65,30 +58,28 @@ class TestOPS004Workflow(unittest.TestCase):
         self.assertGreaterEqual(result["quality_score"], 0)
         self.assertLessEqual(result["quality_score"], 100)
 
-    @patch("scripts.research_processor.requests.post")
-    def test_quality_score_in_range(self, mock_post):
-        mock_resp = MagicMock()
-        mock_resp.status_code = 200
-        mock_resp.json.return_value = MOCK_GROQ_RESPONSE
-        mock_resp.text = ""
-        mock_post.return_value = mock_resp
+    @patch("scripts.ollama_client.get_client")
+    def test_quality_score_in_range(self, mock_get_client):
+        mock_client = MagicMock()
+        mock_client.is_available.return_value = True
+        mock_client.chat.return_value = MOCK_OLLAMA_RESPONSE
+        mock_get_client.return_value = mock_client
 
         import importlib
         import scripts.research_processor as module
         importlib.reload(module)
 
-        result = module.process_survey(MOCK_SURVEY, api_key="test-key")
+        result = module.process_survey(MOCK_SURVEY)
         score = result["quality_score"]
         self.assertGreaterEqual(score, 0)
         self.assertLessEqual(score, 100)
 
-    @patch("scripts.research_processor.requests.post")
-    def test_mocked_webhook_json_processes(self, mock_post):
-        mock_resp = MagicMock()
-        mock_resp.status_code = 200
-        mock_resp.json.return_value = MOCK_GROQ_RESPONSE
-        mock_resp.text = ""
-        mock_post.return_value = mock_resp
+    @patch("scripts.ollama_client.get_client")
+    def test_mocked_webhook_json_processes(self, mock_get_client):
+        mock_client = MagicMock()
+        mock_client.is_available.return_value = True
+        mock_client.chat.return_value = MOCK_OLLAMA_RESPONSE
+        mock_get_client.return_value = mock_client
 
         import importlib
         import scripts.research_processor as module

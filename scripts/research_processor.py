@@ -5,11 +5,11 @@ from dotenv import load_dotenv
 import requests
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, ROOT)
 load_dotenv(os.path.join(ROOT, ".env"))
 
-GROQ_API_KEY = os.getenv("GROQ_API_KEY")
-GROQ_ENDPOINT = "https://api.groq.com/openai/v1/chat/completions"
-MODEL = "llama-3.3-70b-versatile"
+from scripts.ollama_client import get_client
+
 INSIGHTS_FILE = os.path.join(ROOT, "docs", "ai_insights.md")
 
 PHASE1_THEMES = [
@@ -66,10 +66,11 @@ def load_insights_context():
     return "Phase 1 AI insights not available yet."
 
 
-def process_survey(survey_data, api_key=None):
-    key = api_key or GROQ_API_KEY
-    if not key:
-        raise ValueError("GROQ_API_KEY not set")
+def process_survey(survey_data, client=None):
+    if client is None:
+        client = get_client()
+    if not client.is_available():
+        raise RuntimeError("Ollama is not running. Start it with: ollama serve")
 
     insights_context = load_insights_context()
 
@@ -88,37 +89,28 @@ def process_survey(survey_data, api_key=None):
         f"Discovery Story: {survey_data.get('discovery_story', 'N/A')}\n"
     )
 
-    headers = {
-        "Authorization": f"Bearer {key}",
-        "Content-Type": "application/json",
-    }
-    payload = {
-        "model": MODEL,
-        "messages": [
-            {"role": "system", "content": SUMMARIZER_PROMPT},
-            {"role": "user", "content": user_message},
-        ],
-        "temperature": 0.2,
-        "max_tokens": 1024,
-    }
+    messages = [
+        {"role": "system", "content": SUMMARIZER_PROMPT},
+        {"role": "user", "content": user_message},
+    ]
 
     import time
     for attempt in range(4):
-        resp = requests.post(GROQ_ENDPOINT, headers=headers, json=payload, timeout=30)
-        if resp.status_code == 200:
-            raw = resp.json()["choices"][0]["message"]["content"]
+        try:
+            raw = client.chat(messages, temperature=0.2, max_tokens=1024, timeout=30)
             raw = raw.strip()
             if raw.startswith("```"):
                 raw = raw.split("\n", 1)[1]
                 if raw.endswith("```"):
                     raw = raw[:-3]
             return json.loads(raw)
-        if resp.status_code == 429:
-            time.sleep(10 * (attempt + 1))
-            continue
-        raise RuntimeError(f"Groq API error {resp.status_code}: {resp.text}")
+        except Exception as e:
+            if "429" in str(e) or "rate" in str(e).lower():
+                time.sleep(10 * (attempt + 1))
+                continue
+            raise RuntimeError(f"Ollama API error: {e}")
 
-    raise RuntimeError("Groq API: max retries exceeded")
+    raise RuntimeError("Ollama API: max retries exceeded")
 
 
 def process_from_file(input_path, output_path=None):

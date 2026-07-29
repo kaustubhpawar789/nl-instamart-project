@@ -25,9 +25,7 @@ load_dotenv(os.path.join(ROOT, "secrets", ".env"))
 
 sys.path.insert(0, ROOT)
 
-GROQ_API_KEY = os.getenv("GROQ_API_KEY")
-GROQ_ENDPOINT = "https://api.groq.com/openai/v1/chat/completions"
-MODEL = "llama-3.3-70b-versatile"
+from scripts.ollama_client import get_client
 
 DATA_DIR = os.path.join(ROOT, "database")
 OUTPUT_FILE = os.path.join(DATA_DIR, "live_scraped_data.json")
@@ -105,9 +103,10 @@ def clean_reviews(reviews: List[Dict]) -> List[Dict]:
 
 
 def ai_categorize_batch(reviews: List[Dict], retry: int = 3) -> List[Dict]:
-    """Use Groq AI to categorize and enrich a batch of reviews."""
-    if not GROQ_API_KEY:
-        print("  [AI] No GROQ_API_KEY, skipping AI categorization")
+    """Use Ollama LLM to categorize and enrich a batch of reviews."""
+    client = get_client()
+    if not client.is_available():
+        print("  [AI] Ollama is not running, skipping AI categorization")
         return reviews
 
     prompt = """Analyze these user reviews and for each one provide enriched categorization.
@@ -140,66 +139,41 @@ Reviews:
             for r in chunk
         ]
 
-        headers = {
-            "Authorization": f"Bearer {GROQ_API_KEY}",
-            "Content-Type": "application/json",
-        }
-        payload = {
-            "model": MODEL,
-            "messages": [
-                {"role": "system", "content": "You are a data categorization assistant. Return only valid JSON."},
-                {"role": "user", "content": prompt + json.dumps(chunk_data, indent=2)},
-            ],
-            "temperature": 0.1,
-            "max_tokens": 2000,
-        }
+        messages = [
+            {"role": "system", "content": "You are a data categorization assistant. Return only valid JSON."},
+            {"role": "user", "content": prompt + json.dumps(chunk_data, indent=2)},
+        ]
 
         for attempt in range(retry):
             try:
-                resp = requests.post(GROQ_ENDPOINT, headers=headers, json=payload, timeout=60)
-                if resp.status_code == 200:
-                    result = resp.json()["choices"][0]["message"]["content"]
-                    result = result.strip()
-                    if result.startswith("```"):
-                        result = result.split("\n", 1)[1].rsplit("```", 1)[0]
-                    ai_data = json.loads(result)
-                    ai_map = {item["id"]: item for item in ai_data if "id" in item}
+                result = client.chat(messages, temperature=0.1, max_tokens=2000, timeout=60)
+                result = result.strip()
+                if result.startswith("```"):
+                    result = result.split("\n", 1)[1].rsplit("```", 1)[0]
+                ai_data = json.loads(result)
+                ai_map = {item["id"]: item for item in ai_data if "id" in item}
 
-                    for review in chunk:
-                        if review["id"] in ai_map:
-                            ai_info = ai_map[review["id"]]
-                            review["intent"] = ai_info.get("intent", review.get("intent"))
-                            review["categories"] = ai_info.get("categories", review.get("categories"))
-                            review["sentiment"] = ai_info.get("sentiment", "neutral")
-                            review["themes"] = ai_info.get("themes", [])
-                        else:
-                            review["sentiment"] = "neutral"
-                            review["themes"] = []
-                        enriched.append(review)
-                    break
-                elif resp.status_code == 429:
-                    wait = 10 * (attempt + 1)
-                    print(f"  [AI] Rate limited, waiting {wait}s...")
-                    time.sleep(wait)
+                for review in chunk:
+                    if review["id"] in ai_map:
+                        ai_info = ai_map[review["id"]]
+                        review["intent"] = ai_info.get("intent", review.get("intent"))
+                        review["categories"] = ai_info.get("categories", review.get("categories"))
+                        review["sentiment"] = ai_info.get("sentiment", "neutral")
+                        review["themes"] = ai_info.get("themes", [])
+                    else:
+                        review["sentiment"] = "neutral"
+                        review["themes"] = []
+                    enriched.append(review)
+                break
+            except Exception as e:
+                print(f"  [AI] Attempt {attempt+1} failed: {e}")
+                if attempt < retry - 1:
+                    time.sleep(5)
                 else:
-                    print(f"  [AI] Error {resp.status_code}: {resp.text[:200]}")
                     for review in chunk:
                         review["sentiment"] = "neutral"
                         review["themes"] = []
                         enriched.append(review)
-                    break
-            except Exception as e:
-                print(f"  [AI] Exception: {e}")
-                for review in chunk:
-                    review["sentiment"] = "neutral"
-                    review["themes"] = []
-                    enriched.append(review)
-                break
-        else:
-            for review in chunk:
-                review["sentiment"] = "neutral"
-                review["themes"] = []
-                enriched.append(review)
 
         if i + chunk_size < len(reviews):
             time.sleep(2)

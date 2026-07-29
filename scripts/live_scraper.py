@@ -21,7 +21,8 @@ Usage:
     python scripts/live_scraper.py --no-db            # Skip database storage
 
 Environment:
-    GROQ_API_KEY      - Required for AI categorization
+    OLLAMA_BASE_URL   - Ollama server URL (default: http://localhost:11434)
+    OLLAMA_MODEL      - Ollama model name (default: llama3.2:1b)
     DATABASE_URL      - PostgreSQL connection URL
 """
 import argparse

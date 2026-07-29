@@ -18,18 +18,13 @@ from http.server import HTTPServer, SimpleHTTPRequestHandler
 from socketserver import ThreadingMixIn
 from urllib.parse import parse_qs, urlparse
 
-import requests as _http_requests
-from dotenv import load_dotenv
-
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, ROOT)
 DATABASE = os.path.join(ROOT, "database")
 
-load_dotenv(os.path.join(ROOT, ".env"))
-load_dotenv(os.path.join(ROOT, "secrets", ".env"))
+from scripts.ollama_client import get_client, OLLAMA_BASE_URL, OLLAMA_MODEL
 
-GROQ_API_KEY = os.getenv("GROQ_API_KEY")
-GROQ_ENDPOINT = "https://api.groq.com/openai/v1/chat/completions"
-GROQ_MODEL = "llama-3.3-70b-versatile"
+_ollama_client = None
 
 SCRAPE_SIM_DELAY = 4
 
@@ -649,15 +644,16 @@ class APIHandler(SimpleHTTPRequestHandler):
             self._json({"error": "Query is required"}, 400)
             return
 
-        if not GROQ_API_KEY:
-            self._json({"error": "AI service not configured — GROQ_API_KEY missing"}, 503)
+        client = self._get_ollama_client()
+        if not client.is_available():
+            self._json({"error": "AI service not configured — Ollama is not running"}, 503)
             return
 
         query = self._sanitize_query(query)
 
         try:
             context = self._build_search_context(query)
-            answer = self._call_groq_search(query, context)
+            answer = self._call_ollama_search(client, query, context)
             self._json({"answer": answer, "query": query, "sources": context["source_list"]})
         except Exception as e:
             self._json({"error": f"AI service temporarily unavailable: {str(e)}"}, 502)
@@ -776,53 +772,30 @@ class APIHandler(SimpleHTTPRequestHandler):
         context_text = "\n".join(sections)
         return {"context": context_text, "source_list": sorted(source_set)}
 
-    def _call_groq_search(self, query, context):
+    def _get_ollama_client(self):
+        global _ollama_client
+        if _ollama_client is None:
+            _ollama_client = get_client()
+        return _ollama_client
+
+    def _call_ollama_search(self, client, query, context):
         system_prompt = (
-            "You are a sharp, insightful product analyst. A PM has given you a dataset of "
-            "274 user reviews from Swiggy Instamart (India's grocery delivery app) along with "
-            "pre-computed analytics (sentiment, themes, category breakdowns, insights).\n\n"
-            "Answer the question directly — no introductions, no filler, no 'Based on the data...'. "
-            "Start with your answer immediately.\n\n"
-            "Rules:\n"
-            "- Think before answering. Identify what the data actually says vs what you're inferring.\n"
-            "- Use specific numbers and quote real reviews to back up claims.\n"
-            "- If you're inferring something, say so briefly ('This likely means...' or 'The pattern suggests...').\n"
-            "- Keep it concise. Aim for a clear, meaty 2-4 paragraph answer. Don't pad with headers and bullet points unless the question truly needs them.\n"
-            "- Write like a thoughtful colleague, not a report template.\n"
-            "- Never say 'the data doesn't contain enough information'. Work with what you have.\n"
-            "- Never start with 'Introduction' or 'To understand...'. Just answer."
+            "You're chatting with a colleague about Swiggy Instamart user reviews. "
+            "You've read through them. Answer like a human.\n\n"
+            "Pick one or two concrete things from the data that answer the question — "
+            "a specific number, a real quote, a clear pattern. Mention them naturally.\n\n"
+            "Never start with 'Based on the data', 'According to the data', "
+            "'The data suggests', 'It seems that', or 'The data shows'. "
+            "Just say what you noticed. 3-6 sentences. No lists. No sign-offs."
         )
 
         user_prompt = f"DATA:\n{context}\n\nQUESTION: {query}"
 
-        headers = {
-            "Authorization": f"Bearer {GROQ_API_KEY}",
-            "Content-Type": "application/json",
-        }
-        payload = {
-            "model": GROQ_MODEL,
-            "messages": [
-                {"role": "system", "content": system_prompt},
-                {"role": "user", "content": user_prompt},
-            ],
-            "temperature": 0.4,
-            "max_tokens": 2000,
-        }
-
-        resp = _http_requests.post(GROQ_ENDPOINT, headers=headers, json=payload, timeout=90)
-
-        retries = 0
-        max_retries = 3
-        while resp.status_code == 429 and retries < max_retries:
-            retries += 1
-            retry_after = resp.headers.get("Retry-After")
-            wait = int(retry_after) if retry_after else (5 * retries)
-            time.sleep(wait)
-            resp = _http_requests.post(GROQ_ENDPOINT, headers=headers, json=payload, timeout=90)
-
-        resp.raise_for_status()
-        data = resp.json()
-        return data["choices"][0]["message"]["content"]
+        messages = [
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_prompt},
+        ]
+        return client.chat(messages, temperature=0.65, max_tokens=1800)
 
     # ── DELETE /api/charts/configs/<id> ───────────────────────────────────
 

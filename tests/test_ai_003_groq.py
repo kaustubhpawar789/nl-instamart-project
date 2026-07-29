@@ -41,13 +41,12 @@ MOCK_BATCH_RESPONSE = {
 
 
 class TestAI003Groq(unittest.TestCase):
-    @patch("scripts.ai_theme_extraction.requests.post")
-    def test_script_executes_with_mocked_api(self, mock_post):
-        mock_resp = MagicMock()
-        mock_resp.status_code = 200
-        mock_resp.json.return_value = MOCK_BATCH_RESPONSE
-        mock_resp.text = ""
-        mock_post.return_value = mock_resp
+    @patch("scripts.ollama_client.get_client")
+    def test_script_executes_with_mocked_api(self, mock_get_client):
+        mock_client = MagicMock()
+        mock_client.is_available.return_value = True
+        mock_client.chat.return_value = MOCK_BATCH_RESPONSE["choices"][0]["message"]["content"]
+        mock_get_client.return_value = mock_client
 
         import importlib
         import scripts.ai_theme_extraction as module
@@ -56,7 +55,7 @@ class TestAI003Groq(unittest.TestCase):
         module.main()
 
         self.assertTrue(os.path.isfile(OUTPUT_FILE), "ai_insights.md not generated")
-        mock_post.assert_called()
+        mock_client.chat.assert_called()
 
     def test_output_file_has_required_sections(self):
         if not os.path.isfile(OUTPUT_FILE):

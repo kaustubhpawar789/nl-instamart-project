@@ -1,19 +1,340 @@
 {
-  "themes": [],
-  "insights": [],
+  "themes": [
+    {
+      "name": "App Experience",
+      "frequency": "High",
+      "mentions": 55,
+      "sentiment": {
+        "positive": 12,
+        "neutral": 2,
+        "negative": 41
+      },
+      "blockers": [
+        "Issue reported 55 times across 1 sources"
+      ],
+      "triggers": [
+        "Improved quality control",
+        "Better customer support"
+      ],
+      "evidence": [
+        {
+          "text": "very very good app nice work and food low price but best ,good",
+          "source": "Google Play Store",
+          "category": "groceries"
+        },
+        {
+          "text": "I Don't Like it......i Order at 9:25 at night....my Delivery in 30 min but i Wait for 2 Hours.....NO DELIVERY TO ME🙂😠I AM VERY DISAPPOINTED..... THANKS GOD I DON'T PAY ONLINE 🥲I CHOOSE CASH ON DELIVER",
+          "source": "Google Play Store",
+          "category": "groceries"
+        },
+        {
+          "text": "bad app, late delivery and not worth the money",
+          "source": "Google Play Store",
+          "category": "groceries"
+        }
+      ]
+    },
+    {
+      "name": "Delivery Issues",
+      "frequency": "High",
+      "mentions": 54,
+      "sentiment": {
+        "positive": 9,
+        "neutral": 5,
+        "negative": 40
+      },
+      "blockers": [
+        "Issue reported 54 times across 1 sources"
+      ],
+      "triggers": [
+        "Improved quality control",
+        "Better customer support"
+      ],
+      "evidence": [
+        {
+          "text": "I Don't Like it......i Order at 9:25 at night....my Delivery in 30 min but i Wait for 2 Hours.....NO DELIVERY TO ME🙂😠I AM VERY DISAPPOINTED..... THANKS GOD I DON'T PAY ONLINE 🥲I CHOOSE CASH ON DELIVER",
+          "source": "Google Play Store",
+          "category": "groceries"
+        },
+        {
+          "text": "bad app, late delivery and not worth the money",
+          "source": "Google Play Store",
+          "category": "groceries"
+        },
+        {
+          "text": "posting a review for the second time. the delivery is no longer on time as promised and agent repsonds like a bot ..sorry mam for the delay ..complete useless repeating same script.. plz train your te",
+          "source": "Google Play Store",
+          "category": "beverages"
+        }
+      ]
+    },
+    {
+      "name": "Customer Service",
+      "frequency": "High",
+      "mentions": 32,
+      "sentiment": {
+        "positive": 1,
+        "neutral": 2,
+        "negative": 29
+      },
+      "blockers": [
+        "Issue reported 32 times across 1 sources"
+      ],
+      "triggers": [
+        "Improved quality control",
+        "Better customer support"
+      ],
+      "evidence": [
+        {
+          "text": "I had a terrible experience buying from Instamart. I paid for my order but never received it. I emailed them, but I didn't receive a refund or an order.",
+          "source": "Google Play Store",
+          "category": "groceries"
+        },
+        {
+          "text": "pathetic people.I ordered food on 20th July 2026 for 800+ from Prasad food divine and within few minutes I had to cancel it due to some reason.I called the resturant and informed to. not process the o",
+          "source": "Google Play Store",
+          "category": "groceries"
+        },
+        {
+          "text": "very bad customer services worst food delivery app I love to give it 0 star for customer service and there no need to pay for swiggy one its no use because you never get your food on time",
+          "source": "Google Play Store",
+          "category": "general"
+        }
+      ]
+    },
+    {
+      "name": "Refund Problems",
+      "frequency": "High",
+      "mentions": 14,
+      "sentiment": {
+        "positive": 1,
+        "neutral": 1,
+        "negative": 12
+      },
+      "blockers": [
+        "Issue reported 14 times across 1 sources"
+      ],
+      "triggers": [
+        "Improved quality control",
+        "Better customer support"
+      ],
+      "evidence": [
+        {
+          "text": "I had a terrible experience buying from Instamart. I paid for my order but never received it. I emailed them, but I didn't receive a refund or an order.",
+          "source": "Google Play Store",
+          "category": "groceries"
+        },
+        {
+          "text": "I was told to apply for swiggy orange credit card and limit was also approved but after kyc they just declined my application which impacted my cibil score , just don't apply for orange credit of hdfc",
+          "source": "Google Play Store",
+          "category": "general"
+        },
+        {
+          "text": "swingy se mane order kiya tha to unhone mujhe tukda tukda or addha addha pis bheja hai or mai isko refund kar raha hu",
+          "source": "Google Play Store",
+          "category": "packaged_food"
+        }
+      ]
+    },
+    {
+      "name": "Pricing Issues",
+      "frequency": "High",
+      "mentions": 13,
+      "sentiment": {
+        "positive": 2,
+        "neutral": 2,
+        "negative": 9
+      },
+      "blockers": [
+        "Issue reported 13 times across 1 sources"
+      ],
+      "triggers": [
+        "Improved quality control",
+        "Better customer support"
+      ],
+      "evidence": [
+        {
+          "text": "very very good app nice work and food low price but best ,good",
+          "source": "Google Play Store",
+          "category": "groceries"
+        },
+        {
+          "text": "pathetic people.I ordered food on 20th July 2026 for 800+ from Prasad food divine and within few minutes I had to cancel it due to some reason.I called the resturant and informed to. not process the o",
+          "source": "Google Play Store",
+          "category": "groceries"
+        },
+        {
+          "text": "Thankfull to have a channel to order online without any hassle and even in such times of epidemic. Thanks swiggy... Loving it as always.. just it's getting a bit expensive day by day.. my experiences ",
+          "source": "Google Play Store",
+          "category": "general"
+        }
+      ]
+    },
+    {
+      "name": "Product Quality",
+      "frequency": "Medium",
+      "mentions": 5,
+      "sentiment": {
+        "positive": 0,
+        "neutral": 0,
+        "negative": 5
+      },
+      "blockers": [
+        "Issue reported 5 times across 1 sources"
+      ],
+      "triggers": [
+        "Improved quality control",
+        "Better customer support"
+      ],
+      "evidence": [
+        {
+          "text": "WORST APP. had the worst experience,I ordered a waffle and a drink from belgian waffle co.through Swiggy and received a damaged,crushed,drenched in water packet which the delivery guy handed me and ra",
+          "source": "Google Play Store",
+          "category": "beverages"
+        },
+        {
+          "text": "Honestly, better apps are there - Eat club, Eat Sure. Most orders are delivered late or not delivered. There is no standard maintained but rates are high. I actually think they should pivot their stra",
+          "source": "Google Play Store",
+          "category": "general"
+        },
+        {
+          "text": "don't order and suffer from this fraud app. if u order some items from this app and they may deliver the damaged product even it was found it with presence of delivery person. they won't refund or rep",
+          "source": "Google Play Store",
+          "category": "general"
+        }
+      ]
+    },
+    {
+      "name": "Wrong Orders",
+      "frequency": "Low",
+      "mentions": 4,
+      "sentiment": {
+        "positive": 0,
+        "neutral": 1,
+        "negative": 3
+      },
+      "blockers": [
+        "Issue reported 4 times across 1 sources"
+      ],
+      "triggers": [
+        "Improved quality control",
+        "Better customer support"
+      ],
+      "evidence": [
+        {
+          "text": "A bunch of fraudsters. Delivering wrong items, overcharging and thinking of the customer as a joke. Extremely difficult to make returns (specially on instamart). The support staff is incompetent in an",
+          "source": "Google Play Store",
+          "category": "general"
+        },
+        {
+          "text": "terrible customer care. order from burger king was wrong and no resolution provided by Swiggy for complaint Request no 29243415 and 29243413. if your order is not complete or incorrect, dont make paym",
+          "source": "Google Play Store",
+          "category": "general"
+        },
+        {
+          "text": "They delivered wrong order and didn't initiated refund.",
+          "source": "Google Play Store",
+          "category": "general"
+        }
+      ]
+    }
+  ],
+  "insights": [
+    {
+      "title": "Primary Concern: App Experience",
+      "observation": "App Experience is the most mentioned theme with 55 mentions across 3 sentiment categories.",
+      "user_need": "Users need resolution for this recurring issue to maintain trust in the platform.",
+      "root_cause": "The high frequency of app experience reports suggests systemic issues in the current process.",
+      "opportunity": "Addressing this systematically could significantly improve user satisfaction and reduce churn.",
+      "implication": "This should be prioritized in the product roadmap as it directly impacts user retention."
+    },
+    {
+      "title": "Secondary Concern: Delivery Issues",
+      "observation": "Delivery Issues appears 54 times, indicating it's a significant pain point.",
+      "user_need": "Users expect reliable resolution for these issues.",
+      "root_cause": "Process gaps in delivery issues handling.",
+      "opportunity": "Streamlining this area could differentiate from competitors.",
+      "implication": "Invest in automation or better processes for this area."
+    },
+    {
+      "title": "Negative Sentiment Dominance",
+      "observation": "Negative reviews (51.7%) significantly outweigh positive (31.4%).",
+      "user_need": "Users are frustrated and need tangible improvements.",
+      "root_cause": "Multiple unresolved issues across delivery, quality, and support.",
+      "opportunity": "Turning negative experiences into positive ones through proactive outreach.",
+      "implication": "Urgent intervention needed to prevent further reputation damage."
+    }
+  ],
   "sentiment": {
     "positive": {
-      "count": 0,
-      "percentage": 0
+      "count": 54,
+      "percentage": 31.4
     },
     "neutral": {
-      "count": 0,
-      "percentage": 0
+      "count": 29,
+      "percentage": 16.9
     },
     "negative": {
-      "count": 0,
-      "percentage": 0
+      "count": 89,
+      "percentage": 51.7
     }
   },
-  "categories": []
+  "categories": [
+    {
+      "name": "general",
+      "mentions": 151,
+      "gap_severity": "Medium",
+      "business_impact": "High"
+    },
+    {
+      "name": "packaged_food",
+      "mentions": 26,
+      "gap_severity": "High",
+      "business_impact": "High"
+    },
+    {
+      "name": "groceries",
+      "mentions": 14,
+      "gap_severity": "High",
+      "business_impact": "Medium"
+    },
+    {
+      "name": "delivery",
+      "mentions": 10,
+      "gap_severity": "Medium",
+      "business_impact": "Low"
+    },
+    {
+      "name": "food",
+      "mentions": 7,
+      "gap_severity": "High",
+      "business_impact": "Low"
+    },
+    {
+      "name": "beverages",
+      "mentions": 3,
+      "gap_severity": "High",
+      "business_impact": "Low"
+    },
+    {
+      "name": "electronics",
+      "mentions": 2,
+      "gap_severity": "High",
+      "business_impact": "Low"
+    },
+    {
+      "name": "dairy",
+      "mentions": 1,
+      "gap_severity": "High",
+      "business_impact": "Low"
+    },
+    {
+      "name": "snacks",
+      "mentions": 1,
+      "gap_severity": "High",
+      "business_impact": "Low"
+    }
+  ],
+  "generated_at": "2026-07-23T11:37:45.602618",
+  "total_reviews": 172
 }

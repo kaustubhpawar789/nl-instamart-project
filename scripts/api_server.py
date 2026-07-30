@@ -1464,26 +1464,54 @@ class APIHandler(SimpleHTTPRequestHandler):
         return _ollama_client
 
     def _call_ollama_search(self, client, query, context):
-        system_prompt = (
-            "You're chatting with a colleague about Swiggy Instamart user reviews. "
-            "Answer like a human.\n\n"
-            "Pick one or two concrete things from the data that answer the question — "
-            "a specific number, a real quote, a clear pattern. Mention them naturally.\n\n"
-            "If the data contains nothing relevant to the question, say so directly "
-            "(e.g. 'None of the reviews mention that'). Do NOT make up connections "
-            "or force unrelated reviews into an answer.\n\n"
-            "Never start with 'Based on the data', 'According to the data', "
-            "'The data suggests', 'It seems that', or 'The data shows'. "
-            "Just say what you noticed. 3-6 sentences. No lists. No sign-offs."
-        )
+        kwds = query.lower().split()
+        reviews = _read_json(os.path.join(DATABASE, "cleaned_feedback.json"), [])
+        if not isinstance(reviews, list) or not reviews:
+            reviews = _read_json(os.path.join(DATABASE, "live_scraped_data.json"), [])
+        if not isinstance(reviews, list):
+            reviews = []
 
-        user_prompt = f"DATA:\n{context}\n\nQUESTION: {query}"
+        # Filter reviews containing query keywords
+        relevant = []
+        for r in reviews:
+            text = (r.get("text") or "").lower()
+            cats = " ".join(r.get("categories") or []).lower()
+            intent = (r.get("intent") or "").lower()
+            combined = f"{text} {cats} {intent}"
+            if any(kw in combined for kw in kwds):
+                relevant.append(r)
+                if len(relevant) >= 10:
+                    break
+
+        if not relevant:
+            relevant = reviews[:5]
+
+        snippets = []
+        for r in relevant:
+            text = (r.get("text") or "").strip()[:250]
+            sentiment = r.get("sentiment", "unknown")
+            source = r.get("source", "unknown")
+            cats = ", ".join(r.get("categories") or ["general"])
+            snippets.append(f"[{sentiment}] ({source}, {cats}): {text}")
+
+        context_text = "\n".join([
+            f"Query: {query}",
+            f"Relevant reviews ({len(relevant)}):",
+            *snippets,
+        ])
+
+        system_prompt = (
+            "You're chatting about Swiggy Instamart reviews. "
+            "Answer like a human in 2-4 sentences. "
+            "Mention something concrete if you find it. "
+            "If nothing answers the question, say so directly."
+        )
 
         messages = [
             {"role": "system", "content": system_prompt},
-            {"role": "user", "content": user_prompt},
+            {"role": "user", "content": f"{context_text}\n\nQuestion: {query}"},
         ]
-        return client.chat(messages, temperature=0.65, max_tokens=800, timeout=120)
+        return client.chat(messages, temperature=0.65, max_tokens=400, timeout=120)
 
     # ── DELETE /api/charts/configs/<id> ───────────────────────────────────
 

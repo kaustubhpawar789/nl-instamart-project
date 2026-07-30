@@ -28,17 +28,18 @@ class OllamaClient:
         self._generate_endpoint = f"{self.base_url}/api/generate"
 
     def chat(self, messages, temperature=0.4, max_tokens=2000, timeout=300, format=None):
-        last_err = None
         is_external = "localhost" not in self.base_url and "127.0.0.1" not in self.base_url
         try_order = [self._chat_completions, self._generate] if is_external else [self._generate, self._chat_completions]
+        first_err = None
         for attempt in range(3):
             for fn in try_order:
                 try:
                     return fn(messages, temperature, max_tokens, timeout, format)
                 except Exception as e:
-                    last_err = e
+                    if first_err is None:
+                        first_err = e
             time.sleep(2 * (attempt + 1))
-        raise RuntimeError(f"AI request failed after 3 retries: {last_err}")
+        raise RuntimeError(f"AI request failed: {first_err}")
 
     def _pull_model(self):
         """Pull the configured model via Ollama API, returns True on success."""

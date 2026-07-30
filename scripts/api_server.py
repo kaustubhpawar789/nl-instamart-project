@@ -1590,7 +1590,9 @@ class APIHandler(SimpleHTTPRequestHandler):
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": f"{context_text}\n\nQuestion: {query}"},
         ]
-        return client.chat(messages, temperature=0.65, max_tokens=250, timeout=60)
+        # Call _generate directly (no retries, no /v1 fallback) with a short timeout.
+        # If Ollama is too slow, we fail fast and the frontend polls again.
+        return client._generate(messages, temperature=0.65, max_tokens=250, timeout=30)
 
     # ── DELETE /api/charts/configs/<id> ───────────────────────────────────
 

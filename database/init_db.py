@@ -15,6 +15,7 @@ import psycopg2
 from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, ROOT)
 load_dotenv(os.path.join(ROOT, "secrets", ".env"))
 
 
@@ -24,27 +25,23 @@ def get_connection():
 
 
 def create_database_if_missing():
-    from urllib.parse import urlparse
-    db_url = os.environ.get("DATABASE_URL")
-    if db_url and db_url.startswith("postgres"):
-        parsed = urlparse(db_url)
-        admin_url = (
-            f"{parsed.scheme}://{parsed.username}:{parsed.password}"
-            f"@{parsed.hostname}:{parsed.port or 5432}/postgres"
-            f"{'&' if parsed.query else '?'}sslmode=require"
-            if "sslmode" not in parsed.query
-            else f"{parsed.scheme}://{parsed.username}:{parsed.password}"
-                f"@{parsed.hostname}:{parsed.port or 5432}/postgres?{parsed.query}"
-        )
-        dbname = parsed.path.lstrip("/")
-    else:
-        admin_url = (
-            f"postgresql://{os.getenv('DB_USER', 'nitin')}"
-            f":{os.getenv('DB_PASSWORD', 'nitin')}"
-            f"@{os.getenv('DB_HOST', 'localhost')}"
-            f":{os.getenv('DB_PORT', '5432')}/postgres"
-        )
-        dbname = os.getenv("DB_NAME", "instamart")
+    db_url = os.environ.get("DATABASE_URL") or ""
+    host = db_url.split("@")[-1].split(":")[0] if "@" in db_url else "localhost"
+
+    # Skip for remote/cloud databases (Supabase, Railway PG, etc.)
+    # The database is already provisioned and the pooler rejects
+    # connections to the admin 'postgres' database.
+    if host not in ("localhost", "127.0.0.1", "::1"):
+        print(f"  · Remote database detected ({host}) — skipping CREATE DATABASE")
+        return
+
+    admin_url = (
+        f"postgresql://{os.getenv('DB_USER', 'nitin')}"
+        f":{os.getenv('DB_PASSWORD', 'nitin')}"
+        f"@{host}"
+        f":{os.getenv('DB_PORT', '5432')}/postgres"
+    )
+    dbname = os.getenv("DB_NAME", "instamart")
 
     conn = psycopg2.connect(admin_url)
     conn.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT)

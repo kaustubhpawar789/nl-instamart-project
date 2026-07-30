@@ -1329,6 +1329,12 @@ class APIHandler(SimpleHTTPRequestHandler):
             self._json({"error": "AI service not configured — Ollama is not running"}, 503)
             return
 
+        import threading
+        if not hasattr(self.__class__, '_model_warmed'):
+            self.__class__._model_warmed = True
+            t = threading.Thread(target=client._warmup, daemon=True)
+            t.start()
+
         query = self._sanitize_query(query)
 
         try:

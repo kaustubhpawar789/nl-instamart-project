@@ -21,7 +21,7 @@ class OllamaClient:
         self._chat_endpoint = f"{self.base_url}/v1/chat/completions"
         self._generate_endpoint = f"{self.base_url}/api/generate"
 
-    def chat(self, messages, temperature=0.4, max_tokens=2000, timeout=90, format=None):
+    def chat(self, messages, temperature=0.4, max_tokens=2000, timeout=300, format=None):
         # Try native /api/generate first (more reliable on Ollama),
         # fall back to OpenAI-compatible /v1/chat/completions.
         try:
@@ -119,6 +119,17 @@ class OllamaClient:
         raise RuntimeError(
             f"Ollama /v1/chat/completions returned HTTP {resp.status_code}: {resp.text[:200]}"
         )
+
+    def _warmup(self):
+        """Pre-load the model into memory so the first user query is fast."""
+        try:
+            resp = _http.post(self._generate_endpoint, json={
+                "model": self.model, "prompt": "hi", "stream": False
+            }, timeout=300)
+            if resp.status_code == 200:
+                print(f"[ollama] Model '{self.model}' warmed up and ready")
+        except Exception as e:
+            print(f"[ollama] Warmup failed (will load on first request): {e}")
 
     def is_available(self):
         try:

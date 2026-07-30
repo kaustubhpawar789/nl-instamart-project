@@ -115,24 +115,26 @@
 
       <!-- Virtual table -->
       <div class="vt-container" id="vtContainer">
-        <div class="vt-header">
-          <div class="vt-row vt-head-row">
-            <div class="vt-cell vt-cell-id    sortable" data-col="id">ID <span class="sort-arrow">↕</span></div>
-            <div class="vt-cell vt-cell-source sortable" data-col="source">Source <span class="sort-arrow">↕</span></div>
-            <div class="vt-cell vt-cell-date   sortable" data-col="date">Date <span class="sort-arrow">↕</span></div>
-            <div class="vt-cell vt-cell-user">User</div>
-            <div class="vt-cell vt-cell-location">Location</div>
-            <div class="vt-cell vt-cell-intent sortable" data-col="intent">Intent <span class="sort-arrow">↕</span></div>
-            <div class="vt-cell vt-cell-categories">Categories</div>
-            <div class="vt-cell vt-cell-rating sortable" data-col="rating">Rating <span class="sort-arrow">↕</span></div>
-            <div class="vt-cell vt-cell-text">Review Text</div>
+        <div class="vt-scroll-wrapper">
+          <div class="vt-header">
+            <div class="vt-row vt-head-row">
+              <div class="vt-cell vt-cell-id    sortable" data-col="id">ID <span class="sort-arrow">↕</span></div>
+              <div class="vt-cell vt-cell-source sortable" data-col="source">Source <span class="sort-arrow">↕</span></div>
+              <div class="vt-cell vt-cell-date   sortable" data-col="date">Date <span class="sort-arrow">↕</span></div>
+              <div class="vt-cell vt-cell-user">User</div>
+              <div class="vt-cell vt-cell-location">Location</div>
+              <div class="vt-cell vt-cell-intent sortable" data-col="intent">Intent <span class="sort-arrow">↕</span></div>
+              <div class="vt-cell vt-cell-categories">Categories</div>
+              <div class="vt-cell vt-cell-rating sortable" data-col="rating">Rating <span class="sort-arrow">↕</span></div>
+              <div class="vt-cell vt-cell-text">Review Text</div>
+            </div>
           </div>
-        </div>
-        <div class="vt-scroll-body" id="vtScrollBody">
-          <div class="vt-rows" id="vtRows">
-            <div class="table-loading">
-              <div class="loading-spinner"></div>
-              <div>Loading live data from PostgreSQL…</div>
+          <div class="vt-scroll-body" id="vtScrollBody">
+            <div class="vt-rows" id="vtRows">
+              <div class="table-loading">
+                <div class="loading-spinner"></div>
+                <div>Loading live data from PostgreSQL…</div>
+              </div>
             </div>
           </div>
         </div>

@@ -504,6 +504,11 @@ svg { flex-shrink: 0; }
   overflow: hidden;
 }
 
+.vt-scroll-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 .vt-header {
   position: sticky;
   top: 0;
@@ -2349,121 +2354,121 @@ svg { flex-shrink: 0; }
 /* ── 768px: Mobile / small tablets ───────────────────────────────────── */
 @media (max-width: 768px) {
 
-  /* ─── Header ─── */
+  /* ─── Header: compact single-line ─── */
   #appHeader {
-    flex-wrap: wrap;
     gap: 8px;
-    padding: 10px 12px;
-    height: auto;
-    min-height: 48px;
+    padding: 0 10px;
+    height: 48px;
   }
 
   .header-brand .brand-sub { display: none; }
 
   .header-status {
-    flex-wrap: wrap;
-    gap: 6px;
+    gap: 4px;
   }
   .header-status > span {
-    font-size: 11px;
-    padding: 4px 8px;
+    font-size: 10px;
+    padding: 3px 6px;
   }
 
-  /* ─── KPI strip: show inline, 2-per-row wrapping ─── */
-  .header-kpis {
-    order: 10;
-    flex: 1 1 100%;
-    flex-wrap: wrap;
-    gap: 6px;
-    padding: 4px 0 0;
-    overflow-x: visible;
+  .btn-clear-db {
+    font-size: 10px;
+    padding: 3px 8px;
   }
+
+  /* ─── KPI strip: compact scrollable row (NOT wrapping) ─── */
+  .header-kpis {
+    gap: 4px;
+    padding: 0 4px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    flex-shrink: 1;
+    min-width: 0;
+  }
+  .header-kpis::-webkit-scrollbar { display: none; }
 
   .kpi-chip {
-    flex: 1 1 calc(50% - 4px);
-    min-width: 0;
-    padding: 8px 10px;
+    padding: 4px 10px;
+    flex-shrink: 0;
   }
-
-  .kpi-chip .kv { font-size: 14px; }
-  .kpi-chip .kl { font-size: 8px; }
+  .kpi-chip .kv { font-size: 13px; }
+  .kpi-chip .kl { font-size: 7.5px; }
 
   /* ─── Tab navigation: horizontal scroll ─── */
   .tab-nav {
     padding: 0;
-    overflow: visible;
   }
   .tab-nav-inner {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     gap: 0;
     padding: 0 8px;
-    scroll-snap-type: x mandatory;
   }
   .tab-btn {
     flex: 0 0 auto;
-    padding: 12px 14px;
-    font-size: 11.5px;
+    padding: 10px 12px;
+    font-size: 11px;
     white-space: nowrap;
     min-height: 44px;
-    scroll-snap-align: start;
   }
   .tab-btn .tab-icon { display: none; }
 
-  /* ─── Tab panels ─── */
+  /* ─── Tab panels: tighter padding ─── */
   .tab-panel {
     padding: 12px 10px 40px;
   }
 
-  /* ─── Virtual Data Table: horizontally scrollable ─── */
+  /* ─── Virtual Data Table: horizontal scroll via wrapper ─── */
   .vt-container {
     border-radius: var(--radius);
   }
 
   .vt-scroll-body {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .vt-rows {
-    min-width: 840px;
+    max-height: calc(100vh - 220px);
   }
 
   .vt-row,
+  .vt-head-row,
   .vt-data-row {
-    grid-template-columns: 50px 70px 70px 80px 60px 80px 1fr 60px 1.8fr;
-    font-size: 11px;
-  }
-
-  .vt-cell {
-    font-size: 11px;
-    padding: 8px 8px;
-  }
-
-  .vt-head-row .vt-cell {
-    padding: 10px 8px;
+    min-width: 800px;
+    grid-template-columns: 44px 64px 64px 72px 56px 72px 1fr 56px 1.6fr;
     font-size: 10px;
   }
 
-  .vt-data-row {
-    min-height: 44px;
+  .vt-cell {
+    font-size: 10px;
+    padding: 6px 5px;
   }
 
-  /* Pagination: stack on small screens */
+  .vt-head-row .vt-cell {
+    padding: 8px 5px;
+    font-size: 9px;
+  }
+
+  .vt-data-row {
+    min-height: 40px;
+  }
+
+  .vt-cell-text {
+    -webkit-line-clamp: 2;
+    font-size: 10px;
+  }
+
+  /* Pagination */
   .vt-pagination {
-    flex-direction: column;
-    gap: 8px;
-    align-items: center;
-    padding: 10px 12px;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 8px 10px;
+    font-size: 10px;
   }
 
   .pg-btn {
     min-height: 36px;
-    min-width: 44px;
-    padding: 6px 14px;
+    padding: 5px 12px;
   }
 
-  /* ─── Charts ─── */
+  /* ─── Charts: single-column stack ─── */
   .charts-row {
     grid-template-columns: 1fr;
     gap: 12px;
@@ -2486,23 +2491,23 @@ svg { flex-shrink: 0; }
   }
 
   .matrix-table {
-    min-width: 700px;
+    min-width: 660px;
   }
 
   .matrix-table th,
   .matrix-table td {
-    padding: 10px 12px;
+    padding: 10px 10px;
     font-size: 11px;
   }
 
-  .matrix-col-name { min-width: 180px; }
+  .matrix-col-name { min-width: 160px; }
 
   .matrix-legend-grid {
     grid-template-columns: 1fr;
     gap: 14px;
   }
 
-  /* ─── Custom charts / chart builder ─── */
+  /* ─── Custom charts ─── */
   .custom-charts-grid {
     grid-template-columns: 1fr;
   }
@@ -2511,33 +2516,33 @@ svg { flex-shrink: 0; }
     height: 200px;
   }
 
-  /* ─── Data table ─── */
+  /* ─── Data table: horizontal scroll ─── */
   .table-wrap {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
   }
-
   .data-table {
     font-size: 11px;
     min-width: 500px;
   }
-
   .data-table th,
   .data-table td {
     padding: 8px 10px;
   }
 
-  .data-controls {
-    flex-wrap: wrap;
-    gap: 6px;
+  /* ─── Filter / toolbar ─── */
+  .toolbar-right {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
-  .data-controls select,
-  .data-controls input,
-  .data-controls button {
-    font-size: 12px;
-    padding: 6px 10px;
+  .search-input { width: 140px; }
+  .search-input:focus { width: 180px; }
+
+  .filter-select {
     min-height: 36px;
+    font-size: 11px;
   }
 
   /* ─── Survey ─── */
@@ -2546,7 +2551,7 @@ svg { flex-shrink: 0; }
   .survey-form textarea,
   .survey-form select {
     font-size: 14px;
-    min-height: 44px;
+    min-height: 40px;
   }
   .survey-form button {
     width: 100%;
@@ -2555,33 +2560,16 @@ svg { flex-shrink: 0; }
 
   /* ─── AI Search ─── */
   .aisearch-layout {
-    padding: 6vh 14px 40px;
-  }
-
-  .ai-search-container { padding: 10px; }
-  .ai-search-bar {
-    flex-direction: column;
-    gap: 8px;
-  }
-  .ai-search-bar input { width: 100%; }
-  .ai-search-bar button {
-    width: 100%;
-    min-height: 44px;
+    padding: 6vh 12px 40px;
   }
 
   /* ─── Chart Builder ─── */
-  .chart-builder { padding: 12px; }
   .chart-builder-controls {
     flex-wrap: wrap;
     gap: 6px;
   }
-  .chart-builder-controls select,
-  .chart-builder button {
-    font-size: 12px;
-    min-height: 36px;
-  }
 
-  /* ─── KPI Drawer: full-width on mobile ─── */
+  /* ─── KPI Drawer: full-width ─── */
   .kpi-drawer {
     width: 100%;
     max-width: 100%;
@@ -2592,24 +2580,15 @@ svg { flex-shrink: 0; }
     width: 96%;
     max-height: 92vh;
   }
-  .modal-wide {
-    max-width: 96%;
-  }
 
   /* ─── Research ─── */
   .research-stats-row {
     grid-template-columns: repeat(2, 1fr);
   }
-
   .research-toolbar {
     flex-direction: column;
     align-items: stretch;
     gap: 8px;
-  }
-
-  .research-actions {
-    flex-wrap: wrap;
-    gap: 6px;
   }
 
   /* ─── Buttons: touch-friendly ─── */
@@ -2620,26 +2599,13 @@ svg { flex-shrink: 0; }
     padding: 10px 16px;
   }
 
-  /* ─── Drill-down / Category detail ─── */
-  #categoryDrillDown { padding: 10px; }
-  .drill-content { font-size: 13px; }
-
   /* ─── Scrape progress ─── */
   .scrape-progress {
     flex-wrap: wrap;
     gap: 8px;
-    padding: 10px 12px;
+    padding: 8px 10px;
   }
-  .progress-text {
-    min-width: auto;
-    font-size: 10px;
-  }
-
-  /* ─── Filter selects: full-width row ─── */
-  .filter-select {
-    min-height: 36px;
-    font-size: 12px;
-  }
+  .progress-text { min-width: auto; font-size: 10px; }
 
   /* ─── Toast ─── */
   .toast {
@@ -2648,191 +2614,47 @@ svg { flex-shrink: 0; }
     left: 12px;
     font-size: 12px;
   }
+
+  #categoryDrillDown { padding: 10px; }
+  .drill-content { font-size: 13px; }
 }
 
 /* ── 640px: Large phones ─────────────────────────────────────────────── */
 @media (max-width: 640px) {
 
-  /* ─── Header: compact ─── */
   #appHeader {
-    padding: 8px 10px;
+    padding: 0 8px;
+    height: 44px;
   }
 
-  .brand-name {
-    font-size: 13px;
-  }
+  .brand-name { font-size: 13px; }
 
   .header-status .status-label { display: none; }
 
-  .btn-clear-db {
-    font-size: 10px;
+  /* KPI strip: even more compact */
+  .kpi-chip {
     padding: 3px 8px;
   }
+  .kpi-chip .kv { font-size: 12px; }
+  .kpi-chip .kl { font-size: 7px; }
 
-  /* ─── KPI strip stays visible but wraps ─── */
-  .header-kpis {
-    gap: 4px;
-  }
-
-  .kpi-chip {
-    padding: 6px 8px;
-  }
-
-  .kpi-chip .kv { font-size: 13px; }
-
-  /* ─── Tab bar: smaller text ─── */
+  /* Tab bar */
   .tab-btn {
-    padding: 10px 12px;
-    font-size: 11px;
+    padding: 8px 10px;
+    font-size: 10px;
   }
-
   .tab-badge {
     min-width: 16px;
     height: 16px;
     font-size: 8px;
   }
 
-  /* ─── Virtual Table: hide user + location columns ─── */
-  .vt-cell-user,
-  .vt-cell-location {
-    display: none;
-  }
-
-  .vt-rows {
-    min-width: 620px;
-  }
-
+  /* Virtual table: tighter columns, all 9 visible via scroll */
   .vt-row,
+  .vt-head-row,
   .vt-data-row {
-    /* id, source, date, intent, categories, rating, text (7 columns) */
-    grid-template-columns: 44px 60px 64px 70px 1fr 55px 1.8fr;
-    font-size: 10px;
-  }
-
-  .vt-cell {
-    padding: 6px 6px;
-    font-size: 10px;
-  }
-
-  .vt-head-row .vt-cell {
-    padding: 8px 6px;
-    font-size: 9px;
-  }
-
-  .vt-cell-text {
-    -webkit-line-clamp: 1;
-    font-size: 10px;
-  }
-
-  /* ─── Toolbar ─── */
-  .toolbar-left,
-  .toolbar-right {
-    width: 100%;
-  }
-
-  .search-wrap {
-    width: 100%;
-  }
-
-  .search-input,
-  .search-input:focus {
-    width: 100%;
-  }
-
-  /* ─── Modal ─── */
-  .modal { width: 98%; }
-
-  /* ─── Custom charts ─── */
-  .custom-charts-grid {
-    grid-template-columns: 1fr;
-  }
-
-  /* ─── Chart cards ─── */
-  .chart-card {
-    padding: 12px;
-  }
-  .chart-canvas-wrap {
-    min-height: 160px;
-  }
-
-  /* ─── AI Search ─── */
-  .aisearch-layout {
-    padding: 4vh 10px 32px;
-  }
-  .aisearch-brand-title {
-    font-size: 24px;
-  }
-  .aisearch-presets {
-    gap: 4px;
-  }
-  .aisearch-preset {
-    font-size: 10.5px;
-    padding: 4px 10px;
-  }
-}
-
-/* ── 480px: Phones ───────────────────────────────────────────────────── */
-@media (max-width: 480px) {
-
-  /* ─── Header: extra compact ─── */
-  #appHeader {
-    padding: 6px 8px;
-  }
-
-  .brand-logo {
-    width: 28px;
-    height: 28px;
-  }
-  .brand-logo svg {
-    width: 16px;
-    height: 16px;
-  }
-
-  .brand-name { font-size: 12px; }
-
-  .pulse-dot { width: 6px; height: 6px; }
-
-  /* ─── KPI strip: 1-per-row ─── */
-  .kpi-chip {
-    flex: 1 1 100%;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 8px 12px;
-    gap: 6px;
-  }
-
-  .kpi-chip .kv { font-size: 14px; }
-  .kpi-chip .kl { font-size: 8px; }
-
-  /* ─── Tab bar ─── */
-  .tab-btn {
-    font-size: 10px;
-    padding: 8px 10px;
-    min-height: 40px;
-  }
-
-  /* ─── Tab panels ─── */
-  .tab-panel {
-    padding: 8px 6px 32px;
-  }
-
-  /* ─── Panel title ─── */
-  .panel-title { font-size: 14px; }
-
-  /* ─── Virtual Table: hide more columns ─── */
-  .vt-cell-categories,
-  .vt-cell-rating {
-    display: none;
-  }
-
-  .vt-rows {
-    min-width: 420px;
-  }
-
-  .vt-row,
-  .vt-data-row {
-    /* id, source, date, intent, text (5 columns) */
-    grid-template-columns: 36px 52px 52px 64px 1fr;
+    min-width: 700px;
+    grid-template-columns: 36px 56px 56px 64px 48px 64px 1fr 48px 1.4fr;
     font-size: 9px;
   }
 
@@ -2846,140 +2668,128 @@ svg { flex-shrink: 0; }
     font-size: 8px;
   }
 
-  /* ─── Pagination ─── */
-  .vt-pagination {
-    font-size: 10px;
-  }
-  .pg-btn {
-    font-size: 10px;
-    padding: 5px 10px;
-    min-height: 32px;
+  .vt-cell-text {
+    -webkit-line-clamp: 1;
   }
 
-  /* ─── Research ─── */
-  .research-stats-row {
-    grid-template-columns: 1fr;
+  /* Toolbar */
+  .toolbar-left,
+  .toolbar-right {
+    width: 100%;
   }
+  .search-wrap { width: 100%; }
+  .search-input,
+  .search-input:focus { width: 100%; }
+
+  /* Modal */
+  .modal { width: 98%; }
+
+  /* Chart cards */
+  .chart-card { padding: 12px; }
+  .chart-canvas-wrap { min-height: 160px; }
+
+  /* AI Search */
+  .aisearch-layout { padding: 4vh 10px 32px; }
+  .aisearch-brand-title { font-size: 24px; }
+  .aisearch-presets { gap: 4px; }
+  .aisearch-preset { font-size: 10.5px; padding: 4px 10px; }
+}
+
+/* ── 480px: Phones ───────────────────────────────────────────────────── */
+@media (max-width: 480px) {
+
+  #appHeader {
+    padding: 0 6px;
+    height: 40px;
+    gap: 4px;
+  }
+
+  .brand-logo { width: 28px; height: 28px; }
+  .brand-logo svg { width: 16px; height: 16px; }
+  .brand-name { font-size: 11px; }
+  .pulse-dot { width: 6px; height: 6px; }
+  .btn-clear-db { display: none; }
+
+  /* KPI strip: hide on very small — drawer has full data */
+  .header-kpis { display: none; }
+
+  /* Tab bar */
+  .tab-btn {
+    font-size: 9px;
+    padding: 7px 8px;
+    min-height: 38px;
+  }
+
+  /* Tab panels */
+  .tab-panel { padding: 8px 6px 28px; }
+  .panel-title { font-size: 13px; }
+
+  /* Virtual table: compact columns via scroll */
+  .vt-row,
+  .vt-head-row,
+  .vt-data-row {
+    min-width: 580px;
+    grid-template-columns: 30px 48px 48px 56px 40px 56px 1fr 42px 1.2fr;
+    font-size: 8px;
+  }
+
+  .vt-cell { padding: 4px 3px; font-size: 8px; }
+  .vt-head-row .vt-cell { padding: 6px 3px; font-size: 7px; }
+
+  .vt-pagination { font-size: 9px; }
+  .pg-btn { font-size: 9px; padding: 4px 8px; min-height: 30px; }
+
+  /* Research */
+  .research-stats-row { grid-template-columns: 1fr; }
   .stat-card { padding: 10px 12px; }
   .stat-val { font-size: 18px; }
 
-  /* ─── Matrix ─── */
-  .matrix-table {
-    min-width: 560px;
-    font-size: 10px;
-  }
-  .matrix-table th,
-  .matrix-table td {
-    padding: 8px;
-  }
+  /* Matrix */
+  .matrix-table { min-width: 560px; font-size: 10px; }
 
-  /* ─── Insights ─── */
-  .insight-head {
-    padding: 10px 12px;
-  }
+  /* Insights */
+  .insight-head { padding: 10px 12px; }
   .insight-head h3 { font-size: 12px; }
-  .insight-body { padding: 0 12px 12px; }
-  .insight-row p { font-size: 11px; }
 
-  /* ─── Modal ─── */
+  /* Modal: full-screen takeover */
   .modal {
-    width: 100%;
-    max-width: 100%;
-    max-height: 100vh;
-    border-radius: 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    transform: none;
+    width: 100%; max-width: 100%; max-height: 100vh;
+    border-radius: 0; top: 0; left: 0; transform: none;
+  }
+  .modal-header { padding: 12px 14px; }
+  .modal-body { padding: 14px; }
+
+  .kpi-drawer { width: 100%; max-width: 100%; }
+
+  /* Form inputs: bigger for touch */
+  .form-input, .form-select, .form-textarea {
+    font-size: 14px; min-height: 44px;
   }
 
-  .modal-header {
-    padding: 12px 14px;
-  }
-  .modal-body {
-    padding: 14px;
-  }
-  .modal-footer {
-    padding: 10px 14px;
-  }
-
-  /* ─── Drawer ─── */
-  .kpi-drawer {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  /* ─── Chart card headers ─── */
-  .chart-card-header h3 { font-size: 12px; }
-  .chart-subtitle { font-size: 9px; }
-
-  /* ─── Survey ─── */
-  .survey-body { padding: 14px 12px !important; }
-
-  /* ─── Form ─── */
-  .form-input,
-  .form-select,
-  .form-textarea {
-    font-size: 14px;
-    min-height: 44px;
-  }
-
-  /* ─── Toast ─── */
+  /* Toast */
   .toast {
-    top: auto;
-    bottom: 12px;
-    right: 8px;
-    left: 8px;
-    max-width: none;
-    font-size: 12px;
-    text-align: center;
+    top: auto; bottom: 12px; right: 8px; left: 8px;
+    max-width: none; font-size: 12px; text-align: center;
   }
 }
 
 /* ── 320px: Very small phones (SE, 5s) ───────────────────────────────── */
 @media (max-width: 320px) {
-  .header-kpis {
-    gap: 3px;
-  }
-
-  .kpi-chip {
-    padding: 6px 8px;
-  }
-  .kpi-chip .kv { font-size: 12px; }
-
-  .tab-btn {
-    padding: 7px 8px;
-    font-size: 9px;
-    min-height: 36px;
-  }
-
-  .tab-panel {
-    padding: 6px 4px 24px;
-  }
-
-  .vt-rows {
-    min-width: 360px;
-  }
+  .tab-btn { padding: 6px 7px; font-size: 8px; min-height: 34px; }
+  .tab-panel { padding: 6px 4px 20px; }
 
   .vt-row,
+  .vt-head-row,
   .vt-data-row {
-    grid-template-columns: 32px 44px 44px 56px 1fr;
-    font-size: 8px;
+    min-width: 480px;
+    grid-template-columns: 26px 40px 40px 48px 36px 48px 1fr 36px 1fr;
+    font-size: 7px;
   }
-
-  .vt-cell {
-    padding: 4px 3px;
-    font-size: 8px;
-  }
+  .vt-cell { padding: 3px 2px; font-size: 7px; }
 
   .panel-title { font-size: 12px; }
-
-  .btn-primary,
-  .btn-ghost,
-  .btn-danger {
-    font-size: 11px;
-    padding: 8px 12px;
-    min-height: 40px;
+  .btn-primary, .btn-ghost, .btn-danger {
+    font-size: 11px; padding: 8px 12px; min-height: 38px;
   }
 }
 

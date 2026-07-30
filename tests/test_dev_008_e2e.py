@@ -46,7 +46,8 @@ class TestDeploymentFiles(unittest.TestCase):
         self.assertTrue(os.path.isfile(path), "railway.json missing")
         with open(path) as f:
             cfg = json.load(f)
-        self.assertEqual(cfg["build"]["builder"], "NO_BUILD")
+        self.assertEqual(cfg["build"]["builder"], "DOCKERFILE")
+        self.assertEqual(cfg["build"]["dockerfilePath"], "Dockerfile")
         self.assertIn("healthcheckPath", cfg["deploy"])
         self.assertEqual(cfg["deploy"]["healthcheckPath"], "/api/kpis")
 

@@ -96,10 +96,10 @@ Once connected, every `git push origin main` triggers an automatic redeploy:
 
 | File | Purpose |
 |---|---|
-| `Procfile` | Railway start command: `web: python scripts/api_server.py` |
-| `railway.json` | Build/deploy configuration (Nixpacks builder, health check path, restart policy) |
-| `requirements.txt` | Python dependencies (auto-detected by Railway) |
-| `Dockerfile` | Kept for local/Ollama-full deployments (Railway uses Nixpacks, not this file) |
+| `Dockerfile` | Railway builder image — Python 3.11-slim, no Ollama (single-process, memory-safe) |
+| `railway.json` | Build/deploy configuration (DOCKERFILE builder, health check, restart policy) |
+| `requirements.txt` | Python dependencies (copied into Docker image) |
+| `Procfile` | Fallback start command (not used with DOCKERFILE builder) |
 
 ---
 
@@ -128,14 +128,19 @@ postgresql://postgres:password@aws-0-ap-south-1.pooler.supabase.com:6543/postgre
 
 The application's `database/db.py` automatically appends `sslmode=require` if it is missing from the connection string, but you should always include it explicitly for clarity.
 
-### Ollama & AI Features on Railway
+### Ollama Excluded from Docker Build (Memory Constraint)
 
-**The deployed container does NOT include Ollama** (container resource limits make it impractical). AI-powered endpoints (`/api/search`, `/api/recommend`, `/api/per-product-recommend`) will return `503` with `{"error": "Ollama service unavailable"}` unless you configure an external Ollama instance.
+**Ollama is intentionally excluded from the Railway Docker image.** The previous Dockerfile bundled a full Ollama binary (`~800MB`) plus the `llama3.2:1b` model, and required supervisord to manage three processes. Railway containers run on 512MB–2GB RAM; Ollama alone would consume the entire budget before the Python API server could handle a single request.
+
+Instead, the container runs a **single Python process** (`python scripts/api_server.py`) that reads `$PORT` from the environment. AI endpoints depend on an **external LLM service** configured via environment variables.
+
+AI-powered endpoints (`/api/search`, `/api/recommend`, `/api/per-product-recommend`) will return `503` with `{"error": "Ollama service unavailable"}` unless an external LLM host is configured.
 
 To enable AI features in production:
-1. Run Ollama on a separate machine (or your local dev machine).
-2. Set `OLLAMA_BASE_URL` to the external Ollama IP: `http://<your-ip>:11434`.
-3. Set `OLLAMA_MODEL` to your preferred model (e.g., `llama3.2:1b`).
+1. Deploy Ollama on a separate machine (or run `ollama serve` on your local machine).
+2. Set `OLLAMA_BASE_URL=http://<your-ip>:11434` in Railway **Variables**.
+3. Set `OLLAMA_MODEL=llama3.2:1b` (or your preferred model).
+4. Ensure the model is pulled (`ollama pull llama3.2:1b`) on the external host.
 
 For the final presentation, you can run Ollama locally and configure the env var, or demonstrate the non-AI features (product grid, cart sync, dashboard KPIs, charts, user management, database filtering/sorting).
 

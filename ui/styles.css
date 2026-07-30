@@ -2778,8 +2778,13 @@ svg { flex-shrink: 0; }
   .chart-grid { grid-template-columns: 1fr; gap: 10px; }
   .matrix-grid { grid-template-columns: 1fr; gap: 8px; }
 
-  .virtual-table { font-size: 12px; }
-  .virtual-table th, .virtual-table td { padding: 6px 8px; }
+  .virtual-table { font-size: 11px; overflow-x: auto; display: block; white-space: nowrap; }
+  .virtual-table th, .virtual-table td { padding: 4px 6px; }
+  .virtual-table::-webkit-scrollbar { height: 3px; }
+  .virtual-table::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 4px; }
+
+  .data-table { font-size: 11px; overflow-x: auto; display: block; white-space: nowrap; }
+  .data-table th, .data-table td { padding: 4px 6px; }
   .data-controls { flex-wrap: wrap; gap: 6px; }
   .data-controls select, .data-controls input, .data-controls button { font-size: 12px; padding: 5px 8px; }
 
@@ -2807,5 +2812,9 @@ svg { flex-shrink: 0; }
   #appHeader { padding: 8px; }
   .kpi-strip { padding: 6px 8px; }
   .dashboard-layout { padding: 6px; }
+  .virtual-table { font-size: 10px; }
+  .virtual-table th, .virtual-table td { padding: 3px 4px; }
+  .data-table { font-size: 10px; }
+  .data-table th, .data-table td { padding: 3px 4px; }
 }
 

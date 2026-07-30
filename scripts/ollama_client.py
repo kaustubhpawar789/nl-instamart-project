@@ -23,15 +23,19 @@ class OllamaClient:
         self._generate_endpoint = f"{self.base_url}/api/generate"
 
     def chat(self, messages, temperature=0.4, max_tokens=2000, timeout=300, format=None):
-        # Try native /api/generate first (more reliable on Ollama),
-        # fall back to OpenAI-compatible /v1/chat/completions.
-        try:
-            return self._generate(messages, temperature, max_tokens, timeout, format)
-        except Exception as e:
+        last_err = None
+        for attempt in range(3):
             try:
-                return self._chat_completions(messages, temperature, max_tokens, timeout, format)
-            except Exception:
-                raise e
+                return self._generate(messages, temperature, max_tokens, timeout, format)
+            except Exception as e:
+                last_err = e
+                if attempt == 0:
+                    try:
+                        return self._chat_completions(messages, temperature, max_tokens, timeout, format)
+                    except Exception:
+                        pass
+                time.sleep(2 * (attempt + 1))
+        raise RuntimeError(f"Ollama request failed after 3 retries: {last_err}")
 
     def _pull_model(self):
         """Pull the configured model via Ollama API, returns True on success."""

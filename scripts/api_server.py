@@ -1339,7 +1339,7 @@ class APIHandler(SimpleHTTPRequestHandler):
             answer = self._call_ollama_search(client, query, context)
             self._json({"answer": answer, "query": query, "sources": context["source_list"]})
         except Exception as e:
-            self._json({"error": f"AI service temporarily unavailable: {str(e)}"}, 502)
+            self._json({"error": f"AI service error: {str(e)}"}, 502)
 
     def _sanitize_query(self, query):
         query = re.sub(r'<[^>]+>', '', query)

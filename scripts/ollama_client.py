@@ -91,7 +91,11 @@ class OllamaClient:
         if format:
             payload["format"] = format
         resp = _http.post(self._generate_endpoint, json=payload, timeout=timeout)
-        resp.raise_for_status()
+        if resp.status_code != 200:
+            raise RuntimeError(
+                f"Ollama /api/generate returned HTTP {resp.status_code}: "
+                f"{resp.text[:300]}"
+            )
         data = resp.json()
         return data.get("response", "")
 

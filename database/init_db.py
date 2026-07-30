@@ -211,6 +211,11 @@ COMMIT;
 def init_schema():
     conn = get_connection()
     cur = conn.cursor()
+    # Phase 1 schema (reviews, themes, categories, etc.)
+    schema_path = os.path.join(ROOT, "database", "schema.sql")
+    with open(schema_path) as f:
+        cur.execute(f.read())
+    # Phase 2 schema (users, products, recommendations, etc.)
     cur.execute(PHASE2_SCHEMA)
     conn.commit()
     cur.close()

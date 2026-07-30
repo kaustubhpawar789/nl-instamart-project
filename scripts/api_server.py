@@ -27,6 +27,9 @@ from scripts import auto_cleanup
 
 _ollama_client = None
 
+_search_jobs = {}
+_search_jobs_lock = threading.Lock()
+
 SCRAPE_SIM_DELAY = 4
 
 
@@ -139,6 +142,9 @@ class APIHandler(SimpleHTTPRequestHandler):
         handler = routes.get(path)
         if handler:
             handler(params)
+        elif path.startswith("/api/search/"):
+            job_id = path[len("/api/search/"):]
+            self._get_search_job(job_id, params)
         elif path.startswith("/api/"):
             self.send_error(404)
         elif path.startswith("/ui/"):
@@ -1315,7 +1321,7 @@ class APIHandler(SimpleHTTPRequestHandler):
                 break
         return picked
 
-    # ── POST /api/search ──────────────────────────────────────────────────
+    # ── POST /api/search (async, returns job_id; poll GET /api/search/<id>) ─
 
     def _post_search(self):
         body = self._parse_body()
@@ -1324,19 +1330,92 @@ class APIHandler(SimpleHTTPRequestHandler):
             self._json({"error": "Query is required"}, 400)
             return
 
-        client = self._get_ollama_client()
-
         query = self._sanitize_query(query)
 
+        # Build context synchronously — fast (no AI call)
+        context = self._build_search_context(query)
+        if context["total"] == 0:
+            self._json({"answer": "The database is currently empty — there are no reviews to analyze yet. Try scraping some data first.", "query": query, "sources": []})
+            return
+
+        job_id = str(uuid.uuid4())
+        with _search_jobs_lock:
+            _search_jobs[job_id] = {
+                "status": "processing",
+                "query": query,
+                "answer": None,
+                "sources": context["source_list"],
+                "error": None,
+                "_ts": time.time(),
+            }
+
+        # Kick off AI processing in background
+        t = threading.Thread(target=self._process_search_job, args=(job_id, query))
+        t.daemon = True
+        t.start()
+
+        self._json({"job_id": job_id})
+
+    def _get_search_job(self, job_id, params):
+        with _search_jobs_lock:
+            job = _search_jobs.get(job_id)
+
+        if job is None:
+            self._json({"error": "Job not found"}, 404)
+            return
+
+        resp = {"status": job["status"]}
+        if job["status"] == "done":
+            resp["answer"] = job["answer"]
+            resp["query"] = job["query"]
+            resp["sources"] = job["sources"]
+            # Clean up completed jobs
+            with _search_jobs_lock:
+                _search_jobs.pop(job_id, None)
+        elif job["status"] == "error":
+            resp["error"] = job["error"]
+            with _search_jobs_lock:
+                _search_jobs.pop(job_id, None)
+
+        self._json(resp)
+
+    def _process_search_job(self, job_id, query):
         try:
+            client = self._get_ollama_client()
             context = self._build_search_context(query)
-            if context["total"] == 0:
-                self._json({"answer": "The database is currently empty — there are no reviews to analyze yet. Try scraping some data first.", "query": query, "sources": []})
-                return
             answer = self._call_ollama_search(client, query, context)
-            self._json({"answer": answer, "query": query, "sources": context["source_list"]})
+            with _search_jobs_lock:
+                if job_id in _search_jobs:
+                    _search_jobs[job_id] = {
+                        "status": "done",
+                        "query": query,
+                        "answer": answer,
+                        "sources": context["source_list"],
+                        "error": None,
+                    }
         except Exception as e:
-            self._json({"error": f"AI service error: {str(e)}"}, 502)
+            with _search_jobs_lock:
+                if job_id in _search_jobs:
+                    _search_jobs[job_id] = {
+                        "status": "error",
+                        "query": query,
+                        "answer": None,
+                        "sources": [],
+                        "error": str(e),
+                    }
+
+    # ── Periodic cleanup of stale jobs ─────────────────────────────────────
+
+    @staticmethod
+    def _cleanup_stale_jobs():
+        while True:
+            time.sleep(60)
+            cutoff = time.time() - 300  # 5 min
+            with _search_jobs_lock:
+                stale = [jid for jid, j in _search_jobs.items()
+                         if j.get("status") == "processing" and j.get("_ts", 0) < cutoff]
+                for jid in stale:
+                    _search_jobs.pop(jid, None)
 
     def _sanitize_query(self, query):
         query = re.sub(r'<[^>]+>', '', query)
@@ -1531,6 +1610,9 @@ def main():
     port = int(sys.argv[1]) if len(sys.argv) > 1 else int(os.environ.get("PORT", 8080))
     os.chdir(ROOT)
     auto_cleanup.start_cleanup_monitor()
+    # Start stale job cleanup thread
+    t = threading.Thread(target=APIHandler._cleanup_stale_jobs, daemon=True)
+    t.start()
     server = ThreadedHTTPServer(("0.0.0.0", port), APIHandler)
     print(f"Server running at http://localhost:{port}")
     print(f"Dashboard: http://localhost:{port}/ui/index.html")
@@ -1546,7 +1628,8 @@ def main():
     print(f"  POST /api/scrape           - Start scrape job")
     print(f"  POST /api/survey/submit    - Submit survey response")
     print(f"  GET  /api/products          - All active products with categories")
-    print(f"  POST /api/search           - AI natural language search")
+    print(f"  POST /api/search           - AI natural language search (async, returns job_id)")
+    print(f"  GET  /api/search/<job_id>  - Poll for search result")
     print(f"  POST /api/feedback         - Log recommendation feedback (add_to_cart / not_interested)")
     print(f"  DEL  /api/charts/configs/<id> - Delete chart config")
     server.serve_forever()

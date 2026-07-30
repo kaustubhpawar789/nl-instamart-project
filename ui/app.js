@@ -1320,30 +1320,83 @@ const AISearch = {
     results.scrollTop = results.scrollHeight;
 
     try {
-      const data = await API.post('/api/search', { query });
-      loading.remove();
+      const init = await API.post('/api/search', { query });
 
-      if (data.error) {
+      if (init.error) {
+        loading.remove();
         const errDiv = document.createElement('div');
         errDiv.className = 'aisearch-msg aisearch-error';
-        errDiv.textContent = data.error;
+        errDiv.textContent = init.error;
         results.appendChild(errDiv);
-      } else {
+        if (btn) btn.disabled = false;
+        return;
+      }
+
+      if (init.job_id) {
+        loading.innerHTML = '<div class="aisearch-spinner"></div><span>AI thinking…</span>';
+        // Poll for result
+        const poll = async () => {
+          for (let i = 0; i < 60; i++) {
+            await new Promise(r => setTimeout(r, 2000));
+            try {
+              const resp = await API.get('/api/search/' + init.job_id);
+              if (resp.status === 'done') {
+                loading.remove();
+                const aiMsg = document.createElement('div');
+                aiMsg.className = 'aisearch-msg aisearch-ai';
+                const answerDiv = document.createElement('div');
+                answerDiv.className = 'aisearch-answer';
+                answerDiv.innerHTML = this._formatAnswer(resp.answer);
+                aiMsg.appendChild(answerDiv);
+                if (resp.sources && resp.sources.length) {
+                  const srcDiv = document.createElement('div');
+                  srcDiv.className = 'aisearch-sources';
+                  srcDiv.textContent = 'Sources: ' + resp.sources.join(', ');
+                  aiMsg.appendChild(srcDiv);
+                }
+                results.appendChild(aiMsg);
+                if (btn) btn.disabled = false;
+                results.scrollTop = results.scrollHeight;
+                return;
+              }
+              if (resp.status === 'error') {
+                loading.remove();
+                const errDiv = document.createElement('div');
+                errDiv.className = 'aisearch-msg aisearch-error';
+                errDiv.textContent = resp.error || 'AI search failed';
+                results.appendChild(errDiv);
+                if (btn) btn.disabled = false;
+                return;
+              }
+            } catch (e) {
+              // retry
+            }
+          }
+          loading.remove();
+          const errDiv = document.createElement('div');
+          errDiv.className = 'aisearch-msg aisearch-error';
+          errDiv.textContent = 'AI search timed out';
+          results.appendChild(errDiv);
+          if (btn) btn.disabled = false;
+        };
+        poll();
+      } else if (init.answer) {
+        loading.remove();
         const aiMsg = document.createElement('div');
         aiMsg.className = 'aisearch-msg aisearch-ai';
-
         const answerDiv = document.createElement('div');
         answerDiv.className = 'aisearch-answer';
-        answerDiv.innerHTML = this._formatAnswer(data.answer);
+        answerDiv.innerHTML = this._formatAnswer(init.answer);
         aiMsg.appendChild(answerDiv);
-
-        if (data.sources && data.sources.length) {
+        if (init.sources && init.sources.length) {
           const srcDiv = document.createElement('div');
           srcDiv.className = 'aisearch-sources';
-          srcDiv.textContent = 'Sources: ' + data.sources.join(', ');
+          srcDiv.textContent = 'Sources: ' + init.sources.join(', ');
           aiMsg.appendChild(srcDiv);
         }
         results.appendChild(aiMsg);
+        if (btn) btn.disabled = false;
+        results.scrollTop = results.scrollHeight;
       }
     } catch (e) {
       loading.remove();
@@ -1351,10 +1404,9 @@ const AISearch = {
       errDiv.className = 'aisearch-msg aisearch-error';
       errDiv.textContent = 'Network error — is the API server running?';
       results.appendChild(errDiv);
+      if (btn) btn.disabled = false;
+      results.scrollTop = results.scrollHeight;
     }
-
-    if (btn) btn.disabled = false;
-    results.scrollTop = results.scrollHeight;
   },
 
   _formatAnswer(text) {

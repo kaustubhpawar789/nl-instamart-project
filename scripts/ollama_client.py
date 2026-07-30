@@ -69,6 +69,15 @@ class OllamaClient:
 
         raise last_error or RuntimeError("Ollama request failed after 3 retries")
 
+    def _pull_model(self):
+        """Pull the configured model via Ollama API, returns True on success."""
+        try:
+            pull_url = f"{self.base_url}/api/pull"
+            resp = _http.post(pull_url, json={"name": self.model, "stream": False}, timeout=300)
+            return resp.status_code == 200
+        except Exception:
+            return False
+
     def _fallback_generate(self, messages, temperature, max_tokens, timeout, format=None):
         system_msgs = [m for m in messages if m.get("role") == "system"]
         user_msgs = [m for m in messages if m.get("role") == "user"]
@@ -91,6 +100,16 @@ class OllamaClient:
         if format:
             payload["format"] = format
         resp = _http.post(self._generate_endpoint, json=payload, timeout=timeout)
+        if resp.status_code == 404 and "not found" in resp.text:
+            if self._pull_model():
+                resp = _http.post(self._generate_endpoint, json=payload, timeout=timeout)
+                if resp.status_code == 200:
+                    data = resp.json()
+                    return data.get("response", "")
+            raise RuntimeError(
+                f"Ollama model '{self.model}' not found and auto-pull failed. "
+                f"Run: ollama pull {self.model}"
+            )
         if resp.status_code != 200:
             raise RuntimeError(
                 f"Ollama /api/generate returned HTTP {resp.status_code}: "

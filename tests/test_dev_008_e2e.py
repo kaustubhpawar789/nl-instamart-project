@@ -1,0 +1,244 @@
+#!/usr/bin/env python3
+"""
+tests/test_dev_008_e2e.py — DEV-008 End-to-End Health Check
+Verifies deployment configuration files, the PORT env patch, docs completeness,
+and runs an E2E health check against all core API endpoints.
+
+Usage:
+    python -m pytest tests/test_dev_008_e2e.py -v
+    # (API endpoint tests require the server to be running on localhost:8080)
+"""
+
+import json
+import os
+import sys
+import unittest
+
+import requests
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+API_BASE = os.environ.get("API_BASE", "http://localhost:8080")
+
+REQUIRED_DEPLOYMENT_FILES = [
+    "Procfile",
+    "railway.json",
+    "requirements.txt",
+    "Dockerfile",
+]
+
+
+class TestDeploymentFiles(unittest.TestCase):
+    """Structural checks — no server needed."""
+
+    def test_procfile_exists_and_correct(self):
+        path = os.path.join(ROOT, "Procfile")
+        self.assertTrue(os.path.isfile(path), "Procfile missing")
+        with open(path) as f:
+            content = f.read().strip()
+        self.assertEqual(content, "web: python scripts/api_server.py")
+
+    def test_railway_json_exists_and_valid(self):
+        path = os.path.join(ROOT, "railway.json")
+        self.assertTrue(os.path.isfile(path), "railway.json missing")
+        with open(path) as f:
+            cfg = json.load(f)
+        self.assertEqual(cfg["build"]["builder"], "NO_BUILD")
+        self.assertIn("healthcheckPath", cfg["deploy"])
+        self.assertEqual(cfg["deploy"]["healthcheckPath"], "/api/kpis")
+
+    def test_requirements_txt_exists(self):
+        path = os.path.join(ROOT, "requirements.txt")
+        self.assertTrue(os.path.isfile(path))
+        with open(path) as f:
+            deps = f.read()
+        self.assertIn("requests", deps)
+        self.assertIn("psycopg2-binary", deps)
+        self.assertIn("python-dotenv", deps)
+
+    def test_dockerfile_exists(self):
+        path = os.path.join(ROOT, "Dockerfile")
+        self.assertTrue(os.path.isfile(path), "Dockerfile missing")
+
+    def test_api_server_port_patch(self):
+        """Verify the PORT env var fallback is in api_server.py."""
+        path = os.path.join(ROOT, "scripts", "api_server.py")
+        self.assertTrue(os.path.isfile(path))
+        with open(path) as f:
+            content = f.read()
+        self.assertIn('os.environ.get("PORT", 8080)', content,
+                      "PORT env var patch missing — expected os.environ.get(\"PORT\", 8080)")
+
+    def test_deployment_docs_exist(self):
+        path = os.path.join(ROOT, "docs", "deployment.md")
+        self.assertTrue(os.path.isfile(path))
+        with open(path) as f:
+            md = f.read()
+        required_sections = [
+            "Railway Deployment (Production)",
+            "Step 1: Push Code to GitHub",
+            "Step 2: Create a Railway Project",
+            "Step 3: Provision PostgreSQL",
+            "Step 4: Initialize the Database Schema",
+            "GitHub Auto-Deploy",
+        ]
+        for section in required_sections:
+            self.assertIn(section, md, f"deployment.md missing section: {section}")
+
+    def test_context_md_has_dev008(self):
+        path = os.path.join(ROOT, "docs", "context.md")
+        self.assertTrue(os.path.isfile(path))
+        with open(path) as f:
+            content = f.read()
+        self.assertIn("DEV-008 completed", content,
+                      "context.md missing DEV-008 completed entry")
+        self.assertIn("fully deployed and ready for final PPT presentation", content,
+                      "context.md missing 'fully deployed and ready for final PPT presentation'")
+
+    def test_all_deployment_files_present(self):
+        for name in REQUIRED_DEPLOYMENT_FILES:
+            path = os.path.join(ROOT, name)
+            self.assertTrue(os.path.isfile(path), f"Missing deployment file: {name}")
+
+    def test_gitignore_covers_dot_env_and_logs(self):
+        path = os.path.join(ROOT, ".gitignore")
+        self.assertTrue(os.path.isfile(path))
+        with open(path) as f:
+            lines = f.read().splitlines()
+        ignored = set(lines)
+        for pattern in [".env", ".env.*", "secrets/.env", "*.log", "__pycache__/"]:
+            self.assertIn(pattern, ignored, f".gitignore missing pattern: {pattern}")
+
+
+class TestAPIEndpoints(unittest.TestCase):
+    """E2E endpoint health checks — requires server on API_BASE."""
+
+    @classmethod
+    def setUpClass(cls):
+        try:
+            r = requests.get(f"{API_BASE}/api/kpis", timeout=5)
+            cls.server_available = r.status_code == 200
+        except Exception:
+            cls.server_available = False
+            raise unittest.SkipTest(
+                f"API server not reachable at {API_BASE}. "
+                "Start the server first:\n"
+                "  python scripts/api_server.py\n"
+                "Then re-run these tests."
+            )
+
+    def test_endpoint_kpis(self):
+        r = requests.get(f"{API_BASE}/api/kpis", timeout=10)
+        self.assertEqual(r.status_code, 200)
+        data = r.json()
+        expected_keys = {"ai_analyzed", "themes", "key_insights", "categories",
+                         "data_sources", "survey_responses", "last_updated"}
+        self.assertTrue(expected_keys.issubset(data.keys()),
+                        f"Missing KPIs keys: {expected_keys - data.keys()}")
+
+    def test_endpoint_insights(self):
+        r = requests.get(f"{API_BASE}/api/insights", timeout=10)
+        self.assertEqual(r.status_code, 200)
+        data = r.json()
+        for key in ("themes", "insights", "sentiment", "categories"):
+            self.assertIn(key, data, f"insights missing key: {key}")
+
+    def test_endpoint_records(self):
+        r = requests.get(f"{API_BASE}/api/records", timeout=10)
+        self.assertEqual(r.status_code, 200)
+        data = r.json()
+        self.assertIn("records", data)
+        self.assertIn("total", data)
+
+    def test_endpoint_charts_data(self):
+        r = requests.get(f"{API_BASE}/api/charts/data", timeout=10)
+        self.assertEqual(r.status_code, 200)
+        data = r.json()
+        self.assertIn("labels", data)
+        self.assertIn("values", data)
+
+    def test_endpoint_charts_configs(self):
+        r = requests.get(f"{API_BASE}/api/charts/configs", timeout=10)
+        self.assertEqual(r.status_code, 200)
+        self.assertIsInstance(r.json(), list)
+
+    def test_endpoint_scrape_status(self):
+        r = requests.get(f"{API_BASE}/api/scrape/status", timeout=10)
+        self.assertEqual(r.status_code, 200)
+        data = r.json()
+        self.assertIn("running", data)
+
+    def test_endpoint_survey_responses(self):
+        r = requests.get(f"{API_BASE}/api/survey/responses", timeout=10)
+        self.assertEqual(r.status_code, 200)
+        data = r.json()
+        self.assertIn("responses", data)
+        self.assertIn("total", data)
+
+    def test_endpoint_matrix(self):
+        r = requests.get(f"{API_BASE}/api/matrix", timeout=10)
+        self.assertEqual(r.status_code, 200)
+        data = r.json()
+        self.assertIn("categories", data)
+        self.assertIn("total_reviews", data)
+        if data["categories"]:
+            cat = data["categories"][0]
+            for key in ("id", "name", "mentions", "sources"):
+                self.assertIn(key, cat, f"matrix category missing key: {key}")
+
+    def test_endpoint_users(self):
+        r = requests.get(f"{API_BASE}/api/users", timeout=10)
+        self.assertEqual(r.status_code, 200)
+        data = r.json()
+        self.assertIn("users", data)
+        self.assertIn("total", data)
+
+    def test_endpoint_products(self):
+        r = requests.get(f"{API_BASE}/api/products", timeout=10)
+        self.assertEqual(r.status_code, 200)
+        data = r.json()
+        self.assertIn("products", data)
+        if data["products"]:
+            p = data["products"][0]
+            for key in ("id", "name", "price", "sku", "category_name"):
+                self.assertIn(key, p, f"product missing key: {key}")
+
+    def test_endpoint_cart_no_user_returns_400(self):
+        r = requests.get(f"{API_BASE}/api/cart", timeout=10)
+        self.assertEqual(r.status_code, 400)
+        data = r.json()
+        self.assertIn("error", data)
+
+    def test_static_ui_index_serves(self):
+        r = requests.get(f"{API_BASE}/ui/index.html", timeout=10)
+        self.assertEqual(r.status_code, 200)
+        self.assertIn("text/html", r.headers.get("Content-Type", ""))
+
+    def test_static_ui_shop_serves(self):
+        r = requests.get(f"{API_BASE}/ui/shop.html", timeout=10)
+        self.assertEqual(r.status_code, 200)
+        self.assertIn("text/html", r.headers.get("Content-Type", ""))
+
+    def test_root_redirects_to_index(self):
+        r = requests.get(f"{API_BASE}/", timeout=10, allow_redirects=False)
+        self.assertIn(r.status_code, (200, 302))
+
+    def test_cors_headers_present(self):
+        r = requests.get(f"{API_BASE}/api/kpis", timeout=10)
+        self.assertEqual(r.headers.get("Access-Control-Allow-Origin"), "*")
+
+    def test_post_search_returns_json(self):
+        r = requests.post(f"{API_BASE}/api/search",
+                          json={"query": "delivery"},
+                          timeout=15)
+        self.assertIn(r.status_code, (200, 502, 503))
+        data = r.json()
+        if r.status_code == 200:
+            self.assertIn("answer", data)
+
+    def test_unknown_endpoint_returns_404(self):
+        r = requests.get(f"{API_BASE}/api/nonexistent", timeout=10)
+        self.assertEqual(r.status_code, 404)
+
+
+if __name__ == "__main__":
+    unittest.main()

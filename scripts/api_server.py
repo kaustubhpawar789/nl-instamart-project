@@ -685,22 +685,14 @@ class APIHandler(SimpleHTTPRequestHandler):
     # ── POST /api/seed ────────────────────────────────────────────────────
 
     def _post_seed(self):
-        self._json({"ok": True, "message": "Seeding database... check container logs"})
-        import threading
-        t = threading.Thread(target=self._run_seed, daemon=True)
-        t.start()
-
-    def _run_seed(self):
-        print("[api] Seeding database...")
         try:
             import database.init_db
             database.init_db.init_schema()
-            print("[api] Schema initialized")
             import database.seed_mock_data
             database.seed_mock_data.main()
-            print("[api] Database seeded successfully")
+            self._json({"ok": True, "message": "Database seeded successfully"})
         except Exception as e:
-            print(f"[api] Seed error: {e}")
+            self._json({"error": f"Seed failed: {e}"}, 500)
 
     # ── POST /api/recommend ───────────────────────────────────────────────
 

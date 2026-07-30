@@ -62,7 +62,7 @@ def get_connection(autocommit=False):
 
 _last_request_time = time.time()
 _tracker_lock = threading.Lock()
-INACTIVITY_TIMEOUT = 300  # 5 minutes in seconds
+INACTIVITY_TIMEOUT = 86400  # 24 hours (was 300s — too short for demos)
 _MONITOR_INTERVAL = 30    # check every 30 seconds
 
 

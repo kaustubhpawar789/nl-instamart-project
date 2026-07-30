@@ -1325,9 +1325,6 @@ class APIHandler(SimpleHTTPRequestHandler):
             return
 
         client = self._get_ollama_client()
-        if not client.is_available():
-            self._json({"error": "AI service not configured — Ollama is not running"}, 503)
-            return
 
         query = self._sanitize_query(query)
 

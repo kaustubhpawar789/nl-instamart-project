@@ -143,15 +143,6 @@ class OllamaClient:
             print(f"[ollama] Warmup failed (will load on first request): {e}")
 
     def is_available(self):
-        for ep in ("/api/tags", "/v1/models"):
-            try:
-                resp = _http.get(f"{self.base_url}{ep}", timeout=5, headers=self._headers())
-                if resp.status_code == 200:
-                    if resp.headers.get("content-type", "").startswith("application/json"):
-                        return True
-            except Exception:
-                continue
-        # Fallback: try a quick chat to see if the endpoint responds
         try:
             resp = _http.post(self._chat_endpoint, json={
                 "model": self.model, "messages": [{"role": "user", "content": "hi"}], "stream": False

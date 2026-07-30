@@ -18,6 +18,7 @@ class OllamaClient:
     def __init__(self, base_url=None, model=None):
         self.base_url = (base_url or OLLAMA_BASE_URL).rstrip("/")
         self.model = model or OLLAMA_MODEL
+        self._api_key = os.getenv("OLLAMA_API_KEY") or os.getenv("GROQ_API_KEY") or ""
         self._chat_endpoint = f"{self.base_url}/v1/chat/completions"
         self._generate_endpoint = f"{self.base_url}/api/generate"
 
@@ -37,7 +38,7 @@ class OllamaClient:
         try:
             print(f"[ollama] Pulling model '{self.model}'...")
             pull_url = f"{self.base_url}/api/pull"
-            resp = _http.post(pull_url, json={"name": self.model, "stream": False}, timeout=300)
+            resp = _http.post(pull_url, json={"name": self.model, "stream": False}, timeout=300, headers=self._headers())
             if resp.status_code == 200:
                 print(f"[ollama] Model '{self.model}' pulled successfully")
             return resp.status_code == 200
@@ -68,10 +69,10 @@ class OllamaClient:
             payload["format"] = format
 
         for attempt in range(2):
-            resp = _http.post(self._generate_endpoint, json=payload, timeout=timeout)
+            resp = _http.post(self._generate_endpoint, json=payload, timeout=timeout, headers=self._headers())
             if resp.status_code == 404 and "not found" in resp.text.lower():
                 if self._pull_model():
-                    resp = _http.post(self._generate_endpoint, json=payload, timeout=timeout)
+                    resp = _http.post(self._generate_endpoint, json=payload, timeout=timeout, headers=self._headers())
                     if resp.status_code == 200:
                         data = resp.json()
                         return data.get("response", "")
@@ -100,10 +101,10 @@ class OllamaClient:
             payload["format"] = format
 
         for attempt in range(2):
-            resp = _http.post(self._chat_endpoint, json=payload, timeout=timeout)
+            resp = _http.post(self._chat_endpoint, json=payload, timeout=timeout, headers=self._headers())
             if resp.status_code == 404 and "not found" in resp.text.lower():
                 if self._pull_model():
-                    resp = _http.post(self._chat_endpoint, json=payload, timeout=timeout)
+                    resp = _http.post(self._chat_endpoint, json=payload, timeout=timeout, headers=self._headers())
                     if resp.status_code == 200:
                         data = resp.json()
                         return data["choices"][0]["message"]["content"]
@@ -120,12 +121,18 @@ class OllamaClient:
             f"Ollama /v1/chat/completions returned HTTP {resp.status_code}: {resp.text[:200]}"
         )
 
+    def _headers(self):
+        h = {"Content-Type": "application/json"}
+        if self._api_key:
+            h["Authorization"] = f"Bearer {self._api_key}"
+        return h
+
     def _warmup(self):
         """Pre-load the model into memory so the first user query is fast."""
         try:
             resp = _http.post(self._generate_endpoint, json={
                 "model": self.model, "prompt": "hi", "stream": False
-            }, timeout=300)
+            }, timeout=300, headers=self._headers())
             if resp.status_code == 200:
                 print(f"[ollama] Model '{self.model}' warmed up and ready")
         except Exception as e:
@@ -133,7 +140,7 @@ class OllamaClient:
 
     def is_available(self):
         try:
-            resp = _http.get(f"{self.base_url}/api/tags", timeout=5)
+            resp = _http.get(f"{self.base_url}/api/tags", timeout=5, headers=self._headers())
             if resp.status_code == 200:
                 models = [m["name"] for m in resp.json().get("models", [])]
                 if self.model not in models:
@@ -145,7 +152,7 @@ class OllamaClient:
 
     def list_models(self):
         try:
-            resp = _http.get(f"{self.base_url}/api/tags", timeout=5)
+            resp = _http.get(f"{self.base_url}/api/tags", timeout=5, headers=self._headers())
             if resp.status_code == 200:
                 return [m["name"] for m in resp.json().get("models", [])]
             return []

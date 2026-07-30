@@ -16,16 +16,22 @@ import psycopg2.extras
 
 
 def _ensure_sslmode(url):
-    """Append sslmode=require for remote hosts if not already present.
-    Required by Supabase and most cloud PostgreSQL providers.
-    Skips localhost connections to avoid breaking local development.
+    """Append sslmode=require and pgbouncer=true for remote hosts if not
+    already present.  Required by Supabase and most cloud PostgreSQL
+    providers.  Skips localhost connections to avoid breaking local dev.
     """
-    if "sslmode" in url:
-        return url
     host = _extract_host(url)
     if host and host in ("localhost", "127.0.0.1", "::1"):
         return url
-    url += "&sslmode=require" if "?" in url else "?sslmode=require"
+
+    sep = "&" if "?" in url else "?"
+    params = []
+    if "sslmode" not in url:
+        params.append("sslmode=require")
+    if "pgbouncer" not in url and "pooler" in (host or ""):
+        params.append("pgbouncer=true")
+    if params:
+        url += sep + "&".join(params)
     return url
 
 

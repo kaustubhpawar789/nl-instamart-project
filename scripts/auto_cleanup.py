@@ -27,10 +27,6 @@ load_dotenv(os.path.join(ROOT, "secrets", ".env"))
 # ── Tables ────────────────────────────────────────────────────────────────
 
 DYNAMIC_TABLES = [
-    "users",
-    "products",
-    "recommendations",
-    "feedback",
     "tickets",
     "test_data",
     "workflow_outputs",
@@ -43,11 +39,15 @@ DYNAMIC_TABLES = [
     "insights",
     "sentiment",
     "research_data",
-    "user_carts",
 ]
 
 PRESERVED_TABLES = [
     "categories",
+    "users",
+    "products",
+    "recommendations",
+    "feedback",
+    "user_carts",
 ]
 
 
@@ -62,7 +62,7 @@ def get_connection(autocommit=False):
 
 _last_request_time = time.time()
 _tracker_lock = threading.Lock()
-INACTIVITY_TIMEOUT = 86400  # 24 hours (was 300s — too short for demos)
+INACTIVITY_TIMEOUT = 300  # 5 minutes
 _MONITOR_INTERVAL = 30    # check every 30 seconds
 
 

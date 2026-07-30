@@ -181,6 +181,8 @@ class APIHandler(SimpleHTTPRequestHandler):
             self._post_feedback()
         elif path == "/api/cart":
             self._post_cart()
+        elif path == "/api/seed":
+            self._post_seed()
         else:
             self.send_error(404)
 
@@ -679,6 +681,23 @@ class APIHandler(SimpleHTTPRequestHandler):
             "categories": [],
         })
         self._json({"ok": True, "message": "All data cleared — PostgreSQL tables and dashboard data reset"})
+
+    # ── POST /api/seed ────────────────────────────────────────────────────
+
+    def _post_seed(self):
+        self._json({"ok": True, "message": "Seeding database... check container logs"})
+        import threading
+        t = threading.Thread(target=self._run_seed, daemon=True)
+        t.start()
+
+    def _run_seed(self):
+        print("[api] Seeding database...")
+        try:
+            import database.seed_mock_data
+            database.seed_mock_data.main()
+            print("[api] Database seeded successfully")
+        except Exception as e:
+            print(f"[api] Seed error: {e}")
 
     # ── POST /api/recommend ───────────────────────────────────────────────
 

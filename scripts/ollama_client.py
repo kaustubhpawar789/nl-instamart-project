@@ -22,63 +22,30 @@ class OllamaClient:
         self._generate_endpoint = f"{self.base_url}/api/generate"
 
     def chat(self, messages, temperature=0.4, max_tokens=2000, timeout=90, format=None):
-        payload = {
-            "model": self.model,
-            "messages": messages,
-            "temperature": temperature,
-            "max_tokens": max_tokens,
-            "stream": False,
-        }
-        if format:
-            payload["format"] = format
-
-        last_error = None
-        for attempt in range(3):
+        # Try native /api/generate first (more reliable on Ollama),
+        # fall back to OpenAI-compatible /v1/chat/completions.
+        try:
+            return self._generate(messages, temperature, max_tokens, timeout, format)
+        except Exception as e:
             try:
-                resp = _http.post(self._chat_endpoint, json=payload, timeout=timeout)
-                if resp.status_code == 429:
-                    wait = 5 * (attempt + 1)
-                    time.sleep(wait)
-                    continue
-                if resp.status_code == 404:
-                    return self._fallback_generate(messages, temperature, max_tokens, timeout, format)
-                resp.raise_for_status()
-                data = resp.json()
-                return data["choices"][0]["message"]["content"]
-            except _http.exceptions.ConnectionError as e:
-                last_error = _http.exceptions.ConnectionError(
-                    f"Ollama is not running (connection refused). Start with: ollama serve. Details: {e}"
-                )
-                time.sleep(1 * (attempt + 1))
-            except _http.exceptions.Timeout as e:
-                last_error = _http.exceptions.Timeout(
-                    f"Ollama request timed out after {timeout}s. The model may still be loading or under heavy load."
-                )
-                break
-            except _http.exceptions.HTTPError as e:
-                status = e.response.status_code if e.response is not None else 0
-                if status == 404:
-                    return self._fallback_generate(messages, temperature, max_tokens, timeout, format)
-                last_error = _http.exceptions.HTTPError(
-                    f"Ollama returned HTTP {status}. Model '{self.model}' may not be available. Run: ollama pull {self.model}"
-                )
-                time.sleep(1 * (attempt + 1))
-            except (KeyError, json.JSONDecodeError) as e:
-                last_error = RuntimeError(f"Ollama returned an unexpected response: {e}")
-                break
-
-        raise last_error or RuntimeError("Ollama request failed after 3 retries")
+                return self._chat_completions(messages, temperature, max_tokens, timeout, format)
+            except Exception:
+                raise e
 
     def _pull_model(self):
         """Pull the configured model via Ollama API, returns True on success."""
         try:
+            print(f"[ollama] Pulling model '{self.model}'...")
             pull_url = f"{self.base_url}/api/pull"
             resp = _http.post(pull_url, json={"name": self.model, "stream": False}, timeout=300)
+            if resp.status_code == 200:
+                print(f"[ollama] Model '{self.model}' pulled successfully")
             return resp.status_code == 200
-        except Exception:
+        except Exception as e:
+            print(f"[ollama] Pull failed: {e}")
             return False
 
-    def _fallback_generate(self, messages, temperature, max_tokens, timeout, format=None):
+    def _generate(self, messages, temperature, max_tokens, timeout, format=None):
         system_msgs = [m for m in messages if m.get("role") == "system"]
         user_msgs = [m for m in messages if m.get("role") == "user"]
         prompt_parts = []
@@ -99,29 +66,69 @@ class OllamaClient:
         }
         if format:
             payload["format"] = format
-        resp = _http.post(self._generate_endpoint, json=payload, timeout=timeout)
-        if resp.status_code == 404 and "not found" in resp.text:
-            if self._pull_model():
-                resp = _http.post(self._generate_endpoint, json=payload, timeout=timeout)
-                if resp.status_code == 200:
-                    data = resp.json()
-                    return data.get("response", "")
-            raise RuntimeError(
-                f"Ollama model '{self.model}' not found and auto-pull failed. "
-                f"Run: ollama pull {self.model}"
-            )
-        if resp.status_code != 200:
-            raise RuntimeError(
-                f"Ollama /api/generate returned HTTP {resp.status_code}: "
-                f"{resp.text[:300]}"
-            )
-        data = resp.json()
-        return data.get("response", "")
+
+        for attempt in range(2):
+            resp = _http.post(self._generate_endpoint, json=payload, timeout=timeout)
+            if resp.status_code == 404 and "not found" in resp.text.lower():
+                if self._pull_model():
+                    resp = _http.post(self._generate_endpoint, json=payload, timeout=timeout)
+                    if resp.status_code == 200:
+                        data = resp.json()
+                        return data.get("response", "")
+                raise RuntimeError(
+                    f"Ollama model '{self.model}' not found and auto-pull failed."
+                )
+            if resp.status_code == 200:
+                data = resp.json()
+                return data.get("response", "")
+            if attempt == 0 and resp.status_code in (500, 503):
+                time.sleep(3)
+
+        raise RuntimeError(
+            f"Ollama /api/generate returned HTTP {resp.status_code}: {resp.text[:200]}"
+        )
+
+    def _chat_completions(self, messages, temperature, max_tokens, timeout, format=None):
+        payload = {
+            "model": self.model,
+            "messages": messages,
+            "temperature": temperature,
+            "max_tokens": max_tokens,
+            "stream": False,
+        }
+        if format:
+            payload["format"] = format
+
+        for attempt in range(2):
+            resp = _http.post(self._chat_endpoint, json=payload, timeout=timeout)
+            if resp.status_code == 404 and "not found" in resp.text.lower():
+                if self._pull_model():
+                    resp = _http.post(self._chat_endpoint, json=payload, timeout=timeout)
+                    if resp.status_code == 200:
+                        data = resp.json()
+                        return data["choices"][0]["message"]["content"]
+                raise RuntimeError(
+                    f"Ollama model '{self.model}' not found and auto-pull failed."
+                )
+            if resp.status_code == 200:
+                data = resp.json()
+                return data["choices"][0]["message"]["content"]
+            if attempt == 0 and resp.status_code in (500, 503):
+                time.sleep(3)
+
+        raise RuntimeError(
+            f"Ollama /v1/chat/completions returned HTTP {resp.status_code}: {resp.text[:200]}"
+        )
 
     def is_available(self):
         try:
-            resp = _http.get(f"{self.base_url}/api/tags", timeout=3)
-            return resp.status_code == 200
+            resp = _http.get(f"{self.base_url}/api/tags", timeout=5)
+            if resp.status_code == 200:
+                models = [m["name"] for m in resp.json().get("models", [])]
+                if self.model not in models:
+                    self._pull_model()
+                return True
+            return False
         except Exception:
             return False
 

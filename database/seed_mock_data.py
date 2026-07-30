@@ -20,13 +20,8 @@ load_dotenv(os.path.join(ROOT, "secrets", ".env"))
 
 
 def get_connection():
-    return psycopg2.connect(
-        dbname=os.getenv("DB_NAME", "instamart"),
-        user=os.getenv("DB_USER", "nitin"),
-        password=os.getenv("DB_PASSWORD", "nitin"),
-        host=os.getenv("DB_HOST", "localhost"),
-        port=os.getenv("DB_PORT", "5432"),
-    )
+    from database.db import get_db_connection
+    return get_db_connection()
 
 
 def _now():

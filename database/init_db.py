@@ -18,40 +18,45 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 load_dotenv(os.path.join(ROOT, "secrets", ".env"))
 
 
-def get_db_params():
-    return {
-        "dbname": os.getenv("DB_NAME", "instamart"),
-        "user": os.getenv("DB_USER", "nitin"),
-        "password": os.getenv("DB_PASSWORD", "nitin"),
-        "host": os.getenv("DB_HOST", "localhost"),
-        "port": os.getenv("DB_PORT", "5432"),
-    }
+def get_connection():
+    from database.db import get_db_connection
+    return get_db_connection()
 
 
 def create_database_if_missing():
-    params = get_db_params()
-    conn = psycopg2.connect(
-        host=params["host"],
-        port=params["port"],
-        user=params["user"],
-        password=params["password"],
-        dbname="postgres",
-    )
+    from urllib.parse import urlparse
+    db_url = os.environ.get("DATABASE_URL")
+    if db_url and db_url.startswith("postgres"):
+        parsed = urlparse(db_url)
+        admin_url = (
+            f"{parsed.scheme}://{parsed.username}:{parsed.password}"
+            f"@{parsed.hostname}:{parsed.port or 5432}/postgres"
+            f"{'&' if parsed.query else '?'}sslmode=require"
+            if "sslmode" not in parsed.query
+            else f"{parsed.scheme}://{parsed.username}:{parsed.password}"
+                f"@{parsed.hostname}:{parsed.port or 5432}/postgres?{parsed.query}"
+        )
+        dbname = parsed.path.lstrip("/")
+    else:
+        admin_url = (
+            f"postgresql://{os.getenv('DB_USER', 'nitin')}"
+            f":{os.getenv('DB_PASSWORD', 'nitin')}"
+            f"@{os.getenv('DB_HOST', 'localhost')}"
+            f":{os.getenv('DB_PORT', '5432')}/postgres"
+        )
+        dbname = os.getenv("DB_NAME", "instamart")
+
+    conn = psycopg2.connect(admin_url)
     conn.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT)
     cur = conn.cursor()
-    cur.execute("SELECT 1 FROM pg_database WHERE datname = %s", (params["dbname"],))
+    cur.execute("SELECT 1 FROM pg_database WHERE datname = %s", (dbname,))
     if not cur.fetchone():
-        cur.execute(f"CREATE DATABASE {params['dbname']}")
-        print(f"  + Created database '{params['dbname']}'")
+        cur.execute(f"CREATE DATABASE {dbname}")
+        print(f"  + Created database '{dbname}'")
     else:
-        print(f"  · Database '{params['dbname']}' already exists")
+        print(f"  · Database '{dbname}' already exists")
     cur.close()
     conn.close()
-
-
-def get_connection():
-    params = get_db_params()
-    return psycopg2.connect(**params)
 
 
 PHASE2_SCHEMA = """

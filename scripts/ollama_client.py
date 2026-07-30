@@ -19,7 +19,12 @@ class OllamaClient:
         self.base_url = (base_url or OLLAMA_BASE_URL).rstrip("/")
         self.model = model or OLLAMA_MODEL
         self._api_key = os.getenv("OLLAMA_API_KEY") or os.getenv("GROQ_API_KEY") or ""
-        self._chat_endpoint = f"{self.base_url}/v1/chat/completions"
+        # Support both base URLs like "http://localhost:11434" (Ollama)
+        # and "https://api.groq.com/openai/v1" (OpenAI-compatible).
+        if self.base_url.endswith("/v1"):
+            self._chat_endpoint = f"{self.base_url}/chat/completions"
+        else:
+            self._chat_endpoint = f"{self.base_url}/v1/chat/completions"
         self._generate_endpoint = f"{self.base_url}/api/generate"
 
     def chat(self, messages, temperature=0.4, max_tokens=2000, timeout=300, format=None):

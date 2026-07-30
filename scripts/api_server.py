@@ -139,12 +139,16 @@ class APIHandler(SimpleHTTPRequestHandler):
         handler = routes.get(path)
         if handler:
             handler(params)
-        elif path.startswith("/ui/") or path == "/ui" or path == "/":
-            if path in ("", "/"):
-                self.path = "/ui/index.html"
+        elif path.startswith("/api/"):
+            self.send_error(404)
+        elif path.startswith("/ui/"):
+            super().do_GET()
+        elif path == "/" or path == "":
+            self.path = "/ui/index.html"
             super().do_GET()
         else:
-            self.send_error(404)
+            self.path = "/ui" + path
+            super().do_GET()
 
     def send_response(self, code, message=None):
         super().send_response(code, message)

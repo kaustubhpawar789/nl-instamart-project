@@ -223,9 +223,27 @@ class TestAPIEndpoints(unittest.TestCase):
         self.assertEqual(r.status_code, 200)
         self.assertIn("text/html", r.headers.get("Content-Type", ""))
 
-    def test_root_redirects_to_index(self):
-        r = requests.get(f"{API_BASE}/", timeout=10, allow_redirects=False)
-        self.assertIn(r.status_code, (200, 302))
+    def test_static_css_served_at_root(self):
+        """CSS files (referenced relatively by HTML) are served from ui/ dir."""
+        r = requests.get(f"{API_BASE}/styles.css", timeout=10)
+        self.assertEqual(r.status_code, 200)
+        self.assertIn("text/css", r.headers.get("Content-Type", ""))
+
+    def test_static_js_served_at_root(self):
+        """JS files (referenced relatively by HTML) are served from ui/ dir."""
+        r = requests.get(f"{API_BASE}/app.js", timeout=10)
+        self.assertEqual(r.status_code, 200)
+        self.assertIn("javascript", r.headers.get("Content-Type", ""))
+
+    def test_static_shop_css_served_at_root(self):
+        r = requests.get(f"{API_BASE}/shop.css", timeout=10)
+        self.assertEqual(r.status_code, 200)
+        self.assertIn("text/css", r.headers.get("Content-Type", ""))
+
+    def test_root_serves_index_html(self):
+        r = requests.get(f"{API_BASE}/", timeout=10)
+        self.assertEqual(r.status_code, 200)
+        self.assertIn("text/html", r.headers.get("Content-Type", ""))
 
     def test_cors_headers_present(self):
         r = requests.get(f"{API_BASE}/api/kpis", timeout=10)

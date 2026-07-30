@@ -268,6 +268,8 @@ class TestDatabaseResilience(unittest.TestCase):
         path = os.path.join(ROOT, "database", "db.py")
         with open(path) as f:
             content = f.read()
+        self.assertIn("get_db_connection", content,
+                      "Missing get_db_connection factory function")
         self.assertIn("DB_RETRIES", content,
                       "Missing DB_RETRIES env var for retry count")
         self.assertIn("DB_CONNECT_TIMEOUT", content,
@@ -276,73 +278,98 @@ class TestDatabaseResilience(unittest.TestCase):
                       "Missing DB_RETRY_DELAY env var")
         self.assertIn("connect_timeout", content,
                       "Missing connect_timeout parameter in psycopg2.connect()")
-        self.assertIn("for attempt in range(1, _DB_RETRIES + 1):", content,
-                      "Missing retry loop in get_connection()")
-        self.assertIn("time.sleep(_DB_RETRY_DELAY)", content,
+        self.assertIn("for attempt in range(1, retries + 1):", content,
+                      "Missing retry loop in get_db_connection()")
+        self.assertIn("time.sleep(retry_delay)", content,
                       "Missing delay between retries")
 
     def test_get_connection_reads_database_url(self):
-        """get_connection reads DATABASE_URL from environment."""
-        from database.db import get_connection
+        """get_db_connection reads DATABASE_URL from environment."""
+        from database.db import get_db_connection
         with patch("database.db.psycopg2.connect") as mock_connect:
             mock_connect.side_effect = psycopg2.OperationalError("mocked")
             with self.assertRaises(psycopg2.OperationalError):
-                get_connection()
+                get_db_connection()
             mock_connect.assert_called_once()
-            args, kwargs = mock_connect.call_args
-            self.assertEqual(args[0], "postgresql://test:test@localhost:5432/testdb")
+            args, _ = mock_connect.call_args
+            self.assertIn("testdb", args[0])
+            self.assertIn("test:test", args[0])
+
+    def test_get_connection_appends_sslmode_for_remote_host(self):
+        """sslmode=require is appended for non-localhost hosts."""
+        os.environ["DATABASE_URL"] = "postgresql://user:pass@db.supabase.com:6543/mydb"
+        from database.db import get_db_connection
+        with patch("database.db.psycopg2.connect") as mock_connect:
+            mock_connect.side_effect = psycopg2.OperationalError("mocked")
+            with self.assertRaises(psycopg2.OperationalError):
+                get_db_connection()
+            mock_connect.assert_called_once()
+            args, _ = mock_connect.call_args
+            self.assertEqual(
+                args[0],
+                "postgresql://user:pass@db.supabase.com:6543/mydb?sslmode=require"
+            )
+
+    def test_get_connection_skips_sslmode_for_localhost(self):
+        """sslmode=require is NOT appended for localhost connections."""
+        os.environ["DATABASE_URL"] = "postgresql://user:pass@localhost:5432/mydb"
+        from database.db import get_db_connection
+        with patch("database.db.psycopg2.connect") as mock_connect:
+            mock_connect.side_effect = psycopg2.OperationalError("mocked")
+            with self.assertRaises(psycopg2.OperationalError):
+                get_db_connection()
+            mock_connect.assert_called_once()
+            args, _ = mock_connect.call_args
+            self.assertEqual(args[0], "postgresql://user:pass@localhost:5432/mydb")
 
     def test_get_connection_passes_connect_timeout(self):
         """connect_timeout is passed to psycopg2.connect."""
-        import database.db
-        database.db._DB_CONNECT_TIMEOUT = 7
-        from database.db import get_connection
+        os.environ["DB_CONNECT_TIMEOUT"] = "7"
+        from database.db import get_db_connection
         with patch("database.db.psycopg2.connect") as mock_connect:
             mock_connect.side_effect = psycopg2.OperationalError("mocked")
             with self.assertRaises(psycopg2.OperationalError):
-                get_connection()
+                get_db_connection()
             mock_connect.assert_called_once()
             _, kwargs = mock_connect.call_args
             self.assertEqual(kwargs.get("connect_timeout"), 7)
 
     def test_get_connection_retries_on_operational_error(self):
-        """get_connection retries DB_RETRIES times on OperationalError."""
-        import database.db
-        database.db._DB_RETRIES = 3
-        database.db._DB_RETRY_DELAY = 0
-        from database.db import get_connection
+        """get_db_connection retries DB_RETRIES times on OperationalError."""
+        os.environ["DB_RETRIES"] = "3"
+        os.environ["DB_RETRY_DELAY"] = "0"
+        from database.db import get_db_connection
         with patch("database.db.psycopg2.connect") as mock_connect:
             mock_connect.side_effect = psycopg2.OperationalError("transient failure")
             with self.assertRaises(psycopg2.OperationalError):
-                get_connection()
+                get_db_connection()
             self.assertEqual(mock_connect.call_count, 3)
 
     def test_get_connection_succeeds_on_second_attempt(self):
-        """get_connection succeeds if retry succeeds."""
-        import database.db
-        database.db._DB_RETRIES = 3
-        database.db._DB_RETRY_DELAY = 0
-        from database.db import get_connection
+        """get_db_connection succeeds if retry succeeds."""
+        os.environ["DB_RETRIES"] = "3"
+        os.environ["DB_RETRY_DELAY"] = "0"
+        from database.db import get_db_connection
         with patch("database.db.psycopg2.connect") as mock_connect:
             mock_connect.side_effect = [
                 psycopg2.OperationalError("first fail"),
                 psycopg2.OperationalError("second fail"),
                 True,
             ]
-            conn = get_connection()
+            conn = get_db_connection()
             self.assertEqual(mock_connect.call_count, 3)
             self.assertIsNotNone(conn)
 
     def test_get_connection_respects_autocommit(self):
         """autocommit=True enables autocommit on the connection."""
-        from database.db import get_connection
+        from database.db import get_db_connection
         with patch("database.db.psycopg2.connect") as mock_connect:
             mock_conn = mock_connect.return_value
-            conn = get_connection(autocommit=True)
+            conn = get_db_connection(autocommit=True)
             self.assertTrue(conn.autocommit)
 
     def test_auto_cleanup_delegates_to_database_db(self):
-        """auto_cleanup.get_connection delegates to database.db.get_connection."""
+        """auto_cleanup.get_connection delegates to database.db.get_db_connection."""
         from scripts.auto_cleanup import get_connection as ac_get_connection
         with patch("database.db.psycopg2.connect") as mock_connect:
             mock_connect.side_effect = psycopg2.OperationalError("mocked")
@@ -359,21 +386,46 @@ class TestDatabaseResilience(unittest.TestCase):
             self.assertTrue(conn.autocommit)
 
     def test_raises_value_error_if_no_database_url(self):
-        """get_connection raises ValueError if DATABASE_URL is unset."""
+        """get_db_connection raises ValueError if DATABASE_URL is unset."""
         os.environ.pop("DATABASE_URL", None)
-        from database.db import get_connection
+        from database.db import get_db_connection
         with self.assertRaises(ValueError) as ctx:
-            get_connection()
+            get_db_connection()
         self.assertIn("DATABASE_URL not set", str(ctx.exception))
 
     def test_db_env_vars_have_sane_defaults(self):
-        """DB_RETRIES, DB_RETRY_DELAY, DB_CONNECT_TIMEOUT have defaults in database/db.py."""
+        """DB_RETRIES, DB_RETRY_DELAY, DB_CONNECT_TIMEOUT defaults exist in database/db.py."""
         path = os.path.join(ROOT, "database", "db.py")
         with open(path) as f:
             content = f.read()
-        self.assertIn('_DB_RETRIES = int(os.environ.get("DB_RETRIES', content)
-        self.assertIn('_DB_RETRY_DELAY = int(os.environ.get("DB_RETRY_DELAY', content)
-        self.assertIn('_DB_CONNECT_TIMEOUT = int(os.environ.get("DB_CONNECT_TIMEOUT', content)
+        self.assertIn('os.environ.get("DB_RETRIES', content)
+        self.assertIn('os.environ.get("DB_RETRY_DELAY', content)
+        self.assertIn('os.environ.get("DB_CONNECT_TIMEOUT', content)
+
+    def test_ensure_sslmode_appends_require_for_remote(self):
+        """_ensure_sslmode appends ?sslmode=require for non-localhost hosts."""
+        from database.db import _ensure_sslmode
+        result = _ensure_sslmode("postgresql://user:pass@db.supabase.com:6543/mydb")
+        self.assertEqual(result, "postgresql://user:pass@db.supabase.com:6543/mydb?sslmode=require")
+
+    def test_ensure_sslmode_skips_localhost(self):
+        """_ensure_sslmode does NOT append sslmode=require for localhost."""
+        from database.db import _ensure_sslmode
+        result = _ensure_sslmode("postgresql://user:pass@localhost:5432/mydb")
+        self.assertEqual(result, "postgresql://user:pass@localhost:5432/mydb")
+
+    def test_ensure_sslmode_skips_localhost_ip(self):
+        """_ensure_sslmode skips 127.0.0.1 as well."""
+        from database.db import _ensure_sslmode
+        result = _ensure_sslmode("postgresql://user:pass@127.0.0.1:5432/mydb")
+        self.assertEqual(result, "postgresql://user:pass@127.0.0.1:5432/mydb")
+
+    def test_ensure_sslmode_preserves_existing_sslmode(self):
+        """_ensure_sslmode does not duplicate sslmode=require if already present."""
+        from database.db import _ensure_sslmode
+        url = "postgresql://user:pass@db.supabase.com:6543/mydb?sslmode=require"
+        result = _ensure_sslmode(url)
+        self.assertEqual(result.count("sslmode=require"), 1)
 
     def test_database_backed_endpoint_returns_json(self):
         """DB-backed endpoints return valid JSON (graceful error or success)."""

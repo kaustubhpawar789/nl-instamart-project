@@ -54,8 +54,8 @@ PRESERVED_TABLES = [
 # ── Database connection ───────────────────────────────────────────────────
 
 def get_connection(autocommit=False):
-    from database.db import get_connection as _get_connection
-    return _get_connection(autocommit=autocommit)
+    from database.db import get_db_connection
+    return get_db_connection(autocommit=autocommit)
 
 
 # ── Inactivity tracker ────────────────────────────────────────────────────

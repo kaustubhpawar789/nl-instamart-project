@@ -114,6 +114,20 @@ Once connected, every `git push origin main` triggers an automatic redeploy:
 
 To set a custom variable: Railway Dashboard → App Service → **Variables** tab → **"New Variable"**.
 
+### Supabase / External PostgreSQL (SSL Requirement)
+
+If using Supabase (or any external PostgreSQL provider), the `DATABASE_URL` **must** include `sslmode=require`:
+
+```
+postgresql://postgres:password@aws-0-ap-south-1.pooler.supabase.com:6543/postgres?sslmode=require
+```
+
+- **Port 6543**: Transaction pooler (recommended for Railway/serverless)
+- **Port 5432**: Direct connection
+- **`sslmode=require`**: Mandatory for Supabase — Railway does not add this automatically
+
+The application's `database/db.py` automatically appends `sslmode=require` if it is missing from the connection string, but you should always include it explicitly for clarity.
+
 ### Ollama & AI Features on Railway
 
 **The deployed container does NOT include Ollama** (container resource limits make it impractical). AI-powered endpoints (`/api/search`, `/api/recommend`, `/api/per-product-recommend`) will return `503` with `{"error": "Ollama service unavailable"}` unless you configure an external Ollama instance.

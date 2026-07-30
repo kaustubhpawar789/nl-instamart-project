@@ -1349,9 +1349,9 @@ class APIHandler(SimpleHTTPRequestHandler):
             cleaned = _read_json(os.path.join(DATABASE, "live_scraped_data.json"), [])
         if not isinstance(cleaned, list):
             cleaned = []
-        # Limit to 200 reviews to keep prompts fast enough for Ollama on CPU
-        if len(cleaned) > 200:
-            cleaned = cleaned[:200]
+        # Limit to 50 reviews to keep prompts fast enough for Ollama on CPU
+        if len(cleaned) > 50:
+            cleaned = cleaned[:50]
         insights = _read_json(os.path.join(DATABASE, "ai_insights.json"), {})
         if not isinstance(insights, dict):
             insights = {}
@@ -1437,13 +1437,13 @@ class APIHandler(SimpleHTTPRequestHandler):
                 sections.append(f"  Opportunity: {ins.get('opportunity', '')}")
                 sections.append(f"  Implication: {ins.get('implication', '')}")
 
-        sections.append(f"\n=== REVIEWS (showing {min(30, total)} of {total} — negative/neutral prioritized) ===")
+        sections.append(f"\n=== REVIEWS (showing {min(15, total)} of {total}) ===")
         sections.append("Format: [SENTIMENT] (Source, Categories, Rating) — Review text")
 
         neg_reviews = [r for r in cleaned if r.get("sentiment") == "negative"]
         neu_reviews = [r for r in cleaned if r.get("sentiment") == "neutral"]
         pos_reviews = [r for r in cleaned if r.get("sentiment") == "positive"]
-        curated = neg_reviews[:15] + neu_reviews[:10] + pos_reviews[:5]
+        curated = neg_reviews[:8] + neu_reviews[:5] + pos_reviews[:2]
 
         for r in curated:
             text = (r.get("text") or "").strip()[:150]
@@ -1483,7 +1483,7 @@ class APIHandler(SimpleHTTPRequestHandler):
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": user_prompt},
         ]
-        return client.chat(messages, temperature=0.65, max_tokens=1800)
+        return client.chat(messages, temperature=0.65, max_tokens=800, timeout=120)
 
     # ── DELETE /api/charts/configs/<id> ───────────────────────────────────
 

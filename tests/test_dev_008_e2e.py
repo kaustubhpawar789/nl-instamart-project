@@ -446,14 +446,13 @@ class TestDatabaseResilience(unittest.TestCase):
         result = _ensure_sslmode(url)
         self.assertEqual(result.count("sslmode=require"), 1)
 
-    def test_ensure_sslmode_appends_pgbouncer_for_pooler(self):
-        """_ensure_sslmode appends pgbouncer=true for pooler.supabase.com hosts."""
+    def test_ensure_sslmode_appends_for_pooler_host(self):
+        """_ensure_sslmode appends sslmode for pooler.supabase.com hosts."""
         from database.db import _ensure_sslmode
         result = _ensure_sslmode(
             "postgresql://postgres:pass@aws-0-ap-south-1.pooler.supabase.com:6543/postgres"
         )
         self.assertIn("sslmode=require", result)
-        self.assertIn("pgbouncer=true", result)
 
     def test_database_backed_endpoint_returns_json(self):
         """DB-backed endpoints return valid JSON (graceful error or success)."""

@@ -2778,10 +2778,11 @@ svg { flex-shrink: 0; }
   .chart-grid { grid-template-columns: 1fr; gap: 10px; }
   .matrix-grid { grid-template-columns: 1fr; gap: 8px; }
 
-  .virtual-table { font-size: 11px; overflow-x: auto; display: block; white-space: nowrap; }
-  .virtual-table th, .virtual-table td { padding: 4px 6px; }
-  .virtual-table::-webkit-scrollbar { height: 3px; }
-  .virtual-table::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 4px; }
+  .virtual-table { font-size: 11px; }
+  .vt-scroll-body { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .vt-rows { min-width: 640px; }
+  .vt-data-row { grid-template-columns: 50px 65px 60px 70px 55px 70px 1fr 65px 1.5fr; }
+  .vt-cell { font-size: 10px; padding: 5px 6px; }
 
   .data-table { font-size: 11px; overflow-x: auto; display: block; white-space: nowrap; }
   .data-table th, .data-table td { padding: 4px 6px; }
@@ -2813,7 +2814,10 @@ svg { flex-shrink: 0; }
   .kpi-strip { padding: 6px 8px; }
   .dashboard-layout { padding: 6px; }
   .virtual-table { font-size: 10px; }
-  .virtual-table th, .virtual-table td { padding: 3px 4px; }
+  .vt-rows { min-width: 500px; }
+  .vt-data-row { grid-template-columns: 36px 50px 44px 50px 40px 55px 1fr 50px 1.2fr; }
+  .vt-cell { font-size: 9px; padding: 3px 4px; }
+  .vt-cell-location, .vt-cell-user { display: none; }
   .data-table { font-size: 10px; }
   .data-table th, .data-table td { padding: 3px 4px; }
 }

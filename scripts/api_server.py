@@ -693,6 +693,9 @@ class APIHandler(SimpleHTTPRequestHandler):
     def _run_seed(self):
         print("[api] Seeding database...")
         try:
+            import database.init_db
+            database.init_db.init_schema()
+            print("[api] Schema initialized")
             import database.seed_mock_data
             database.seed_mock_data.main()
             print("[api] Database seeded successfully")

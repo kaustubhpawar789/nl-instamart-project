@@ -1511,7 +1511,7 @@ class APIHandler(SimpleHTTPRequestHandler):
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": f"{context_text}\n\nQuestion: {query}"},
         ]
-        return client.chat(messages, temperature=0.65, max_tokens=400, timeout=120)
+        return client.chat(messages, temperature=0.65, max_tokens=250, timeout=60)
 
     # ── DELETE /api/charts/configs/<id> ───────────────────────────────────
 

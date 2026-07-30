@@ -20,6 +20,7 @@ from dotenv import load_dotenv
 import psycopg2
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, ROOT)
 load_dotenv(os.path.join(ROOT, "secrets", ".env"))
 
 
@@ -53,16 +54,8 @@ PRESERVED_TABLES = [
 # ── Database connection ───────────────────────────────────────────────────
 
 def get_connection(autocommit=False):
-    conn = psycopg2.connect(
-        dbname=os.getenv("DB_NAME", "instamart"),
-        user=os.getenv("DB_USER", "nitin"),
-        password=os.getenv("DB_PASSWORD", "nitin"),
-        host=os.getenv("DB_HOST", "localhost"),
-        port=os.getenv("DB_PORT", "5432"),
-    )
-    if autocommit:
-        conn.autocommit = True
-    return conn
+    from database.db import get_connection as _get_connection
+    return _get_connection(autocommit=autocommit)
 
 
 # ── Inactivity tracker ────────────────────────────────────────────────────

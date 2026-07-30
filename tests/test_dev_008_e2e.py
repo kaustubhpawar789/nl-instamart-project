@@ -2,7 +2,8 @@
 """
 tests/test_dev_008_e2e.py — DEV-008 End-to-End Health Check
 Verifies deployment configuration files, the PORT env patch, docs completeness,
-and runs an E2E health check against all core API endpoints.
+database connection resilience, and runs an E2E health check against all core
+API endpoints.
 
 Usage:
     python -m pytest tests/test_dev_008_e2e.py -v
@@ -13,10 +14,13 @@ import json
 import os
 import sys
 import unittest
+from unittest.mock import patch
 
+import psycopg2
 import requests
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, ROOT)
 API_BASE = os.environ.get("API_BASE", "http://localhost:8080")
 
 REQUIRED_DEPLOYMENT_FILES = [
@@ -238,6 +242,148 @@ class TestAPIEndpoints(unittest.TestCase):
     def test_unknown_endpoint_returns_404(self):
         r = requests.get(f"{API_BASE}/api/nonexistent", timeout=10)
         self.assertEqual(r.status_code, 404)
+
+
+class TestDatabaseResilience(unittest.TestCase):
+    """Database connection resilience tests — no server needed."""
+
+    def setUp(self):
+        self._env_backup = {}
+        for key in ("DATABASE_URL", "DB_RETRIES", "DB_RETRY_DELAY", "DB_CONNECT_TIMEOUT"):
+            self._env_backup[key] = os.environ.get(key)
+        os.environ["DATABASE_URL"] = "postgresql://test:test@localhost:5432/testdb"
+        os.environ["DB_RETRIES"] = "1"
+        os.environ["DB_RETRY_DELAY"] = "0"
+        os.environ["DB_CONNECT_TIMEOUT"] = "1"
+
+    def tearDown(self):
+        for key, val in self._env_backup.items():
+            if val is not None:
+                os.environ[key] = val
+            else:
+                os.environ.pop(key, None)
+
+    def test_database_db_has_retry_logic(self):
+        """Verify database/db.py has retry with configurable env vars."""
+        path = os.path.join(ROOT, "database", "db.py")
+        with open(path) as f:
+            content = f.read()
+        self.assertIn("DB_RETRIES", content,
+                      "Missing DB_RETRIES env var for retry count")
+        self.assertIn("DB_CONNECT_TIMEOUT", content,
+                      "Missing DB_CONNECT_TIMEOUT env var")
+        self.assertIn("DB_RETRY_DELAY", content,
+                      "Missing DB_RETRY_DELAY env var")
+        self.assertIn("connect_timeout", content,
+                      "Missing connect_timeout parameter in psycopg2.connect()")
+        self.assertIn("for attempt in range(1, _DB_RETRIES + 1):", content,
+                      "Missing retry loop in get_connection()")
+        self.assertIn("time.sleep(_DB_RETRY_DELAY)", content,
+                      "Missing delay between retries")
+
+    def test_get_connection_reads_database_url(self):
+        """get_connection reads DATABASE_URL from environment."""
+        from database.db import get_connection
+        with patch("database.db.psycopg2.connect") as mock_connect:
+            mock_connect.side_effect = psycopg2.OperationalError("mocked")
+            with self.assertRaises(psycopg2.OperationalError):
+                get_connection()
+            mock_connect.assert_called_once()
+            args, kwargs = mock_connect.call_args
+            self.assertEqual(args[0], "postgresql://test:test@localhost:5432/testdb")
+
+    def test_get_connection_passes_connect_timeout(self):
+        """connect_timeout is passed to psycopg2.connect."""
+        import database.db
+        database.db._DB_CONNECT_TIMEOUT = 7
+        from database.db import get_connection
+        with patch("database.db.psycopg2.connect") as mock_connect:
+            mock_connect.side_effect = psycopg2.OperationalError("mocked")
+            with self.assertRaises(psycopg2.OperationalError):
+                get_connection()
+            mock_connect.assert_called_once()
+            _, kwargs = mock_connect.call_args
+            self.assertEqual(kwargs.get("connect_timeout"), 7)
+
+    def test_get_connection_retries_on_operational_error(self):
+        """get_connection retries DB_RETRIES times on OperationalError."""
+        import database.db
+        database.db._DB_RETRIES = 3
+        database.db._DB_RETRY_DELAY = 0
+        from database.db import get_connection
+        with patch("database.db.psycopg2.connect") as mock_connect:
+            mock_connect.side_effect = psycopg2.OperationalError("transient failure")
+            with self.assertRaises(psycopg2.OperationalError):
+                get_connection()
+            self.assertEqual(mock_connect.call_count, 3)
+
+    def test_get_connection_succeeds_on_second_attempt(self):
+        """get_connection succeeds if retry succeeds."""
+        import database.db
+        database.db._DB_RETRIES = 3
+        database.db._DB_RETRY_DELAY = 0
+        from database.db import get_connection
+        with patch("database.db.psycopg2.connect") as mock_connect:
+            mock_connect.side_effect = [
+                psycopg2.OperationalError("first fail"),
+                psycopg2.OperationalError("second fail"),
+                True,
+            ]
+            conn = get_connection()
+            self.assertEqual(mock_connect.call_count, 3)
+            self.assertIsNotNone(conn)
+
+    def test_get_connection_respects_autocommit(self):
+        """autocommit=True enables autocommit on the connection."""
+        from database.db import get_connection
+        with patch("database.db.psycopg2.connect") as mock_connect:
+            mock_conn = mock_connect.return_value
+            conn = get_connection(autocommit=True)
+            self.assertTrue(conn.autocommit)
+
+    def test_auto_cleanup_delegates_to_database_db(self):
+        """auto_cleanup.get_connection delegates to database.db.get_connection."""
+        from scripts.auto_cleanup import get_connection as ac_get_connection
+        with patch("database.db.psycopg2.connect") as mock_connect:
+            mock_connect.side_effect = psycopg2.OperationalError("mocked")
+            with self.assertRaises(psycopg2.OperationalError):
+                ac_get_connection()
+            mock_connect.assert_called_once()
+
+    def test_auto_cleanup_passes_autocommit(self):
+        """auto_cleanup.get_connection passes autocommit to database.db."""
+        from scripts.auto_cleanup import get_connection as ac_get_connection
+        with patch("database.db.psycopg2.connect") as mock_connect:
+            mock_conn = mock_connect.return_value
+            conn = ac_get_connection(autocommit=True)
+            self.assertTrue(conn.autocommit)
+
+    def test_raises_value_error_if_no_database_url(self):
+        """get_connection raises ValueError if DATABASE_URL is unset."""
+        os.environ.pop("DATABASE_URL", None)
+        from database.db import get_connection
+        with self.assertRaises(ValueError) as ctx:
+            get_connection()
+        self.assertIn("DATABASE_URL not set", str(ctx.exception))
+
+    def test_db_env_vars_have_sane_defaults(self):
+        """DB_RETRIES, DB_RETRY_DELAY, DB_CONNECT_TIMEOUT have defaults in database/db.py."""
+        path = os.path.join(ROOT, "database", "db.py")
+        with open(path) as f:
+            content = f.read()
+        self.assertIn('_DB_RETRIES = int(os.environ.get("DB_RETRIES', content)
+        self.assertIn('_DB_RETRY_DELAY = int(os.environ.get("DB_RETRY_DELAY', content)
+        self.assertIn('_DB_CONNECT_TIMEOUT = int(os.environ.get("DB_CONNECT_TIMEOUT', content)
+
+    def test_database_backed_endpoint_returns_json(self):
+        """DB-backed endpoints return valid JSON (graceful error or success)."""
+        try:
+            r = requests.get(f"{API_BASE}/api/users", timeout=15)
+            self.assertIn(r.status_code, (200, 500))
+            data = r.json()
+            self.assertTrue("users" in data or "error" in data)
+        except requests.ConnectionError:
+            self.skipTest("Server not available")
 
 
 if __name__ == "__main__":

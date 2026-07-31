@@ -1433,15 +1433,33 @@ class APIHandler(SimpleHTTPRequestHandler):
         query = re.sub(r'[`$]', '', query)
         return query[:500]
 
-    def _build_search_context(self, query):
+    def _load_search_corpus(self):
+        """Return the AI search corpus — our scraping data.
+
+        live_scraped_data.json holds the full scraped reviews (all sources);
+        cleaned_feedback.json is a Play-Store-only subset enriched with AI
+        sentiment/themes. The enrichment is overlaid by review id so the whole
+        corpus keeps its sentiment labels.
+        """
+        scraped = _read_json(os.path.join(DATABASE, "live_scraped_data.json"), [])
         cleaned = _read_json(os.path.join(DATABASE, "cleaned_feedback.json"), [])
-        if not isinstance(cleaned, list) or not cleaned:
-            cleaned = _read_json(os.path.join(DATABASE, "live_scraped_data.json"), [])
+        if not isinstance(scraped, list):
+            scraped = []
         if not isinstance(cleaned, list):
             cleaned = []
-        # Limit to 50 reviews to keep prompts fast enough for Ollama on CPU
-        if len(cleaned) > 50:
-            cleaned = cleaned[:50]
+        if scraped:
+            by_id = {r.get("id"): r for r in cleaned if r.get("id")}
+            for r in scraped:
+                extra = by_id.get(r.get("id"))
+                if extra:
+                    for field in ("sentiment", "themes"):
+                        if r.get(field) is None and extra.get(field) is not None:
+                            r[field] = extra[field]
+            return scraped
+        return cleaned
+
+    def _build_search_context(self, query):
+        cleaned = self._load_search_corpus()
         insights = _read_json(os.path.join(DATABASE, "ai_insights.json"), {})
         if not isinstance(insights, dict):
             insights = {}
@@ -1568,11 +1586,7 @@ class APIHandler(SimpleHTTPRequestHandler):
         # to let stopwords ("what", "are", "the", "on", "how") match nearly every
         # review, so every question pulled in the same first 10 irrelevant ones.
         kwds = self._query_keywords(query)
-        reviews = _read_json(os.path.join(DATABASE, "cleaned_feedback.json"), [])
-        if not isinstance(reviews, list) or not reviews:
-            reviews = _read_json(os.path.join(DATABASE, "live_scraped_data.json"), [])
-        if not isinstance(reviews, list):
-            reviews = []
+        reviews = self._load_search_corpus()
 
         # Rank reviews by how many content keywords from the query they match,
         # so the most on-topic reviews (e.g. actual refund/delivery complaints)
@@ -1589,16 +1603,29 @@ class APIHandler(SimpleHTTPRequestHandler):
             cats = ", ".join(r.get("categories") or ["general"])
             snippets.append(f"[{sentiment}] ({source}, {cats}): {text}")
 
-        context_text = "\n".join([
-            f"Query: {query}",
-            f"Matching query terms: {', '.join(kwds) if kwds else 'none identified'}",
-            f"Relevant reviews ({len(relevant)}):",
+        relevant_text = "\n".join([
+            f"=== REVIEWS RELEVANT TO THIS QUERY ({len(relevant)}) ===",
             *snippets,
         ])
 
+        # Ground the answer in the full scraping-data export (aggregate stats,
+        # category breakdown, discovered themes) plus the query-matched reviews.
+        full_context = (context.get("context") if isinstance(context, dict) else "") or ""
+        if full_context:
+            context_text = f"{full_context}\n\n{relevant_text}\n\nQuestion: {query}"
+        else:
+            context_text = "\n".join([
+                f"Query: {query}",
+                f"Matching query terms: {', '.join(kwds) if kwds else 'none identified'}",
+                f"Relevant reviews ({len(relevant)}):",
+                *snippets,
+            ])
+
         system_prompt = (
-            "You're chatting about Swiggy Instamart reviews. "
+            "You're chatting about Swiggy Instamart reviews scraped from multiple "
+            "sources (Google Play Store, Trustpilot, ConsumerComplaints.in, etc.). "
             "Answer like a human in 2-4 sentences. "
+            "Base your answer only on the data provided above — never invent facts. "
             "Mention something concrete if you find it. "
             "If nothing answers the question, say so directly."
         )

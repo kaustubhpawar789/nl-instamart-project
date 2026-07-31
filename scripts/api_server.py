@@ -1552,25 +1552,20 @@ class APIHandler(SimpleHTTPRequestHandler):
         return _ollama_client
 
     def _call_ollama_search(self, client, query, context):
-        kwds = query.lower().split()
+        # Parse the query into real content keywords. Raw token splitting used
+        # to let stopwords ("what", "are", "the", "on", "how") match nearly every
+        # review, so every question pulled in the same first 10 irrelevant ones.
+        kwds = self._query_keywords(query)
         reviews = _read_json(os.path.join(DATABASE, "cleaned_feedback.json"), [])
         if not isinstance(reviews, list) or not reviews:
             reviews = _read_json(os.path.join(DATABASE, "live_scraped_data.json"), [])
         if not isinstance(reviews, list):
             reviews = []
 
-        # Filter reviews containing query keywords
-        relevant = []
-        for r in reviews:
-            text = (r.get("text") or "").lower()
-            cats = " ".join(r.get("categories") or []).lower()
-            intent = (r.get("intent") or "").lower()
-            combined = f"{text} {cats} {intent}"
-            if any(kw in combined for kw in kwds):
-                relevant.append(r)
-                if len(relevant) >= 10:
-                    break
-
+        # Rank reviews by how many content keywords from the query they match,
+        # so the most on-topic reviews (e.g. actual refund/delivery complaints)
+        # are selected first instead of arbitrary stopword matches.
+        relevant = self._rank_reviews(reviews, kwds, limit=10)
         if not relevant:
             relevant = reviews[:5]
 
@@ -1584,6 +1579,7 @@ class APIHandler(SimpleHTTPRequestHandler):
 
         context_text = "\n".join([
             f"Query: {query}",
+            f"Matching query terms: {', '.join(kwds) if kwds else 'none identified'}",
             f"Relevant reviews ({len(relevant)}):",
             *snippets,
         ])
@@ -1610,7 +1606,68 @@ class APIHandler(SimpleHTTPRequestHandler):
                 return {"answer": answer.strip(), "mode": "ai"}
         except Exception:
             pass
-        return {"answer": self._extractive_answer(query, relevant), "mode": "extractive"}
+        return {"answer": self._extractive_answer(query, relevant, kwds), "mode": "extractive"}
+
+    # Question words and other non-content tokens that should not be used to
+    # select relevant reviews. Unlike _SEARCH_STOPWORDS this keeps domain nouns
+    # (delivery, refund, categories) so queries can actually find their topic.
+    _QUERY_STOPWORDS = {
+        "a", "an", "the", "and", "or", "for", "with", "of", "to", "in", "on",
+        "at", "by", "from", "is", "are", "was", "were", "be", "been", "being",
+        "am", "it", "this", "that", "these", "those", "my", "i", "me", "we",
+        "our", "you", "your", "they", "their", "he", "she", "his", "her", "its",
+        "what", "which", "who", "whom", "whose", "where", "when", "why", "how",
+        "do", "does", "did", "done", "can", "cant", "cannot", "could", "would",
+        "will", "should", "may", "might", "shall", "must", "have", "has", "had",
+        "get", "got", "getting", "about", "than", "but", "so", "too", "more",
+        "most", "less", "least", "all", "any", "some", "none", "no", "not",
+        "never", "also", "only", "just", "really", "very", "much", "many", "one",
+        "two", "as", "if", "then", "there", "here", "over", "under", "up", "down",
+        "out", "off", "again", "once", "ago", "ever", "every", "each", "same",
+        "other", "another", "into", "upon", "top", "best", "compare", "comparison",
+        "compared", "tell", "give", "show", "see", "look", "find", "found",
+        "against", "please", "help", "know", "want", "need", "list", "define",
+    }
+
+    def _query_keywords(self, query):
+        """Extract content keywords from a natural-language query."""
+        kwds = []
+        for tok in re.findall(r"[a-z]+", (query or "").lower()):
+            if tok in self._QUERY_STOPWORDS:
+                continue
+            stem = self._stem(tok)
+            if len(stem) < 3:
+                continue
+            if stem not in kwds:
+                kwds.append(stem)
+        return kwds
+
+    @staticmethod
+    def _stem(word):
+        """Light plural stemmer so "complaints" matches "complaint", etc."""
+        if len(word) > 4 and word.endswith("ies"):
+            return word[:-3] + "y"
+        if len(word) > 4 and word.endswith("es"):
+            return word[:-2]
+        if len(word) > 3 and word.endswith("s") and not word.endswith("ss"):
+            return word[:-1]
+        return word
+
+    def _rank_reviews(self, reviews, kwds, limit=10):
+        """Rank reviews by how many query content keywords they contain."""
+        if not kwds:
+            return reviews[:limit]
+        scored = []
+        for r in reviews:
+            text = (r.get("text") or "").lower()
+            cats = " ".join(r.get("categories") or []).lower()
+            intent = (r.get("intent") or "").lower()
+            combined = f"{text} {cats} {intent}"
+            count = sum(1 for k in kwds if k in combined)
+            if count > 0:
+                scored.append((count, r))
+        scored.sort(key=lambda item: -item[0])
+        return [r for _, r in scored[:limit]]
 
     _SEARCH_STOPWORDS = {
         "the", "a", "an", "and", "or", "for", "with", "of", "to", "in", "on", "at",
@@ -1626,11 +1683,25 @@ class APIHandler(SimpleHTTPRequestHandler):
         "dont", "didnt", "isnt", "wasnt", "tried", "don", "waste", "never", "want",
     }
 
-    def _extractive_answer(self, query, relevant):
+    def _extractive_answer(self, query, relevant, kwds):
         """Grounded, deterministic answer built from the matching reviews."""
         neg = [r for r in relevant if r.get("sentiment") == "negative"]
         neu = [r for r in relevant if r.get("sentiment") == "neutral"]
         pos = [r for r in relevant if r.get("sentiment") == "positive"]
+
+        lines = [
+            f"Based on {len(relevant)} matching reviews "
+            f"({len(neg)} negative, {len(neu)} neutral, {len(pos)} positive):"
+        ]
+        if kwds:
+            lines.append("Matched query terms: " + ", ".join(f'"{w}"' for w in kwds) + ".")
+
+        # Category comparison questions can be answered straight from the data.
+        q = (query or "").lower()
+        if any(k in q for k in ("categor", "segment")):
+            cat_line = self._worst_categories()
+            if cat_line:
+                lines.append(cat_line)
 
         term_counts = {}
         for r in neg:
@@ -1639,10 +1710,6 @@ class APIHandler(SimpleHTTPRequestHandler):
                     term_counts[tok] = term_counts.get(tok, 0) + 1
         top_terms = sorted(term_counts.items(), key=lambda kv: -kv[1])[:5]
 
-        lines = [
-            f"Based on {len(relevant)} matching reviews "
-            f"({len(neg)} negative, {len(neu)} neutral, {len(pos)} positive):"
-        ]
         if top_terms:
             lines.append(
                 "Most repeated complaint keywords: "
@@ -1660,6 +1727,32 @@ class APIHandler(SimpleHTTPRequestHandler):
                 f'- "{str(r.get("text", "")).strip()[:140]}" — {r.get("source", "unknown")}'
             )
         return "\n".join(lines)
+
+    def _worst_categories(self):
+        """Rank categories by negative sentiment share across all reviews."""
+        reviews = _read_json(os.path.join(DATABASE, "cleaned_feedback.json"), [])
+        if not isinstance(reviews, list) or not reviews:
+            reviews = _read_json(os.path.join(DATABASE, "live_scraped_data.json"), [])
+        if not isinstance(reviews, list) or not reviews:
+            return None
+        cat_data = {}
+        for r in reviews:
+            sentiment = r.get("sentiment", "neutral") or "neutral"
+            cats = r.get("categories") or ["general"]
+            for c in cats:
+                d = cat_data.setdefault(c, {"mentions": 0, "negative": 0})
+                d["mentions"] += 1
+                if sentiment == "negative":
+                    d["negative"] += 1
+        ranked = sorted(
+            cat_data.items(),
+            key=lambda kv: (-(kv[1]["negative"] / max(kv[1]["mentions"], 1)), -kv[1]["mentions"]),
+        )
+        parts = []
+        for name, d in ranked[:3]:
+            pct = round(d["negative"] / d["mentions"] * 100) if d["mentions"] else 0
+            parts.append(f"{name} ({d['negative']}/{d['mentions']}, {pct}% negative)")
+        return "Worst sentiment categories: " + ", ".join(parts) + "."
 
     # ── DELETE /api/charts/configs/<id> ───────────────────────────────────
 

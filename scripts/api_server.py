@@ -152,6 +152,12 @@ class APIHandler(SimpleHTTPRequestHandler):
         elif path == "/" or path == "":
             self.path = "/ui/index.html"
             super().do_GET()
+        elif path.lower() in ("/dashboard", "/dashboard/"):
+            self.path = "/ui/index.html"
+            super().do_GET()
+        elif path.lower() in ("/shop", "/shop/"):
+            self.path = "/ui/shop.html"
+            super().do_GET()
         else:
             self.path = "/ui" + path
             super().do_GET()

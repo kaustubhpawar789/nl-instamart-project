@@ -1348,6 +1348,12 @@ const AISearch = {
                 answerDiv.className = 'aisearch-answer';
                 answerDiv.innerHTML = this._formatAnswer(resp.answer);
                 aiMsg.appendChild(answerDiv);
+                if (resp.mode === 'extractive') {
+                  const noteDiv = document.createElement('div');
+                  noteDiv.className = 'aisearch-sources';
+                  noteDiv.textContent = 'Extractive answer — AI model unavailable/slow, answered from matching reviews.';
+                  aiMsg.appendChild(noteDiv);
+                }
                 if (resp.sources && resp.sources.length) {
                   const srcDiv = document.createElement('div');
                   srcDiv.className = 'aisearch-sources';

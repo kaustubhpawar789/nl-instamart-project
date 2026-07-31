@@ -1375,6 +1375,8 @@ class APIHandler(SimpleHTTPRequestHandler):
             resp["answer"] = job["answer"]
             resp["query"] = job["query"]
             resp["sources"] = job["sources"]
+            if job.get("mode"):
+                resp["mode"] = job["mode"]
             # Clean up completed jobs
             with _search_jobs_lock:
                 _search_jobs.pop(job_id, None)
@@ -1389,13 +1391,14 @@ class APIHandler(SimpleHTTPRequestHandler):
         try:
             client = self._get_ollama_client()
             context = self._build_search_context(query)
-            answer = self._call_ollama_search(client, query, context)
+            result = self._call_ollama_search(client, query, context)
             with _search_jobs_lock:
                 if job_id in _search_jobs:
                     _search_jobs[job_id] = {
                         "status": "done",
                         "query": query,
-                        "answer": answer,
+                        "answer": result["answer"],
+                        "mode": result.get("mode", "ai"),
                         "sources": context["source_list"],
                         "error": None,
                     }
@@ -1596,17 +1599,64 @@ class APIHandler(SimpleHTTPRequestHandler):
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": f"{context_text}\n\nQuestion: {query}"},
         ]
-        # Call _generate directly (no /v1 fallback) with a generous, configurable
-        # timeout. llama3 on Railway's CPU container is slow to cold-start and to
-        # generate tokens — a 30s timeout (used previously) was too short and
-        # caused "Read timed out (read timeout=30)" errors for every query.
-        # Retry once on failure: by the second attempt the model is resident in
-        # memory and answers much faster.
-        timeout = int(os.getenv("OLLAMA_TIMEOUT", "300"))
+        # Try the LLM once with a generous but bounded, configurable timeout.
+        # The Railway-hosted Ollama model can be too slow (or cold-start) to
+        # answer within a usable window, so on any failure we fall back to a
+        # deterministic extractive answer — the search always returns something.
+        timeout = int(os.getenv("OLLAMA_TIMEOUT", "180"))
         try:
-            return client._generate(messages, temperature=0.65, max_tokens=150, timeout=timeout)
+            answer = client._generate(messages, temperature=0.65, max_tokens=150, timeout=timeout)
+            if answer and answer.strip():
+                return {"answer": answer.strip(), "mode": "ai"}
         except Exception:
-            return client._generate(messages, temperature=0.65, max_tokens=150, timeout=timeout)
+            pass
+        return {"answer": self._extractive_answer(query, relevant), "mode": "extractive"}
+
+    _SEARCH_STOPWORDS = {
+        "the", "a", "an", "and", "or", "for", "with", "of", "to", "in", "on", "at",
+        "is", "are", "was", "were", "it", "this", "that", "my", "i", "me", "we", "our",
+        "you", "your", "they", "their", "he", "she", "app", "order", "orders", "ordered",
+        "delivery", "deliveries", "deliver", "very", "really", "just", "not", "no", "do",
+        "does", "did", "get", "got", "have", "has", "had", "can", "cant", "would", "will",
+        "like", "when", "than", "but", "so", "too", "more", "most", "about", "after",
+        "because", "all", "one", "some", "there", "them", "from", "over", "only", "also",
+        "good", "bad", "worst", "great", "nice", "swiggy", "instamart",
+    }
+
+    def _extractive_answer(self, query, relevant):
+        """Grounded, deterministic answer built from the matching reviews."""
+        neg = [r for r in relevant if r.get("sentiment") == "negative"]
+        neu = [r for r in relevant if r.get("sentiment") == "neutral"]
+        pos = [r for r in relevant if r.get("sentiment") == "positive"]
+
+        term_counts = {}
+        for r in neg:
+            for tok in re.findall(r"[a-z]{3,}", (r.get("text") or "").lower()):
+                if tok not in self._SEARCH_STOPWORDS:
+                    term_counts[tok] = term_counts.get(tok, 0) + 1
+        top_terms = sorted(term_counts.items(), key=lambda kv: -kv[1])[:5]
+
+        lines = [
+            f"Based on {len(relevant)} matching reviews "
+            f"({len(neg)} negative, {len(neu)} neutral, {len(pos)} positive):"
+        ]
+        if top_terms:
+            lines.append(
+                "Most repeated complaint keywords: "
+                + ", ".join(f'"{w}" ({c}x)' for w, c in top_terms)
+                + "."
+            )
+        pool = neg if neg else (pos if pos else relevant)
+        shortest = sorted(pool, key=lambda r: len(r.get("text") or ""))
+        label = "Representative negative reviews" if neg else (
+            "Representative positive reviews" if pos else "Reviews matching your query"
+        )
+        lines.append(f"{label}:")
+        for r in shortest[:3]:
+            lines.append(
+                f'- "{str(r.get("text", "")).strip()[:140]}" — {r.get("source", "unknown")}'
+            )
+        return "\n".join(lines)
 
     # ── DELETE /api/charts/configs/<id> ───────────────────────────────────
 

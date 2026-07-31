@@ -1603,9 +1603,9 @@ class APIHandler(SimpleHTTPRequestHandler):
         # The Railway-hosted Ollama model can be too slow (or cold-start) to
         # answer within a usable window, so on any failure we fall back to a
         # deterministic extractive answer — the search always returns something.
-        timeout = int(os.getenv("OLLAMA_TIMEOUT", "180"))
+        timeout = int(os.getenv("OLLAMA_TIMEOUT", "60"))
         try:
-            answer = client._generate(messages, temperature=0.65, max_tokens=150, timeout=timeout)
+            answer = client._generate(messages, temperature=0.65, max_tokens=120, timeout=timeout)
             if answer and answer.strip():
                 return {"answer": answer.strip(), "mode": "ai"}
         except Exception:
@@ -1620,7 +1620,10 @@ class APIHandler(SimpleHTTPRequestHandler):
         "does", "did", "get", "got", "have", "has", "had", "can", "cant", "would", "will",
         "like", "when", "than", "but", "so", "too", "more", "most", "about", "after",
         "because", "all", "one", "some", "there", "them", "from", "over", "only", "also",
-        "good", "bad", "worst", "great", "nice", "swiggy", "instamart",
+        "good", "bad", "worst", "great", "nice", "swiggy", "instamart", "customer",
+        "service", "experience", "care", "food", "use", "using", "used", "always", "even",
+        "still", "make", "made", "much", "many", "first", "last", "back", "again",
+        "dont", "didnt", "isnt", "wasnt", "tried", "don", "waste", "never", "want",
     }
 
     def _extractive_answer(self, query, relevant):

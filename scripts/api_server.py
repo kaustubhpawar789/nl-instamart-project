@@ -23,9 +23,11 @@ sys.path.insert(0, ROOT)
 DATABASE = os.path.join(ROOT, "database")
 
 from scripts.ollama_client import get_client, OLLAMA_BASE_URL, OLLAMA_MODEL
+from scripts.openai_client import get_openai_client
 from scripts import auto_cleanup
 
 _ollama_client = None
+_openai_client = None
 
 _search_jobs = {}
 _search_jobs_lock = threading.Lock()
@@ -1389,9 +1391,9 @@ class APIHandler(SimpleHTTPRequestHandler):
 
     def _process_search_job(self, job_id, query):
         try:
-            client = self._get_ollama_client()
+            client = self._get_ai_client()
             context = self._build_search_context(query)
-            result = self._call_ollama_search(client, query, context)
+            result = self._call_ai_search(client, query, context)
             with _search_jobs_lock:
                 if job_id in _search_jobs:
                     _search_jobs[job_id] = {
@@ -1551,7 +1553,17 @@ class APIHandler(SimpleHTTPRequestHandler):
             _ollama_client = get_client()
         return _ollama_client
 
-    def _call_ollama_search(self, client, query, context):
+    def _get_ai_client(self):
+        """Prefer the OpenAI backend when an API key is configured; otherwise
+        fall back to the existing local Ollama setup (kept fully intact)."""
+        if os.getenv("OPENAI_API_KEY"):
+            global _openai_client
+            if _openai_client is None:
+                _openai_client = get_openai_client()
+            return _openai_client
+        return self._get_ollama_client()
+
+    def _call_ai_search(self, client, query, context):
         # Parse the query into real content keywords. Raw token splitting used
         # to let stopwords ("what", "are", "the", "on", "how") match nearly every
         # review, so every question pulled in the same first 10 irrelevant ones.
@@ -1596,12 +1608,12 @@ class APIHandler(SimpleHTTPRequestHandler):
             {"role": "user", "content": f"{context_text}\n\nQuestion: {query}"},
         ]
         # Try the LLM once with a generous but bounded, configurable timeout.
-        # The Railway-hosted Ollama model can be too slow (or cold-start) to
-        # answer within a usable window, so on any failure we fall back to a
+        # A slow/cold-start Ollama model or an OpenAI quota/network error can
+        # fail within the window, so on any failure we fall back to a
         # deterministic extractive answer — the search always returns something.
-        timeout = int(os.getenv("OLLAMA_TIMEOUT", "60"))
+        timeout = int(os.getenv("AI_TIMEOUT", os.getenv("OLLAMA_TIMEOUT", "60")))
         try:
-            answer = client._generate(messages, temperature=0.65, max_tokens=120, timeout=timeout)
+            answer = client._generate(messages, temperature=0.65, max_tokens=250, timeout=timeout)
             if answer and answer.strip():
                 return {"answer": answer.strip(), "mode": "ai"}
         except Exception:
@@ -1775,11 +1787,15 @@ def main():
     # Start stale job cleanup thread
     t = threading.Thread(target=APIHandler._cleanup_stale_jobs, daemon=True)
     t.start()
-    # Warm the Ollama model in the background so the first AI search doesn't
+    # Warm the AI backend in the background so the first AI search doesn't
     # pay the model cold-load cost (which can exceed the request timeout).
+    # OpenAI needs no warmup, so this only applies to the local Ollama path.
     def _background_warmup():
         try:
-            get_client()._warmup()
+            handler = APIHandler.__new__(APIHandler)
+            client = handler._get_ai_client()
+            if hasattr(client, "_warmup"):
+                client._warmup()
         except Exception:
             pass
     threading.Thread(target=_background_warmup, daemon=True).start()

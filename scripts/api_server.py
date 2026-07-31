@@ -729,7 +729,6 @@ class APIHandler(SimpleHTTPRequestHandler):
 
         try:
             from scripts.auto_cleanup import get_connection
-            from scripts.ollama_client import get_client
 
             conn = get_connection()
             cur = conn.cursor()
@@ -825,9 +824,10 @@ class APIHandler(SimpleHTTPRequestHandler):
                 self._json({"error": "Could not generate any flash recommendations"}, 502)
                 return
 
-            # Call Ollama once for all rationales
+            # Call the AI backend once for all rationales (prefers OpenAI when
+            # OPENAI_API_KEY is set, falls back to Ollama otherwise).
             try:
-                client = get_client()
+                client = self._get_ai_client()
                 if client.is_available():
                     pairs_text = "\n".join(
                         f'{i+1}. Cart item: "{p["cart_name"]}" → '

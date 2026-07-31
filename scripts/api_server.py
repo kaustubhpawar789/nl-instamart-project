@@ -1596,9 +1596,17 @@ class APIHandler(SimpleHTTPRequestHandler):
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": f"{context_text}\n\nQuestion: {query}"},
         ]
-        # Call _generate directly (no retries, no /v1 fallback) with a short timeout.
-        # If Ollama is too slow, we fail fast and the frontend polls again.
-        return client._generate(messages, temperature=0.65, max_tokens=250, timeout=30)
+        # Call _generate directly (no /v1 fallback) with a generous, configurable
+        # timeout. llama3 on Railway's CPU container is slow to cold-start and to
+        # generate tokens — a 30s timeout (used previously) was too short and
+        # caused "Read timed out (read timeout=30)" errors for every query.
+        # Retry once on failure: by the second attempt the model is resident in
+        # memory and answers much faster.
+        timeout = int(os.getenv("OLLAMA_TIMEOUT", "300"))
+        try:
+            return client._generate(messages, temperature=0.65, max_tokens=150, timeout=timeout)
+        except Exception:
+            return client._generate(messages, temperature=0.65, max_tokens=150, timeout=timeout)
 
     # ── DELETE /api/charts/configs/<id> ───────────────────────────────────
 
@@ -1621,6 +1629,14 @@ def main():
     # Start stale job cleanup thread
     t = threading.Thread(target=APIHandler._cleanup_stale_jobs, daemon=True)
     t.start()
+    # Warm the Ollama model in the background so the first AI search doesn't
+    # pay the model cold-load cost (which can exceed the request timeout).
+    def _background_warmup():
+        try:
+            get_client()._warmup()
+        except Exception:
+            pass
+    threading.Thread(target=_background_warmup, daemon=True).start()
     server = ThreadedHTTPServer(("0.0.0.0", port), APIHandler)
     print(f"Server running at http://localhost:{port}")
     print(f"Dashboard: http://localhost:{port}/ui/index.html")

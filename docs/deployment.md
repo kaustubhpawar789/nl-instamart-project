@@ -111,6 +111,7 @@ Once connected, every `git push origin main` triggers an automatic redeploy:
 | `DATABASE_URL` | Railway PostgreSQL plugin (auto-injected) | Yes | PostgreSQL connection string |
 | `OLLAMA_BASE_URL` | Set manually in Railway dashboard | No | External Ollama server URL (for AI features) |
 | `OLLAMA_MODEL` | Set manually in Railway dashboard | No | Model name (e.g., `llama3.2:1b`) |
+| `OLLAMA_TIMEOUT` | `300` | No | Read timeout (seconds) for AI search generation calls |
 
 To set a custom variable: Railway Dashboard → App Service → **Variables** tab → **"New Variable"**.
 

@@ -1336,7 +1336,7 @@ const AISearch = {
         loading.innerHTML = '<div class="aisearch-spinner"></div><span>AI thinking…</span>';
         // Poll for result
         const poll = async () => {
-          for (let i = 0; i < 60; i++) {
+          for (let i = 0; i < 120; i++) {
             await new Promise(r => setTimeout(r, 2000));
             try {
               const resp = await API.get('/api/search/' + init.job_id);

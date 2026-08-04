@@ -1518,32 +1518,21 @@ class APIHandler(SimpleHTTPRequestHandler):
         if themes:
             sections.append(f"\n=== DISCOVERED THEMES ({len(themes)} total) ===")
             for t in themes:
-                blocks = t.get("blockers", [])
-                triggers = t.get("triggers", [])
-                evidence = t.get("evidence", [])
-                block_str = "; ".join(blocks[:3]) if blocks else "none identified"
-                trigger_str = "; ".join(triggers[:3]) if triggers else "none identified"
                 sections.append(
                     f"- {t.get('name', 'Unknown')}: {t.get('mentions', 0)} mentions, "
                     f"frequency={t.get('frequency', 'N/A')}, sentiment (+{t.get('sentiment',{}).get('positive',0)}/"
                     f"{t.get('sentiment',{}).get('neutral',0)}/{t.get('sentiment',{}).get('negative',0)})"
                 )
-                sections.append(f"  Blockers: {block_str}")
-                sections.append(f"  Triggers: {trigger_str}")
-                if evidence:
-                    for ev in evidence[:3]:
-                        sections.append(f'  Evidence: "{ev.get("text","")[:200]}" (source: {ev.get("source","")}, category: {ev.get("category","")})')
 
         structured = insights.get("insights", [])
         if structured:
             sections.append(f"\n=== STRUCTURED INSIGHTS ({len(structured)} total) ===")
             for ins in structured:
                 sections.append(f"- {ins.get('title', 'Untitled')}")
-                sections.append(f"  Observation: {ins.get('observation', '')}")
-                sections.append(f"  User Need: {ins.get('user_need', '')}")
-                sections.append(f"  Root Cause: {ins.get('root_cause', '')}")
-                sections.append(f"  Opportunity: {ins.get('opportunity', '')}")
-                sections.append(f"  Implication: {ins.get('implication', '')}")
+                if ins.get("observation"):
+                    sections.append(f"  Observation: {str(ins.get('observation', ''))[:140]}")
+                if ins.get("implication"):
+                    sections.append(f"  Implication: {str(ins.get('implication', ''))[:140]}")
 
         # Choose the review evidence: keyword matches when the query has strong
         # literal matches (e.g. "top delivery complaints"), otherwise a diverse
@@ -1556,7 +1545,7 @@ class APIHandler(SimpleHTTPRequestHandler):
         sections.append("Format: [SENTIMENT] (Source, Categories, Rating) — Review text")
 
         for r in curated:
-            text = (r.get("text") or "").strip()[:150]
+            text = (r.get("text") or "").strip()[:120]
             sentiment = r.get("sentiment", "unknown")
             cats = ", ".join(r.get("categories") or ["general"])
             source = r.get("source", "unknown")
@@ -1729,17 +1718,25 @@ class APIHandler(SimpleHTTPRequestHandler):
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": context_text},
         ]
-        # Try the LLM once with a generous but bounded, configurable timeout.
-        # A slow/cold-start Ollama model or an OpenAI quota/network error can
-        # fail within the window, so on any failure we fall back to a
-        # deterministic extractive answer — the search always returns something.
+        # Try the LLM, retrying briefly on rate limits (429) so a single busy
+        # minute on the provider doesn't immediately drop to the extractive
+        # answer. Any other failure falls back to the deterministic extractive
+        # answer — the search always returns something.
         timeout = int(os.getenv("AI_TIMEOUT", os.getenv("OLLAMA_TIMEOUT", "60")))
-        try:
-            answer = client._generate(messages, temperature=0.65, max_tokens=250, timeout=timeout)
-            if answer and answer.strip():
-                return {"answer": answer.strip(), "mode": "ai"}
-        except Exception as e:
-            print(f"[ai-search] LLM call failed, using extractive fallback: {type(e).__name__}: {e}", flush=True)
+        last_err = None
+        for attempt in range(3):
+            try:
+                answer = client._generate(messages, temperature=0.65, max_tokens=250, timeout=timeout)
+                if answer and answer.strip():
+                    return {"answer": answer.strip(), "mode": "ai"}
+            except Exception as e:
+                last_err = e
+                print(f"[ai-search] LLM call attempt {attempt + 1} failed: {type(e).__name__}: {e}", flush=True)
+                if "429" in str(e) and attempt < 2:
+                    time.sleep(5 * (attempt + 1))
+                    continue
+                break
+        print(f"[ai-search] using extractive fallback: {last_err}", flush=True)
         return {"answer": self._extractive_answer(query, curated, kwds), "mode": "extractive"}
 
     # Question words and other non-content tokens that should not be used to

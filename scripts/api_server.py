@@ -1545,13 +1545,15 @@ class APIHandler(SimpleHTTPRequestHandler):
                 sections.append(f"  Opportunity: {ins.get('opportunity', '')}")
                 sections.append(f"  Implication: {ins.get('implication', '')}")
 
-        sections.append(f"\n=== REVIEWS (showing {min(15, total)} of {total}) ===")
-        sections.append("Format: [SENTIMENT] (Source, Categories, Rating) — Review text")
+        # Choose the review evidence: keyword matches when the query has strong
+        # literal matches (e.g. "top delivery complaints"), otherwise a diverse
+        # category/sentiment-balanced sample. Analytical questions ("why do users
+        # repeatedly buy from the same categories?") have no literal matches, and
+        # forcing arbitrary stopword/keyword matches pollutes the answer.
+        curated = self._curate_reviews(cleaned, query, limit=12)
 
-        neg_reviews = [r for r in cleaned if r.get("sentiment") == "negative"]
-        neu_reviews = [r for r in cleaned if r.get("sentiment") == "neutral"]
-        pos_reviews = [r for r in cleaned if r.get("sentiment") == "positive"]
-        curated = neg_reviews[:8] + neu_reviews[:5] + pos_reviews[:2]
+        sections.append(f"\n=== REVIEWS (showing {len(curated)} of {total} — selected as most relevant) ===")
+        sections.append("Format: [SENTIMENT] (Source, Categories, Rating) — Review text")
 
         for r in curated:
             text = (r.get("text") or "").strip()[:150]
@@ -1563,7 +1565,95 @@ class APIHandler(SimpleHTTPRequestHandler):
             sections.append(f"- [{sentiment}] ({source}, {cats}, rating={rating}, themes=[{themes_str}]): {text}")
 
         context_text = "\n".join(sections)
-        return {"context": context_text, "source_list": sorted(source_set), "total": total}
+        return {
+            "context": context_text,
+            "source_list": self._evidence_sources(curated, insights),
+            "total": total,
+            "reviews": curated,
+        }
+
+    @staticmethod
+    def _is_boilerplate(r):
+        """Detect low-information RSS/headline boilerplate (e.g. Trustpilot
+        "X is rated Y / 5" summary cards) that pollutes keyword matches."""
+        text = (r.get("text") or "").lower()
+        if "news.google.com/rss" in text:
+            return True
+        if "trustpilot" in text and (
+            "is rated" in text or "| read customer service reviews" in text
+        ):
+            return True
+        return False
+
+    def _curate_reviews(self, reviews, query, limit=12):
+        """Select the review evidence used to ground an answer.
+
+        Keyword-matched reviews are only used when the match is strong (at
+        least a few reviews hit 2+ content keywords). Otherwise the question
+        is likely analytical/open-ended, so we fall back to a diverse
+        category/sentiment sample that gives the model real evidence.
+        """
+        kwds = self._query_keywords(query)
+        scored = []
+        for r in reviews:
+            if self._is_boilerplate(r):
+                continue
+            text = (r.get("text") or "").lower()
+            cats = " ".join(r.get("categories") or []).lower()
+            hits = sum(1 for k in kwds if k in text or k in cats)
+            if hits:
+                scored.append((hits, r))
+        scored.sort(key=lambda item: -item[0])
+
+        strong = [r for hits, r in scored if hits >= 2]
+        if len(strong) >= 3:
+            return [r for _, r in scored[:limit]]
+        return self._diverse_sample(reviews, limit=limit)
+
+    def _diverse_sample(self, reviews, limit=12):
+        """Balanced sample across categories and sentiments, preferring short,
+        information-dense reviews and skipping boilerplate."""
+        pool = [r for r in reviews if not self._is_boilerplate(r)] or reviews
+        cats = {}
+        for r in pool:
+            for c in (r.get("categories") or ["general"]):
+                cats.setdefault(c, []).append(r)
+        order = sorted(cats.items(), key=lambda kv: -len(kv[1]))
+        sample, seen = [], set()
+        for _name, rs in order:
+            for sentiment in ("negative", "neutral", "positive"):
+                cand = [r for r in rs if (r.get("sentiment") or "neutral") == sentiment]
+                cand.sort(key=lambda r: len(r.get("text") or ""))
+                for r in cand:
+                    if id(r) not in seen:
+                        seen.add(id(r))
+                        sample.append(r)
+                        break
+            if len(sample) >= limit:
+                break
+        if len(sample) < limit:
+            for r in pool:
+                if id(r) not in seen:
+                    seen.add(id(r))
+                    sample.append(r)
+                if len(sample) >= limit:
+                    break
+        return sample[:limit]
+
+    def _evidence_sources(self, curated, insights):
+        """Sources of the evidence the answer is actually grounded in — not
+        every source in the corpus, so the citation list varies per question."""
+        sources = set()
+        for r in curated:
+            if r.get("source"):
+                sources.add(r["source"])
+        themes = (insights or {}).get("themes", [])
+        if isinstance(themes, list):
+            for t in themes:
+                for ev in t.get("evidence", []):
+                    if ev.get("source"):
+                        sources.add(ev["source"])
+        return sorted(sources)
 
     def _get_ollama_client(self):
         global _ollama_client
@@ -1582,57 +1672,62 @@ class APIHandler(SimpleHTTPRequestHandler):
         return self._get_ollama_client()
 
     def _call_ai_search(self, client, query, context):
-        # Parse the query into real content keywords. Raw token splitting used
-        # to let stopwords ("what", "are", "the", "on", "how") match nearly every
-        # review, so every question pulled in the same first 10 irrelevant ones.
+        # Parse the query into real content keywords.
         kwds = self._query_keywords(query)
-        reviews = self._load_search_corpus()
 
-        # Rank reviews by how many content keywords from the query they match,
-        # so the most on-topic reviews (e.g. actual refund/delivery complaints)
-        # are selected first instead of arbitrary stopword matches.
-        relevant = self._rank_reviews(reviews, kwds, limit=10)
-        if not relevant:
-            relevant = reviews[:5]
+        # Reviews are curated by _build_search_context (strong keyword matches
+        # when they exist, else a balanced category/sentiment sample). If this
+        # is invoked without a context dict (tests / direct calls), build the
+        # evidence list here.
+        context = context or {}
+        curated = context.get("reviews") or []
+        if not curated:
+            curated = self._rank_reviews(self._load_search_corpus(), kwds, limit=10)
+            if not curated:
+                curated = self._load_search_corpus()[:5]
 
         snippets = []
-        for r in relevant:
+        for r in curated:
             text = (r.get("text") or "").strip()[:250]
             sentiment = r.get("sentiment", "unknown")
             source = r.get("source", "unknown")
             cats = ", ".join(r.get("categories") or ["general"])
             snippets.append(f"[{sentiment}] ({source}, {cats}): {text}")
 
-        relevant_text = "\n".join([
-            f"=== REVIEWS RELEVANT TO THIS QUERY ({len(relevant)}) ===",
-            *snippets,
-        ])
-
-        # Ground the answer in the full scraping-data export (aggregate stats,
-        # category breakdown, discovered themes) plus the query-matched reviews.
-        full_context = (context.get("context") if isinstance(context, dict) else "") or ""
+        full_context = context.get("context") if isinstance(context, dict) else None
         if full_context:
-            context_text = f"{full_context}\n\n{relevant_text}\n\nQuestion: {query}"
+            context_text = f"{full_context}\n\nQuestion: {query}"
         else:
             context_text = "\n".join([
                 f"Query: {query}",
                 f"Matching query terms: {', '.join(kwds) if kwds else 'none identified'}",
-                f"Relevant reviews ({len(relevant)}):",
+                f"Relevant reviews ({len(curated)}):",
                 *snippets,
             ])
 
         system_prompt = (
-            "You're chatting about Swiggy Instamart reviews scraped from multiple "
-            "sources (Google Play Store, Trustpilot, ConsumerComplaints.in, etc.). "
-            "Answer like a human in 2-4 sentences. "
-            "Base your answer only on the data provided above — never invent facts. "
-            "Mention something concrete if you find it. "
-            "If nothing answers the question, say so directly."
+            "You are a data analyst reviewing scraped Swiggy Instamart reviews "
+            "(Google Play Store, Trustpilot, ConsumerComplaints.in, FSSAI Report, etc.) "
+            "and the aggregate statistics computed from them. "
+            "Answer the user's question directly, like a sharp analyst, in 2-4 sentences. "
+            "Ground every claim in the exact numbers and categories shown in the data "
+            "above (mentions, sentiment counts, percentages, ratings, theme names) and "
+            "quote those figures — never invent or round numbers that are not shown. "
+            "For questions about categories, ordering behavior, or why users buy/avoid "
+            "things, reason from the CATEGORY BREAKDOWN section first (its per-category "
+            "mentions, negative% and ratings are the most relevant evidence). "
+            "If the data only supports an inference, say 'the data suggests...' instead "
+            "of stating it as a fact. "
+            "Never refuse with 'the data doesn't answer this': always give the closest "
+            "grounded answer using what IS present, then note the limitation in at most "
+            "one short clause. "
+            "Keep each answer specific and do not repeat the same generic phrasing across "
+            "questions."
         )
 
         messages = [
             {"role": "system", "content": system_prompt},
-            {"role": "user", "content": f"{context_text}\n\nQuestion: {query}"},
+            {"role": "user", "content": context_text},
         ]
         # Try the LLM once with a generous but bounded, configurable timeout.
         # A slow/cold-start Ollama model or an OpenAI quota/network error can
@@ -1643,9 +1738,9 @@ class APIHandler(SimpleHTTPRequestHandler):
             answer = client._generate(messages, temperature=0.65, max_tokens=250, timeout=timeout)
             if answer and answer.strip():
                 return {"answer": answer.strip(), "mode": "ai"}
-        except Exception:
-            pass
-        return {"answer": self._extractive_answer(query, relevant, kwds), "mode": "extractive"}
+        except Exception as e:
+            print(f"[ai-search] LLM call failed, using extractive fallback: {type(e).__name__}: {e}", flush=True)
+        return {"answer": self._extractive_answer(query, curated, kwds), "mode": "extractive"}
 
     # Question words and other non-content tokens that should not be used to
     # select relevant reviews. Unlike _SEARCH_STOPWORDS this keeps domain nouns
@@ -1769,9 +1864,7 @@ class APIHandler(SimpleHTTPRequestHandler):
 
     def _worst_categories(self):
         """Rank categories by negative sentiment share across all reviews."""
-        reviews = _read_json(os.path.join(DATABASE, "cleaned_feedback.json"), [])
-        if not isinstance(reviews, list) or not reviews:
-            reviews = _read_json(os.path.join(DATABASE, "live_scraped_data.json"), [])
+        reviews = self._load_search_corpus()
         if not isinstance(reviews, list) or not reviews:
             return None
         cat_data = {}
